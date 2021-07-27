@@ -94,6 +94,7 @@ $(function(){
 			js_favorite_items: $('#js_favorite_items'),
 			js_user_favs_count: $('.js_user_favs_count'),
 			js_add_to_favs_btn: $('#js_add_to_favs_btn'),
+			js_narrow_cities_widget: $('#js_narrow_cities_widget'),
 		},
 		Init: function(){
 			this.vars.ww = $(window).width();
@@ -455,6 +456,9 @@ $(function(){
 						FJS.els.js_breadcrumbs.html(responce.breadcrumbs);
 						FJS.els.js_filter_results.html(responce.html.items);
 						FJS.els.js_filter_pagination.html(responce.html.pagination);
+						if(FJS.els.js_narrow_cities_widget.length){
+							FJS.els.js_narrow_cities_widget.html(responce.html.narrow_cities);
+						}
 						FJS.Common.initLazyLoad();
 					}else{
 						console.log(responce);
