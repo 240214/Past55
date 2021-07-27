@@ -1,0 +1,79 @@
+.formPost li {background-color: #eee !important;}
+input[type='radio'] {opacity: 1 !important;}
+.checkbox input[type=checkbox] {opacity: 1 !important;}
+.corner {background-color: #f9f9f9;}
+.corner::before {content: ""; right: -100px; position: absolute; border-top: 330px solid #f9f9f9; border-right: 100px solid transparent; border-bottom: 20px solid transparent;}
+.progress_caption h1 {font-family: raleway-bold; font-size: 34px; color: #555;}
+.progress_caption h5 {color: #999; font-family: raleway-thin; font-size: 16px;}
+.post_owner {width: 80px; height: 80px; border-radius: 50%; border: none; display: block; margin-bottom: 20px; background-color: transparent; background: url("../images/site/other/owner.png");}
+.post_dealer {width: 80px; height: 80px; border-radius: 50%; border: none; display: block; margin-bottom: 20px; background-color: transparent; background: url("../images/site/other/handshake.png");}
+.post_builder {display: block; margin-bottom: 20px; width: 80px; height: 80px; border-radius: 50%; border: none; background-color: transparent; background: url("../images/site/other/builder.png");}
+.mapInput {border-top: 0; border-bottom: 1px solid #555; border-left: 0; border-right: 0;}
+.property_features {border: 1px solid transparent; min-height: 100px; color: #03a9f4;}
+.property_features:hover {border: 1px dashed #038ac9; border-radius: 5px; cursor: pointer;}
+.property_features_active {border: 1px solid rgba(3, 138, 201, 0.75); border-radius: 5px; cursor: pointer;}
+.property_features_active > h5:before {content: '\2713'; color: #039be2;}
+.property_wrap {border: 1px solid transparent;}
+.property_wrap:hover {border: 1px dashed #999; border-radius: 5px; cursor: pointer;}
+.property_wrap_active {border: 1px solid #00733e; border-radius: 5px; cursor: pointer;}
+.property_wrap_active > h5:before {content: '\2713'; color: #00733e;}
+.property {background: url("../images/site/other/prop_types-v2.png"); background-repeat: no-repeat; height: 42px; width: 42px; display: inline-block; background-color: transparent; border: none;}
+.property2 {background: url("../images/site/other/amenities-v1.png"); background-repeat: no-repeat; height: 42px; width: 42px; display: inline-block; background-color: transparent; border: none;}
+.prop1 {background-position: -4px 1px;}
+.prop3 {background-position: -93px 1px;}
+.prop2 {background-position: -51px 1px;}
+.prop4 {background-position: -141px 1px;}
+.prop5 {background-position: -5px -44px;}
+.prop90 {background-position: -51px -44px;}
+.prop22 {background-position: -96px -44px;}
+.prop80,
+.prop81 {background-position: -141px -44px;}
+.prop7 {background-position: -140px -82px;}
+.prop6 {background-position: -5px -81px;}
+.prop9 {background-position: -45px -81px;}
+.prop82 {background-position: -96px -83px;}
+.prop20 {background-position: -49px -129px;}
+.prop16 {background-position: -5px -129px;}
+.prop18 {background-position: -96px -214px;}
+.prop15 {background-position: -5px -214px;}
+.prop14 {background-position: -141px -169px;}
+.prop10 {background-position: -96px -129px;}
+.prop83 {background-position: -140px -129px;}
+.prop12 {background-position: -51px -172px;}
+.prop13 {background-position: -95px -172px;}
+.prop21 {background-position: -5px -260px;}
+.prop19 {background-position: -142px -214px;}
+.prop17 {background-position: -51px -214px;}
+.prop11 {background-position: -6px -169px;}
+.amenity21 {background-position: -94px -44px;}
+.amenity6 {background-position: -136px -132px;}
+.amenity23 {background-position: -10px -44px;}
+.amenity19 {background-position: -184px -44px;}
+.amenity24 {background-position: -180px -2px;}
+.amenity5 {background-position: -184px -132px;}
+.amenity20 {background-position: -137px -44px;}
+.amenity17 {background-position: -269px -44px;}
+.amenity25 {background-position: -138px 4px;}
+.amenity8 {background-position: -50px -132px;}
+.amenity26 {background-position: -266px 0;}
+.amenity29 {background-position: -49px 0;}
+.amenity32 {background-position: -313px -88px;}
+.amenity9 {background-position: -5px -132px;}
+.amenity1 {background-position: -310px -40px;}
+.amenity12 {background-position: -180px -85px;}
+.amenity11 {background-position: -224px -85px;}
+.amenity22 {background-position: -50px -44px;}
+.amenity16 {background-position: -6px -88px;}
+.amenity10 {background-position: -267px -88px;}
+.amenity27 {background-position: -222px 0;}
+.amenity13 {background-position: -139px -88px;}
+.amenity28 {background-position: -91px 0;}
+.amenity3 {background-position: -268px -132px;}
+.amenity15 {background-position: -48px -88px;}
+/*ad post css end*/
+a {opacity: 1;}
+a, a:hover, a:active, a:focus {text-decoration: none; color: #6a148e;}
+a:hover, a:active, a:focus {opacity: 0.8;}
+.well {font-size: 16px;}
+.form-control {border: 1px solid rgba(34, 36, 38, .15); box-shadow: none; border-radius: 3px;}
+.form-control:focus {box-shadow: none; border-color: #6a148e;}

@@ -1,0 +1,319 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>HouseVilla Documentation</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+	</style>
+</head>
+
+
+<body>
+<div class="container">
+
+	<h3 class="center alt">&ldquo;HouseVilla&rdquo; Documentation by &ldquo;Mayank Singh&rdquo; v1.0</h3>
+
+	<hr>
+
+	<h1 class="center">&ldquo;HouseVilla&rdquo;</h1>
+
+	<div class="borderTop">
+		<div class="span-6 colborder info prepend-1">
+			<p class="prepend-top">
+				<strong>
+					Created: 11/March/2018<br>
+					By: Mayank Singh<br>
+					Email: <a href="mailto:ambecode.com@gmail.com">ambecode.com@gmail.com</a>
+				</strong>
+			</p>
+		</div><!-- end div .span-6 -->
+
+		<div class="span-12 last">
+			<p class="prepend-top append-0">Thank you for purchasing my theme. If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form <a href="http://themeforest.net/user/ambecode">here</a>. Thanks so much!</p>
+		</div>
+	</div><!-- end div .borderTop -->
+
+	<hr>
+
+	<h2 id="toc" class="alt">Table of Contents</h2>
+	<ol class="alpha">
+		<li><a href="#htmlStructure">HTML Structure</a></li>
+		<li><a href="#cssFiles">CSS Files and Structure</a></li>
+		<li><a href="#insta">Installation</a> </li>
+
+		<li><a href="#javascript">JavaScript</a></li>
+		<li><a href="#credits">Sources and Credits</a></li>
+		<li><a href="#database">PhpMyadmin and database</a></li>
+
+
+		<li><a href="#php">PHP Code Explanation</a> </li>
+		<li><a href="#any">Frontend And Backend</a></li>
+	</ol>
+
+	<hr>
+
+	<h3 id="htmlStructure"><strong>A) HTML Structure</strong> - <a href="#toc">top</a></h3>
+	<p>
+		This theme is a fixed layout with one columns. All of the information within the main content area is nested
+		within a div with an class of "container". this script is develop under Yii2 framework so all main content is
+		render under
+		<img src="assets/images/content.png" alt="content Structure" />
+		<br>
+		and alert information is display under this section
+		<img src="assets/images/widget.png" alt="widget Structure" />
+		<br>
+		so main layout of whole script is as below
+
+
+	</p>
+
+	<img src="assets/images/layout.png" alt="HTML Structure" />
+
+	<p>
+		If you would like to edit the color, font, or style of any elements , you can edit css file
+	<pre>
+            go to: root/frontend/web/theme/css
+            </pre>
+	change css style according to you. my script is easy to customise because we use bootstrap for styling. you can easily change style of this script
+	</p>
+
+
+
+
+	<hr>
+
+	<h3 id="cssFiles"><strong>B) CSS Files and Structure</strong> - <a href="#toc">top</a></h3>
+
+	<p>I'm using following CSS files in this theme. The first one is a generic reset file. Many browser interpret the
+		default behavior of html elements differently. By using a general reset CSS file, we can work round this.
+		This file also contains some general styling, such as anchor tag colors, font-sizes, etc. Keep in mind, that
+		these values might be overridden somewhere else in the file.my css file stucture is here
+	</p>
+	<img src="assets/images/css.png" alt="css Structure" />
+
+
+
+
+
+	<hr>
+
+	<h3 id="javascript"><strong>C) JavaScript</strong> - <a href="#toc">top</a></h3>
+
+	<p>This theme imports following Javascript files.</p>
+
+	<img src="assets/images/js.png" alt="js Structure" />
+
+
+
+	<hr>
+	<h3 id="insta"><strong>F) Installation</strong> - <a href="#toc">top</a></h3>
+
+	<h3 class="box-title">Installation Guide</h3>
+	First of all, copy
+	<strong>
+		<i class="fa fa-folder text-warning"></i>
+		code
+	</strong>
+	folder and paste to your server/localhost.
+	<br/><br/>
+	<ul>
+		<li>Download Zip file From Codecaniyon</li>
+		<li>
+			<strong>Extract Zip</strong> into your root directory or public_html folder in your server.
+		</li>
+		<li>
+			<strong>DataBase Setting</strong>
+			<ul>
+				<li>
+					<strong>Step 1:</strong>
+					Open PhpMyAdmin panel
+				</li>
+				<li>
+					<strong>Step 2:</strong>
+					Create new database.
+				</li>
+				<li>
+					<strong>Step 3:</strong>
+					Click on import link for import SQL File
+				</li>
+				<li>
+					<strong>Step 4:</strong>
+					Select <code>HouseVilla.SQL</code> file and go
+				</li>
+				<li>
+					DataBase Successfully Created
+				</li>
+				<li>
+					<strong>Step 5:</strong>
+					Edit Config file:
+					<ul>
+
+						<li>
+							<strong>Step 1:</strong>
+							goto
+							<mark>
+								HouseVilla/common/config/main-local.php
+							</mark>
+						</li>
+						<li>
+							<strong>Step 2:</strong>
+							Change Host name
+						</li>
+						<li>
+							<strong>Step 2:</strong>
+							Change User name
+						</li>
+						<li>
+							<strong>Step 2:</strong>
+							Change Password
+						</li>
+						<li>
+							<strong>Step 2:</strong>
+							Change DataBase name
+						</li>
+
+					</ul>
+
+
+				</li>
+			</ul>
+		</li>
+		<li class="p-t-10">
+			<strong>.htaccess setting</strong>
+			we use two .htaccess file in the script
+			<br>
+			<b>First:</b>
+			<mark>
+				HouseVilla/frontend/web/.htaccess
+			</mark>
+			<br>
+			<b>second:</b>
+			<mark>
+				HouseVilla/.htaccess
+			</mark><br>
+			make change only in <mark>second</mark> .htaccess file according to your requirement
+		</li>
+
+		<li class="p-t-10">All is done Installation completed. click on frontend and enjoy with Swag</li>
+	</ul>
+	<img src="assets/images/htaccess.jpg" alt="htaccess Structure" />
+
+	</p>
+	<hr>
+
+
+	<h3 id="credits"><strong>E) Sources and Credits</strong> - <a href="#toc">top</a></h3>
+
+	<p>I've used the following images, icons or other files as show below.
+
+		<img src="assets/images/image.png" alt="image Structure" />
+
+
+	<hr>
+
+	<h3 id="database"><strong>G) Mysql and database structure </strong> - <a href="#toc">top</a></h3>
+	<p>
+		we use mysql <b>Server version: 10.0.17-MariaDB</b>,<br>
+		you need to export database to your server using following step:
+		<u>
+			<li>
+				1. open your phpMyadmin panel.
+			</li>
+
+			<li>
+				2. create new database.
+			</li>
+			<li>
+				3. click to export
+			</li>
+			<li>
+				4. choose HouseVilla.sql.zip
+			</li>
+			<li>
+				5. go
+			</li>
+		</u>
+	</p>
+	<img src="assets/images/sql.png" alt="image Structure" />
+
+	<hr>
+
+	<h3 id="php"><strong>G) Php and yii guid </strong> - <a href="#toc">top</a></h3>
+	<p>
+		Quik is develope under yii2 framework, you can mail us any time <a href="mailto:bylancertheme@gmail.com">bylancertheme@gmail.com</a>, and here
+		is some link i wish its helpful for you
+	<ul>
+		<li>
+			<a href="http://www.yiiframework.com/doc-2.0/">
+				Yii Framework 2.0 API Documentation
+			</a>
+		</li>
+		<li>
+			<a href="http://www.yiiframework.com/doc-2.0/guide-index.html">
+				The Definitive Guide to Yii 2.0
+			</a>
+		</li>
+		<li>
+			<a href="http://www.w3schools.com/php/">
+				php tutorial
+			</a>
+		</li>
+
+
+
+
+	</ul>
+	</p>
+
+	<hr>
+	<h3 id="any"><strong>G) Frontend and backend</strong> - <a href="#toc">top</a></h3>
+	<p>
+		We used Yii2 Advance template for develop this classified script. <br>
+		Yii give you two totally different part of application. here is path for your frontend user and admin
+		<br>:-<br>
+		<h3>
+		Frontend:
+		</h3><br>
+		<b>Path: </b> www.yourDomain.com/
+		<br>
+	<pre>
+		<code>
+		Demo Username: <b>ganpat</b><br>
+		Demo Password: <b>123456</b><br>
+			
+		Demo Username: <b>demo</b><br>
+		Demo Password: <b>demo</b><br>
+	</code>
+	</pre>
+	<br>
+	<hr>
+	<h3>
+		Backend:
+	</h3><br>
+		<b>path: </b> www.yourDomain.com/backend/web<br>
+	<pre>
+		<code>
+		Admin Username: <b>admin</b><br>
+		Admin Password: <b>123456</b><br>
+
+	</code>
+	</pre>
+
+	</p>
+
+	<hr>
+	<p>Once again, thank you so much for purchasing this theme. As I said at the beginning, I'd be glad to help you if you have any questions relating to this theme. No guarantees, but I'll do my best to assist. If you have a more general question relating to the themes on ThemeForest, you might consider visiting the forums and asking your question in the "Item Discussion" section.</p>
+
+	<p class="append-bottom alt large"><strong>Mayank Singh</strong></p>
+	<p><a href="#toc">Go To Table of Contents</a></p>
+
+	<hr class="space">
+</div><!-- end div .container -->
+</body>
+</html>

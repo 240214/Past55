@@ -1,0 +1,118 @@
+<?php
+
+use frontend\assets\AppAsset;
+use yii\bootstrap\BootstrapAsset;
+use yii\helpers\Html;
+use yii\web\JqueryAsset;
+use yii\widgets\DetailView;
+use yii\web\View;
+use yii\bootstrap\ActiveForm;
+use common\models\Property;
+use yii\helpers\Url;
+use frontend\widgets\RelatedProperties;
+use yii\helpers\VarDumper;
+
+/* @var $this yii\web\View */
+/* @var $model common\models\Property */
+
+$this->title = $property->title;
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Ads'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
+$this->registerLinkTag(['rel' => 'canonical', 'href' => $property->canonical_url]);
+
+$bundle = AppAsset::register($this);
+$this->registerCssFile('@web/theme/vendors/bower_components/slick/css/slick.css', ['depends' => [BootstrapAsset::className()]]);
+$this->registerCssFile('@web/theme/vendors/bower_components/slick/css/slick-theme.css', ['depends' => [BootstrapAsset::className()]]);
+#$this->registerCssFile('@web/theme/vendors/bower_components/rateYo/src/jquery.rateyo.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
+#$this->registerCssFile('@web/theme/vendors/bower_components/materialize/css/materialize.min.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
+$this->registerJsFile('@web/theme/vendors/bower_components/slick/js/slick.min.js', ['depends' => [JqueryAsset::className(), AppAsset::className()]]);
+#$this->registerJsFile('@web/theme/vendors/bower_components/rateYo/src/jquery.rateyo.js', ['depends' => [JqueryAsset::className(), AppAsset::className()]]);
+#$this->registerJsFile('@web/theme/vendors/bower_components/materialize/js/materialize.min.js', ['depends' => [JqueryAsset::className(), AppAsset::className()]]);
+#$this->registerJsFile('@web/theme/js/basic.js', ['depends' => [JqueryAsset::className(), AppAsset::className()]]);
+$this->registerJsFile('@web/theme/vendors/bower_components/bootstrap5/js/popper.min.js', ['depends' => [JqueryAsset::className(), AppAsset::className()]]);
+$bundle->addGoogleMapJS();
+
+$liked = $property->Liked;
+$likes_checked = $liked ? 'checked="checked"' : '';
+$favs_class = $liked ? 'checked' : '';
+$favs_title = $liked ? 'Remove from Favorite' : 'Add to Favorite';
+?>
+<section class="section property-index">
+    <div class="container-xl">
+        <header class="row section__title section__title-alt">
+	        <div class="js_data_loader bg-loader"></div>
+	        <div class="col-md-9 col-12">
+	            <h1><?=$property->title;?></h1>
+	            <small class="address"><i class="zmdi zmdi-pin me-2"></i><?=$property->address;?></small>
+		        <small class="tags">Found In:
+			        <?php foreach($property->categories as $category):?>
+			            <a href="<?=$category['url'];?>"><?=$category['name'];?></a>
+			        <?php endforeach;?>
+		        </small>
+	        </div>
+	        
+            <div class="col-md-3 col-12 actions align-self-md-end text-md-end justify-content-md-end justify-content-center mt-md-0 mt-3">
+	            <div class="views d-none"><i class="zmdi zmdi-eye"></i> <?=$property->views;?></i></div>
+                <div class="actions__toggle js_property_likes" data-id="<?=$property->id;?>">
+                    <input type="checkbox" <?=$likes_checked;?> class="js_trigger" data-property_id="<?=$property->id;?>" data-trigger="js_action_change" data-action="property_toggle_favorite">
+                    <i class="zmdi zmdi-favorite-outline uncheck"></i>
+                    <i class="zmdi zmdi-favorite check"></i>
+	                <span class="count d-none"><?=$property->likes;?></span>
+                </div>
+	            <div><a role="button" data-trigger="js_action_click" data-action="print"><i class="zmdi zmdi-print"></i></a></div>
+	            <div><a role="button" data-trigger="js_action_click" data-action="share"><i class="zmdi zmdi-share"></i></a></div>
+	            <?php /*
+                <div class="dropdown">
+                    <a role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="zmdi zmdi-share"></i></a>
+                    <div class="dropdown-menu pull-right js_social_share">
+                        <div></div>
+                    </div>
+                </div>
+                */?>
+            </div>
+        </header>
+
+        <div class="row d-print-block">
+            <div class="col-lg-8 col-xl-9">
+                <?=$this->render('partials/gallery', ['property' => $property]);?>
+	
+	            <?=$this->render('partials/description', ['property' => $property]);?>
+	
+	            <?=$this->render('partials/features', ['property' => $property]);?>
+
+	            <?=$this->render('partials/pet-policy', ['property' => $property]);?>
+
+	            <?=$this->render('partials/location', ['property' => $property]);?>
+
+	            <?=$this->render('partials/dist-calc', ['property' => $property]);?>
+             
+	            <?=$this->render('partials/nearby-places', ['property' => $property]);?>
+            </div>
+
+            <aside class="col-lg-4 col-xl-3 d-print-block">
+	            <div class="sticky-block">
+	                <?=$this->render('sidebar/contacts', ['property' => $property]);?>
+	                <?=$this->render('sidebar/office-hours', ['property' => $property]);?>
+	                <?php #=$this->render('sidebar/contact-form', ['property' => $property, 'contact' => $contact]);?>
+	                <?php #=$this->render('sidebar/agent', ['property' => $property]);?>
+		            <?=RelatedProperties::widget([
+	                    'limit' => 4,
+	                    'city' => $property['city'],
+	                    'category_id' => $property['category_id'],
+	                    'exclude_id' => $property['id'],
+	                    'title' => 'You may also like...',
+	                    'sub_title' => 'Morbi risus porta consectetur vestibulum ateros',
+	                    'not_found_text' => 'No Suggession yet!!!',
+		                'wrapper_class' => 'd-print-none'
+		            ]);?>
+	            </div>
+            </aside>
+        </div>
+    </div>
+	<div id="js_add_to_favs_btn" class="d-lg-none actions__toggle js_property_likes mob-to-fav-float trans_all align-items-center view" data-id="<?=$property->id;?>" data--bs-toggle="tooltip" data-bs-placement="left" title="<?=$favs_title;?>">
+		<a role="button" class="d-lg-none <?=$favs_class;?> js_trigger" data-property_id="<?=$property->id;?>" data-trigger="js_action_click" data-action="property_toggle_favorite">Add to Favorites</a>
+		<i class="zmdi zmdi-favorite-outline uncheck"></i>
+		<i class="zmdi zmdi-favorite check"></i>
+	</div>
+</section>
+
