@@ -33,3 +33,9 @@ phpunit.phar
 
 # vagrant runtime
 /.vagrant
+
+.gitignore
+*.zip
+*.log
+/_db-dumps
+/_prev_vers

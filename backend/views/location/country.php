@@ -88,7 +88,7 @@ $this->title = 'Country';
 
                     $.notify({
                         icon: 'fa fa-bell',
-                        message: "Welcdddome to <b>AmbeCode Classified Script Dashboard</b> - Easy And User Friendly."
+                        message: "Welcdddome to <b>Classified Script Dashboard</b> - Easy And User Friendly."
 
                     },{
                         type: 'info',

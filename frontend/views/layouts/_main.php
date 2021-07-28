@@ -1,5 +1,4 @@
 <?php
-// develop by AmbeCode
 /* @var $this \yii\web\View */
 /* @var $content string */
 

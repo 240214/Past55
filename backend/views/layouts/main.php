@@ -33,7 +33,7 @@ $this->params['site'] = SiteSettings::find()->one();
 			<div class="content-wrapper">
 				<!-- Content Header (Page header) -->
 				<section class="content-header">
-					<h1><?=$this->title;;?> <small>Version 1.0</small></h1>
+					<h1><?=$this->title;;?></h1>
 					<?=Breadcrumbs::widget(['links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : []]);?>
 					<br>
 				</section>
