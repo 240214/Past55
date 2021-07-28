@@ -33,7 +33,7 @@ class City extends ActiveRecord{
 		return [
 			[['name', 'state_id'], 'safe'],
 			[['lat', 'lng', 'state_id'], 'number'],
-			[['nearby_cities'], 'string'],
+			[['nearby_cities'], 'safe'],
 		];
 	}
 	

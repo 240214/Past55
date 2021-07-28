@@ -2,12 +2,15 @@
 
 namespace backend\controllers;
 
+use common\models\Property;
 use Yii;
 use common\models\City;
 use common\models\search\SearchCity;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\helpers\VarDumper;
 
 /**
  * CityController implements the CRUD actions for City model.
@@ -73,12 +76,24 @@ class CityController extends Controller{
 	public function actionCreate(){
 		$model = new City();
 		
-		if($model->load(Yii::$app->request->post()) && $model->save()){
+		if($model->load(Yii::$app->request->post())){
+			if(!empty($model->nearby_cities))
+				$model->nearby_cities = implode(',', $model->nearby_cities);
+			
+			$model->save();
+			
 			return $this->redirect(['view', 'id' => $model->id]);
+		}
+		
+		$nearby_cities_list = $this->getNearbyCitiesByPropertiesCities($model);
+		
+		if($model->nearby_cities){
+			$model->nearby_cities = explode(',', $model->nearby_cities);
 		}
 		
 		return $this->render('create', [
 			'model' => $model,
+			'nearby_cities_list' => $nearby_cities_list,
 		]);
 	}
 	
@@ -94,12 +109,26 @@ class CityController extends Controller{
 	public function actionUpdate($id){
 		$model = $this->findModel($id);
 		
-		if($model->load(Yii::$app->request->post()) && $model->save()){
+		
+		if($model->load(Yii::$app->request->post())){
+			
+			if(!empty($model->nearby_cities))
+				$model->nearby_cities = implode(',', $model->nearby_cities);
+			
+			$model->save();
+			
 			return $this->redirect(['view', 'id' => $model->id]);
+		}
+		
+		$nearby_cities_list = $this->getNearbyCitiesByPropertiesCities($model);
+		
+		if($model->nearby_cities){
+			$model->nearby_cities = explode(',', $model->nearby_cities);
 		}
 		
 		return $this->render('update', [
 			'model' => $model,
+			'nearby_cities_list' => $nearby_cities_list,
 		]);
 	}
 	
@@ -134,4 +163,27 @@ class CityController extends Controller{
 		
 		throw new NotFoundHttpException('The requested page does not exist.');
 	}
+	
+	private function getNearbyCitiesByPropertiesCities($model){
+		/*$_sql = "SELECT c.id, c.name, p.city
+				 FROM properties p
+				 LEFT JOIN states s ON p.state = s.name
+				 LEFT JOIN cities c ON c.state_id = s.id AND p.city = c.name
+				 WHERE s.id = :state_id AND p.active = 1 AND p.city != :name AND p.city != ''
+				 GROUP BY p.city";*/
+		
+		$_sql = "SELECT c.id, c.name
+				 FROM cities c
+				 LEFT JOIN states s ON c.state_id = s.id
+				 LEFT JOIN properties p ON p.state = s.name AND p.city = c.name
+				 WHERE s.id = :state_id AND p.active = 1 AND p.city != :name AND p.city != ''
+				 GROUP BY p.city";
+		
+		$cities = Property::findBySql($_sql, [':state_id' => $model->state_id, ':name' => $model->name])->asArray()->all();
+		
+		#VarDumper::dump($cities, 10, 1);
+		
+		return ArrayHelper::map($cities, 'id', 'name');
+	}
+	
 }

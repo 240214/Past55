@@ -1,7 +1,12 @@
 <?php
 
 use yii\helpers\Url;
+use yii\helpers\VarDumper;
 
+#VarDumper::dump($this->params['site'], 10, 1);
+if(empty($this->params['site']['logo'])){
+	$this->params['site']['logo'] = '1971621278390.jpg';
+}
 ?>
 <header class="main-header">
 	
@@ -28,13 +33,13 @@ use yii\helpers\Url;
 				<!-- User Account: style can be found in dropdown.less -->
 				<li class="dropdown user user-menu">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						<img src="<?=Yii::$app->urlManagerFrontend->baseUrl.'/images/site/logo/'.$this->params['site']['logo']?>" class="user-image" alt="User Image">
+						<img src="<?=Yii::$app->urlManagerFrontend->baseUrl.'/images/site/logo/'.$this->params['site']['logo'];?>" class="user-image" alt="User Image">
 						<span class="hidden-xs"><?=$this->params['site']['site_name'];;?> Admin</span>
 					</a>
 					<ul class="dropdown-menu">
 						<!-- User image -->
 						<li class="user-header">
-							<img src="<?=Yii::$app->urlManagerFrontend->baseUrl.'/images/site/logo/'.$this->params['site']['logo']?>" class="" alt="User Image">
+							<img src="<?=Yii::$app->urlManagerFrontend->baseUrl.'/images/site/logo/'.$this->params['site']['logo'];?>" class="" alt="User Image">
 							<p><small></small></p>
 						</li>
 						<!-- Menu Body -->

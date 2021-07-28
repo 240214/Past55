@@ -17,6 +17,8 @@ use yii\widgets\ActiveForm;
 		
 		<?=$form->field($model, 'state_id')->dropDownList($model->States);?>
 
+		<?=$form->field($model, 'nearby_cities')->dropDownList($nearby_cities_list, ['size' => 5, 'multiple' => 'multiple']);?>
+		
 		<div class="form-group">
 			<?=Html::submitButton('Save', ['class' => 'btn btn-success']);?>
 		</div>

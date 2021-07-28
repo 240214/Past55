@@ -35,7 +35,7 @@ $navs = [
 	[
 		'type' => 'item',
 		'key' => 'property',
-		'label' => 'Property',
+		'label' => 'Properties',
 		'icon' => 'fa-list',
 		'link' => Url::toRoute('property/index'),
 		'class' => ['treeview'],
@@ -96,7 +96,7 @@ $navs = [
 	[
 		'type' => 'item',
 		'key' => 'location',
-		'label' => 'Location',
+		'label' => 'Locations',
 		'icon' => 'fa-map-marker',
 		'link' => '#',
 		'class' => ['treeview'],
