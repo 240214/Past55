@@ -11,6 +11,9 @@ use common\models\State;
  * City model
  * @property string $name
  * @property string $state_id
+ * @property double $lat
+ * @property double $lng
+ * @property string $nearby_cities
  */
 class City extends ActiveRecord{
 	
@@ -28,8 +31,9 @@ class City extends ActiveRecord{
 	 */
 	public function rules(){
 		return [
-			['name', 'safe'],
-			['state_id', 'safe'],
+			[['name', 'state_id'], 'safe'],
+			[['lat', 'lng', 'state_id'], 'number'],
+			[['nearby_cities'], 'string'],
 		];
 	}
 	
@@ -41,6 +45,9 @@ class City extends ActiveRecord{
 			'id'       => Yii::t('app', 'ID'),
 			'name'     => Yii::t('app', 'Name'),
 			'state_id' => Yii::t('app', 'State'),
+			'lat' => Yii::t('app', 'Lat'),
+			'lng' => Yii::t('app', 'Lng'),
+			'nearby_cities' => Yii::t('app', 'Nearby cities'),
 		];
 	}
 	
