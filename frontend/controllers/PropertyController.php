@@ -30,7 +30,7 @@ use common\models\CustomerAddresses;
 use frontend\controllers\BaseController;
 use common\models\FavoriteProperties;
 use common\models\PropertyFeaturesTypes;
-
+use common\models\City;
 
 class PropertyController extends BaseController{
 	
@@ -72,6 +72,7 @@ class PropertyController extends BaseController{
 		$category_ids = [];
 		$noindex = false;
 		$display_narrow_cities = false;
+		$display_nearby_cities = false;
 		$session = Yii::$app->session;
 		#$request = Yii::$app->request;
 		#VarDumper::dump(Yii::$app, 10, 1); exit;
@@ -102,6 +103,7 @@ class PropertyController extends BaseController{
 		if(isset($queryParams['city'])){
 			$city = ucfirst($queryParams['city']);
 			$queryParams['city'] = $city;
+			$display_nearby_cities = true;
 		}else{
 			$display_narrow_cities = true;
 		}
@@ -152,6 +154,13 @@ class PropertyController extends BaseController{
 			#VarDumper::dump($properties, 10, 1); exit;
 		}
 		
+		$nearby_cities = [];
+		if($display_nearby_cities){
+			if(!$nearby_cities = $this->getNearbyCities($queryParams, $categories)){
+				$display_nearby_cities = false;
+			}
+		}
+		
 		return $this->render('index', [
 			'dataProvider' => $dataProvider,
 			'searchModel' => $searchModel,
@@ -168,6 +177,8 @@ class PropertyController extends BaseController{
 			'breadcrumbs' => $breadcrumbs,
 			'display_narrow_cities' => $display_narrow_cities,
 			'narrow_cities' => $narrow_cities,
+			'display_nearby_cities' => $display_nearby_cities,
+			'nearby_cities' => $nearby_cities,
 		]);
 		
 	}
@@ -207,19 +218,24 @@ class PropertyController extends BaseController{
 				}
 			}
 			
+			$categories = Category::getCategoryList([
+				'fields' => ['id', 'name', 'slug', 'meta_title'],
+				'key_field' => 'slug',
+				'order' => 'name ASC',
+			]);
+			if(isset($queryParams['category_id'])){
+				$queryParams['category_ids'] = $queryParams['category_id'];
+			}
 			if(empty($city)){
-				$categories = Category::getCategoryList([
-					'fields' => ['id', 'name', 'slug', 'meta_title'],
-					'key_field' => 'slug',
-					'order' => 'name ASC',
-				]);
-				if(isset($queryParams['category_id'])){
-					$queryParams['category_ids'] = $queryParams['category_id'];
-				}
-				#$ret['html']['narrow_cities'] = $this->getNarrowCities($state, $queryParams, $categories);
 				$ret['html']['narrow_cities'] = $this->renderPartial('sidebar/narrow-cities-widget', [
 					'display_narrow_cities' => true,
 					'narrow_cities' => $this->getNarrowCities($state, $queryParams, $categories),
+					'with_wrap' => false
+				]);
+			}else{
+				$ret['html']['nearby_cities'] = $this->renderPartial('sidebar/nearby-cities-widget', [
+					'display_nearby_cities' => true,
+					'nearby_cities' => $this->getNearbyCities($queryParams, $categories),
 					'with_wrap' => false
 				]);
 			}
@@ -650,7 +666,7 @@ class PropertyController extends BaseController{
 	
 	private function getNarrowCities($state, $queryParams, $categories){
 		#VarDumper::dump($categories, 10, 1);
-		#VarDumper::dump($queryParams, 10, 0);
+		#VarDumper::dump($queryParams, 10, 1);
 		
 		$from_all_cats = false;
 		$display_cat_in_url = false;
@@ -668,37 +684,26 @@ class PropertyController extends BaseController{
 			if($from_all_cats){
 				$where[] = 'cl.category_id IN ('.implode(',', $queryParams['category_ids']).')';
 			}else{
-				$where[] = 'cl.category_id = '.current($queryParams['category_ids']);
+				$cat_id = current($queryParams['category_ids']);
+				$where[] = '(p.category_id = '.$cat_id.' OR cl.category_id = '.$cat_id.')';
 			}
-			$group[] = 'cl.category_id';
+			#$group[] = 'cl.category_id';
 		}
 		
-		$_sql = "SELECT p.city, p.state, cl.category_id
+		$_sql = "SELECT p.city, p.state, p.category_id
 				 FROM properties p
 				 LEFT JOIN category_link cl ON cl.property_id = p.id
 				 WHERE ".implode(' AND ', $where)."
 				 GROUP BY ".implode(', ', $group);
 		$properties = Property::findBySql($_sql, [':state' => $state])->limit(10)->asArray()->all();
 		
-		#VarDumper::dump($properties, 10, 0);
-		
-		/*$properties = Property::find()
-			->select('city, state')
-			->where(['state' => $state])
-			->groupBy('city')
-			->asArray()
-			->limit(10)
-			->all();
-		VarDumper::dump($properties, 10, 1);
-		exit;*/
-
 		if(count($properties)){
 			foreach($properties as $k => $property){
 				$state_iso = State::getStatesIsoByName($property['state']);
 				$properties[$k]['city_label'] = $property['city'].', '.$state_iso;
 				if($display_cat_in_url){
-					$properties[$k]['city_label'] .= ' '.$inversed_categories[$property['category_id']]['name'];
-					$properties[$k]['slug'] = $inversed_categories[$property['category_id']]['slug'];
+					$properties[$k]['city_label'] .= ' '.$inversed_categories[$cat_id]['name'];
+					$properties[$k]['slug'] = $inversed_categories[$cat_id]['slug'];
 				}
 				unset($properties[$k]['category_id']);
 			}
@@ -708,13 +713,68 @@ class PropertyController extends BaseController{
 		return $properties;
 	}
 	
-	private function getNearbyCities(){
+	private function getNearbyCities($queryParams, $categories){
+		#VarDumper::dump($categories, 10, 1);
+		#VarDumper::dump($queryParams, 10, 1);
+		
+		$from_all_cats = false;
+		$display_cat_in_url = false;
+		
+		$data = [];
+		
+		$inversed_categories = [];
+		foreach($categories as $category){
+			$inversed_categories[$category['id']] = $category;
+		}
+		
+		if(isset($queryParams['category_ids']) && !empty($queryParams['category_ids'])){
+			$display_cat_in_url = true;
+			if(!$from_all_cats){
+				$cat_id = current($queryParams['category_ids']);
+			}
+		}
+		
+		if($state = State::getStateByName($queryParams['state'])){
+			$city = City::find()
+			            ->where(['name' => $queryParams['city'], 'state_id' => $state['id']])
+			            ->asArray()
+			            ->one();
+
+			if(!empty($city) && !empty($city['nearby_cities'])){
+				$cities = City::find()
+				              ->where(['IN', 'id', explode(',', $city['nearby_cities'])])
+		                      ->andWhere(['state_id' => $state['id']])
+		                      ->asArray()
+		                      ->all();
+				
+				if(!empty($cities)){
+					foreach($cities as $k => $city){
+						$data[$k] = [
+							'city' => $city['name'],
+							'state' => $state['name'],
+							'city_label' => $city['name'].', '.$state['iso_code'],
+						];
+						if($display_cat_in_url){
+							$data[$k]['city_label'] .= ' '.$inversed_categories[$cat_id]['name'];
+							$data[$k]['slug'] = $inversed_categories[$cat_id]['slug'];
+						}
+					}
+				}
+			}
+		}
+		
+		return $data;
+	}
+	
+	private function getNearbyCitiesOLD(){
 		// https://maps.googleapis.com/maps/api/geocode/json?address=Atlanta+GA,+USA&key=AIzaSyAl3D1Rnff8rO5DKIp3YS3w5u2A9F9ZsCA
 		// https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=33.7489954,-84.3879824&radius=15000&type=Locality&key=AIzaSyAl3D1Rnff8rO5DKIp3YS3w5u2A9F9ZsCA
 		
-		$du = file_get_contents("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=500&type=restaurant&key=APIKEY");
+		/*$du = file_get_contents("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=500&type=restaurant&key=APIKEY");
 		$djd = json_decode(utf8_encode($du), true);
-		print_r($djd);
+		print_r($djd);*/
+		
+		
 	}
 	
 }

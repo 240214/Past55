@@ -91,4 +91,10 @@ class State extends ActiveRecord{
 		return $model->iso_code;
 	}
 	
+	public static function getStateByName($name){
+		$data = self::find()->where(['name' => $name])->asArray()->one();
+		
+		return $data;
+	}
+	
 }

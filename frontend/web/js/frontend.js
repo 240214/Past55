@@ -95,6 +95,7 @@ $(function(){
 			js_user_favs_count: $('.js_user_favs_count'),
 			js_add_to_favs_btn: $('#js_add_to_favs_btn'),
 			js_narrow_cities_widget: $('#js_narrow_cities_widget'),
+			js_nearby_cities_widget: $('#js_nearby_cities_widget'),
 		},
 		Init: function(){
 			this.vars.ww = $(window).width();
@@ -458,6 +459,9 @@ $(function(){
 						FJS.els.js_filter_pagination.html(responce.html.pagination);
 						if(FJS.els.js_narrow_cities_widget.length){
 							FJS.els.js_narrow_cities_widget.html(responce.html.narrow_cities);
+						}
+						if(FJS.els.js_nearby_cities_widget.length){
+							FJS.els.js_nearby_cities_widget.html(responce.html.nearby_cities);
 						}
 						FJS.Common.initLazyLoad();
 					}else{

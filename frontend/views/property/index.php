@@ -54,6 +54,7 @@ $property = new Property();
 				<div class="sticky-block">
 					<?=$this->render('sidebar/category-filter', ['categories' => $categories, 'property' => $property, 'form_url' => $form_url, 'found_label' => $found_label]);?>
 					<?=$this->render('sidebar/narrow-cities-widget', ['display_narrow_cities' => $display_narrow_cities, 'narrow_cities' => $narrow_cities, 'with_wrap' => true]);?>
+					<?=$this->render('sidebar/nearby-cities-widget', ['display_nearby_cities' => $display_nearby_cities, 'nearby_cities' => $nearby_cities, 'with_wrap' => true]);?>
 					<?php #=$this->render('sidebar/subscribe');?>
 				</div>
 			</aside>
