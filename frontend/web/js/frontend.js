@@ -458,9 +458,19 @@ $(function(){
 						FJS.els.js_filter_results.html(responce.html.items);
 						FJS.els.js_filter_pagination.html(responce.html.pagination);
 						if(FJS.els.js_narrow_cities_widget.length){
+							if(responce.html.narrow_cities == ''){
+								FJS.els.js_narrow_cities_widget.addClass('hide');
+							}else{
+								FJS.els.js_narrow_cities_widget.removeClass('hide');
+							}
 							FJS.els.js_narrow_cities_widget.html(responce.html.narrow_cities);
 						}
 						if(FJS.els.js_nearby_cities_widget.length){
+							if(responce.html.narrow_cities == ''){
+								FJS.els.js_nearby_cities_widget.addClass('hide');
+							}else{
+								FJS.els.js_nearby_cities_widget.removeClass('hide');
+							}
 							FJS.els.js_nearby_cities_widget.html(responce.html.nearby_cities);
 						}
 						FJS.Common.initLazyLoad();
