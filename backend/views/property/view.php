@@ -12,6 +12,11 @@ $this->title = 'Property listing view';
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Categories'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 $front = Yii::$app->urlManagerFrontend->baseUrl;
+
+$prop_url = '/'.$model->slug.'/';
+if(!empty($model->state) && isset($all_states[$model->state])){
+	$prop_url = '/'.strtolower($all_states[$model->state]).'/'.strtolower(str_replace(' ', '-', $model->city)).'/'.$model->slug.'/';
+}
 ?>
 <div class="card">
 	<div class="row" style="margin-bottom: 15px;">
@@ -20,7 +25,7 @@ $front = Yii::$app->urlManagerFrontend->baseUrl;
 		</div>
 		<div class="col-md-5 text-right">
 			<?=Html::a('<i class="fa fa-chevron-left"></i> '.Yii::t('app', 'Back'), Url::toRoute('property/index'), ['class' => 'btn btn-warning'])?>
-			<?=Html::a('<i class="fa fa-link"></i> '.Yii::t('app', 'Preview'), '/'.$model->slug, ['class' => 'btn btn-info', 'target' => '_blank'])?>
+			<?=Html::a('<i class="fa fa-link"></i> '.Yii::t('app', 'Preview'), $prop_url, ['class' => 'btn btn-info', 'target' => '_blank'])?>
 			<?=Html::a('<i class="fa fa-pencil"></i> '.Yii::t('app', 'Edit'), ['update', 'id' => $model->id], ['class' => 'btn btn-success'])?>
 			<?=Html::a('<i class="fa fa-trash"></i> '.Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], ['class' => 'btn btn-danger', 'data'  => ['confirm' => Yii::t('app', 'Are you sure you want to delete this item?'), 'method'  => 'post']]);?>
 		</div>

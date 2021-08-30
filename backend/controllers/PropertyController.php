@@ -121,8 +121,12 @@ class PropertyController extends Controller{
 		
 		$model = $this->findModel($id);
 		
+		$statesModel = State::find()->all();
+		$all_states = ArrayHelper::map($statesModel, 'name', 'iso_code');
+		
 		return $this->render('view', [
 			'model' => $model,
+			'all_states' => $all_states,
 			#'property_types' => $model->getPropertyTypes(),
 			#'property_of_types' => $model->getPropertyOfTypes(),
 			#'categories' => $model->getCategories(),

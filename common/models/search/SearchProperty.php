@@ -100,13 +100,20 @@ class SearchProperty extends Property{
 			#'category_id'   => $this->category_id,
 		]);
 		
+		$cities = [];
+		$cities[] = $this->city;
+		$cities[] = str_replace('-', ' ', $this->city);
+		$cities = array_unique($cities);
+		
 		$query
 			->andFilterWhere(['like', 'title', $this->title])
 			->andFilterWhere(['like', 'properties.slug', $this->slug])
 			->andFilterWhere(['=', 'type', $this->type])
-			->andFilterWhere(['=', 'city', $this->city])->orFilterWhere(['=', 'city', str_replace('-', ' ', $this->city)])
+			->andFilterWhere(['IN', 'city', $cities])
+			#->andFilterWhere(['=', 'city', $this->city])
+			#->orFilterWhere(['=', 'city', str_replace('-', ' ', $this->city)])
 			->andFilterWhere(['=', 'state', $this->state])
-			->andFilterWhere(['=', 'property_of', $this->property_of])
+			#->andFilterWhere(['=', 'property_of', $this->property_of])
 			->andFilterWhere(['=', Category::tableName().'.name', $this->categoryName])
 			#->andFilterWhere(['=', SubCategory::tableName().'.name', $this->sub_categoryName])
 		;

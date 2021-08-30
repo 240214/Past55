@@ -129,6 +129,7 @@ class PropertyController extends BaseController{
 		#$queryParams['page'] = isset($queryParams['page']) ? $queryParams['page'] : 0;
 		$queryParams['SearchProperty'] = $queryParams;
 		$queryParams['SearchProperty']['active'] = 1;
+		#VarDumper::dump($queryParams, 10, 1); exit;
 		
 		$searchModel = new SearchProperty();
 		$dataProvider = $searchModel->search($queryParams);
