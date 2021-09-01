@@ -450,12 +450,23 @@ $(function(){
 					format: 'json'
 				}).done(function(responce){
 					if(!responce.error){
+						var $content = null;
+						if(responce.count){
+							FJS.els.js_filter_results.removeClass('no-results');
+							$content = responce.html.items;
+						}else{
+							var $h3 = $('<h3>');
+							$h3.html(responce.not_found_label);
+							$content = $('<div>');
+							$content.addClass('card box').html($h3);
+							FJS.els.js_filter_results.addClass('no-results');
+						}
 						FJS.els.js_result_count_label.html(responce.found_label);
 						//FJS.els.btn_toggle_filter.find('span').html(responce.count);
 						FJS.Common.setLocation(responce.url);
 						FJS.els.js_h1.html(responce.title);
 						FJS.els.js_breadcrumbs.html(responce.breadcrumbs);
-						FJS.els.js_filter_results.html(responce.html.items);
+						FJS.els.js_filter_results.html($content);
 						FJS.els.js_filter_pagination.html(responce.html.pagination);
 
 						if(FJS.els.js_narrow_cities_widget.length){

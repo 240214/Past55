@@ -60,8 +60,15 @@ $property = new Property();
 			</aside>
 			<div class="col-md-8">
 				<?php #Pjax::begin();?>
-					<div id="js_filter_results" class="property-listing trans_all">
-						<?=$this->render('partials/items', ['models' => $dataProvider->getModels(), 'add_to_compare' => false, 'desc_length' => 300]);?>
+					<div id="js_filter_results" class="property-listing trans_all <?=(!$dataProvider->getCount() ? 'no-results' : '');?>">
+						<?php
+						if($dataProvider->getCount()):?>
+							<?=$this->render('partials/items', ['models' => $dataProvider->getModels(), 'add_to_compare' => false, 'desc_length' => 300]);?>
+						<?php else:?>
+							<div class="card box">
+								<h3><?=$not_found_label;?></h3>
+							</div>
+						<?php endif;?>
 					</div>
 					<nav id="js_filter_pagination" class="text-center">
 						<?=LinkPager::widget(['pagination' => $pagination]);?>

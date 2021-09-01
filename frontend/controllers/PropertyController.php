@@ -66,6 +66,7 @@ class PropertyController extends BaseController{
 	/**
 	 * Lists all Property models.
 	 * @return mixed
+	 * @throws \yii\base\InvalidConfigException
 	 */
 	public function actionIndex(){
 		$city = $state = $category = '';
@@ -83,6 +84,7 @@ class PropertyController extends BaseController{
 			'key_field' => 'slug',
 			'order' => 'name ASC',
 		]);
+		#VarDumper::dump($categories, 10, 1); exit;
 		
 		$url = Yii::$app->request->getUrl();
 		if(strstr($url, 'page') !== false){
@@ -125,6 +127,7 @@ class PropertyController extends BaseController{
 			$noindex = true;
 		}
 		
+		
 		#$queryParams['per-page'] = $pageSize;
 		#$queryParams['page'] = isset($queryParams['page']) ? $queryParams['page'] : 0;
 		$queryParams['SearchProperty'] = $queryParams;
@@ -142,6 +145,10 @@ class PropertyController extends BaseController{
 			'pageSize' => $this->default_pageSize,
 			#'page' => $queryParams['page'],
 		];
+		
+		if(!$dataProvider->getCount()){
+			$noindex = true;
+		}
 		
 		$session->set('city', $city);
 		$session->set('state', $state);
@@ -169,6 +176,7 @@ class PropertyController extends BaseController{
 			'pagination' => $dataProvider->getPagination(),
 			'form_url' => $url,
 			'found_label' => $this->generateCountLabel($dataProvider->getTotalCount()),
+			'not_found_label' => $this->generateNotFoundLabel($category_ids),
 			'meta' => [
 				'title' => $this->generateH1Title($state, $city, $category),
 				'description' => '',
@@ -195,6 +203,7 @@ class PropertyController extends BaseController{
 		$ret = ['error' => 0, 'url' => '', 'title' => '', 'html' => ['items' => '', 'pagination' => '', 'narrow_cities' => ''], 'count' => 0, 'found_label' => ''];
 		
 		$city = $state = $category = '';
+		$category_ids = [];
 		
 		Yii::$app->response->format = Response::FORMAT_JSON;
 		
@@ -225,7 +234,7 @@ class PropertyController extends BaseController{
 				'order' => 'name ASC',
 			]);
 			if(isset($queryParams['category_id'])){
-				$queryParams['category_ids'] = $queryParams['category_id'];
+				$category_ids = $queryParams['category_ids'] = $queryParams['category_id'];
 			}
 			if(empty($city)){
 				$ret['html']['narrow_cities'] = $this->renderPartial('sidebar/narrow-cities-widget', [
@@ -265,6 +274,7 @@ class PropertyController extends BaseController{
 			$ret['title'] = $this->generateH1Title($state, $city, $category);
 			$ret['url'] = $url;
 			$ret['found_label'] = $this->generateCountLabel($dataProvider->getTotalCount());
+			$ret['not_found_label'] = $this->generateNotFoundLabel($category_ids);
 		}
 		
 		return $ret;
@@ -276,6 +286,7 @@ class PropertyController extends BaseController{
 	 * @param integer $id
 	 *
 	 * @return mixed
+	 * @throws NotFoundHttpException
 	 */
 	public function actionView($id, $state = '', $city = '', $slug = ''){
 		#VarDumper::dump([$id, $state, $city, $slug]); exit;
@@ -445,6 +456,28 @@ class PropertyController extends BaseController{
 	
 	public function generateCountLabel($count){
 		return sprintf(Yii::t('app', 'Found properties: %d'), $count);
+	}
+	
+	public function generateNotFoundLabel($category_ids){
+		$str = "We're sorry, there are no %s listings in this area.<br>Please try a nearby city.";
+		$category_labels = [];
+		
+		if(!empty($category_ids)){
+			$_categories = Category::getCategoryList([
+				'fields' => ['id', 'name'],
+				'key_field' => 'id',
+				'order' => 'name ASC',
+			]);
+			foreach($category_ids as $cid){
+				$category_labels[$cid] = $_categories[$cid]['name'];
+			}
+		}
+		
+		if(!empty($category_labels)){
+			$str = sprintf($str, implode(', ', $category_labels));
+		}
+		
+		return $str;
 	}
 	
 	public function getPropertyFeatures($property, $group = true){

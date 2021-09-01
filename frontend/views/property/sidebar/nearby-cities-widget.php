@@ -3,7 +3,7 @@ use yii\helpers\Url;
 use yii\helpers\VarDumper;
 ?>
 <?php if($with_wrap):?>
-<div id="js_nearby_cities_widget">
+<div id="js_nearby_cities_widget" class="cat-widget">
 <?php endif;?>
 	<?php if($display_nearby_cities):?>
 	<div class="card">

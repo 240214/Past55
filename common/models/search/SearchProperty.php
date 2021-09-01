@@ -104,12 +104,13 @@ class SearchProperty extends Property{
 		$cities[] = $this->city;
 		$cities[] = str_replace('-', ' ', $this->city);
 		$cities = array_unique($cities);
+		$cities = array_filter($cities);
 		
 		$query
 			->andFilterWhere(['like', 'title', $this->title])
 			->andFilterWhere(['like', 'properties.slug', $this->slug])
 			->andFilterWhere(['=', 'type', $this->type])
-			->andFilterWhere(['IN', 'city', $cities])
+			#->andFilterWhere(['IN', 'city', $cities])
 			#->andFilterWhere(['=', 'city', $this->city])
 			#->orFilterWhere(['=', 'city', str_replace('-', ' ', $this->city)])
 			->andFilterWhere(['=', 'state', $this->state])
@@ -117,6 +118,10 @@ class SearchProperty extends Property{
 			->andFilterWhere(['=', Category::tableName().'.name', $this->categoryName])
 			#->andFilterWhere(['=', SubCategory::tableName().'.name', $this->sub_categoryName])
 		;
+		
+		if(!empty($cities)){
+			$query->andFilterWhere(['IN', 'city', $cities]);
+		}
 		
 		#VarDumper::dump($query->createCommand()->getRawSql(), 10, 1); exit;
 

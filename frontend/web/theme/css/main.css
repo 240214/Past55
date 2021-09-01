@@ -644,7 +644,7 @@ tbody.collapse.in {display: table-row-group;}
 [data-toggle=buttons] > .btn-group > .btn input[type=checkbox],
 [data-toggle=buttons] > .btn-group > .btn input[type=radio] {position: absolute;clip: rect(0, 0, 0, 0);pointer-events: none;}
 
-.breadcrumb {margin-bottom: 0; list-style: none; background-color: #f5f5f5; border-radius: 2px;}
+.breadcrumb {margin-bottom: 0; list-style: none; /*background-color: #f5f5f5;*/ border-radius: 2px;}
 .breadcrumb > li, .pagination {display: inline-block;}
 .breadcrumb > li + li:before {content: "→"; padding: 0 5px; color: #ccc;}
 .breadcrumb > .active {color: #777;}
@@ -3864,6 +3864,9 @@ html.header-top .sticky-block {position: sticky; top: 140px;}
 .properties-index aside .card .header {padding: 15px 38px;}
 .properties-index .loader {position: fixed;}
 .property-listing .card.box {margin-bottom: 15px; padding: 15px;}
+.property-listing.no-results {height: 100%;}
+.property-listing.no-results .card.box {height: 100%; margin: 0; display: flex; align-items: center; justify-content: center;}
+.property-listing.no-results .card.box h3 {text-align: center; line-height: normal; margin: 0; color: #3f51b5; padding: 0 10%;}
 @media all and (min-width: 576px){
 	.property-media {align-items: flex-start; display: flex; text-align: inherit;}
 	.property-media .image {flex: 0 0 250px; margin-right: 15px;}
@@ -3881,6 +3884,11 @@ html.header-top .sticky-block {position: sticky; top: 140px;}
 @media all and (max-width: 575px){
 	.property-media .image {margin-bottom: 15px;}
 }
+
+.filter-form .card,
+.cat-widget .card {margin-bottom: 0;}
+.cat-widget {margin-top: 25px;}
+.cat-widget:empty {margin-top: 0;}
 
 .mob-filter-wrap {margin-bottom: 20px;}
 .btn-toggle-filter {font-weight: normal; font-size: 16px; line-height: 1;}
