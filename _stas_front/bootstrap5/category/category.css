@@ -1,0 +1,8 @@
+.category {
+    padding-bottom: 125px;
+}
+.category-card {
+    height: 500px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}

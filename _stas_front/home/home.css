@@ -1,0 +1,236 @@
+.first-screen-home {
+    position: relative;
+    height: 780px;
+    padding-top: 35px;
+    padding-bottom: 85px;
+    background: linear-gradient(180deg, #E1F3FF 7.86%, rgba(216, 206, 255, 0.77) 109.88%);
+}
+
+.header-home__content {
+    height: 780px;
+}
+
+.first-screen-home__title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 65px;
+    line-height: 120%;
+    color: #152430;
+}
+
+.first-screen-home__title>.title-decor-line:after {
+    bottom: 12px !important;
+}
+
+.first-screen-home__bg {
+
+}
+
+.header-home__search-wrapp {
+position: relative;
+}
+
+.header-home__search-input {
+    width: 380px;
+    height: 60px;
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.1);
+    border: none;
+    padding: 20px 135px 20px 20px;
+    font-family: 'AirbnbCereal-Light';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 25px;
+}
+
+.header-home__search-btn {
+    position: absolute;
+    right: 10px;
+    top: 7px;
+}
+
+.companies {
+    padding-top: 215px;
+    padding-bottom: 130px;
+}
+
+.benefits {
+    position: relative;
+}
+
+.benefits__bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.benefits-card {
+    height: 385px;
+    background: #FFFFFF;
+    border: 1px solid #DFDFDF;
+    border-radius: 13px;
+    padding: 25px;
+    transition: box-shadow .15s ease-in;
+}
+.benefits-card:hover {
+    box-shadow: 0px 54px 80px -16px rgba(219, 222, 230, 0.8);
+    border-color: #FFFFFF;
+    transition: box-shadow .15s ease-in;
+}
+
+.benefits-card>img {
+    max-width: 120px;
+}
+
+.benefit-card-title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 130%;
+    letter-spacing: -1px;
+    color: #152430;
+}
+
+.benefit-card-content {
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.benefit-card-link {
+    font-family: 'AirbnbCereal-Medium';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 21px;
+    letter-spacing: -0.01em;
+    color: #071440;
+}
+
+.benefit-card-link:after {
+    content: url("../shared/images/arrow-right.png");
+    display: inline-block;
+    transform: translateY(4px) translateX(10px);
+}
+
+.benefit-card-link:hover {
+    color: #071440;
+}
+
+.location__body {
+    background: linear-gradient(180deg, #E1F3FF 7.86%, rgba(216, 206, 255, 0.77) 109.88%);
+}
+
+.location__header {
+    padding: 130px 0 0 0;
+}
+
+.location-card {
+    min-height: 400px;
+    box-shadow: 8.04px 21.51px 55.3951px rgba(22, 37, 51, 0.05);
+}
+
+.location-card__location-name-box {
+    font-family: 'AirbnbCereal-Medium';
+    padding: 10px 15px;
+    background: #F2EEFF;
+    border-radius: 5px;
+    margin-top: 40px;
+    max-width: 190px;
+}
+
+.location-card__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.location-card__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 70px;
+    border-bottom: 1px solid #BBBBBB;
+}
+
+.location-card__item>a {
+    display: block;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    color: #000000;
+    text-decoration: none;
+}
+
+.location-card__item>a:hover {
+    color: var(--bs-brand);
+}
+
+.location-card__item>a>i:last-child {
+    font-size: 30px;
+    margin-left: auto;
+}
+
+.location-card__list>.location-card__item:last-child {
+    border-bottom: none;
+}
+
+.location-card:first-child>div:last-child>.location-card__location-name-box {
+    background-color: #F2EEFF;
+}
+.location-card:nth-child(2)>div:last-child>.location-card__location-name-box {
+    background-color: #FFF4EC;
+}
+.location-card:nth-child(3)>div:last-child>.location-card__location-name-box {
+    background-color: #EEFFF7;
+}
+
+@media screen and (max-width: 1199px) {
+    .benefits-card {
+        height: auto;
+        padding: 20px;
+    }
+    .location-card__item>a {
+        font-size: 16px;
+        line-height: 19px;
+    }
+    div.location-card {
+        padding: 10px;
+    }
+    .header-home__content {
+        height: auto;
+        padding-top: 40px !important;
+    }
+    .first-screen-home {
+        height: auto;
+        padding-bottom: 0;
+        padding-top: 0;
+    }
+    .companies {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    .header-home__search-input {
+        max-width: 100%;
+        width: 100%;
+    }
+    .first-screen-home__title {
+        font-size: 45px;
+        line-height: 115%;
+    }
+    .header-home {
+        margin-top: 0 !important;
+        padding: 0 0 0 0 !important;
+        background: none !important;
+        box-shadow: none !important;
+    }
+    .footer__bottom-box {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+}
