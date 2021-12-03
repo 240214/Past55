@@ -1,28 +1,18 @@
-<header class="header container">
-    <div class="header__body row align-content-center">
-        <div class="col-xl-3">
-            <div class="row">
-                <div class="col-6">GeorgiaCaring</div>
-                <div class="col-6">1-123-456-7890</div>
-            </div>
-        </div>
-        <div class="col-xl-7">
-            <div class="row">
-                <nav class="col-12">
-                    <ul class="row align-items-center header__menu">
-                        <li class="col-2">Home</li>
-                        <li class="col-3">Our policies</li>
-                        <li class="col-3">Learn & Plans</li>
-                        <li class="col-4">Why GeorgiaCaring</li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-        <div class="col-xl-2">
-            <div class="row">
-                <div class="col-6">Sign In</div>
-                <div class="col-6">Sign Up</div>
-            </div>
-        </div>
+<header class="header-home d-flex align-items-center justify-content-between px-4">
+    <div class="header-logo">GeorgiaCaring</div>
+    <div class="flex-grow-1 d-none d-xl-block">
+        <nav>
+            <ul class="d-none d-md-flex align-items-center justify-content-center mb-0">
+                <li class="me-3"><a class="header__link header__link--active text-decoration-none" href="#">Home</a></li>
+                <li class="me-3"><a class="header__link text-decoration-none" href="#">Our policies</a></li>
+                <li class="me-3"><a class="header__link text-decoration-none" href="#">Learn & Plans</a></li>
+                <li class=""><a class="header__link text-decoration-none" href="#">Why GeorgiaCaring</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="d-none d-xl-block"><a href="tel:11234567890" class="header-home__tel text-decoration-none"><i class="zmdi zmdi-phone me-1"></i>1-123-456-7890</a></div>
+    <div class="d-flex d-xl-none align-items-center">
+        <a href="#" class="header-home__favorite-box d-flex align-items-center justify-content-center me-1 text-decoration-none"><i class="bi bi-heart-fill text-color-primary me-1"></i> My Favorites</a>
+        <div class="header-home__menu-icon"><i class="zmdi zmdi-menu"></i></div>
     </div>
 </header>
