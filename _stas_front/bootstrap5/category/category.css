@@ -148,8 +148,68 @@
     color: #000000;
 }
 
+.category-card__title {
+    font-size: 28px;
+    line-height: 37px;
+    letter-spacing: -0.005em;
+}
+
+.filter-btn {
+    width: 100%;
+    max-width: 320px;
+    height: 45px;
+    border: 1px solid #A2A2A2;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.filter-btn>img {
+    transform: rotate(-90deg);
+}
+
+.category-card__avalible-btn {
+    width: 100%;
+    max-width: 100px;
+    height: 23px;
+    border: 0.38px solid #C8C8C8;
+    border-radius: 3px;
+    font-family: 'AirbnbCereal-Medium';
+    font-size: 10px;
+    line-height: 14px;
+    letter-spacing: -0.005em;
+    color: #6D459C;
+}
+
 @media screen and (max-width: 1200px) {
-    .category__filter-wrap {
-        display: none;
+    .category-article__list {
+        padding-left: 0 !important;
+    }
+    .category {
+        padding: 50px 0;
+    }
+    .category-card {
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .category-card__title {
+        font-size: 21px;
+        line-height: 28px;
+        letter-spacing: -0.005em;
+    }
+    .category-card__footer>div:last-child {
+        font-size: 17px;
+        line-height: 23px;
+        letter-spacing: -0.01em;
+    }
+    .category-card__footer>div:first-child {
+        font-size: 13.8241px;
+        line-height: 18px;
+        letter-spacing: -0.005em;
+    }
+    .category-card__adress {
+        font-size: 11px;
+        line-height: 18px;
     }
 }

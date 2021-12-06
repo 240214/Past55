@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <header class="container header-home d-flex align-items-center justify-content-between px-4">
+    <header class="container header-home d-flex align-items-center justify-content-between">
         <div class="header-logo">GeorgiaCaring</div>
         <div class="flex-grow-1 d-none d-xl-block">
             <nav>
@@ -35,211 +35,221 @@
         </div>
     </header>
 
-    <div class="container category">
-        <div class="row mb-3">
-            <div class="col-xl-4 category__filter-wrap">
-                <div class="filter-box p-35 mb-2">
-                    <div class="filter-box__title mb-2">Price range</div>
-                    <select class="filter-box__select mb-4">
-                        <option>1</option>
-                        <option>12</option>
-                        <option>13</option>
-                    </select>
-                    <div class="filter-box__title mb-2">Types of communities</div>
-                    <div class="d-flex flex-wrap mb-5">
-                        <div class="filter-box__btn filter-box__btn--active d-flex align-items-center justify-content-center px-2 mb-15 me-1">55+ Communities</div>
-                        <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Memory Care</div>
-                        <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Senior Apartments</div>
-                        <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Senior Living</div>
-                        <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Nursing Homes</div>
-                        <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Skilled Nursing</div>
-                        <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Assisted living</div>
-                        <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Independent Living</div>
-                        <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Active Adult Communites</div>
-                        <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Apartments</div>
+    <div class="category">
+        <div class="container">
+            <div class="row mb-3">
+                <div class="col-xl-4 col-12 d-none d-xl-block category__filter-wrap">
+                    <div class="filter-box p-35 mb-2">
+                        <div class="filter-box__title mb-2">Price range</div>
+                        <select class="filter-box__select mb-4">
+                            <option>1</option>
+                            <option>12</option>
+                            <option>13</option>
+                        </select>
+                        <div class="filter-box__title mb-2">Types of communities</div>
+                        <div class="d-flex flex-wrap mb-5">
+                            <div class="filter-box__btn filter-box__btn--active d-flex align-items-center justify-content-center px-2 mb-15 me-1">55+ Communities</div>
+                            <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Memory Care</div>
+                            <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Senior Apartments</div>
+                            <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Senior Living</div>
+                            <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Nursing Homes</div>
+                            <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Skilled Nursing</div>
+                            <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Assisted living</div>
+                            <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Independent Living</div>
+                            <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Active Adult Communites</div>
+                            <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Apartments</div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <button class="filter-box__reset-btn me-1">Reset</button>
+                            <button class="btn-primary-large">Apply Filter</button>
+                        </div>
                     </div>
-                    <div class="d-flex justify-content-between">
-                        <button class="filter-box__reset-btn">Reset</button>
-                        <button class="btn-primary-large">Apply Filter</button>
+                    <div class="filter-box p-35 mb-2">
+                        <div class="filter-box__title mb-2">Nearby cities</div>
+                        <div class="d-flex flex-wrap">
+                            <div class="filter-box__btn filter-box__btn--active d-flex align-items-center justify-content-center px-2 mb-15 me-1">Marietta, GA</div>
+                            <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Alpharetta, GA</div>
+                            <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Macon County, GA</div>
+                            <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Athens, GA</div>
+                            <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Sandy Springs, GA</div>
+                            <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Atlanta, GA</div>
+                            <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Columbus, GA</div>
+                            <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Savannah, GA</div>
+                        </div>
                     </div>
                 </div>
-                <div class="filter-box p-35 mb-2">
-                    <div class="filter-box__title mb-2">Nearby cities</div>
-                    <div class="d-flex flex-wrap">
-                        <div class="filter-box__btn filter-box__btn--active d-flex align-items-center justify-content-center px-2 mb-15 me-1">Marietta, GA</div>
-                        <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Alpharetta, GA</div>
-                        <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Macon County, GA</div>
-                        <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Athens, GA</div>
-                        <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Sandy Springs, GA</div>
-                        <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Atlanta, GA</div>
-                        <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Columbus, GA</div>
-                        <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Savannah, GA</div>
+                <div class="col-xl-8 col-md-12 col-12">
+                    <h1 class="main-title">All Senior Housing in Roswell, Georgia</h1>
+                    <div class="row mb-2 mb-xl-4">
+                        <div class="col-12">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a class="text-decoration-none text-color-primary" href="#">Home</a></li>
+                                    <li class="breadcrumb-item"><a class="text-decoration-none text-color-primary" href="#">Georgia</a></li>
+                                    <li class="breadcrumb-item"><a class="text-decoration-none text-color-primary" href="#">Roswell, GA</a></li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="filter-btn d-flex d-xl-none align-items-center justify-content-between px-2 mb-35 mb-xl-0">
+                        <span>Filter</span>
+                        <img src="../../shared/images/pagination-arrow-left.png" alt="">
+                    </div>
+                    <div class="category__body">
+                        <div class="row mb-25">
+                            <div class="col-xl-6 col-md-12 col-12 mb-25 mb-xl-0">
+                                <div class="category-card bg-white p-2 position-relative">
+                                    <img class="img-fluid mb-25" src="./img/category-card-img-1.png" alt="category-card-img">
+                                    <div class="category-card__avalible-btn d-flex align-items-center justify-content-center d-xl-none mb-1 mb-xl-0">Available Now</div>
+                                    <h3 class="category-card__title mb-1">Elmcroft of Roswell</h3>
+                                    <div class="mb-15 category-card__adress"><span>550 Barrington Dr, Roswell, GA 30075, USA</span></div>
+                                    <div class="mb-3 d-flex">
+                                        <div class="d-flex">
+                                            <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
+                                            <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
+                                            <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
+                                            <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
+                                            <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
+                                        </div>
+                                        <div class="category-card__rating-box d-flex align-items-center justify-content-center">
+                                            <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
+                                            <span>5</span>
+                                        </div>
+                                    </div>
+                                    <div class="category-card__divider mb-2"></div>
+                                    <div class="category-card__footer d-flex justify-content-between align-items-center">
+                                        <div class="text-color-primary">Per month</div>
+                                        <div>$4,0558.00</div>
+                                    </div>
+                                    <div class="category-card__btn category-card__btn--active position-absolute top-30 start-30 bg-white d-flex align-items-center justify-content-center">
+                                        <i class="bi bi-heart text-color-primary"></i>
+                                        <i class="bi bi-heart-fill text-color-primary"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-md-12 col-12">
+                                <div class="category-card bg-white p-2 position-relative">
+                                    <img class="img-fluid mb-25" src="./img/category-card-img-2.png" alt="category-card-img">
+                                    <div class="category-card__avalible-btn d-flex align-items-center justify-content-center d-xl-none mb-1 mb-xl-0">Available Now</div>
+                                    <h3 class="category-card__title mb-1">Addington of Roswell</h3>
+                                    <div class="mb-15 category-card__adress"><span>550 Barrington Dr, Roswell, GA 30075, USA</span></div>
+                                    <div class="mb-3 d-flex">
+                                        <div class="d-flex">
+                                            <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
+                                            <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
+                                            <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
+                                            <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
+                                            <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
+                                        </div>
+                                        <div class="category-card__rating-box d-flex align-items-center justify-content-center">
+                                            <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
+                                            <span>5</span>
+                                        </div>
+                                    </div>
+                                    <div class="category-card__divider mb-2"></div>
+                                    <div class="category-card__footer d-flex justify-content-between align-items-center">
+                                        <div class="text-color-primary">Per month</div>
+                                        <div>$4,0558.00</div>
+                                    </div>
+                                    <div class="category-card__btn position-absolute top-30 start-30 bg-white d-flex align-items-center justify-content-center">
+                                        <i class="bi bi-heart text-color-primary"></i>
+                                        <i class="bi bi-heart-fill text-color-primary"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-25">
+                            <div class="col-xl-6 col-md-12 col-12 mb-25 mb-xl-0">
+                                <div class="category-card bg-white p-2 position-relative">
+                                    <img class="img-fluid mb-25" src="./img/category-card-img-2.png" alt="category-card-img">
+                                    <div class="category-card__avalible-btn d-flex align-items-center justify-content-center d-xl-none mb-1 mb-xl-0">Available Now</div>
+                                    <h3 class="category-card__title mb-1">Elmcroft of Roswell</h3>
+                                    <div class="mb-15 category-card__adress"><span>550 Barrington Dr, Roswell, GA 30075, USA</span></div>
+                                    <div class="mb-3 d-flex">
+                                        <div class="d-flex">
+                                            <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
+                                            <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
+                                            <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
+                                            <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
+                                            <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
+                                        </div>
+                                        <div class="category-card__rating-box d-flex align-items-center justify-content-center">
+                                            <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
+                                            <span>5</span>
+                                        </div>
+                                    </div>
+                                    <div class="category-card__divider mb-2"></div>
+                                    <div class="category-card__footer d-flex justify-content-between align-items-center">
+                                        <div class="text-color-primary">Per month</div>
+                                        <div>$4,0558.00</div>
+                                    </div>
+                                    <div class="category-card__btn category-card__btn--active position-absolute top-30 start-30 bg-white d-flex align-items-center justify-content-center">
+                                        <i class="bi bi-heart text-color-primary"></i>
+                                        <i class="bi bi-heart-fill text-color-primary"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-md-12 col-12">
+                                <div class="category-card bg-white p-2 position-relative">
+                                    <img class="img-fluid mb-25" src="./img/category-card-img-1.png" alt="category-card-img">
+                                    <div class="category-card__avalible-btn d-flex align-items-center justify-content-center d-xl-none mb-1 mb-xl-0">Available Now</div>
+                                    <h3 class="category-card__title mb-1">Addington of Roswell</h3>
+                                    <div class="mb-15 category-card__adress"><span>550 Barrington Dr, Roswell, GA 30075, USA</span></div>
+                                    <div class="mb-3 d-flex">
+                                        <div class="d-flex">
+                                            <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
+                                            <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
+                                            <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
+                                            <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
+                                            <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
+                                        </div>
+                                        <div class="category-card__rating-box d-flex align-items-center justify-content-center">
+                                            <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
+                                            <span>5</span>
+                                        </div>
+                                    </div>
+                                    <div class="category-card__divider mb-2"></div>
+                                    <div class="category-card__footer d-flex justify-content-between align-items-center">
+                                        <div class="text-color-primary">Per month</div>
+                                        <div>$4,0558.00</div>
+                                    </div>
+                                    <div class="category-card__btn position-absolute top-30 start-30 bg-white d-flex align-items-center justify-content-center">
+                                        <i class="bi bi-heart text-color-primary"></i>
+                                        <i class="bi bi-heart-fill text-color-primary"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-8 col-md-12 col-12">
-                <h1 class="main-title">All Senior Housing in Roswell, Georgia</h1>
-                <div class="row mb-4">
-                    <div class="col-12">
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a class="text-decoration-none text-color-primary" href="#">Home</a></li>
-                                <li class="breadcrumb-item"><a class="text-decoration-none text-color-primary" href="#">Georgia</a></li>
-                                <li class="breadcrumb-item"><a class="text-decoration-none text-color-primary" href="#">Roswell, GA</a></li>
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
-                <div class="category__body">
-                    <div class="row mb-25">
-                        <div class="col-xl-6 col-md-12 col-12">
-                            <div class="category-card bg-white p-2 position-relative mb-25">
-                                <img class="img-fluid mb-25" src="./img/category-card-img-1.png" alt="category-card-img">
-                                <h3 class="category-card__title mb-1">Elmcroft of Roswell</h3>
-                                <div class="mb-15 category-card__adress"><span>550 Barrington Dr, Roswell, GA 30075, USA</span></div>
-                                <div class="mb-3 d-flex">
-                                    <div class="d-flex">
-                                        <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
-                                        <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
-                                        <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
-                                        <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
-                                        <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
-                                    </div>
-                                    <div class="category-card__rating-box d-flex align-items-center justify-content-center">
-                                        <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
-                                        <span>5</span>
-                                    </div>
-                                </div>
-                                <div class="category-card__divider mb-2"></div>
-                                <div class="category-card__footer d-flex justify-content-between align-items-center">
-                                    <div class="text-color-primary">Per month</div>
-                                    <div>$4,0558.00</div>
-                                </div>
-                                <div class="category-card__btn category-card__btn--active position-absolute top-30 start-30 bg-white d-flex align-items-center justify-content-center">
-                                    <i class="bi bi-heart text-color-primary"></i>
-                                    <i class="bi bi-heart-fill text-color-primary"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-md-12 col-12">
-                            <div class="category-card bg-white p-2 position-relative">
-                                <img class="img-fluid mb-25" src="./img/category-card-img-2.png" alt="category-card-img">
-                                <h3 class="category-card__title mb-1">Addington of Roswell</h3>
-                                <div class="mb-15 category-card__adress"><span>550 Barrington Dr, Roswell, GA 30075, USA</span></div>
-                                <div class="mb-3 d-flex">
-                                    <div class="d-flex">
-                                        <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
-                                        <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
-                                        <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
-                                        <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
-                                        <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
-                                    </div>
-                                    <div class="category-card__rating-box d-flex align-items-center justify-content-center">
-                                        <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
-                                        <span>5</span>
-                                    </div>
-                                </div>
-                                <div class="category-card__divider mb-2"></div>
-                                <div class="category-card__footer d-flex justify-content-between align-items-center">
-                                    <div class="text-color-primary">Per month</div>
-                                    <div>$4,0558.00</div>
-                                </div>
-                                <div class="category-card__btn position-absolute top-30 start-30 bg-white d-flex align-items-center justify-content-center">
-                                    <i class="bi bi-heart text-color-primary"></i>
-                                    <i class="bi bi-heart-fill text-color-primary"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mb-25">
-                        <div class="col-xl-6 col-md-12 col-12">
-                            <div class="category-card bg-white p-2 position-relative mb-25">
-                                <img class="img-fluid mb-25" src="./img/category-card-img-2.png" alt="category-card-img">
-                                <h3 class="category-card__title mb-1">Elmcroft of Roswell</h3>
-                                <div class="mb-15 category-card__adress"><span>550 Barrington Dr, Roswell, GA 30075, USA</span></div>
-                                <div class="mb-3 d-flex">
-                                    <div class="d-flex">
-                                        <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
-                                        <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
-                                        <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
-                                        <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
-                                        <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
-                                    </div>
-                                    <div class="category-card__rating-box d-flex align-items-center justify-content-center">
-                                        <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
-                                        <span>5</span>
-                                    </div>
-                                </div>
-                                <div class="category-card__divider mb-2"></div>
-                                <div class="category-card__footer d-flex justify-content-between align-items-center">
-                                    <div class="text-color-primary">Per month</div>
-                                    <div>$4,0558.00</div>
-                                </div>
-                                <div class="category-card__btn category-card__btn--active position-absolute top-30 start-30 bg-white d-flex align-items-center justify-content-center">
-                                    <i class="bi bi-heart text-color-primary"></i>
-                                    <i class="bi bi-heart-fill text-color-primary"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-md-12 col-12">
-                            <div class="category-card bg-white p-2 position-relative">
-                                <img class="img-fluid mb-25" src="./img/category-card-img-1.png" alt="category-card-img">
-                                <h3 class="category-card__title mb-1">Addington of Roswell</h3>
-                                <div class="mb-15 category-card__adress"><span>550 Barrington Dr, Roswell, GA 30075, USA</span></div>
-                                <div class="mb-3 d-flex">
-                                    <div class="d-flex">
-                                        <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
-                                        <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
-                                        <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
-                                        <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
-                                        <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
-                                    </div>
-                                    <div class="category-card__rating-box d-flex align-items-center justify-content-center">
-                                        <i class="bi bi-star-fill text-color-rating-icon me-1"></i>
-                                        <span>5</span>
-                                    </div>
-                                </div>
-                                <div class="category-card__divider mb-2"></div>
-                                <div class="category-card__footer d-flex justify-content-between align-items-center">
-                                    <div class="text-color-primary">Per month</div>
-                                    <div>$4,0558.00</div>
-                                </div>
-                                <div class="category-card__btn position-absolute top-30 start-30 bg-white d-flex align-items-center justify-content-center">
-                                    <i class="bi bi-heart text-color-primary"></i>
-                                    <i class="bi bi-heart-fill text-color-primary"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="d-flex justify-content-end">
+                <nav>
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true"><img src="../../shared/images/pagination-arrow-left.png" alt=""></span>
+                            </a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true"><img src="../../shared/images/pagination-arrow-left.png" style="transform: rotate(180deg);" alt=""></span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
-        </div>
-        <div class="d-flex justify-content-end">
-            <nav>
-                <ul class="pagination">
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true"><img src="../../shared/images/pagination-arrow-left.png" alt=""></span>
-                        </a>
-                    </li>
-                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">4</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true"><img src="../../shared/images/pagination-arrow-left.png" style="transform: rotate(180deg);" alt=""></span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
         </div>
     </div>
 
-    <!-- <div class="category-article pt-6">
+    <div class="category-article pt-6">
         <div class="container">
-            <h1 class="main-title text-center mb-6">Getting Ready to Move to Assisted<br /> Living in Miami</h1>
-            <img src="./img/category-article.png" alt="" class="img-fluid mb-5">
+            <h1 class="main-title text-center mb-2 mb-md-6">Getting Ready to Move to Assisted<br /> Living in Miami</h1>
+            <img src="./img/category-article.png" alt="" class="img-fluid mb-2 mb-md-6">
             <p class="category-article__textbox main-text-content mb-25">Moving into an assisted living community near you in Miami requires some time and planning, but the
                 process is a lot easier on you and your loved one if you're prepared. It's important to keep your loved
                 one involved in each step of the planning process. This helps them accept the change they are about to
@@ -252,7 +262,7 @@
             <p class="category-article__subtitle mb-4"><b>In addition to completing a medical assessment, you should also:</b></p>
             <div class="row">
                 <div class="col-xl-6 col-md-12">
-                    <ul>
+                    <ul class="category-article__list">
                         <li class="main-text-content mb-3 d-flex"><i class="bi bi-check2-circle me-15 text-color-primary"></i><span>Review the assisted living facility's policies and procedures with your loved one, so you both know exactly what to expect as your loved one gets settled into their new home.</span></li>
                         <li class="main-text-content mb-3 d-flex""><i class="bi bi-check2-circle me-15 text-color-primary"></i><span>Sell your loved one's current home or start the process to cancel their current rental agreement.</span></li>
                         <li class="main-text-content mb-3 d-flex""><i class="bi bi-check2-circle me-15 text-color-primary"></i><span>Sort through your loved one's belongings. Pack everything your loved one needs to keep and donate, sell or give away any belongings that remain.</span></li>
@@ -260,7 +270,7 @@
                     </ul>
                 </div>
                 <div class="col-xl-6 col-md-12">
-                    <ul>
+                    <ul class="category-article__list">
                         <li class="main-text-content mb-3 d-flex"><i class="bi bi-check2-circle me-15 text-color-primary"></i><span>Ask the staff for a list of suggested items to bring to the community. Having a list on hand makes it a lot easier to determine what belongings your loved one should keep.</span></li>
                         <li class="main-text-content mb-3 d-flex"><i class="bi bi-check2-circle me-15 text-color-primary"></i><span>Donate or sell your loved one's car, or give it to a younger family member.</span></li>
                         <li class="main-text-content mb-3 d-flex"><i class="bi bi-check2-circle me-15 text-color-primary"></i><span>Review your loved one's finances and pay any outstanding bills.</span></li>
@@ -268,7 +278,7 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
     <section class="contact-us text-center">
         <div class="container">
             <div class="contact-us__subtitle mb-2">We <i class="bi bi-heart-fill text-color-primary"></i> Love to Help</div>
