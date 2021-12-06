@@ -8716,23 +8716,23 @@ textarea.form-control-lg {
   }
 
   .p-md-1 {
-    padding: 0.25rem !important;
+    padding: 10px !important;
   }
 
   .p-md-2 {
-    padding: 0.5rem !important;
+    padding: 20px !important;
   }
 
   .p-md-3 {
-    padding: 1rem !important;
+    padding: 30px !important;
   }
 
   .p-md-4 {
-    padding: 1.5rem !important;
+    padding: 40px !important;
   }
 
   .p-md-5 {
-    padding: 3rem !important;
+    padding: 50px !important;
   }
 
   .px-md-0 {

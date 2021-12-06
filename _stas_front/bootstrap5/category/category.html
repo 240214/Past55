@@ -7,12 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Category</title>
     <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../../plugins/css/bootstrap-select.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../../frontend/web/theme/vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css">
-    <link rel="stylesheet" href="./category.css">
     <link rel="stylesheet" href="../../shared/contact-us/contact-us.css">
     <link rel="stylesheet" href="../../shared/header/header.css">
     <link rel="stylesheet" href="../../shared/footer/footer.css">
+    <link rel="stylesheet" href="./category.css">
 </head>
 
 <body>
@@ -41,10 +42,10 @@
                 <div class="col-xl-4 col-12 d-none d-xl-block category__filter-wrap">
                     <div class="filter-box p-35 mb-2">
                         <div class="filter-box__title mb-2">Price range</div>
-                        <select class="filter-box__select mb-4">
-                            <option>1</option>
-                            <option>12</option>
-                            <option>13</option>
+                        <select class="filter-box__select mb-4 js_selectpicker">
+                            <option>$1000-$1500</option>
+                            <option>$1000-$1500</option>
+                            <option>$1000-$1500</option>
                         </select>
                         <div class="filter-box__title mb-2">Types of communities</div>
                         <div class="d-flex flex-wrap mb-5">
@@ -91,9 +92,49 @@
                             </nav>
                         </div>
                     </div>
-                    <div class="filter-btn d-flex d-xl-none align-items-center justify-content-between px-2 mb-35 mb-xl-0">
+                    <div id="category__filter-adaptive-menu-btn" class="filter-btn d-flex d-xl-none align-items-center justify-content-between px-2 mb-35 mb-xl-0">
                         <span>Filter</span>
                         <img src="../../shared/images/pagination-arrow-left.png" alt="">
+                    </div>
+                    <div id="category__filter-adaptive-menu" class="category__filter-wrap d-none">
+                        <div class="filter-box p-1 p-md-35 mb-2">
+                            <div class="filter-box__title mb-2">Price range</div>
+                            <select class="filter-box__select mb-4 js_selectpicker">
+                                <option>$1000-$1500</option>
+                                <option>$1000-$1500</option>
+                                <option>$1000-$1500</option>
+                            </select>
+                            <div class="filter-box__title mb-2">Types of communities</div>
+                            <div class="d-flex flex-wrap mb-5">
+                                <div class="filter-box__btn filter-box__btn--active d-flex align-items-center justify-content-center px-2 mb-15 me-1">55+ Communities</div>
+                                <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Memory Care</div>
+                                <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Senior Apartments</div>
+                                <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Senior Living</div>
+                                <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Nursing Homes</div>
+                                <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Skilled Nursing</div>
+                                <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Assisted living</div>
+                                <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Independent Living</div>
+                                <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Active Adult Communites</div>
+                                <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Apartments</div>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <button class="filter-box__reset-btn me-1">Reset</button>
+                                <button class="btn-primary-large">Apply Filter</button>
+                            </div>
+                        </div>
+                        <div class="filter-box p-35 mb-2">
+                            <div class="filter-box__title mb-2">Nearby cities</div>
+                            <div class="d-flex flex-wrap">
+                                <div class="filter-box__btn filter-box__btn--active d-flex align-items-center justify-content-center px-2 mb-15 me-1">Marietta, GA</div>
+                                <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Alpharetta, GA</div>
+                                <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Macon County, GA</div>
+                                <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Athens, GA</div>
+                                <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Sandy Springs, GA</div>
+                                <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Atlanta, GA</div>
+                                <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Columbus, GA</div>
+                                <div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Savannah, GA</div>
+                            </div>
+                        </div>
                     </div>
                     <div class="category__body">
                         <div class="row mb-25">
@@ -343,4 +384,10 @@
             <a href="#" class="main-text-content text-white text-decoration-none">Terms & Conditions</a>
         </div>
     </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="../../plugins/js/popper.min.js"></script>
+    <script src="../../plugins/js/bootstrap.min.js"></script>
+    <script src="../../plugins/js/bootstrap-select.min.js"></script>
+    <script src="./category.js"></script>
 </body>
