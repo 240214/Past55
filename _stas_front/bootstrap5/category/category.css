@@ -204,6 +204,11 @@
     content: url("../../shared/images/select-icon.png");
 }
 
+.bootstrap-select>.dropdown-toggle {
+    background-color: #fff;
+    border-color: #fff;
+}
+
 .bootstrap-select>.dropdown-toggle:after {
     transform: translateY(5px);
 }

@@ -187,7 +187,7 @@ h2.secondary-title {
   content: "";
   display: block;
   position: absolute;
-  bottom: 6px;
+  bottom: 4px;
   left: 0;
   right: 0;
   height: 5px;
@@ -8741,28 +8741,33 @@ textarea.form-control-lg {
   }
 
   .px-md-1 {
-    padding-right: 0.25rem !important;
-    padding-left: 0.25rem !important;
+    padding-right: 10px !important;
+    padding-left: 10px !important;
   }
 
   .px-md-2 {
-    padding-right: 0.5rem !important;
-    padding-left: 0.5rem !important;
+    padding-right: 20px !important;
+    padding-left: 20px !important;
   }
 
   .px-md-3 {
-    padding-right: 1rem !important;
-    padding-left: 1rem !important;
+    padding-right: 30px !important;
+    padding-left: 30px !important;
   }
 
   .px-md-4 {
-    padding-right: 1.5rem !important;
-    padding-left: 1.5rem !important;
+    padding-right: 40px !important;
+    padding-left: 40px !important;
   }
 
   .px-md-5 {
-    padding-right: 3rem !important;
-    padding-left: 3rem !important;
+    padding-right: 60px !important;
+    padding-left: 60px !important;
+  }
+
+  .px-md-75 {
+    padding-right: 75px !important;
+    padding-left: 75px !important;
   }
 
   .py-md-0 {
@@ -8848,23 +8853,27 @@ textarea.form-control-lg {
   }
 
   .pb-md-1 {
-    padding-bottom: 0.25rem !important;
+    padding-bottom: 10px !important;
   }
 
   .pb-md-2 {
-    padding-bottom: 0.5rem !important;
+    padding-bottom: 20px !important;
   }
 
   .pb-md-3 {
-    padding-bottom: 1rem !important;
+    padding-bottom: 30px !important;
   }
 
   .pb-md-4 {
-    padding-bottom: 1.5rem !important;
+    padding-bottom: 40px !important;
   }
 
   .pb-md-5 {
-    padding-bottom: 3rem !important;
+    padding-bottom: 50px !important;
+  }
+
+  .pb-md-35 {
+    padding-bottom: 35px !important;
   }
 
   .ps-md-0 {
