@@ -201,7 +201,7 @@
 
 .dropdown-toggle::after {
     border: none !important;
-    content: url("../../shared/images/select-icon.png");
+    content: url("../shared/images/select-icon.png");
 }
 
 .bootstrap-select>.dropdown-toggle {
