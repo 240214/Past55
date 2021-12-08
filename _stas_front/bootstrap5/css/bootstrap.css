@@ -104,6 +104,15 @@
   }
 }
 
+.highlighted-paragraph {
+  padding-left: 20px;
+  border-left: 1px solid #797575;
+}
+
+.highlighted-paragraph::before {
+
+}
+
 .header-logo {
   font-family: 'AirbnbCereal-Medium';
   font-style: normal;
@@ -111,6 +120,20 @@
   font-size: 20px;
   line-height: 25px;
   color: #6D459C;
+}
+
+.main-input {
+  width: 100%;
+  max-width: 340px;
+  height: 55px;
+  padding: 0 20px;
+  font-family: 'AirbnbCereal-Light';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 21px;
+  border: 1px solid #D3D3D3;
+  border-radius: 5px;
 }
 
 body {
@@ -3091,10 +3114,23 @@ textarea.form-control-lg {
   border-color: #0d6efd;
 }
 
-.btn-secondary {
-  color: #fff;
-  background-color: #6c757d;
-  border-color: #6c757d;
+.btn-secondary-custom {
+  width: 100%;
+  max-width: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  border: 1px solid #D3D3D3;
+  border-radius: 8px;
+  background-color: #fff;
+  font-family: 'AirbnbCereal-Medium'; 
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 25px;
+  text-align: center;
+  color: #5A5A5A;
 }
 .btn-secondary:hover {
   color: #fff;
@@ -6760,6 +6796,11 @@ textarea.form-control-lg {
   align-content: flex-end !important;
 }
 
+.align-items-self-end {
+  align-items: self-end !important;
+}
+
+
 .align-content-center {
   align-content: center !important;
 }
@@ -6967,19 +7008,19 @@ textarea.form-control-lg {
 }
 
 .me-2 {
-  margin-right: 0.5rem !important;
+  margin-right: 20px !important;
 }
 
 .me-3 {
-  margin-right: 1rem !important;
+  margin-right: 30px !important;
 }
 
 .me-4 {
-  margin-right: 1.5rem !important;
+  margin-right: 40px !important;
 }
 
 .me-5 {
-  margin-right: 3rem !important;
+  margin-right: 50px !important;
 }
 
 .me-15 {
@@ -7047,23 +7088,23 @@ textarea.form-control-lg {
 }
 
 .ms-1 {
-  margin-left: 0.25rem !important;
+  margin-left: 10px!important;
 }
 
 .ms-2 {
-  margin-left: 0.5rem !important;
+  margin-left: 20px !important;
 }
 
 .ms-3 {
-  margin-left: 1rem !important;
+  margin-left: 30px !important;
 }
 
 .ms-4 {
-  margin-left: 1.5rem !important;
+  margin-left: 40px !important;
 }
 
 .ms-5 {
-  margin-left: 3rem !important;
+  margin-left: 50px !important;
 }
 
 .ms-auto {
@@ -7200,6 +7241,14 @@ textarea.form-control-lg {
   padding-top: 60px !important;
 }
 
+.pt-7 {
+  padding-top: 60px !important;
+}
+
+.pt-55 {
+  padding-top: 55px !important;
+}
+
 .pt-85 {
   padding-top: 85px !important;
 }
@@ -7262,6 +7311,14 @@ textarea.form-control-lg {
 
 .pb-35 {
   padding-bottom: 35px !important;
+}
+
+.pb-55 {
+  padding-bottom: 55px !important;
+}
+
+.pb-100 {
+  padding-bottom: 100px !important;
 }
 
 .ps-0 {
@@ -8870,6 +8927,14 @@ textarea.form-control-lg {
 
   .pb-md-5 {
     padding-bottom: 50px !important;
+  }
+
+  .pb-md-6 {
+    padding-bottom: 60px !important;
+  }
+
+  .pb-md-7 {
+    padding-bottom: 70px !important;
   }
 
   .pb-md-35 {
