@@ -60,3 +60,25 @@ var $tabs = function (target) {
 };
 
 $tabs('.tabs');
+
+// -------------------------------------------------------------------
+// SLIDER
+
+$('.slider-for').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    dots: false,
+    fade: true,
+    asNavFor: '.slider-nav'
+});
+
+$('.slider-nav').slick({
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    asNavFor: '.slider-for',
+    dots: false,
+    arrows: false,
+    focusOnSelect: true,
+    Infinity: true
+});

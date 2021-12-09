@@ -162,12 +162,17 @@
 }
 
 .elmcroft__box * li {
-    width: 220px;
+    width: 210px;
+    margin-bottom: 10px;
 }
 
 .elmcroft__map {
     height: 525px;
-    border: 1px dashed #000;
+}
+
+.elmcroft__map>iframe {
+    width: 100%;
+    height: 100%;
 }
 
 .elmcroft__address {

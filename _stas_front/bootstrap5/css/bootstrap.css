@@ -3115,7 +3115,6 @@ textarea.form-control-lg {
 }
 
 .btn-secondary-custom {
-  width: 100%;
   max-width: 180px;
   display: flex;
   justify-content: center;
@@ -6976,24 +6975,37 @@ textarea.form-control-lg {
 }
 
 .mt-1 {
-  margin-top: 0.25rem !important;
+  margin-top: 10px !important;
 }
 
 .mt-2 {
-  margin-top: 0.5rem !important;
+  margin-top: 20px !important;
 }
 
 .mt-3 {
-  margin-top: 1rem !important;
+  margin-top: 30px !important;
 }
 
 .mt-4 {
-  margin-top: 1.5rem !important;
+  margin-top: 40px !important;
 }
 
 .mt-5 {
-  margin-top: 3rem !important;
+  margin-top: 50px !important;
 }
+
+.mt-6 {
+  margin-top: 60px !important;
+}
+
+.mt-7 {
+  margin-top: 70px !important;
+}
+
+.mt-100 {
+  margin-top: 100px !important;
+}
+
 
 .mt-auto {
   margin-top: auto !important;
@@ -8661,23 +8673,27 @@ textarea.form-control-lg {
   }
 
   .mt-md-1 {
-    margin-top: 0.25rem !important;
+    margin-top: 10px !important;
   }
 
   .mt-md-2 {
-    margin-top: 0.5rem !important;
+    margin-top: 20px !important;
   }
 
   .mt-md-3 {
-    margin-top: 1rem !important;
+    margin-top: 30px !important;
   }
 
   .mt-md-4 {
-    margin-top: 1.5rem !important;
+    margin-top: 40px !important;
   }
 
   .mt-md-5 {
-    margin-top: 3rem !important;
+    margin-top: 50px !important;
+  }
+
+  .mt-md-100 {
+    margin-top: 50px !important;
   }
 
   .mt-md-auto {
