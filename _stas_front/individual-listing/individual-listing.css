@@ -28,7 +28,7 @@
     box-sizing: border-box;
     border-radius: 5px;
     background-color: #ffffff;
-    font-family: 'AirbnbCereal-Ligth'; 
+    font-family: 'AirbnbCereal-Light'; 
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
@@ -62,7 +62,7 @@
 }
 
 .contract-info-list>li>a {
-    font-family: 'AirbnbCereal-Ligth'; 
+    font-family: 'AirbnbCereal-Light'; 
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -108,7 +108,7 @@
 
 .contract-info__text,
 .similar-offers__text {
-    font-family: 'AirbnbCereal-Ligth'; 
+    font-family: 'AirbnbCereal-Light'; 
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
@@ -118,7 +118,7 @@
 }
 
 .similar-offers__adress {
-    font-family: 'AirbnbCereal-Ligth'; 
+    font-family: 'AirbnbCereal-Light'; 
     font-style: normal;
     font-weight: normal;
     font-size: 17px;
@@ -152,7 +152,7 @@
     border: 1px solid #D3D3D3;
     border-radius: 8px;
     background-color: #ffffff;
-    font-family: 'AirbnbCereal-Ligth'; 
+    font-family: 'AirbnbCereal-Light'; 
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -171,7 +171,7 @@
 }
 
 .elmcroft__address {
-    font-family: 'AirbnbCereal-Ligth'; 
+    font-family: 'AirbnbCereal-Light'; 
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -183,3 +183,115 @@
 .elmcroft {
     background: linear-gradient(180deg, #E1F3FF 7.86%, rgba(216, 206, 255, 0.3) 100%);
 }
+
+.elmcroft-box-calc {
+    height: 100%;
+}
+
+/* TABS */
+.tabs {
+  }
+  
+  .tabs__nav {
+      border-bottom: 1px solid #D2D2D2;
+      margin-bottom: 40px;
+  }
+  
+  .tabs__link {
+    font-family: 'AirbnbCereal-Medium'; 
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+    color: #5A5A5A;
+    text-decoration: none;
+    margin-right: 30px;
+    padding-right: 20px;
+    display: inline-block;
+    height: 35px;
+  }
+  
+  .tabs__link_active {
+    position: relative;
+    color: var(--bs-brand);
+  }
+
+  .tabs__link_active:after {
+      content: "";
+      height: 2px;
+      width: 100%;
+      background-color: var(--bs-brand);
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+  }
+  
+  .tabs__link:not(.tabs__link_active):hover,
+  .tabs__link:not(.tabs__link_active):focus {
+    color: var(--bs-brand);
+  }
+  
+  .tabs__content {
+  }
+  
+  .tabs__pane {
+    display: none;
+  }
+  
+  .tabs__pane_show {
+    display: block;
+  }
+
+  .tabs-item__title {
+    font-family: 'PT Serif';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 29px;
+    letter-spacing: -0.005em;
+    color: #000000;
+  }
+
+  .tabs-item__btn {
+    width: 165px;
+    height: 50px;
+    border: 1px solid #D7D7D7;
+    border-radius: 5px;
+    font-family: 'AirbnbCereal-Light'; 
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: -0.005em;
+    color: #7D7D7D;
+    transition: all ease-in .15s;
+  }
+
+  .tabs-item__btn:hover {
+      background-color: var(--bs-brand) !important;
+      color: #ffffff;
+      transition: all ease-in .15s;
+  }
+
+  .tabs-item__btn>.icon-wrapp--tabs {
+      transition: all ease-in .15s;
+  }
+
+  .tabs-item__btn:hover>.icon-wrapp--tabs {
+      background-color: #FFB681;
+      transition: all ease-in .15s;
+  }
+
+  .tabs-item__btn>.icon-wrapp--tabs>i {
+      transition: all ease-in .15s;
+  }
+
+  .tabs-item__btn:hover>.icon-wrapp--tabs>i {
+      color: #ffffff;
+      transition: all ease-in .15s;
+  }
+
+  .icon-wrapp--tabs {
+      width: 30px;
+      height: 30px;
+  }
