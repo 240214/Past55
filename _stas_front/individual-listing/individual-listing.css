@@ -303,7 +303,33 @@
 
 
   @media screen and (max-width: 1199px) {
+  }
+  
+  @media screen and (max-width: 767px) {
+    .tabs-item__btn {
+        width: 95.65px;
+        height: 35px;
+        font-size: 15px;
+        line-height: 140%;
+    }
     .contract-info-list>li>a {
         font-size: 16px;
+    }
+    .article__title,
+    .elmcroft-title {
+        font-size: 27px;
+        line-height: 36px;
+    }
+    .elmcroft__box * li {
+        font-size: 15px;
+        line-height: 20px;
+    }
+    .features-item__title {
+        font-size: 22px;
+        line-height: 29px;
+    }
+    .tabs-item__title {
+        font-size: 15px;
+        line-height: 140%;
     }
   }
