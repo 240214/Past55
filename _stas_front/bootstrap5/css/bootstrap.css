@@ -10080,23 +10080,23 @@ textarea.form-control-lg {
   }
 
   .ms-xl-1 {
-    margin-left: 0.25rem !important;
+    margin-left: 10px !important;
   }
 
   .ms-xl-2 {
-    margin-left: 0.5rem !important;
+    margin-left: 20px !important;
   }
 
   .ms-xl-3 {
-    margin-left: 1rem !important;
+    margin-left: 30px !important;
   }
 
   .ms-xl-4 {
-    margin-left: 1.5rem !important;
+    margin-left: 40px !important;
   }
 
   .ms-xl-5 {
-    margin-left: 3rem !important;
+    margin-left: 50px !important;
   }
 
   .ms-xl-auto {

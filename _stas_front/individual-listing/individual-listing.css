@@ -300,3 +300,10 @@
       width: 30px;
       height: 30px;
   }
+
+
+  @media screen and (max-width: 1199px) {
+    .contract-info-list>li>a {
+        font-size: 16px;
+    }
+  }
