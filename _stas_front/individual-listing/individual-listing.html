@@ -73,11 +73,11 @@
             </div>
         </div>
         <div class="individual-listing__divider">
-            <!-- <img src="./img/divider.png" alt=""> -->
+            <img class="img-fluid" src="./img/divider.png" alt="">
         </div>
     </div>
 
-    <!-- <div class="container mb-35">
+    <div class="container mb-35">
         <div class="slider-for mb-15">
             <div class="slider__item">
                 <img src="./img/slider-img-big-1.png" alt="" class="img-fluid">
@@ -112,7 +112,7 @@
                 <img src="./img/slider-small-img-5.png" alt="" class="img-fluid">
             </div>
         </div>
-    </div> -->
+    </div>
 
     <div class="container">
         <div class="row align-items-self-end pb-100">
@@ -121,15 +121,18 @@
                     <h3 class="article__title mb-25">About Elmcroft of Roswell</h3>
                     <p class="main-text-content">Elmcroft communities’ goal and mission is to: Enrich the lives of those who live and work with us by responding to their unique needs and universal desire for dignity and respect.</p>
                     <p class="main-text-content highlighted-paragraph"><b>Established in 2002</b>, this Elmcroft location holds an assisted living license to care for 75 residents, 61 in assisted living and 14 in memory care.</p>
-                    <p class="main-text-content">Among the beautiful apartments and communal gathering spaces, residents love to come together for socializing and activities. There are multiple spaces for gathering inside and out. There are areas to sit and visit or play cards or billiards and more.</p>
-                    <p class="main-text-content">Elmcroft of Roswell is proud of their Signature Programs and the life enrichment they provide for their residents:</p>
-                    <p class="main-text-content">Vitality Club develops an individualized wellness and daily activities profile for each resident. </p>
-                    <p class="main-text-content highlighted-paragraph"><b>The Port of Call series</b> expands resident’s cultural experiences by having a new ‘destination’ every month to enjoy activities and the cuisine from that area. </p>
-                    <p class="main-text-content">The Walking Tall program is helping each resident better understand their fall risk and training to help them with balance to stay safe when moving.</p>
-                    <p class="main-text-content">Second Wind Dreams helps resident’s dreams come true by providing opportunities to cross something off a bucket list, have an adventure or visit a favorite place.</p>
-                    <p class="main-text-content">Chronicles is a memory care program where the approach to care is specialized, built around each resident’s life history to provide the specially trained caregiver’s the insight to understand, support and encourage.</p>
-                    <p class="main-text-content">The dining experience is all about choice. Resident’s preferences are considered as the culinary team meets with them regularly for their valued input and suggestions.  Dishes created new or more traditional, are always made from scratch with the freshest ingredients from locally sourced farm to table growers.</p>
-                    <p class="main-text-content m-0">Elmcroft of Roswell activities are varied as the residents are engaged and enthusiastic! They enjoy live music, movie nights and to showcase the talent in their community. </p>
+                    <div class="article-box__read-more-btn text-center mb-1"><i class="bi bi-chevron-down me-1"></i>Read More</div>
+                    <div id="show-more-content">
+                        <p class="main-text-content">Among the beautiful apartments and communal gathering spaces, residents love to come together for socializing and activities. There are multiple spaces for gathering inside and out. There are areas to sit and visit or play cards or billiards and more.</p>
+                        <p class="main-text-content">Elmcroft of Roswell is proud of their Signature Programs and the life enrichment they provide for their residents:</p>
+                        <p class="main-text-content">Vitality Club develops an individualized wellness and daily activities profile for each resident. </p>
+                        <p class="main-text-content highlighted-paragraph"><b>The Port of Call series</b> expands resident’s cultural experiences by having a new ‘destination’ every month to enjoy activities and the cuisine from that area. </p>
+                        <p class="main-text-content">The Walking Tall program is helping each resident better understand their fall risk and training to help them with balance to stay safe when moving.</p>
+                        <p class="main-text-content">Second Wind Dreams helps resident’s dreams come true by providing opportunities to cross something off a bucket list, have an adventure or visit a favorite place.</p>
+                        <p class="main-text-content">Chronicles is a memory care program where the approach to care is specialized, built around each resident’s life history to provide the specially trained caregiver’s the insight to understand, support and encourage.</p>
+                        <p class="main-text-content">The dining experience is all about choice. Resident’s preferences are considered as the culinary team meets with them regularly for their valued input and suggestions.  Dishes created new or more traditional, are always made from scratch with the freshest ingredients from locally sourced farm to table growers.</p>
+                        <p class="main-text-content m-0">Elmcroft of Roswell activities are varied as the residents are engaged and enthusiastic! They enjoy live music, movie nights and to showcase the talent in their community. </p>
+                    </div>
                 </div>
             </div>
             <div class="col-12 col-xl-4">
@@ -147,7 +150,7 @@
                             <a class="text-decoration-none ms-2" href="#">Community Website</a>
                         </li>
                         <li class="d-flex align-items-center">
-                            <div class="icon-wrapp d-flex align-items-center justify-content-center"><i class="bi bi-geo-alt-fill text-color-primary"></i></div>
+                            <div class="icon-wrapp d-flex align-items-center justify-content-center"><i class="bi bi-geo-alt-fill text-color-primary text-center contract-info-list--icon"></i></div>
                             <a class="text-decoration-none ms-2" href="#">400 Marietta Hwy, Roswell, GA 30075, USA</a>
                         </li>
                     </ul>
@@ -254,21 +257,38 @@
                             <button class="features-item__show-more-btn d-flex align-items-center justify-content-center mb-25">Show more</button>
                         </div>
                     </div>
-
-                    <div class="elmcroft__box mb-4 p-2 p-xl-4">
+                    <div class="d-block d-xl-none col-12 col-xl-4 elmcroft__box p-2 p-md-4 mb-3">
+                        <h3 class="elmcroft-title mb-2">Elmcroft of Roswell Distance Calculator</h3>
+                        <div class="elmcroft__address mb-1 d-flex"><i class="bi bi-geo-alt-fill text-color-primary me-15"></i>400 Marietta Hwy, Roswell, GA</br> 30075, USA</div>
+                        <p class="main-text-content mb-25">Location is important. You can input addresses, names of businesses, or popular places to quickly see how far away they are from the housing facility.</p>
+                        <form>
+                            <h4 class="elmcroft__form-title p-0 mb-15">Input Address to See Distance from Living Facility</h4>
+                            <input class="main-input mb-1" type="text" placeholder="Visitor Name">
+                            <input class="main-input mb-35" type="text" placeholder="Visitor Address">
+                            <div class="d-flex">
+                                <button class="btn-primary-medium me-1">Save List</button>
+                                <button class="btn-secondary-custom">Add New Address</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="elmcroft__box mb-3 p-2 p-xl-4">
                         <h3 class="elmcroft-title mb-15">Elmcroft of Roswell Location</h3>
                         <p class="main-text-content mb-3">400 Marietta Hwy, Roswell, GA 30075, USA</p>
                         <div class="elmcroft__map">
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3741.318598063917!2d35.04451295606367!3d48.46589684491897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe2dd7cd733b5%3A0xc5ea4bfee75bb576!2z0J_QsNGB0YHQsNC2!5e0!3m2!1sru!2sua!4v1639052062507!5m2!1sru!2sua" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                         </div>
                     </div>
-                    <div class="elmcroft__box p-2 p-xl-4">
+                    <div class="elmcroft__box p-2 p-xl-4 mb-3">
                         <h3 class="elmcroft-title mb-15">Elmcroft of Roswell Nearby Places</h3>
                         <div class="tabs">
                             <div class="tabs__nav">
                               <a class="tabs__link tabs__link_active" href="#content-1">Park</a>
                               <a class="tabs__link" href="#content-2">Pharmacy</a>
                               <a class="tabs__link" href="#content-3">Restaurant</a>
+                            </div>
+                            <div class="tabs__header d-flex align-items-center justify-content-between d-md-none">
+                                <div>Places</div>
+                                <div>Distance</div>
                             </div>
                             <div class="tabs__content">
                               <div class="tabs__pane tabs__pane_show" id="content-1">
@@ -352,8 +372,42 @@
                             </div>
                         </div>
                     </div>
+                    <div class="d-block d-xl-none similar-offers-box p-1 p-md-4">
+                        <h3 class="article-box__tilte mb-15">You may also like...</h3>
+                        <h4 class="similar-offers__text mb-3">Morbi risus porta consectetur vestibulum ateros</h4>
+                        <div class="d-flex align-items-start mb-25">
+                            <img class="me-2" src="./img/similar-sugestion-1.png" alt="">
+                            <div>
+                                <h4 class="similar-offers__subtitle">Roswell GA Property Listing</h4>
+                                <div>
+                                    <i class="bi bi-geo-alt-fill text-color-primary me-1"></i>
+                                    <span class="similar-offers__adress">295 East Crossville Road, Roswell, GA 30075, USA</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start mb-25">
+                            <img class="me-2" src="./img/similar-sugestion-2.png" alt="">
+                            <div>
+                                <h4 class="similar-offers__subtitle">Roswell GA Property Listing</h4>
+                                <div>
+                                    <i class="bi bi-geo-alt-fill text-color-primary me-1"></i>
+                                    <span class="similar-offers__adress">295 East Crossville Road, Roswell, GA 30075, USA</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start">
+                            <img class="me-2" src="./img/similar-sugestion-3.png" alt="">
+                            <div>
+                                <h4 class="similar-offers__subtitle">Roswell GA Property Listing</h4>
+                                <div>
+                                    <i class="bi bi-geo-alt-fill text-color-primary me-1"></i>
+                                    <span class="similar-offers__adress">295 East Crossville Road, Roswell, GA 30075, USA</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-12 col-xl-4 elmcroft__box elmcroft-box-calc p-2 p-md-4">
+                <div class="d-none d-xl-block col-12 col-xl-4 elmcroft__box elmcroft-box-calc p-2 p-md-4">
                     <h3 class="elmcroft-title mb-2">Elmcroft of Roswell Distance Calculator</h3>
                     <div class="elmcroft__address mb-1 d-flex"><i class="bi bi-geo-alt-fill text-color-primary me-15"></i>400 Marietta Hwy, Roswell, GA</br> 30075, USA</div>
                     <p class="main-text-content mb-25">Location is important. You can input addresses, names of businesses, or popular places to quickly see how far away they are from the housing facility.</p>

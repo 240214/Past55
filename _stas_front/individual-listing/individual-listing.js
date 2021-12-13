@@ -82,3 +82,14 @@ $('.slider-nav').slick({
     focusOnSelect: true,
     Infinity: true
 });
+
+// ---------------------------------------------------------
+// Read more
+const readMoreBox = document.querySelector('.article-box');
+const readMoreBtn = document.querySelector('.article-box__read-more-btn');
+const readMoreContent = document.querySelector('#show-more-content');
+
+readMoreBtn.addEventListener("click", () => {
+    readMoreBox.classList.add("article-box--active")
+    readMoreContent.style.display = "block"
+})
