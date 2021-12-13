@@ -14,11 +14,14 @@ class AppAsset extends AssetBundle {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
+    	'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=PT+Serif:wght@400;700&family=Roboto:wght@400;500;700&display=swap',
 	    // Bootstrap
 	    #'/theme/vendors/bower_components/bootstrap3/css/bootstrap.css', // 3.3.5
 	    #'/theme/vendors/bower_components/bootstrap4/css/bootstrap.css', // 4.5.3
 	    #'theme/vendors/bower_components/bootstrap5/css/bootstrap.css', // 5.0.0
-	
+	    'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css',
+	    'theme/vendors/bower_components/bootstrap-select/css/bootstrap-select.min.css',
+	    
 	    // Material design colors
 	    'theme/vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css',
 	
@@ -51,7 +54,9 @@ class AppAsset extends AssetBundle {
 	    #'theme/vendors/bower_components/materialize/css/materialize.min.css',
 	
 	    // Theme
-        'theme/css/main.css?=4',
+        #'theme/css/main.css?=4',
+        'theme/css/header.css',
+        'theme/css/footer.css',
         #'css/site.css',
         #'css/formCss.css',
     ];
@@ -63,7 +68,8 @@ class AppAsset extends AssetBundle {
 	    #'theme/vendors/bower_components/bootstrap3/js/bootstrap.min.js', // 3.3.5
 	    #'theme/vendors/bower_components/bootstrap4/js/bootstrap.bundle.min.js', // 4.5.3
 	    #'theme/vendors/bower_components/bootstrap5/js/bootstrap.bundle.min.js', // 5.0.0
-
+	    'theme/vendors/bower_components/bootstrap-select/js/bootstrap-select.min.js',
+	    
 	    // Waves button ripple effects
 	    'theme/vendors/bower_components/Waves/dist/waves.min.js',
 	    

@@ -31,7 +31,7 @@ return [
                 ],
                 'yii\bootstrap\BootstrapAsset' => [
 	                'sourcePath' => '@frontend/web/theme/vendors/bower_components/bootstrap5',
-                    'css' => ['css/bootstrap.css']
+                    'css' => ['css/bootstrap-mod.css']
                 ]
             ]
         ],
