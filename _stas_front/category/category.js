@@ -13,11 +13,11 @@ filterAdaptiveMenuBtn.addEventListener(('click'), (e) => {
 
 ///////////////////////////////////////////////////
 
-const categoryCardBtns = document.querySelectorAll(".category-card__btn")
+const categoryCardBtns = document.querySelectorAll(".add-to-favorite-btn")
 
 categoryCardBtns.forEach((btn) => {
     btn.addEventListener(('click'), (e) => {
-        btn.classList.toggle("category-card__btn--active")
+        btn.classList.toggle("add-to-favorite-btn--active")
     })
 })
 
