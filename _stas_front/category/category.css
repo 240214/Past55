@@ -61,27 +61,6 @@
     line-height: 17px;
 }
 
-.category-card__btn {
-    height: 35px;
-    width: 35px;
-    top: 30px;
-    left: 30px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.category-card__btn>i.bi-heart-fill {
-    display: none;
-}
-
-.category-card__btn--active>i.bi-heart-fill {
-    display: block;
-    color: var(--bs-brand) !important;
-}
-.category-card__btn--active>i.bi-heart {
-    display: none;
-}
-
 .category-article {
     background: linear-gradient(180deg, #E1F3FF 7.86%, rgba(216, 206, 255, 0.3) 109.88%);
 }
