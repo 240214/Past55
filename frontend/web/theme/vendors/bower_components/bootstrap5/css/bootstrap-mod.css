@@ -121,6 +121,7 @@
   line-height: 25px;
   color: #6D459C;
 }
+.header-logo a {color: #6D459C; text-decoration: none;}
 
 .main-input {
   width: 100%;

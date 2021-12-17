@@ -18,10 +18,18 @@ return [
     'components' => [
         'assetManager' => [
             'bundles' => [
-                'yii\web\JqueryAsset' => [
+                /*'yii\web\JqueryAsset' => [
 	                'sourcePath' => '@frontend/web/theme/vendors/bower_components/jquery',
 	                'js' => ['dist/jquery-3.5.1.min.js']
-                ],
+                ],*/
+	            'yii\web\JqueryAsset' => [
+		            'sourcePath' => null,
+		            'js' => ['https://code.jquery.com/jquery-3.6.0.min.js'],
+		            'jsOptions' => [
+			            'integrity' => 'sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=',
+			            'crossorigin' => 'anonymous'
+		            ],
+	            ],
                 'yii\bootstrap\BootstrapPluginAsset' => [
 	                'sourcePath' => '@frontend/web/theme/vendors/bower_components/bootstrap5',
                     'js'=>[
