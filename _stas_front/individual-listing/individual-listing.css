@@ -99,14 +99,6 @@
     color: #3F3F3F !important;
 }
 
-.icon-wrapp {
-    width: 40px;
-    height: 40px;
-    background: #FFFFFF;
-    box-shadow: 0px 2px 17px rgba(22, 30, 52, 0.07);
-    border-radius: 5px;
-}
-
 .community-website-icon {
     font-size: 20px;
 }
@@ -315,62 +307,8 @@
     letter-spacing: -0.005em;
     color: #000000;
   }
-
-  .tabs-item__btn {
-    width: 165px;
-    height: 50px;
-    border: 1px solid #D7D7D7;
-    border-radius: 5px;
-    font-family: 'AirbnbCereal-Light'; 
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 26px;
-    letter-spacing: -0.005em;
-    color: #7D7D7D;
-    transition: all ease-in .15s;
-  }
-
-  .tabs-item__btn:hover {
-      background-color: var(--bs-brand) !important;
-      color: #ffffff;
-      transition: all ease-in .15s;
-  }
-
-  .tabs-item__btn>.icon-wrapp--tabs {
-      transition: all ease-in .15s;
-  }
-
-  .tabs-item__btn:hover>.icon-wrapp--tabs {
-      background-color: #FFB681;
-      transition: all ease-in .15s;
-  }
-
-  .tabs-item__btn>.icon-wrapp--tabs>i {
-      transition: all ease-in .15s;
-  }
-
-  .tabs-item__btn:hover>.icon-wrapp--tabs>i {
-      color: #ffffff;
-      transition: all ease-in .15s;
-  }
-
-  .icon-wrapp--tabs {
-      width: 30px;
-      height: 30px;
-  }
-
-
-  @media screen and (max-width: 1199px) {
-  }
   
   @media screen and (max-width: 767px) {
-    .tabs-item__btn {
-        width: 95.65px;
-        height: 35px;
-        font-size: 15px;
-        line-height: 140%;
-    }
     .contract-info-list>li>a {
         font-size: 16px;
     }
