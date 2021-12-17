@@ -53,9 +53,8 @@ $body_class = implode(' ', $body_class);
 		
 		<?=Alert::widget()?>
 		
-		<main id="site-main" class="site-main">
-			<?=$content?>
-		</main>
+		<?=$content?>
+		<!--<main id="site-main" class="site-main"></main>-->
 		
 		<?=$this->render('footer');?>
 
