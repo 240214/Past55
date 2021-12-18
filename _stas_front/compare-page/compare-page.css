@@ -1,3 +1,169 @@
+.compare-page {
+    background: linear-gradient(180deg, #E1F3FF 7.86%, rgba(216, 206, 255, 0.3) 109.88%);
+    padding-bottom: 80px;
+}
+
 .compare-body {
     padding-top: 110px;
+}
+
+.compare__slider {
+    display: flex;
+    justify-content: space-between;
+}
+
+.compare__item {
+    max-width: 410px;
+    margin-right: 30px;
+    border-radius: 5px;
+}
+
+.compare-item__title {
+    font-family: 'PT Serif';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 37px;
+    letter-spacing: -0.005em;
+    color: #000000;
+}
+
+.compare-item__text {
+    font-family: 'AirbnbCereal-Light';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 40px;
+    letter-spacing: -0.005em;
+    color: #555555;
+}
+
+.compare-item__subtitle {
+    font-family: 'PT Serif';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 29px;
+    color: #6D459C;
+}
+
+.compare-item__list>li {
+    min-height: 30px;
+    font-family: 'AirbnbCereal-Light';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: -0.005em;
+    color: #454545;
+    border-bottom: 1px solid #E7E7E7;
+    margin-bottom: 10px;
+}
+
+.compare-item__list>i {
+    transform: translateY(5px);
+}
+
+.compare-item__list>li>span,
+.compare-item__list>li>b {
+    margin-left: 3px;
+}
+
+.compare-item__table-header {
+    font-family: 'AirbnbCereal-Medium';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 22px;
+    height: 40px;
+    border-bottom: 1px solid #000;
+}
+
+.compare__location-btn {
+    width: 125px;
+    font-size: 15px;
+    line-height: 26px;
+    white-space: nowrap;
+}
+
+.compare-item__add-new-addres-btn {
+    width: 175px;
+    background: #FFFFFF;
+    box-shadow: 0px 10px 55.4px rgba(7, 12, 16, 0.02);
+    border-radius: 8px;
+    border: 1px solid #D3D3D3; 
+    color: #5A5A5A;
+}
+
+.compare-item__select {
+    width: 245px !important;
+    border: 1px solid #DFDFDF;
+    border-radius: 4px;
+    max-height: 45px !important;
+}
+
+.dropdown-toggle::after {
+    content: url("../shared/images/select-icon-checkbox.png");
+    border: none;
+}
+
+.compare-item__main-select {
+    width: 100% !important;
+    height: 60px;
+    border: 1px solid #D3D3D3;
+    border-radius: 8px;
+    font-family: 'AirbnbCereal-Light';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: -0.005em;
+    color: #000000;
+}
+
+.compare-item__main-select>button,
+.compare-item__main-select>button>.filter-option>.filter-option-inner {
+    height: 60px;
+    line-height: 50px !important;
+}
+
+@media screen and (max-width: 1400px) {
+    .compare__item {
+        max-width: 100% !important;
+        width: 100%;
+    }
+    .compare-item__img {
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .compare__item {
+        margin-right: 10px !important;
+    }
+    
+    .compare-item__select {
+        width: 155px !important;
+    }
+
+    .compare-item__title {
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    .compare-item__subtitle {
+        font-size: 14px;
+        line-height: 19px;
+    }
+    .compare-item__list>li {
+        font-size: 9px;
+        line-height: 12px;
+    }
+    .compare-item__table-header {
+        font-size: 11px;
+        line-height: 14px;
+    }
+    .compare-body {
+        padding-top: 60px;
+    }
 }
