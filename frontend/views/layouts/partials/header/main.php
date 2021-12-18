@@ -4,14 +4,10 @@ use yii\helpers\Url;
 use frontend\widgets\UserFavorites;
 ?>
 
-<div class="header-logo">
-	<a class="" href="<?=Url::toRoute('/')?>">
-		<?=Yii::$app->params['settings']['site_title'];?>
-	</a>
-</div>
+<div class="header-logo"><a class="" href="<?=Url::toRoute('/')?>"><?=Yii::$app->params['settings']['site_title'];?></a></div>
 <div class="flex-grow-1 d-none d-xl-block">
 	<nav>
-		<ul class="d-none d-md-flex align-items-center justify-content-center mb-0">
+		<ul class="d-none d-md-flex align-items-center justify-content-center mb-0 p-0">
 			<li class="me-3"><a class="header__link header__link--active text-decoration-none" href="<?=Url::toRoute('/')?>">Home</a></li>
 			<li class="me-3"><a class="header__link text-decoration-none" href="#">Our policies</a></li>
 			<li class="me-3"><a class="header__link text-decoration-none" href="#">Learn & Plans</a></li>

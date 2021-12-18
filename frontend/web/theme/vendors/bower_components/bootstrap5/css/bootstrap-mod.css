@@ -39,6 +39,10 @@
   color: var(--bs-brand);
 }
 
+.text-color-white {
+  color: var(--bs-white);
+}
+
 .text-color-secondary {
   color: var(--bs-secondary);
 }
@@ -145,6 +149,31 @@
   line-height: 26px;
   letter-spacing: -0.008em;
   color: #000000;
+}
+
+.divider-wrapp {
+  overflow: hidden;
+}
+
+.add-to-favorite-btn {
+  height: 35px;
+  width: 35px;
+  top: 30px;
+  left: 30px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-to-favorite-btn>i.bi-heart-fill {
+  display: none;
+}
+
+.add-to-favorite-btn--active>i.bi-heart-fill {
+  display: block;
+  color: var(--bs-brand) !important;
+}
+.add-to-favorite-btn--active>i.bi-heart {
+  display: none;
 }
 
 body {
@@ -269,10 +298,22 @@ abbr[data-bs-original-title] {
   text-decoration-skip-ink: none;
 }
 
-address {
-  margin-bottom: 1rem;
+.address {
+  font-family: 'AirbnbCereal-Light';
   font-style: normal;
-  line-height: inherit;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 24px;
+  letter-spacing: -0.005em;
+  color: #5A5A5A;
+}
+
+
+@media screen and (max-width: 767px) {
+  .address {
+      font-size: 14px;
+      line-height: 140%;
+  }
 }
 
 ol,
@@ -3061,7 +3102,8 @@ textarea.form-control-lg {
 }
 
 .btn-primary-medium {
-  width: 180px;
+  width: 100%;
+  max-width: 180px;
   height: 50px;
   display: flex;
   align-items: center;

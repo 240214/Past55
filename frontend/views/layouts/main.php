@@ -13,10 +13,9 @@ use yii\helpers\VarDumper;
 use common\models\User;
 use common\models\SiteSettings;
 use yii\helpers\Url;
+use frontend\widgets\ContactUs;
 
 AppAsset::register($this);
-
-
 
 #$session = Yii::$app->session;
 #$city = $session->get('city');
@@ -56,6 +55,7 @@ $body_class = implode(' ', $body_class);
 		<?=$content?>
 		<!--<main id="site-main" class="site-main"></main>-->
 		
+		<?=ContactUs::widget();?>
 		<?=$this->render('footer');?>
 
 		<div id="js_loader" class="loader trans_me"><div class="page-loader__spinner"></div></div>
@@ -105,7 +105,7 @@ $body_class = implode(' ', $body_class);
 		<![endif]-->
 		<!-- IE9 Placeholder -->
 		<!--[if IE 9 ]>
-		<script src="<?= Yii::getAlias('@web') ?>/vendors/bower_components/jquery-placeholder/jquery.placeholder.min.js"></script>
+		<script src="<?=Yii::getAlias('@web');?>/vendors/bower_components/jquery-placeholder/jquery.placeholder.min.js"></script>
 		<![endif]-->
 		<?php $this->endBody();?>
 	</body>
