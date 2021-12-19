@@ -9,6 +9,7 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Url;
 use yii\helpers\VarDumper;
+use frontend\widgets\Image;
 
 $this->registerCssFile('@web/theme/css/home.css', ['depends' => [BootstrapAsset::className()]]);
 
@@ -26,20 +27,21 @@ $this->registerCssFile('@web/theme/css/home.css', ['depends' => [BootstrapAsset:
 				</label>
 			</div>
 			<div class="col-xl-7 col-12 d-none d-xl-flex justify-content-end ">
-				<img src="/theme/img/home/first-screen-home-bg.png" alt="" class="img-fluid first-screen-home__bg">
+				<?=Image::widget(['src' => '/theme/img/home/first-screen-home-bg.png', 'css_class' => 'img-fluid first-screen-home__bg']);?>
 			</div>
 		</div>
 	</div>
 </section>
 <section class="companies container">
-	<img src="/theme/img/home/first-screen-home-bg.png" alt="" class="img-fluid d-xl-none d-block mb-4">
+	<?=Image::widget(['src' => '/theme/img/home/first-screen-home-bg.png', 'css_class' => 'img-fluid first-screen-home__bg mb-4 m-auto d-none d-md-block d-lg-block d-xl-none']);?>
+	<?=Image::widget(['src' => '/theme/img/home/first-screen-home-bg-m.png', 'css_class' => 'img-fluid d-md-none d-block mb-4 m-auto']);?>
 	<h2 class="secondary-title text-center mb-5">More than 80,000+ companies trust GeorgiaCaring</h2>
 	<div class="d-flex justify-content-center align-items-center flex-wrap">
-		<img class="m-3" src="/theme/img/home/company-1.png" alt="company-logo">
-		<img class="m-3" src="/theme/img/home/company-2.png" alt="company-logo">
-		<img class="m-3" src="/theme/img/home/company-3.png" alt="company-logo">
-		<img class="m-3" src="/theme/img/home/company-4.png" alt="company-logo">
-		<img class="m-3" src="/theme/img/home/company-5.png" alt="company-logo">
+		<?=Image::widget(['src' => '/theme/img/home/company-1.svg', 'css_class' => 'm-3', 'alt' => 'company-logo']);?>
+		<?=Image::widget(['src' => '/theme/img/home/company-2.svg', 'css_class' => 'm-3', 'alt' => 'company-logo']);?>
+		<?=Image::widget(['src' => '/theme/img/home/company-3.svg', 'css_class' => 'm-3', 'alt' => 'company-logo']);?>
+		<?=Image::widget(['src' => '/theme/img/home/company-4.svg', 'css_class' => 'm-3', 'alt' => 'company-logo']);?>
+		<?=Image::widget(['src' => '/theme/img/home/company-5.svg', 'css_class' => 'm-3', 'alt' => 'company-logo']);?>
 	</div>
 </section>
 <section class="benefits">
@@ -48,38 +50,31 @@ $this->registerCssFile('@web/theme/css/home.css', ['depends' => [BootstrapAsset:
 		<div class="row">
 			<div class="col-xl-4 col-md-12 mb-2">
 				<div class="benefits-card d-flex flex-column">
-					<img src="/theme/img/home/benefit-card-icon-1.png" alt="benefit-icon">
+					<?=Image::widget(['src' => '/theme/img/home/benefit-card-icon-1.svg', 'css_class' => 'mt-3 mb-3', 'alt' => 'benefit-icon']);?>
 					<h4 class="benefit-card-title">See Pricing & Availability</h4>
-					<p class="benefit-card-content main-text-content flex-grow-1">Most other websites try to hide
-						pricing and availability in order to
-						get you on the phone. Our site offers full transparency in sharing this information in order to
-						save you time</p>
+					<p class="benefit-card-content main-text-content flex-grow-1">Most other websites try to hide pricing and availability in order to get you on the phone. Our site offers full transparency in sharing this information in order to save you time</p>
 					<a href="#" class="benefit-card-link text-decoration-none">Learn more</a>
 				</div>
 			</div>
 			<div class="col-xl-4 col-md-12 mb-2">
 				<div class="benefits-card d-flex flex-column">
-					<img src="/theme/img/home/benefit-card-icon-1.png" alt="benefit-icon">
+					<?=Image::widget(['src' => '/theme/img/home/benefit-card-icon-2.svg', 'css_class' => 'mt-3 mb-3', 'alt' => 'benefit-icon']);?>
 					<h4 class="benefit-card-title">Save Favorites & Compare</h4>
-					<p class="benefit-card-content main-text-content flex-grow-1">Save a list of communities and compare
-						amenities, care offered,
-						distances and location, and more in side by side comparisons.</p>
+					<p class="benefit-card-content main-text-content flex-grow-1">Save a list of communities and compare amenities, care offered, distances and location, and more in side by side comparisons.</p>
 					<a href="#" class="benefit-card-link text-decoration-none">Learn more</a>
 				</div>
 			</div>
 			<div class="col-xl-4 col-md-12 mb-2">
 				<div class="benefits-card d-flex flex-column">
-					<img src="/theme/img/home/benefit-card-icon-3.png" alt="benefit-icon">
+					<?=Image::widget(['src' => '/theme/img/home/benefit-card-icon-3.svg', 'css_class' => 'mt-3 mb-3', 'alt' => 'benefit-icon']);?>
 					<h4 class="benefit-card-title">See Nearby Places</h4>
-					<p class="benefit-card-content main-text-content flex-grow-1">Quickly see how far each community is
-						from relatives, hospitals,
-						pharmacies, parks, restaurants and more.</p>
+					<p class="benefit-card-content main-text-content flex-grow-1">Quickly see how far each community is from relatives, hospitals, pharmacies, parks, restaurants and more.</p>
 					<a href="#" class="benefit-card-link text-decoration-none">Learn more</a>
 				</div>
 			</div>
 		</div>
 	</div>
-	<img class="benefits__bg d-none d-xl-block" src="/theme/img/home/benefits-section-bg.png" alt="">
+	<?=Image::widget(['src' => '/theme/img/home/benefits-section-bg.svg', 'css_class' => 'benefits__bg d-none d-xl-block']);?>
 </section>
 <section class="location">
 	<div class="container location__header mb-8">
