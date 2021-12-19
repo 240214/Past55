@@ -84,51 +84,56 @@ $this->registerCssFile('@web/theme/css/home.css', ['depends' => [BootstrapAsset:
 	<div class="location__body py-6">
 		<div class="container">
 			<div class="row justify-content-center">
-				<div class="col-10">
-					<div
-							class="location-card row align-items-start justify-content-between p-25 rounded-8 bg-white mb-3">
-						<div class="col-xl-6 col-md-12 d-flex justify-content-center">
-							<img class="img-fluid" src="/theme/img/home/location-card-img-1.png" alt="">
+				<div class="col-12 max-w-1120">
+					<div class="location-card row align-items-center justify-content-between rounded-8 bg-white mb-3">
+						<div class="col-12 col-md-6 d-flex justify-content-center justify-content-sm-start">
+							<?=Image::widget(['src' => '/theme/img/home/location-card-img-1.jpg', 'css_class' => 'img-fluid left-md-round']);?>
 						</div>
-						<div class="col-xl-6 col-md-12">
-							<div class="location-card__location-name-box mt-65 text-color-primary">
-								<i class="zmdi zmdi-star me-1"></i>Northern Georgia
+						<div class="col-12 col-md-6 d-flex justify-content-center">
+							<div class="w-100 max-w-420">
+								<a href="<?=Url::toRoute(['property/index', 'slug' => 'ga']);?>" class="location-card__location-name-box mt-65 text-color-primary">
+									<i class="zmdi zmdi-star me-1"></i>Georgia
+								</a>
+								<ul class="location-card__list">
+									<li class="location-card__item"><a href="<?=Url::toRoute(['property/index', 'state' => 'Georgia', 'slug' => 'atlanta']);?>"><i class="zmdi zmdi-pin me-15"></i>Atlanta<i class="bi bi-arrow-right-short"></i></a></li>
+									<li class="location-card__item"><a href="<?=Url::toRoute(['property/index', 'state' => 'Georgia', 'slug' => 'roswell']);?>"><i class="zmdi zmdi-pin me-15"></i>Roswell<i class="bi bi-arrow-right-short"></i></a></li>
+									<li class="location-card__item"><a href="<?=Url::toRoute(['property/index', 'state' => 'Georgia', 'slug' => 'alpharetta']);?>"><i class="zmdi zmdi-pin me-15"></i>Alpharetta<i class="bi bi-arrow-right-short"></i></a></li>
+								</ul>
 							</div>
-							<ul class="location-card__list">
-								<li class="location-card__item"><a href="#"><i class="zmdi zmdi-pin me-15"></i>Atlanta<i class="bi bi-arrow-right-short"></i></a></li>
-								<li class="location-card__item"><a href="#"><i class="zmdi zmdi-pin me-15"></i>Roswell<i class="bi bi-arrow-right-short"></i></a></li>
-								<li class="location-card__item"><a href="#"><i class="zmdi zmdi-pin me-15"></i>Alpharetta<i class="bi bi-arrow-right-short"></i></a></li>
-							</ul>
 						</div>
 					</div>
-					<div class="location-card row flex-row-reverse align-items-start justify-content-between p-25 rounded-8 bg-white mb-3">
-						<div class="col-xl-6 col-md-12 d-flex justify-content-center">
-							<img class="img-fluid" src="/theme/img/home/location-card-img-2.png" alt="">
+					<div class="location-card row flex-row-reverse align-items-center justify-content-between rounded-8 bg-white mb-3">
+						<div class="col-12 col-md-6 d-flex justify-content-center justify-content-sm-end">
+							<?=Image::widget(['src' => '/theme/img/home/location-card-img-2.jpg', 'css_class' => 'img-fluid']);?>
 						</div>
-						<div class="col-xl-6 col-md-12">
-							<div class="location-card__location-name-box mt-65 text-color-secondary">
-								<i class="zmdi zmdi-star me-1"></i>Middle Georgia
+						<div class="col-12 col-md-6 d-flex justify-content-center">
+							<div class="w-100 max-w-420">
+								<a href="<?=Url::toRoute(['property/index', 'slug' => 'fl']);?>" class="location-card__location-name-box mt-65 text-color-secondary">
+									<i class="zmdi zmdi-star me-1"></i>Florida
+								</a>
+								<ul class="location-card__list">
+									<li class="location-card__item"><a href="<?=Url::toRoute(['property/index', 'state' => 'Florida', 'slug' => 'miami']);?>"><i class="zmdi zmdi-pin me-15"></i>Miami<i class="bi bi-arrow-right-short"></i></a></li>
+									<li class="location-card__item"><a href="<?=Url::toRoute(['property/index', 'state' => 'Florida', 'slug' => 'orlando']);?>"><i class="zmdi zmdi-pin me-15"></i>Orlando<i class="bi bi-arrow-right-short"></i></a></li>
+									<li class="location-card__item"><a href="<?=Url::toRoute(['property/index', 'state' => 'Florida', 'slug' => 'tampa']);?>"><i class="zmdi zmdi-pin me-15"></i>Tampa<i class="bi bi-arrow-right-short"></i></a></li>
+								</ul>
 							</div>
-							<ul class="location-card__list">
-								<li class="location-card__item"><a href="#"><i class="zmdi zmdi-pin me-15"></i>Miami<i class="bi bi-arrow-right-short"></i></a></li>
-								<li class="location-card__item"><a href="#"><i class="zmdi zmdi-pin me-15"></i>Orlando<i class="bi bi-arrow-right-short"></i></a></li>
-								<li class="location-card__item"><a href="#"><i class="zmdi zmdi-pin me-15"></i>Tampa<i class="bi bi-arrow-right-short"></i></a></li>
-							</ul>
 						</div>
 					</div>
-					<div class="location-card row align-items-start justify-content-between p-25 rounded-8 bg-white">
-						<div class="col-xl-6 col-md-12 d-flex justify-content-center">
-							<img class="img-fluid" src="/theme/img/home/location-card-img-3.png" alt="">
+					<div class="location-card row align-items-center justify-content-between rounded-8 bg-white">
+						<div class="col-12 col-md-6 d-flex justify-content-center justify-content-sm-start">
+							<?=Image::widget(['src' => '/theme/img/home/location-card-img-3.jpg', 'css_class' => 'img-fluid']);?>
 						</div>
-						<div class="col-xl-6 col-md-12">
-							<div class="location-card__location-name-box mt-65 text-color-green">
-								<i class="zmdi zmdi-star me-1"></i>South Georgia
+						<div class="col-12 col-md-6 d-flex justify-content-center">
+							<div class="w-100 max-w-420">
+								<a href="<?=Url::toRoute(['property/index', 'slug' => 'sc']);?>" class="location-card__location-name-box mt-65 text-color-green">
+									<i class="zmdi zmdi-star me-1"></i>South Carolina
+								</a>
+								<ul class="location-card__list">
+									<li class="location-card__item"><a href="<?=Url::toRoute(['property/index', 'state' => 'South Carolina', 'slug' => 'greenville']);?>"><i class="zmdi zmdi-pin me-15"></i>Greenville<i class="bi bi-arrow-right-short"></i></a></li>
+									<li class="location-card__item"><a href="<?=Url::toRoute(['property/index', 'state' => 'South Carolina', 'slug' => 'charleston']);?>"><i class="zmdi zmdi-pin me-15"></i>Charleston<i class="bi bi-arrow-right-short"></i></a></li>
+									<li class="location-card__item"><a href="<?=Url::toRoute(['property/index', 'state' => 'South Carolina', 'slug' => 'columbia']);?>"><i class="zmdi zmdi-pin me-15"></i>Coloumbia<i class="bi bi-arrow-right-short"></i></a></li>
+								</ul>
 							</div>
-							<ul class="location-card__list">
-								<li class="location-card__item"><a href="#"><i class="zmdi zmdi-pin me-15"></i>Greenville<i class="bi bi-arrow-right-short"></i></a></li>
-								<li class="location-card__item"><a href="#"><i class="zmdi zmdi-pin me-15"></i>Charleston<i class="bi bi-arrow-right-short"></i></a></li>
-								<li class="location-card__item"><a href="#"><i class="zmdi zmdi-pin me-15"></i>Coloumbia<i class="bi bi-arrow-right-short"></i></a></li>
-							</ul>
 						</div>
 					</div>
 				</div>
@@ -143,67 +148,6 @@ $this->registerCssFile('@web/theme/css/home.css', ['depends' => [BootstrapAsset:
 		<a href="#" class="btn-primary-medium contact-us__btn">Contact Us</a>
 	</div>
 	<img class="contact-us__bg d-none d-md-block" src="/theme/img/home/contact-us-section-bg.png" alt="">
-</section>
-
-<section class="section living-communities bg-purple">
-	<div class="container">
-		<div class="row align-items-center">
-			<div class="col-md-6">
-				<h1 class="title">Senior Living Communities</h1>
-				<p class="subtitle">The only website you will need when searching for a place to live.</p>
-			</div>
-			<div class="col-md-6">
-				<?=Yii::$app->Helpers->getImage(['src' => '/uploads/bg_4-4.svg', 'alt' => 'Senior Living Communities', 'from_cdn' => false, 'lazyload' => true, 'class' => 'mt-5 mt-md-0']);?>
-			</div>
-		</div>
-	</div>
-</section>
-<section class="section living-locations">
-	<div class="container">
-		<div class="row mb-5">
-			<div class="col-md-6">
-				<h2 class="title">Senior Living Locations</h2>
-			</div>
-			<div class="col-md-6">
-				<p class="subtitle">Our newsletter features articles from Richard, Gilfoyle and Dinesh, with occasional guest features from our investors and supporters.</p>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-4">
-				<div class="card container">
-					<h2 class="card-header-title"><a href="<?=Url::toRoute(['property/index', 'slug' => 'ga']);?>">Georgia</a></h2>
-					<?=Yii::$app->Helpers->getImage(['src' => '/uploads/bg_4-3.svg', 'alt' => 'Senior Living Communities', 'from_cdn' => false, 'lazyload' => true]);?>
-					<ul class="menu-list">
-						<li><a href="<?=Url::toRoute(['property/index', 'state' => 'Georgia', 'slug' => 'atlanta']);?>">Atlanta</a></li>
-						<li><a href="<?=Url::toRoute(['property/index', 'state' => 'Georgia', 'slug' => 'roswell']);?>">Roswell</a></li>
-						<li><a href="<?=Url::toRoute(['property/index', 'state' => 'Georgia', 'slug' => 'marietta']);?>">Marietta</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="card container">
-					<h2 class="card-header-title"><a href="<?=Url::toRoute(['property/index', 'slug' => 'fl']);?>">Florida</a></h2>
-					<?=Yii::$app->Helpers->getImage(['src' => '/uploads/bg_4-3.svg', 'alt' => 'Senior Living Communities', 'from_cdn' => false, 'lazyload' => true]);?>
-					<ul class="menu-list">
-						<li><a href="<?=Url::toRoute(['property/index', 'state' => 'Florida', 'slug' => 'miami']);?>">Miami</a></li>
-						<li><a href="<?=Url::toRoute(['property/index', 'state' => 'Florida', 'slug' => 'orlando']);?>">Orlando</a></li>
-						<li><a href="<?=Url::toRoute(['property/index', 'state' => 'Florida', 'slug' => 'tampa']);?>">Tampa</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="card container">
-					<h2 class="card-header-title"><a href="<?=Url::toRoute(['property/index', 'slug' => 'sc']);?>">South Carolina</a></h2>
-					<?=Yii::$app->Helpers->getImage(['src' => '/uploads/bg_4-3.svg', 'alt' => 'Senior Living Communities', 'from_cdn' => false, 'lazyload' => true]);?>
-					<ul class="menu-list">
-						<li><a href="<?=Url::toRoute(['property/index', 'state' => 'South Carolina', 'slug' => 'greenville']);?>">Greenville</a></li>
-						<li><a href="<?=Url::toRoute(['property/index', 'state' => 'South Carolina', 'slug' => 'charleston']);?>">Charleston</a></li>
-						<li><a href="<?=Url::toRoute(['property/index', 'state' => 'South Carolina', 'slug' => 'columbia']);?>">Columbia</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
 </section>
 
 

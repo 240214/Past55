@@ -176,6 +176,70 @@
   display: none;
 }
 
+.location-btn {
+  width: 100%;
+  max-width: 165px;
+  height: 50px;
+  border: 1px solid #D7D7D7;
+  border-radius: 5px;
+  font-family: 'AirbnbCereal-Light';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 26px;
+  letter-spacing: -0.005em;
+  color: #7D7D7D;
+  transition: all ease-in .15s;
+  padding: 0 10px;
+}
+
+.location-btn:hover {
+    background-color: var(--bs-brand) !important;
+    color: #ffffff;
+    transition: all ease-in .15s;
+}
+
+.location-btn>.icon-wrapp--tabs {
+    transition: all ease-in .15s;
+}
+
+.location-btn:hover>.icon-wrapp--tabs {
+    background-color: #FFB681;
+    transition: all ease-in .15s;
+}
+
+.location-btn>.icon-wrapp--tabs>i {
+    transition: all ease-in .15s;
+}
+
+.location-btn:hover>.icon-wrapp--tabs>i {
+    color: #ffffff;
+    transition: all ease-in .15s;
+}
+
+@media screen and (max-width: 767px) {
+  .location-btn {
+      width: 95px;
+      height: 35px;
+      font-size: 15px;
+      line-height: 140%;
+  }
+}
+
+.icon-wrapp {
+  width: 40px;
+  height: 40px;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 17px rgba(22, 30, 52, 0.07);
+  border-radius: 5px;
+  padding-top: 3px;
+}
+
+.icon-wrapp--tabs {
+    width: 30px;
+    height: 30px;
+}
+
 body {
   margin: 0;
   font-family: var(--bs-font-sans-serif);
@@ -11107,3 +11171,6 @@ textarea.form-control-lg {
 }
 
 /*# sourceMappingURL=bootstrap.css.map */
+
+.max-w-420 {max-width: 420px;}
+.max-w-1120 {max-width: 1120px;}
