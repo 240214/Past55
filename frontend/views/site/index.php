@@ -87,7 +87,7 @@ $this->registerCssFile('@web/theme/css/home.css', ['depends' => [BootstrapAsset:
 				<div class="col-12 max-w-1120">
 					<div class="location-card row align-items-center justify-content-between rounded-8 bg-white mb-3">
 						<div class="col-12 col-md-6 d-flex justify-content-center justify-content-sm-start">
-							<?=Image::widget(['src' => '/theme/img/home/location-card-img-1.jpg', 'css_class' => 'img-fluid left-md-round']);?>
+							<?=Image::widget(['src' => '/theme/img/home/location-card-img-1.jpg', 'css_class' => 'img-fluid rounded-10 rounded-10-md-left w-100 w-sm-auto']);?>
 						</div>
 						<div class="col-12 col-md-6 d-flex justify-content-center">
 							<div class="w-100 max-w-420">
@@ -104,7 +104,7 @@ $this->registerCssFile('@web/theme/css/home.css', ['depends' => [BootstrapAsset:
 					</div>
 					<div class="location-card row flex-row-reverse align-items-center justify-content-between rounded-8 bg-white mb-3">
 						<div class="col-12 col-md-6 d-flex justify-content-center justify-content-sm-end">
-							<?=Image::widget(['src' => '/theme/img/home/location-card-img-2.jpg', 'css_class' => 'img-fluid']);?>
+							<?=Image::widget(['src' => '/theme/img/home/location-card-img-2.jpg', 'css_class' => 'img-fluid rounded-10 rounded-10-md-right']);?>
 						</div>
 						<div class="col-12 col-md-6 d-flex justify-content-center">
 							<div class="w-100 max-w-420">
@@ -121,7 +121,7 @@ $this->registerCssFile('@web/theme/css/home.css', ['depends' => [BootstrapAsset:
 					</div>
 					<div class="location-card row align-items-center justify-content-between rounded-8 bg-white">
 						<div class="col-12 col-md-6 d-flex justify-content-center justify-content-sm-start">
-							<?=Image::widget(['src' => '/theme/img/home/location-card-img-3.jpg', 'css_class' => 'img-fluid']);?>
+							<?=Image::widget(['src' => '/theme/img/home/location-card-img-3.jpg', 'css_class' => 'img-fluid rounded-10 rounded-10-md-left']);?>
 						</div>
 						<div class="col-12 col-md-6 d-flex justify-content-center">
 							<div class="w-100 max-w-420">
@@ -140,14 +140,6 @@ $this->registerCssFile('@web/theme/css/home.css', ['depends' => [BootstrapAsset:
 			</div>
 		</div>
 	</div>
-</section>
-<section class="contact-us text-center">
-	<div class="container">
-		<div class="contact-us__subtitle mb-2">We <i class="bi bi-heart-fill text-color-primary"></i> Love to Help</div>
-		<h1 class="main-title mb-3">Are you looking for senior<br /> living <span class="title-decor-line">community?</span></h1>
-		<a href="#" class="btn-primary-medium contact-us__btn">Contact Us</a>
-	</div>
-	<img class="contact-us__bg d-none d-md-block" src="/theme/img/home/contact-us-section-bg.png" alt="">
 </section>
 
 

@@ -7751,6 +7751,14 @@ textarea.form-control-lg {
   border-radius: 8px;
 }
 
+.rounded-10 {border-radius: 10px;}
+.rounded-10-left {border-radius: 10px 0 0 10px;}
+.rounded-10-right {border-radius: 0 10px 10px 0;}
+@media all and (min-width: 768px){
+  .rounded-10-md-left {border-radius: 10px 0 0 10px;}
+  .rounded-10-md-right {border-radius: 0 10px 10px 0;}
+}
+
 .rounded-circle {
   border-radius: 50% !important;
 }
@@ -11174,3 +11182,7 @@ textarea.form-control-lg {
 
 .max-w-420 {max-width: 420px;}
 .max-w-1120 {max-width: 1120px;}
+
+@media all and (min-width: 768px){
+  .w-sm-auto {width: auto !important;}
+}

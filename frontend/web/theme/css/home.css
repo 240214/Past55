@@ -204,7 +204,7 @@
 	background-color: #eefff7;
 }
 
-@media screen and (max-width: 1199px) {
+@media all and (max-width: 1199px) {
 	.benefits-card {
 		height: auto;
 		padding: 20px;
@@ -215,9 +215,6 @@
 		line-height: 19px;
 	}
 
-	div.location-card {
-		padding: 10px;
-	}
 
 	.header-home__content {
 		height: auto;
@@ -256,4 +253,7 @@
 		padding-left: 15px !important;
 		padding-right: 15px !important;
 	}
+}
+@media all and (max-width: 767px){
+	.location-card {padding: 15px 3px;}
 }
