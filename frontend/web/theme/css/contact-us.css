@@ -1,0 +1,27 @@
+.contact-us {
+    position: relative;
+    padding: 100px 0 75px 0;
+}
+
+.contact-us__subtitle {
+    font-family: 'Roboto';
+    font-size: 21px;
+    line-height: 125%;
+    color: #1F3A53;
+}
+
+/*.contact-us__subtitle>span:after {
+    content: url("../images/like-icon.png");
+    display: inline-block;
+    transform: translateY(3px);
+}*/
+
+.contact-us__btn {
+    margin: 0 auto;
+}
+
+.contact-us__bg {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}

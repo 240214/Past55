@@ -8,9 +8,9 @@
 }
 
 .individual-listing__subtitle {
-    font-family: 'AirbnbCereal-Medium'; 
+    font-family: 'Airbnb Cereal App';
     font-style: normal;
-    font-weight: normal;
+    font-weight: 500;
     font-size: 16px;
     line-height: 24px;
     color: #484848;
@@ -28,9 +28,9 @@
     box-sizing: border-box;
     border-radius: 5px;
     background-color: #ffffff;
-    font-family: 'AirbnbCereal-Light'; 
+    font-family: 'Airbnb Cereal App';
     font-style: normal;
-    font-weight: normal;
+    font-weight: 300;
     font-size: 16px;
     line-height: 21px;
     color: #000000;
@@ -42,7 +42,7 @@
 }
 
 .individual-listing__pricing-title {
-    font-family: 'AirbnbCereal-Medium'; 
+    font-family: 'Airbnb Cereal App';
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
@@ -90,9 +90,9 @@
 }
 
 .contract-info-list>li>a {
-    font-family: 'AirbnbCereal-Light'; 
+    font-family: 'Airbnb Cereal App';
     font-style: normal;
-    font-weight: normal;
+    font-weight: 300;
     font-size: 18px;
     line-height: 26px;
     letter-spacing: -0.01em;
@@ -128,9 +128,9 @@
 
 .contract-info__text,
 .similar-offers__text {
-    font-family: 'AirbnbCereal-Light'; 
+    font-family: 'Airbnb Cereal App';
     font-style: normal;
-    font-weight: normal;
+    font-weight: 300;
     font-size: 16px;
     line-height: 26px;
     letter-spacing: -0.005em;
@@ -138,9 +138,9 @@
 }
 
 .similar-offers__adress {
-    font-family: 'AirbnbCereal-Light'; 
+    font-family: 'Airbnb Cereal App';
     font-style: normal;
-    font-weight: normal;
+    font-weight: 300;
     font-size: 17px;
     line-height: 135%;
     letter-spacing: -0.005em;
@@ -172,7 +172,7 @@
     border: 1px solid #D3D3D3;
     border-radius: 8px;
     background-color: #ffffff;
-    font-family: 'AirbnbCereal-Light'; 
+    font-family: 'Airbnb Cereal App';
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -196,9 +196,9 @@
 }
 
 .elmcroft__address {
-    font-family: 'AirbnbCereal-Light'; 
+    font-family: 'Airbnb Cereal App';
     font-style: normal;
-    font-weight: normal;
+    font-weight: 300;
     font-size: 18px;
     line-height: 26px;
     letter-spacing: -0.01em;
@@ -216,7 +216,7 @@
 .tabs__header {
     border-bottom: 1px solid #000;
     height: 36px;
-    font-family: 'AirbnbCereal-Medium'; 
+    font-family: 'Airbnb Cereal App';
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -238,7 +238,7 @@
   }
   
   .tabs__link {
-    font-family: 'AirbnbCereal-Medium'; 
+    font-family: 'Airbnb Cereal App';
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
