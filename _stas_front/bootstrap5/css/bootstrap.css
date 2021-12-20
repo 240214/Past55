@@ -27,6 +27,7 @@
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
+  --bs-black: #212529;
   --bs-brand: #6D459C;
   --bs-secondary: #F88430;
   --bs-rating-star: #FFB681;
@@ -41,6 +42,10 @@
 
 .text-color-white {
   color: var(--bs-white);
+}
+
+.main-text-content.text-color-black {
+  color: var(--bs-black);
 }
 
 .text-color-secondary {
@@ -7192,6 +7197,10 @@ textarea.form-control-lg {
 }
 
 .mb-8 {
+  margin-bottom: 80px !important;
+}
+
+.mb-9 {
   margin-bottom: 80px !important;
 }
 
