@@ -36,9 +36,9 @@
 	box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.1);
 	border: none;
 	padding: 20px 135px 20px 20px;
-	font-family: 'AirbnbCereal-Light';
+	font-family: 'Airbnb Cereal App';
 	font-style: normal;
-	font-weight: normal;
+	font-weight: 300;
 	font-size: 16px;
 	line-height: 25px;
 }
@@ -144,7 +144,7 @@
 .location-card__location-name-box {
 	font-family: 'AirbnbCereal-Medium';
 	padding: 10px 15px;
-	background: #f2eeff;
+	background-color: #f2eeff;
 	border-radius: 5px;
 	display: inline-block;
     text-decoration: none;
@@ -160,7 +160,7 @@
 	position: relative;
 	display: flex;
 	align-items: center;
-	height: 70px;
+	padding: 20px 0;
 	border-bottom: 1px solid #bbbbbb;
 }
 
@@ -206,8 +206,7 @@
 
 @media all and (max-width: 1199px) {
 	.benefits-card {
-		height: auto;
-		padding: 20px;
+		/*padding: 20px;*/
 	}
 
 	.location-card__item > a {
@@ -242,18 +241,28 @@
 		line-height: 115%;
 	}
 
-	.header-home {
+	/*.header-home {
 		margin-top: 0 !important;
 		padding: 0 0 0 0 !important;
 		background: none !important;
 		box-shadow: none !important;
-	}
+	}*/
 
 	.footer__bottom-box {
 		padding-left: 15px !important;
 		padding-right: 15px !important;
 	}
 }
+@media all and (max-width: 991px){
+	.location-card__item {padding: 15px 0;}
+	.location-card__location-name-box {padding: 1px 10px;}
+	.location-card__location-name-box .zmdi {margin-right: 5px !important;}
+}
 @media all and (max-width: 767px){
-	.location-card {padding: 15px 3px;}
+	.benefits-card {height: auto;}
+	.location-card {padding: 15px 3px; position: relative;}
+	.location-card__location-name-box {position: absolute; z-index: 1; top: 30px; left: 30px; background-color: #fff; font-size: 14px; padding: 1px 10px;}
+}
+@media all and (max-width: 575px){
+	.location__body {padding: 0 15px;}
 }

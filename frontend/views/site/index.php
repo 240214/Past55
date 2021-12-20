@@ -17,7 +17,7 @@ $this->registerCssFile('@web/theme/css/home.css', ['depends' => [BootstrapAsset:
 <section class="first-screen-home">
 	<div class="container">
 		<div class="row justify-content-between align-items-center header-home__content">
-			<div class="col-xl-5 col-12 mb-35">
+			<div class="col-12 col-md-5 mb-35">
 				<h1 class="first-screen-home__title">Senior living<br /> <span class="title-decor-line">communities</span> <br /> in Georgia.</h1>
 				<p class="main-text-content">See pricing, availability, care offered, nearby places and more.</p>
 				<label class="header-home__search-wrapp">
@@ -26,14 +26,14 @@ $this->registerCssFile('@web/theme/css/home.css', ['depends' => [BootstrapAsset:
 					<button class="header-home__search-btn btn-primary-small">Search</button>
 				</label>
 			</div>
-			<div class="col-xl-7 col-12 d-none d-xl-flex justify-content-end ">
-				<?=Image::widget(['src' => '/theme/img/home/first-screen-home-bg.png', 'css_class' => 'img-fluid first-screen-home__bg']);?>
+			<div class="col-12 col-md-7 d-md-flex justify-content-end">
+				<?=Image::widget(['src' => '/theme/img/home/first-screen-home-bg.png', 'css_class' => 'img-fluid first-screen-home__bg d-none d-lg-block']);?>
 			</div>
 		</div>
 	</div>
 </section>
 <section class="companies container">
-	<?=Image::widget(['src' => '/theme/img/home/first-screen-home-bg.png', 'css_class' => 'img-fluid first-screen-home__bg mb-4 m-auto d-none d-md-block d-lg-block d-xl-none']);?>
+	<?=Image::widget(['src' => '/theme/img/home/first-screen-home-bg.png', 'css_class' => 'img-fluid first-screen-home__bg mb-4 m-auto d-none d-md-block d-lg-none d-xl-none']);?>
 	<?=Image::widget(['src' => '/theme/img/home/first-screen-home-bg-m.png', 'css_class' => 'img-fluid d-md-none d-block mb-4 m-auto']);?>
 	<h2 class="secondary-title text-center mb-5">More than 80,000+ companies trust GeorgiaCaring</h2>
 	<div class="d-flex justify-content-center align-items-center flex-wrap">
@@ -48,25 +48,25 @@ $this->registerCssFile('@web/theme/css/home.css', ['depends' => [BootstrapAsset:
 	<div class="container">
 		<h1 class="main-title text-center mb-5">We spread care to provide<br /> quality life</h1>
 		<div class="row">
-			<div class="col-xl-4 col-md-12 mb-2">
+			<div class="col-12 col-md-4 mb-2">
 				<div class="benefits-card d-flex flex-column">
-					<?=Image::widget(['src' => '/theme/img/home/benefit-card-icon-1.svg', 'css_class' => 'mt-3 mb-3', 'alt' => 'benefit-icon']);?>
+					<?=Image::widget(['src' => '/theme/img/home/benefit-card-icon-1.svg', 'css_class' => 'mt-2 mt-lg-3 mb-3', 'alt' => 'benefit-icon']);?>
 					<h4 class="benefit-card-title">See Pricing & Availability</h4>
 					<p class="benefit-card-content main-text-content flex-grow-1">Most other websites try to hide pricing and availability in order to get you on the phone. Our site offers full transparency in sharing this information in order to save you time</p>
 					<a href="#" class="benefit-card-link text-decoration-none">Learn more</a>
 				</div>
 			</div>
-			<div class="col-xl-4 col-md-12 mb-2">
+			<div class="col-12 col-md-4 mb-2">
 				<div class="benefits-card d-flex flex-column">
-					<?=Image::widget(['src' => '/theme/img/home/benefit-card-icon-2.svg', 'css_class' => 'mt-3 mb-3', 'alt' => 'benefit-icon']);?>
+					<?=Image::widget(['src' => '/theme/img/home/benefit-card-icon-2.svg', 'css_class' => 'mt-2 mt-lg-3 mb-3', 'alt' => 'benefit-icon']);?>
 					<h4 class="benefit-card-title">Save Favorites & Compare</h4>
 					<p class="benefit-card-content main-text-content flex-grow-1">Save a list of communities and compare amenities, care offered, distances and location, and more in side by side comparisons.</p>
 					<a href="#" class="benefit-card-link text-decoration-none">Learn more</a>
 				</div>
 			</div>
-			<div class="col-xl-4 col-md-12 mb-2">
+			<div class="col-12 col-md-4 mb-2">
 				<div class="benefits-card d-flex flex-column">
-					<?=Image::widget(['src' => '/theme/img/home/benefit-card-icon-3.svg', 'css_class' => 'mt-3 mb-3', 'alt' => 'benefit-icon']);?>
+					<?=Image::widget(['src' => '/theme/img/home/benefit-card-icon-3.svg', 'css_class' => 'mt-2 mt-lg-3 mb-3', 'alt' => 'benefit-icon']);?>
 					<h4 class="benefit-card-title">See Nearby Places</h4>
 					<p class="benefit-card-content main-text-content flex-grow-1">Quickly see how far each community is from relatives, hospitals, pharmacies, parks, restaurants and more.</p>
 					<a href="#" class="benefit-card-link text-decoration-none">Learn more</a>
@@ -90,7 +90,7 @@ $this->registerCssFile('@web/theme/css/home.css', ['depends' => [BootstrapAsset:
 							<?=Image::widget(['src' => '/theme/img/home/location-card-img-1.jpg', 'css_class' => 'img-fluid rounded-10 rounded-10-md-left w-100 w-sm-auto']);?>
 						</div>
 						<div class="col-12 col-md-6 d-flex justify-content-center">
-							<div class="w-100 max-w-420">
+							<div class="w-100 max-w-420-sm">
 								<a href="<?=Url::toRoute(['property/index', 'slug' => 'ga']);?>" class="location-card__location-name-box mt-65 text-color-primary">
 									<i class="zmdi zmdi-star me-1"></i>Georgia
 								</a>
@@ -104,10 +104,10 @@ $this->registerCssFile('@web/theme/css/home.css', ['depends' => [BootstrapAsset:
 					</div>
 					<div class="location-card row flex-row-reverse align-items-center justify-content-between rounded-8 bg-white mb-3">
 						<div class="col-12 col-md-6 d-flex justify-content-center justify-content-sm-end">
-							<?=Image::widget(['src' => '/theme/img/home/location-card-img-2.jpg', 'css_class' => 'img-fluid rounded-10 rounded-10-md-right']);?>
+							<?=Image::widget(['src' => '/theme/img/home/location-card-img-2.jpg', 'css_class' => 'img-fluid rounded-10 rounded-10-md-right w-100 w-sm-auto']);?>
 						</div>
 						<div class="col-12 col-md-6 d-flex justify-content-center">
-							<div class="w-100 max-w-420">
+							<div class="w-100 max-w-420-sm">
 								<a href="<?=Url::toRoute(['property/index', 'slug' => 'fl']);?>" class="location-card__location-name-box mt-65 text-color-secondary">
 									<i class="zmdi zmdi-star me-1"></i>Florida
 								</a>
@@ -121,10 +121,10 @@ $this->registerCssFile('@web/theme/css/home.css', ['depends' => [BootstrapAsset:
 					</div>
 					<div class="location-card row align-items-center justify-content-between rounded-8 bg-white">
 						<div class="col-12 col-md-6 d-flex justify-content-center justify-content-sm-start">
-							<?=Image::widget(['src' => '/theme/img/home/location-card-img-3.jpg', 'css_class' => 'img-fluid rounded-10 rounded-10-md-left']);?>
+							<?=Image::widget(['src' => '/theme/img/home/location-card-img-3.jpg', 'css_class' => 'img-fluid rounded-10 rounded-10-md-left w-100 w-sm-auto']);?>
 						</div>
 						<div class="col-12 col-md-6 d-flex justify-content-center">
-							<div class="w-100 max-w-420">
+							<div class="w-100 max-w-420-sm">
 								<a href="<?=Url::toRoute(['property/index', 'slug' => 'sc']);?>" class="location-card__location-name-box mt-65 text-color-green">
 									<i class="zmdi zmdi-star me-1"></i>South Carolina
 								</a>
