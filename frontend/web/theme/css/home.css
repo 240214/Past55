@@ -107,7 +107,7 @@
 }
 
 .benefit-card-link {
-	font-family: 'AirbnbCereal-Medium';
+	font-family: 'Airbnb Cereal App';
 	font-style: normal;
 	font-weight: 500;
 	font-size: 16px;
@@ -142,7 +142,8 @@
 }
 
 .location-card__location-name-box {
-	font-family: 'AirbnbCereal-Medium';
+	font-family: 'Airbnb Cereal App';
+	font-weight: 500;
 	padding: 10px 15px;
 	background-color: #f2eeff;
 	border-radius: 5px;

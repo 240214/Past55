@@ -36,9 +36,9 @@ position: relative;
     box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.1);
     border: none;
     padding: 20px 135px 20px 20px;
-    font-family: 'AirbnbCereal-Light';
+    font-family: 'Airbnb Cereal App';
     font-style: normal;
-    font-weight: normal;
+    font-weight: 300;
     font-size: 16px;
     line-height: 25px;
 }
@@ -97,7 +97,7 @@ position: relative;
 }
 
 .benefit-card-link {
-    font-family: 'AirbnbCereal-Medium';
+    font-family: 'Airbnb Cereal App';
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -130,7 +130,8 @@ position: relative;
 }
 
 .location-card__location-name-box {
-    font-family: 'AirbnbCereal-Medium';
+    font-family: 'Airbnb Cereal App';
+    font-weight: 500;
     padding: 10px 15px;
     background: #F2EEFF;
     border-radius: 5px;

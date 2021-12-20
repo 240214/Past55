@@ -1,5 +1,5 @@
 .header__link,
-.header-home__tel {font-family: 'AirbnbCereal-Medium'; font-style: normal;}
+.header-home__tel {font-family: 'Airbnb Cereal App'; font-style: normal;}
 .header-home__favorite-box {font-family: 'Airbnb Cereal App'; font-style: normal; font-weight: 300;}
 
 .site-header {margin: 70px auto 0; position: absolute; z-index: 1; left: 0; right: 0;}
@@ -7,7 +7,7 @@
 .header-home__menu-list {display: flex; align-items: center; margin-bottom: 0;}
 .header-home__menu-item {margin-right: 30px;}
 .header-home__menu-item:last-child {margin-right: 0;}
-.header__link {font-weight: normal; font-size: 16px; line-height: 25px; color: #4e4e4e;}
+.header__link {font-weight: 300; font-size: 16px; line-height: 25px; color: #4e4e4e;}
 .header__link:hover {color: var(--bs-brand);}
 .header__link--active {color: var(--bs-brand); position: relative;}
 .header__link--active:after {content: ""; width: 10px; height: 2px; background: #ffa05b; border-radius: 1px; position: absolute; bottom: -5px; left: 0; right: 0; margin: auto;}

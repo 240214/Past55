@@ -29,9 +29,9 @@
 }
 
 .compare-item__text {
-    font-family: 'AirbnbCereal-Light';
+    font-family: 'Airbnb Cereal App';
     font-style: normal;
-    font-weight: normal;
+    font-weight: 300;
     font-size: 14px;
     line-height: 40px;
     letter-spacing: -0.005em;
@@ -49,9 +49,9 @@
 
 .compare-item__list>li {
     min-height: 30px;
-    font-family: 'AirbnbCereal-Light';
+    font-family: 'Airbnb Cereal App';
     font-style: normal;
-    font-weight: normal;
+    font-weight: 300;
     font-size: 13px;
     line-height: 18px;
     letter-spacing: -0.005em;
@@ -70,7 +70,7 @@
 }
 
 .compare-item__table-header {
-    font-family: 'AirbnbCereal-Medium';
+    font-family: 'Airbnb Cereal App';
     font-style: normal;
     font-weight: 500;
     font-size: 17px;
@@ -112,9 +112,9 @@
     height: 60px;
     border: 1px solid #D3D3D3;
     border-radius: 8px;
-    font-family: 'AirbnbCereal-Light';
+    font-family: 'Airbnb Cereal App';
     font-style: normal;
-    font-weight: normal;
+    font-weight: 300;
     font-size: 18px;
     line-height: 25px;
     letter-spacing: -0.005em;
