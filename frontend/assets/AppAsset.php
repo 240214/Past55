@@ -55,6 +55,7 @@ class AppAsset extends AssetBundle {
 	
 	    // Theme
         #'theme/css/main.css?=4',
+        'theme/css/common.css',
         'theme/css/header.css',
         'theme/css/footer.css',
         #'css/site.css',

@@ -2,9 +2,11 @@
 
 use frontend\models\PasswordResetRequestForm;
 use yii\bootstrap\ActiveForm;
+use yii\bootstrap\BootstrapAsset;
 use yii\helpers\Url;
 
-$reset = new PasswordResetRequestForm();
+#$reset = new PasswordResetRequestForm();
+#$this->registerCssFile('@web/theme/css/main.css', ['depends' => [BootstrapAsset::className()]]);
 
 ?>
 <header id="header" class="container-fluid container-xl site-header">

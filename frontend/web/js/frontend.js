@@ -103,7 +103,7 @@ $(function(){
 			this.vars.csrf_param = $('meta[name="csrf-param"]').attr('content');
 			this.vars.csrf_token = $('meta[name="csrf-token"]').attr('content');
 
-			this.initEvents();
+			this.Core.initEvents();
 			this.Common.initLazyLoad();
 			this.Common.initSlickCarousel();
 			this.Common.initTooltip();
@@ -115,106 +115,108 @@ $(function(){
 			this.Share.init();
 			//this.Common.initFloatFavButtonTooltip();
 		},
-		initEvents: function(){
-			$(window)
+		Core: {
+			initEvents: function(){
+				$(window)
 				//.on('scroll', FJS.eventScrollWindow)
-				.on('resize orientationchange deviceorientation', FJS.eventResizeWindow);
+					.on('resize orientationchange deviceorientation', FJS.Core.eventResizeWindow);
 
-			$(document)
-				.on('blur', '[data-trigger="js_action_blur"]', FJS.doAction)
-				.on('change', '[data-trigger="js_action_change"]', FJS.doAction)
-				.on('click', '[data-trigger="js_action_click"]', FJS.doAction)
-				.on('submit', '[data-trigger="js_action_submit"]', FJS.doAction);
-		},
-		eventResizeWindow: function(){
-			FJS.vars.ww = $(window).width();
-			FJS.vars.wh = $(window).height();
+				$(document)
+					.on('blur', '[data-trigger="js_action_blur"]', FJS.Core.doAction)
+					.on('change', '[data-trigger="js_action_change"]', FJS.Core.doAction)
+					.on('click', '[data-trigger="js_action_click"]', FJS.Core.doAction)
+					.on('submit', '[data-trigger="js_action_submit"]', FJS.Core.doAction);
+			},
+			eventResizeWindow: function(){
+				FJS.vars.ww = $(window).width();
+				FJS.vars.wh = $(window).height();
 
-			FJS.NavTabs.fit();
-			if(FJS.vars.ww > 767){
-				FJS.Comparison.setBlocksEqualHeigth(true);
-			}
-		},
-		eventScrollWindow: function(){
-			FJS.vars.scrollTop = $(window).scrollTop();
-			if(FJS.vars.scrollTopPrev > 0){
-				if(FJS.vars.scrollTop > FJS.vars.scrollTopPrev){
-					FJS.vars.scroll_dir = 'bottom';
-				}else{
-					FJS.vars.scroll_dir = 'top';
+				FJS.NavTabs.fit();
+				if(FJS.vars.ww > 767){
+					FJS.Comparison.setBlocksEqualHeigth(true);
 				}
-			}
-			FJS.vars.scrollTopPrev = FJS.vars.scrollTop;
+			},
+			eventScrollWindow: function(){
+				FJS.vars.scrollTop = $(window).scrollTop();
+				if(FJS.vars.scrollTopPrev > 0){
+					if(FJS.vars.scrollTop > FJS.vars.scrollTopPrev){
+						FJS.vars.scroll_dir = 'bottom';
+					}else{
+						FJS.vars.scroll_dir = 'top';
+					}
+				}
+				FJS.vars.scrollTopPrev = FJS.vars.scrollTop;
 
-			FJS.Common.toggleFloatFavButton();
-		},
-		doAction: function(e){
-			var $this = $(this),
-				action = $(this).data('action');
+				FJS.Common.toggleFloatFavButton();
+			},
+			doAction: function(e){
+				var $this = $(this),
+					action = $(this).data('action');
 
-			switch(action){
-				case "property_filter":
-					FJS.Properties.Filter(e, $this);
-					break;
-				case "toggle_filter_sidebar":
-					FJS.Properties.ToggleFilterBar($this);
-					break;
-				case "nav_tab_dd_item_select":
-					FJS.NavTabs.select($this);
-					break;
-				case "add_customer_address":
-					FJS.Customer.AddressAdd($this);
-					break;
-				case "remove_customer_address":
-					FJS.Customer.AddressRemove($this);
-					break;
-				case "store_customer_address":
-					FJS.Customer.AddressStore($this);
-					break;
-				case "property_toggle_favorite":
-					FJS.Customer.PropertyToggleFavotite($this);
-					break;
-				case "print":
-					window.print();
-					break;
-				case "share":
-					FJS.Share.run();
-					break;
-				case "toggle_mobile_nav":
-					FJS.Common.toggleMobileNav($this);
-					break;
-				case "add_to_compare":
-					FJS.Properties.ToggleCompareItems($this);
-					break;
-				case "remove_compare_item":
-					FJS.Properties.RemoveCompareItem($this);
-					break;
-				case "toggle_features_view":
-					FJS.Properties.toggleFeaturesView($this);
-					break;
-				case "compare_items":
-					FJS.Comparison.CompareItems($this);
-					break;
-				case "type_of_place_change":
-					FJS.Comparison.changeTypeOfPlace($this);
-					break;
-				case "store_customer_address_to_compare_list":
-					FJS.Comparison.StoreAddressToList($this);
-					break;
-				case "open_add_address_modal":
-					FJS.Comparison.OpenModal($this);
-					break;
-				case "load_compare_property_item":
-					FJS.Comparison.LoadCompareProperty($this);
-					break;
-				case "remove_customer_address_from_compare":
-					FJS.Comparison.RemoveCustomerAddress($this);
-					break;
-				default:
-					break;
-			}
+				switch(action){
+					case "property_filter":
+						FJS.Properties.Filter(e, $this);
+						break;
+					case "toggle_filter_sidebar":
+						FJS.Properties.ToggleFilterBar($this);
+						break;
+					case "nav_tab_dd_item_select":
+						FJS.NavTabs.select($this);
+						break;
+					case "add_customer_address":
+						FJS.Customer.AddressAdd($this);
+						break;
+					case "remove_customer_address":
+						FJS.Customer.AddressRemove($this);
+						break;
+					case "store_customer_address":
+						FJS.Customer.AddressStore($this);
+						break;
+					case "property_toggle_favorite":
+						FJS.Customer.PropertyToggleFavotite($this);
+						break;
+					case "print":
+						window.print();
+						break;
+					case "share":
+						FJS.Share.run();
+						break;
+					case "toggle_mobile_nav":
+						FJS.Common.toggleMobileNav($this);
+						break;
+					case "add_to_compare":
+						FJS.Properties.ToggleCompareItems($this);
+						break;
+					case "remove_compare_item":
+						FJS.Properties.RemoveCompareItem($this);
+						break;
+					case "toggle_features_view":
+						FJS.Properties.toggleFeaturesView($this);
+						break;
+					case "compare_items":
+						FJS.Comparison.CompareItems($this);
+						break;
+					case "type_of_place_change":
+						FJS.Comparison.changeTypeOfPlace($this);
+						break;
+					case "store_customer_address_to_compare_list":
+						FJS.Comparison.StoreAddressToList($this);
+						break;
+					case "open_add_address_modal":
+						FJS.Comparison.OpenModal($this);
+						break;
+					case "load_compare_property_item":
+						FJS.Comparison.LoadCompareProperty($this);
+						break;
+					case "remove_customer_address_from_compare":
+						FJS.Comparison.RemoveCustomerAddress($this);
+						break;
+					default:
+						break;
+				}
 
-			e.preventDefault();
+				e.preventDefault();
+			},
 		},
 		Loader: {
 			start: function(){

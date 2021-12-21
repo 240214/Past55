@@ -27,13 +27,13 @@ $this->registerCssFile('@web/theme/css/home.css', ['depends' => [BootstrapAsset:
 				</label>
 			</div>
 			<div class="col-12 col-md-7 d-md-flex justify-content-end">
-				<?=Image::widget(['src' => '/theme/img/home/first-screen-home-bg.png', 'css_class' => 'img-fluid first-screen-home__bg d-none d-lg-block']);?>
+				<?=Image::widget(['src' => '/theme/img/home/first-screen-home-bg.png', 'css_class' => 'img-fluid first-screen-home__bg d-none d-md-block']);?>
 			</div>
 		</div>
 	</div>
 </section>
 <section class="companies container">
-	<?=Image::widget(['src' => '/theme/img/home/first-screen-home-bg.png', 'css_class' => 'img-fluid first-screen-home__bg mb-4 m-auto d-none d-md-block d-lg-none d-xl-none']);?>
+	<?php #=Image::widget(['src' => '/theme/img/home/first-screen-home-bg.png', 'css_class' => 'img-fluid first-screen-home__bg mb-4 m-auto d-none d-md-block d-lg-none d-xl-none']);?>
 	<?=Image::widget(['src' => '/theme/img/home/first-screen-home-bg-m.png', 'css_class' => 'img-fluid d-md-none d-block mb-4 m-auto']);?>
 	<h2 class="secondary-title text-center mb-5">More than 80,000+ companies trust GeorgiaCaring</h2>
 	<div class="d-flex justify-content-center align-items-center flex-wrap">
@@ -84,7 +84,7 @@ $this->registerCssFile('@web/theme/css/home.css', ['depends' => [BootstrapAsset:
 	<div class="location__body py-6">
 		<div class="container">
 			<div class="row justify-content-center">
-				<div class="col-12 max-w-1120">
+				<div class="col-12 max-w-1120 trans-all">
 					<div class="location-card row align-items-center justify-content-between rounded-8 bg-white mb-3">
 						<div class="col-12 col-md-6 d-flex justify-content-center justify-content-sm-start">
 							<?=Image::widget(['src' => '/theme/img/home/location-card-img-1.jpg', 'css_class' => 'img-fluid rounded-10 rounded-10-md-left w-100 w-sm-auto']);?>

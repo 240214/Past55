@@ -1,0 +1,32 @@
+.trans-me,
+.trans-all,
+.trans-all * {transition: all .2s linear; -moz-transition: all .2s linear; -webkit-transition: all .2s linear; -ms-transition: all .2s linear; -o-transition: all .2s linear;}
+.trans-me-slow,
+.trans-all-slow,
+.trans-all-slow * {transition: all .3s linear; -moz-transition: all .3s linear; -webkit-transition: all .3s linear; -ms-transition: all .3s linear; -o-transition: all .3s linear;}
+.trans-me-ease,
+.trans-all-ease,
+.trans-all-ease * {transition: all .2s ease; -moz-transition: all .2s ease; -webkit-transition: all .2s ease; -ms-transition: all .2s ease; -o-transition: all .2s ease;}
+.trans-me-slow-ease,
+.trans-all-slow-ease,
+.trans-all-slow-ease * {transition: all .3s ease; -moz-transition: all .3s ease; -webkit-transition: all .3s ease; -ms-transition: all .3s ease; -o-transition: all .3s ease;}
+.trans-none,
+.trans-none-all,
+.trans-none-all * {transition:none; -moz-transition:none; -webkit-transition:none; -ms-transition:none; -o-transition:none;}
+@media all and (max-width: 767px){
+	.trans-xs-me,
+	.trans-xs-all,
+	.trans-xs-all * {transition: all .2s ease; -moz-transition: all .2s ease; -webkit-transition: all .2s ease; -ms-transition: all .2s ease; -o-transition: all .2s ease;}
+	.trans-xs-me-slow,
+	.trans-xs-all-slow,
+	.trans-xs-all-slow * {transition: all .3s linear .1s; -moz-transition: all .3s linear .1s; -webkit-transition: all .3s linear .1s; -ms-transition: all .3s linear .1s; -o-transition: all .3s linear .1s;}
+	.trans-xs-none,
+	.trans-xs-none-all,
+	.trans-xs-none-all * {transition:none; -moz-transition:none; -webkit-transition:none; -ms-transition:none; -o-transition:none;}
+}
+
+body.block-opened,
+body.filter-opened {overflow: hidden;}
+
+.rmd-backdrop {position: fixed; z-index: 0; top: 0; left: 0; width: 100%; height: 100%; cursor: pointer;}
+.rmd-backdrop.dark {display: none; background-color: rgba(0, 0, 0, .3);}
