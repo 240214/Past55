@@ -27,6 +27,7 @@
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
+  --bs-black: #212529;
   --bs-brand: #6D459C;
   --bs-secondary: #F88430;
   --bs-rating-star: #FFB681;
@@ -41,6 +42,10 @@
 
 .text-color-white {
   color: var(--bs-white);
+}
+
+.main-text-content.text-color-black {
+  color: var(--bs-black);
 }
 
 .text-color-secondary {
@@ -70,6 +75,7 @@
     scroll-behavior: smooth;
   }
 }
+
 /*
 @font-face { 
   font-family: 'AirbnbCereal-Light'; 
@@ -163,8 +169,6 @@
   font-style: normal;
   font-display: swap;
 }
-
-
 
 .main-text-content {
   font-family: 'Airbnb Cereal App';
@@ -4819,6 +4823,7 @@ textarea.form-control-lg {
 .page-link {
   position: relative;
   display: block;
+  color: #0d6efd;
   text-decoration: none;
   background-color: #fff;
   border: 1px solid #dee2e6;
@@ -7260,6 +7265,10 @@ textarea.form-control-lg {
   margin-bottom: 80px !important;
 }
 
+.mb-9 {
+  margin-bottom: 80px !important;
+}
+
 .mb-15 {
   margin-bottom: 15px !important;
 }
@@ -9023,6 +9032,11 @@ textarea.form-control-lg {
   }
 
   .px-md-5 {
+    padding-right: 60px !important;
+    padding-left: 60px !important;
+  }
+
+  .px-md-60 {
     padding-right: 60px !important;
     padding-left: 60px !important;
   }
