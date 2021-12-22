@@ -113,6 +113,7 @@ return [
                 #'saved/agents/<ref>' => 'saved/agents',
                 #'saved/remove-agents/<ref>' => 'saved/remove-agents',
                 '<user>/review' => 'user/review',
+                'login'=> 'site/login',
                 'my/saved/property' => 'my/property',
                 'my/saved/agents' => 'my/agents',
                 'my/listing' => 'my/listing',

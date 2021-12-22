@@ -61,6 +61,7 @@ class SettingsForm extends Model {
 		return [
 			'site_name' => 'Site name',
 			'site_title' => 'Site Title',
+			'footer_description' => 'Footer description',
 			'logo' => 'Logo',
 			'address' => 'Address',
 			'disclaimer' => 'Disclaimer',

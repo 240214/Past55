@@ -167,7 +167,7 @@ class SettingsController extends Controller{
 		#Creating Dymanic Model
 		$a = $t_r = $e_r = $i_r = [];
 		foreach($settings as $setting){
-			$a[$setting->setting_name] = $setting->setting_value;
+			$a[$setting->setting_name] = !is_null($setting->setting_value) ? $setting->setting_value : '';
 			if($setting->field_type == 'email'){
 				$e_r = [$setting->setting_name, $setting->field_type];
 			}elseif($setting->field_type == 'image'){

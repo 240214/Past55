@@ -96,9 +96,15 @@ class UrlRules implements UrlRuleInterface{
 		/** Page rules **/
 		
 		switch($last_fragment){
-			case "about-us":
+			case "our-story":
 			case "privacy-policy":
-			case "term-of-use":
+			case "terms-and-conditions":
+			case "contact-us":
+			case "press-media":
+			case "carriers":
+			case "careers-team":
+			case "life-insurance-101":
+			case "refer-get-10":
 				return ['pages/view', ['slug' => $last_fragment]];
 				break;
 		}
