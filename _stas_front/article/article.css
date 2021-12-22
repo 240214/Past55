@@ -4,7 +4,7 @@
 }
 
 .article-sticker {
-    font-family: 'AirbnbCereal-Light'; 
+    font-family: 'Airbnb Cereal App';
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -40,7 +40,7 @@
 
 .article__content-link {
     display: block;
-    font-family: 'AirbnbCereal-Light'; 
+    font-family: 'Airbnb Cereal App';
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
@@ -58,7 +58,7 @@
 }
 
 .article-autor__name {
-    font-family: 'AirbnbCereal-Medium'; 
+    font-family: 'Airbnb Cereal App'; 
     font-style: normal;
     font-weight: bold;
     font-size: 16px;
@@ -67,7 +67,7 @@
 }
 
 .article-autor__position {
-    font-family: 'AirbnbCereal-Light'; 
+    font-family: 'Airbnb Cereal App';
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
@@ -76,7 +76,7 @@
 }
 
 .article-autor__short-info {
-    font-family: 'AirbnbCereal-Light'; 
+    font-family: 'Airbnb Cereal App';
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
@@ -102,7 +102,7 @@
 .article__info {
     display: block;
     position: relative;
-    font-family: 'AirbnbCereal-Light'; 
+    font-family: 'Airbnb Cereal App';
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
@@ -133,7 +133,7 @@
 }
 
 .article__numeric-title {
-    font-family: 'AirbnbCereal-Medium'; 
+    font-family: 'Airbnb Cereal App';
     font-style: normal;
     font-weight: 500;
     font-size: 25px;
@@ -156,7 +156,7 @@
     width: 220px;
     height: 40px;
     border-radius: 5px;
-    font-family: 'AirbnbCereal-Light'; 
+    font-family: 'Airbnb Cereal App';
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -187,4 +187,58 @@
 
 .related-article-item__title:hover {
     color: var(--bs-brand);
+}
+
+.article-content__open-tab-btn,
+.article-author__open-tab-btn {
+    width: 100%;
+    max-width: 320px;
+    height: 45px;
+    background-color: #FFFFFF;
+    border: 1px solid #D3D3D3;
+    border-radius: 5px;
+    padding: 0 20px;
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 170%;
+    letter-spacing: -0.01em;
+    color: #000000;
+}
+
+.article-content__open-tab-btn--active>img,
+.article-author__open-tab-btn--active>img {
+    transform: rotate(180deg);
+}
+
+.article-content__open-tab-btn--active+.article-content__body {
+    display: block !important;
+}
+
+.article-author__open-tab-btn--active+.article-author__body {
+    display: block !important;
+}
+
+@media screen and (max-width: 767px) {
+    .article-subtitle {
+        font-size: 28px;
+        line-height: 125%;
+    }
+    .article__numeric-title {
+        font-size: 20px;
+        line-height: 170%;
+    }
+    .article-subtitle-small {
+        font-size: 28px;
+        line-height: 135%;
+    }
+    .related-article-item__title {
+        font-size: 20px;
+        line-height: 150%;
+    }
+    .article {
+        padding-top: 60px;
+        padding-bottom: 10px;
+    }
 }
