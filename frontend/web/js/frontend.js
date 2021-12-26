@@ -710,6 +710,9 @@ $(function(){
 				return false;
 			},
 			setUserFavsCount: function(count){
+				if(~~count == 0){
+					count = '';
+				}
 				FJS.els.js_user_favs_count.text(count);
 			},
 		},

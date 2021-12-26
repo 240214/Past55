@@ -22,7 +22,7 @@ class UserFavorites extends Widget{
 	
 	public function run(){
 		return $this->render('@frontend/views/widgets/user-favorites', [
-			'user_favs_count' => $this->user_favs_count,
+			'user_favs_count' => $this->user_favs_count == 0 ? '' : $this->user_favs_count,
 		]);
 	}
 	

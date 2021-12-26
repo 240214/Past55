@@ -68,7 +68,7 @@ use frontend\widgets\PageLink;
 <div id="js_backdrop" data-trigger="js_action_click" data-action="" data-target="" class="rmd-backdrop dark"></div>
 
 <!-- Older IE warning message -->
-<!--[if lt IE 9]>
+<!--[if lt IE 11]>
 <div class="ie-warning">
 	<h1>Warning!!</h1>
 	<p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
@@ -110,6 +110,6 @@ use frontend\widgets\PageLink;
 </div>
 <![endif]-->
 <!-- IE9 Placeholder -->
-<!--[if IE 9 ]>
+<!--[if IE 11 ]>
 <script src="<?=Yii::getAlias('@web');?>/vendors/bower_components/jquery-placeholder/jquery.placeholder.min.js"></script>
 <![endif]-->

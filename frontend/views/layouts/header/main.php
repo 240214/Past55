@@ -21,6 +21,6 @@ use frontend\widgets\UserFavorites;
 </div>
 <div class="d-none d-md-block"><a href="tel:<?=Yii::$app->params['settings']['mobile'];?>" class="header-home__tel text-decoration-none"><i class="zmdi zmdi-phone me-1"></i><?=Yii::$app->params['settings']['mobile'];?></a></div>
 <div class="d-flex d-md-none align-items-center">
-	<a role="button" class="header-home__favorite-box d-flex align-items-center justify-content-center me-1 text-decoration-none"><i class="bi bi-heart-fill text-color-primary me-1"></i> My Favorites</a>
+	<?=UserFavorites::widget();?>
 	<a role="button" class="nav-control" data-trigger="js_action_click" data-action="toggle_mobile_nav" data-target=".navigation"><i class="zmdi zmdi-menu"></i></a>
 </div>

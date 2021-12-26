@@ -12,10 +12,10 @@ use yii\helpers\Url;
 <header id="header" class="container-fluid container-xl site-header">
 	<div class="header-home d-flex align-items-center justify-content-between">
 		<?php if(intval(Yii::$app->params['settings']['header_top'])):?>
-			<?=$this->render('partials/header/top');?>
+			<?=$this->render('header/top');?>
 		<?php endif;?>
 		<?php if(intval(Yii::$app->params['settings']['header_main'])):?>
-			<?=$this->render('partials/header/main');?>
+			<?=$this->render('header/main');?>
 		<?php endif;?>
 	</div>
 </header>
