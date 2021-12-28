@@ -172,26 +172,26 @@ $siteSeting = \common\models\SiteSettings::find()->one();
 <!-- Javascript -->
 
 <!-- jQuery -->
-<script src="<?= Yii::getAlias('@web') ?>/theme/vendors/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="<?= Yii::getAlias('@web') ?>/theme/plugins/jquery/dist/jquery.min.js"></script>
 
 <!-- Bootstrap -->
-<script src="<?= Yii::getAlias('@web') ?>/theme/vendors/bower_components/bootstrap3/dist/js/bootstrap.min.js"></script>
+<script src="<?= Yii::getAlias('@web') ?>/theme/plugins/bootstrap3/dist/js/bootstrap.min.js"></script>
 
 <!-- Waves button ripple effects -->
-<script src="<?= Yii::getAlias('@web') ?>/theme/vendors/bower_components/Waves/dist/waves.min.js"></script>
+<script src="<?= Yii::getAlias('@web') ?>/theme/plugins/Waves/dist/waves.min.js"></script>
 
 
 
 
 <!-- Autosize - Auto height textarea -->
-<script src="<?= Yii::getAlias('@web') ?>/theme/vendors/bower_components/autosize/dist/autosize.min.js"></script>
+<script src="<?= Yii::getAlias('@web') ?>/theme/plugins/autosize/dist/autosize.min.js"></script>
 <!-- ClampJs - Clamp lines -->
-<script src="<?= Yii::getAlias('@web') ?>/theme/vendors/bower_components/Clamp.js/clamp.min.js"></script>
+<script src="<?= Yii::getAlias('@web') ?>/theme/plugins/Clamp.js/clamp.min.js"></script>
 <!-- Trumbowg - WYSIWYG Editor-->
-<script src="<?= Yii::getAlias('@web') ?>/theme/vendors/bower_components/trumbowyg/dist/trumbowyg.min.js"></script>
+<script src="<?= Yii::getAlias('@web') ?>/theme/plugins/trumbowyg/dist/trumbowyg.min.js"></script>
 <!-- IE9 Placeholder -->
 <!--[if IE 9 ]>
-<script src="<?= Yii::getAlias('@web') ?>/vendors/bower_components/jquery-placeholder/jquery.placeholder.min.js"></script>
+<script src="<?= Yii::getAlias('@web') ?>/plugins/jquery-placeholder/jquery.placeholder.min.js"></script>
 <![endif]-->
 
 <!-- Site functions and actions -->
@@ -205,10 +205,10 @@ $siteSeting = \common\models\SiteSettings::find()->one();
 <script src="<?= Yii::getAlias('@web') ?>/theme/js/demo/charts/line-chart.js"></script>
 <script src="<?= Yii::getAlias('@web') ?>/theme/js/demo/charts/pie-chart.js"></script>
 
-<script src="<?= Yii::getAlias('@web') ?>/theme/vendors/bower_components/Flot/jquery.flot.js"></script>
-<script src="<?= Yii::getAlias('@web') ?>/theme/vendors/bower_components/Flot/jquery.flot.pie.js"></script>
-<script src="<?= Yii::getAlias('@web') ?>/theme/vendors/bower_components/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
-<script src="<?= Yii::getAlias('@web') ?>/theme/vendors/bower_components/Flot/jquery.flot.resize.js"></script>
+<script src="<?= Yii::getAlias('@web') ?>/theme/plugins/Flot/jquery.flot.js"></script>
+<script src="<?= Yii::getAlias('@web') ?>/theme/plugins/Flot/jquery.flot.pie.js"></script>
+<script src="<?= Yii::getAlias('@web') ?>/theme/plugins/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+<script src="<?= Yii::getAlias('@web') ?>/theme/plugins/Flot/jquery.flot.resize.js"></script>
 
 <?php $this->endBody() ?>
 <!-- ECharts -->

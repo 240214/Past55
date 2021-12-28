@@ -3,7 +3,7 @@
 .location-card__location-name-box {font-family: 'Airbnb Cereal App';}
 .location-card__item > a {font-family: 'Inter';}
 
-.first-screen-home {position: relative; height: 780px; padding-top: 145px; padding-bottom: 85px; background-image: linear-gradient(180deg, rgba(225, 243, 255, 0.3) 7.86%, rgba(216, 206, 255, 0.3) 109.88%);}
+.first-screen-home {position: relative; height: 780px; padding-top: 110px; padding-bottom: 85px; background-image: linear-gradient(180deg, rgba(225, 243, 255, 0.3) 7.86%, rgba(216, 206, 255, 0.3) 109.88%);}
 .first-screen-home__title {font-style: normal; font-weight: bold; font-size: 65px; line-height: 120%; color: #152430;}
 .first-screen-home__title > .title-decor-line:after {bottom: 12px !important;}
 .first-screen-home__bg {}
@@ -48,7 +48,7 @@
 @media all and (max-width: 1199px) {
 	.benefits-card {/*padding: 20px;*/}
 	.location-card__item > a {font-size: 16px; line-height: 19px;}
-	.header-home__content {height: auto;}
+	.header-home__content {height: 560px;}
 	.first-screen-home {height: 600px; padding-bottom: 0; margin-bottom: 80px;}
 	.companies {padding-top: 15px; padding-bottom: 15px;}
 	.header-home__search-input {max-width: 100%; width: 100%;}
@@ -56,12 +56,14 @@
 	.footer__bottom-box {padding-left: 15px !important; padding-right: 15px !important;}
 }
 @media all and (max-width: 991px){
+	.header-home__content {height: 420px;}
 	.first-screen-home {height: 480px; margin-bottom: 60px;}
 	.location-card__item {padding: 15px 0;}
 	.location-card__location-name-box {padding: 1px 10px;}
 	.location-card__location-name-box .zmdi {margin-right: 5px !important;}
 }
 @media all and (max-width: 767px){
+	.header-home__content {height: auto;}
 	.first-screen-home {height: auto; padding-top: 90px;}
 	.benefits-card {height: auto;}
 	.location-card {padding: 15px 3px; position: relative;}

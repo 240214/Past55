@@ -111,5 +111,5 @@ use frontend\widgets\PageLink;
 <![endif]-->
 <!-- IE9 Placeholder -->
 <!--[if IE 11 ]>
-<script src="<?=Yii::getAlias('@web');?>/vendors/bower_components/jquery-placeholder/jquery.placeholder.min.js"></script>
+<script src="<?=Yii::getAlias('@web');?>/plugins/jquery-placeholder/jquery.placeholder.min.js"></script>
 <![endif]-->

@@ -21,15 +21,15 @@ $this->params['breadcrumbs'][] = $this->title;
 $this->registerLinkTag(['rel' => 'canonical', 'href' => $property->canonical_url]);
 
 $bundle = AppAsset::register($this);
-$this->registerCssFile('@web/theme/vendors/bower_components/slick/css/slick.css', ['depends' => [BootstrapAsset::className()]]);
-$this->registerCssFile('@web/theme/vendors/bower_components/slick/css/slick-theme.css', ['depends' => [BootstrapAsset::className()]]);
-#$this->registerCssFile('@web/theme/vendors/bower_components/rateYo/src/jquery.rateyo.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
-#$this->registerCssFile('@web/theme/vendors/bower_components/materialize/css/materialize.min.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
-$this->registerJsFile('@web/theme/vendors/bower_components/slick/js/slick.min.js', ['depends' => [JqueryAsset::className(), AppAsset::className()]]);
-#$this->registerJsFile('@web/theme/vendors/bower_components/rateYo/src/jquery.rateyo.js', ['depends' => [JqueryAsset::className(), AppAsset::className()]]);
-#$this->registerJsFile('@web/theme/vendors/bower_components/materialize/js/materialize.min.js', ['depends' => [JqueryAsset::className(), AppAsset::className()]]);
+$this->registerCssFile('@web/theme/plugins/slick/css/slick.css', ['depends' => [BootstrapAsset::className()]]);
+$this->registerCssFile('@web/theme/plugins/slick/css/slick-theme.css', ['depends' => [BootstrapAsset::className()]]);
+#$this->registerCssFile('@web/theme/plugins/rateYo/src/jquery.rateyo.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
+#$this->registerCssFile('@web/theme/plugins/materialize/css/materialize.min.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
+$this->registerJsFile('@web/theme/plugins/slick/js/slick.min.js', ['depends' => [JqueryAsset::className(), AppAsset::className()]]);
+#$this->registerJsFile('@web/theme/plugins/rateYo/src/jquery.rateyo.js', ['depends' => [JqueryAsset::className(), AppAsset::className()]]);
+#$this->registerJsFile('@web/theme/plugins/materialize/js/materialize.min.js', ['depends' => [JqueryAsset::className(), AppAsset::className()]]);
 #$this->registerJsFile('@web/theme/js/basic.js', ['depends' => [JqueryAsset::className(), AppAsset::className()]]);
-$this->registerJsFile('@web/theme/vendors/bower_components/bootstrap5/js/popper.min.js', ['depends' => [JqueryAsset::className(), AppAsset::className()]]);
+$this->registerJsFile('@web/theme/plugins/bootstrap5/js/popper.min.js', ['depends' => [JqueryAsset::className(), AppAsset::className()]]);
 $bundle->addGoogleMapJS();
 
 $liked = $property->Liked;

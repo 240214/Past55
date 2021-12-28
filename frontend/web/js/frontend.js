@@ -5,8 +5,18 @@ if(typeof jQuery === "undefined"){
 $(function(){
 	"use strict";
 
+	$.fn.exists = function(){
+		return this.length !== 0;
+	};
+
 	var FJS = {
 		options: {
+			device: (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)),
+			lg: [1920, 1200],
+			md: [1199, 992],
+			sm: [991, 768],
+			xs: [767, 576],
+			xxs: [575, 0],
 			slick_options: {
 				slidesToShow: 1,
 				slidesToScroll: 1,
@@ -82,6 +92,7 @@ $(function(){
 			body: $("body"),
 			js_loader: $(".js_data_loader"),
 			js_h1: $("h1"),
+			js_selectpicker: $(".js_selectpicker"),
 			js_breadcrumbs: $("#js_breadcrumbs"),
 			js_filter_pagination: $("#js_filter_pagination"),
 			js_filter_results: $("#js_filter_results"),
@@ -104,16 +115,11 @@ $(function(){
 			this.vars.csrf_token = $('meta[name="csrf-token"]').attr('content');
 
 			this.Core.initEvents();
-			this.Common.initLazyLoad();
-			this.Common.initSlickCarousel();
-			this.Common.initTooltip();
-			//this.Common.initSocialShare();
-			this.NavTabs.init();
-			this.Comparison.initTypeOfPlaces();
-			this.Comparison.setBlocksEqualHeigth(false);
-			this.Comparison.init();
-			this.Share.init();
-			//this.Common.initFloatFavButtonTooltip();
+			this.Common.Init();
+			this.Forms.Init();
+			this.NavTabs.Init();
+			this.Comparison.Init();
+			this.Share.Init();
 		},
 		Core: {
 			initEvents: function(){
@@ -227,6 +233,13 @@ $(function(){
 			},
 		},
 		Common: {
+			Init: function(){
+				FJS.Common.initLazyLoad();
+				FJS.Common.initSlickCarousel();
+				FJS.Common.initTooltip();
+				//FJS.Common.initSocialShare();
+				//FJS.Common.initFloatFavButtonTooltip();
+			},
 			setLocation: function(url){
 				try {
 					history.pushState(null, null, url);
@@ -333,11 +346,23 @@ $(function(){
 				}
 			},
 		},
+		Forms: {
+			Init: function(){
+				//FJS.Forms.initRangeSlider();
+				//FJS.Forms.updateRangeSlider();
+				FJS.Forms.stylingSelect();
+			},
+			stylingSelect: function(){
+				if(FJS.els.js_selectpicker.exists()){
+					FJS.els.js_selectpicker.selectpicker({'mobile': FJS.options.device});
+				}
+			},
+		},
 		Share: {
 			vars: {
 				enabled: true,
 			},
-			init: function(){
+			Init: function(){
 				if(navigator.share === undefined){
 					FJS.Share.vars.enabled = false;
 					$('[data-action="share"]').prop('disabled', true).addClass('hide');
@@ -371,7 +396,7 @@ $(function(){
 			},
 		},
 		NavTabs: {
-			init: function(){
+			Init: function(){
 				if(FJS.els.js_nav_tabs.length){
 					FJS.vars.nav_tabs.fitting = true;
 
@@ -721,7 +746,10 @@ $(function(){
 				groupped_duplcate_features: false,
 				groupped_duplcate_categories: false,
 			},
-			init: function(){
+			Init: function(){
+				FJS.Comparison.initTypeOfPlaces();
+				FJS.Comparison.setBlocksEqualHeigth(false);
+
 				var props_ids = [];
 
 				if($('.js_user_favorites').length){

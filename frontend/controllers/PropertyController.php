@@ -34,7 +34,7 @@ use common\models\City;
 
 class PropertyController extends BaseController{
 	
-	public $default_pageSize = 10;
+	public $default_pageSize = 4;
 	public $customer_all_addresses = [];
 	
 	public function behaviors(){

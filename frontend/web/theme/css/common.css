@@ -30,3 +30,10 @@ body.filter-opened {overflow: hidden;}
 
 .rmd-backdrop {position: fixed; z-index: 0; top: 0; left: 0; width: 100%; height: 100%; cursor: pointer;}
 .rmd-backdrop.dark {display: none; background-color: rgba(0, 0, 0, .3);}
+
+.page-item.prev .page-link,
+.page-item.next .page-link {background-repeat: no-repeat; background-position: center; text-indent: -50px; overflow: hidden;}
+.page-item.prev .page-link {background-image: url(../icons/arrow-left-indigo.svg);}
+.page-item.next .page-link {background-image: url(../icons/arrow-right-indigo.svg);}
+.page-item.disabled .page-link {opacity: 0.5;}
+

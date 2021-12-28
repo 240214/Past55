@@ -19,7 +19,7 @@ return [
         'assetManager' => [
             'bundles' => [
                 /*'yii\web\JqueryAsset' => [
-	                'sourcePath' => '@frontend/web/theme/vendors/bower_components/jquery',
+	                'sourcePath' => '@frontend/web/theme/plugins/jquery',
 	                'js' => ['dist/jquery-3.5.1.min.js']
                 ],*/
 	            'yii\web\JqueryAsset' => [
@@ -31,15 +31,17 @@ return [
 		            ],
 	            ],
                 'yii\bootstrap\BootstrapPluginAsset' => [
-	                'sourcePath' => '@frontend/web/theme/vendors/bower_components/bootstrap5',
+	                'sourcePath' => '@frontend/web/theme/plugins/bootstrap5',
                     'js'=>[
                     	#'js/bootstrap.min.js',
                     	'js/bootstrap.bundle.min.js',
                     ]
                 ],
                 'yii\bootstrap\BootstrapAsset' => [
-	                'sourcePath' => '@frontend/web/theme/vendors/bower_components/bootstrap5',
-                    'css' => ['css/bootstrap-mod.css']
+	                'sourcePath' => '@frontend/web/theme/plugins/bootstrap5',
+                    'css' => [
+                    	'css/bootstrap-mod.css',
+                    ]
                 ]
             ]
         ],

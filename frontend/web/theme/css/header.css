@@ -8,7 +8,7 @@ header#header * {text-decoration: none;}
 .header-logo {font-weight: bold; font-size: 20px; line-height: 25px; color: #6D459C;}
 .header-logo a {color: #6D459C; text-decoration: none;}
 
-.site-header {margin: 70px auto 0; position: absolute; z-index: 1; left: 0; right: 0;}
+.site-header {margin: 35px auto 0; position: absolute; z-index: 1; left: 0; right: 0; top: 0;}
 .header-home {height: 75px; background-color: #fff; box-shadow: 0 10px 25px rgba(26, 47, 72, 0.05); border-radius: 10px; padding-left: 40px; padding-right: 40px;}
 .header-home__menu-list {display: flex; align-items: center; margin-bottom: 0;}
 .header-home__menu-item {margin-right: 30px;}
