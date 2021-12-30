@@ -31,8 +31,9 @@ $this->params['breadcrumbs'] = $breadcrumbs;
 #$cityDefault = ($city)?$city:"jodhpur";
 $property = new Property();
 
-$options['display_price'] = intval(Yii::$app->params['settings']['display_listing_item_price']);
-$options['display_desc'] = intval(Yii::$app->params['settings']['display_listing_item_description']);
+$options['display_price'] = intval(Yii::$app->params['settings']['category_page_display_listing_item_price']);
+$options['display_desc'] = intval(Yii::$app->params['settings']['category_page_display_listing_item_description']);
+$options['display_rating'] = intval(Yii::$app->params['settings']['category_page_display_listing_item_rating']);
 
 $this->registerCssFile('@web/theme/css/category.css', ['depends' => [BootstrapAsset::className()]]);
 ?>

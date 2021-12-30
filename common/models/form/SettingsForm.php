@@ -72,9 +72,15 @@ class SettingsForm extends Model {
 			'email' => 'Email',
 			'facebook' => 'Facebook',
 			'twiter' => 'Twiter',
+			'instagram' => 'Instagram',
+			'linkedin' => 'LinkedIn',
 			'google' => 'Google',
 			'header_top' => 'Header top',
 			'header_main' => 'Header main',
+			'office_time' => 'Office time',
+			'category_page_display_listing_item_price' => 'Display listing item price in category page',
+			'category_page_display_listing_item_description' => 'Display listing item description in category page',
+			'category_page_display_listing_item_rating' => 'Display listing item rating in category page',
 		];
 	}
 	

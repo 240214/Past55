@@ -26,9 +26,9 @@ use yii\helpers\Url;
 				<span class="count d-none"><?=$model->likes;?></span>
 			</a>
 
-			<div class="category-card__avalible-btn d-flex align-items-center justify-content-center d-xl-none mb-1 mb-xl-0">Available Now</div>
 			<h2 class="category-card__title mb-1 fw-bold"><a href="<?=$url;?>"><?=$model->title;?></a></h2>
 			<div class="mb-15 category-card__adress"><span><?=$model->address;?></span></div>
+			<?php if($options['display_rating']):?>
 			<div class="d-flex">
 				<div class="d-flex">
 					<i class="bi bi-star-fill text-color-rating-icon me-1"></i>
@@ -42,6 +42,7 @@ use yii\helpers\Url;
 					<span>5</span>
 				</div>
 			</div>
+			<?php endif;?>
 			<?php if($options['display_price']):?>
 			<div class="category-card__divider mt-3 mb-2"></div>
 			<div class="category-card__footer d-flex justify-content-between align-items-center">

@@ -163,6 +163,7 @@ class SettingsController extends Controller{
 		$request = Yii::$app->request;
 		
 		$settings = Settings::find()->where(['active' => 1])->orderBy(['order' => SORT_ASC])->all();
+		#VarDumper::dump($settings, 10, 1); exit;
 		
 		#Creating Dymanic Model
 		$a = $t_r = $e_r = $i_r = [];
@@ -176,9 +177,21 @@ class SettingsController extends Controller{
 				$t_r[] = $setting->setting_name;
 			}
 		}
+		
+		$rules_r = [];
+		
+		if(!empty($t_r))
+			$rules_r[] = [$t_r, 'safe'];
+
+		if(!empty($e_r))
+			$rules_r[] = $e_r;
+		
+		if(!empty($i_r))
+			$rules_r[] = $i_r;
+		
 		$formModel = new SettingsForm();
 		$formModel->setDynamicFields($a);
-		$formModel->setDynamicRules([[$t_r, 'safe'], $e_r, $i_r]);
+		$formModel->setDynamicRules($rules_r);
 		
 		#Doing Post request
 		if($request->isPost){
@@ -201,6 +214,8 @@ class SettingsController extends Controller{
 			Yii::$app->getSession()->setFlash('success', 'Update successfully');
 			return $this->redirect(Url::toRoute('settings/site'));
 		}
+		
+		#VarDumper::dump($a, 10, 1); exit;
 		
 		#Filling model with data
 		$formModel->setAttributes($a);

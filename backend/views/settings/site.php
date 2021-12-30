@@ -42,16 +42,21 @@ $option = array(
 ?>
 <div class="card">
 	<div class="row">
-		<div class="col-lg-6 col-md-10 col-sm-12 col-xs-12">
 			<?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
-			<div class="form-group">
-				<?=Html::submitButton('Save settings', ['class' => 'btn btn-primary', 'name' => 'site-settings-button']);?>
+			<div class="col-xs-12">
+				<div class="form-group">
+					<?=Html::submitButton('Save settings', ['class' => 'btn btn-primary', 'name' => 'site-settings-button']);?>
+				</div>
 			</div>
 			<?php
-			foreach($settings as $setting){
-				switch($setting->field_type){
+			foreach($settings as $setting):?>
+				<div class="col-lg-6 col-md-10 col-sm-12 col-xs-12">
+				<?php switch($setting->field_type):
 					case "text":
 						echo $form->field($model, $setting->setting_name);
+						break;
+					case "number":
+						echo $form->field($model, $setting->setting_name)->input('number');
 						break;
 					case "email":
 						echo $form->field($model, $setting->setting_name)->input('email');
@@ -71,35 +76,14 @@ $option = array(
 					case "select":
 						echo $form->field($model, $setting->setting_name)->dropDownList(json_decode($setting->field_options, true));
 						break;
-				}
-			}
-			/*
-			?>
-			<?=$form->field($model, 'site_name')?>
-			<?=$form->field($model, 'site_title')?>
-			<?=$form->field($model, 'logo')->fileInput();?>
-			<div>
-				<h5>Current:</h5>
-				<div><img src="<?=$front.'/images/site/logo/'.$model->logo?>" style="background-color: #0a6ebd" class="img-responsive"></div>
-				<hr>
-				<?php //=$form->field($model, 'layout')->radioList($option)->label('home background');?>
-				<?=$form->field($model, 'layout')->dropDownList($option)->label("Home Background");?>
-				<hr>
-			</div>
-			<?=$form->field($model, 'meta_keyword')?>
-			<?=$form->field($model, 'meta_description')?>
-			<?=$form->field($model, 'mobile')?>
-			<?=$form->field($model, 'address')->textarea()?>
-			<?=$form->field($model, 'disclaimer')->textarea()?>
-			<?=$form->field($model, 'email');?>
-			<?=$form->field($model, 'facebook');?>
-			<?=$form->field($model, 'twiter');?>
-			<?=$form->field($model, 'google');?>
-			<?php */?>
-			<div class="form-group">
-				<?=Html::submitButton('Save settings', ['class' => 'btn btn-primary', 'name' => 'site-settings-button']);?>
+				endswitch;?>
+				</div>
+			<?php endforeach;?>
+			<div class="col-xs-12">
+				<div class="form-group">
+					<?=Html::submitButton('Save settings', ['class' => 'btn btn-primary', 'name' => 'site-settings-button']);?>
+				</div>
 			</div>
 			<?php ActiveForm::end(); ?>
-		</div>
 	</div>
 </div>
