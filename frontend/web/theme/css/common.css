@@ -37,3 +37,9 @@ body.filter-opened {overflow: hidden;}
 .page-item.next .page-link {background-image: url(../icons/arrow-right-indigo.svg);}
 .page-item.disabled .page-link {opacity: 0.5;}
 
+.sticky-block {position: sticky; top: 100px;}
+html.header-top .sticky-block {position: sticky; top: 140px;}
+@media print {
+	.sticky-block {position: unset;}
+}
+

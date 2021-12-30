@@ -40,61 +40,15 @@ $this->registerCssFile('@web/theme/css/category.css', ['depends' => [BootstrapAs
 <section class="category">
 	<div class="container-fluid container-lg">
 		<div class="row mb-3">
-			<div class="col-12 col-md-4 d-none d-md-block category__filter-wrap">
-				<div class="filter-box p-35 mb-2">
-					<div class="filter-box__title mb-2">Price range</div>
-					<select class="filter-box__select mb-4 form-select _js_selectpicker">
-						<option>$1000-$1500</option>
-						<option>$1000-$1500</option>
-						<option>$1000-$1500</option>
-					</select>
-					<div class="filter-box__title mb-2">Types of communities</div>
-					<div class="d-flex flex-wrap mb-5">
-						<div class="filter-box__btn filter-box__btn--active d-flex align-items-center justify-content-center px-2 mb-15 me-1">55+ Communities</div>
-						<div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Memory Care</div>
-						<div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Senior Apartments</div>
-						<div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Senior Living</div>
-						<div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Nursing Homes</div>
-						<div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Skilled Nursing</div>
-						<div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Assisted living</div>
-						<div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Independent Living</div>
-						<div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Active Adult Communites</div>
-						<div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Apartments</div>
-					</div>
-					<div class="d-flex justify-content-between">
-						<button class="filter-box__reset-btn me-1">Reset</button>
-						<button class="btn-primary-large">Apply Filter</button>
-					</div>
-				</div>
-				<div class="filter-box p-35 mb-2">
-					<div class="filter-box__title mb-2">Nearby cities</div>
-					<div class="d-flex flex-wrap">
-						<div class="filter-box__btn filter-box__btn--active d-flex align-items-center justify-content-center px-2 mb-15 me-1">Marietta, GA</div>
-						<div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Alpharetta, GA</div>
-						<div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Macon County, GA</div>
-						<div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Athens, GA</div>
-						<div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Sandy Springs, GA</div>
-						<div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Atlanta, GA</div>
-						<div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Columbus, GA</div>
-						<div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Savannah, GA</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-12 col-md-8">
-				<h1 class="main-title"><?=$meta['title'];?></h1>
-				<div class="row mb-2 mb-xl-4">
-					<div class="col-12">
-						<?=Breadcrumbs::widget(['links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : []]);?>
-					</div>
-				</div>
-				
-				<div id="category__filter-adaptive-menu-btn" class="filter-btn d-flex d-md-none align-items-center justify-content-between px-2 mb-35 mb-xl-0">
+			<div class="col-12 d-md-none">
+				<div id="category__filter-adaptive-menu-btn" class="btn-toggle-filter filter-btn d-flex d-md-none align-items-center justify-content-between px-2 mb-35 mb-xl-0" data-trigger="js_action_click" data-action="toggle_filter_sidebar" data-container="#js_filter_results">
 					<span>Filter</span>
 					<i class="icon-arrow-down"></i>
 				</div>
-				
-				<div id="category__filter-adaptive-menu" class="category__filter-wrap d-none">
-					<div class="filter-box p-1 p-md-35 mb-2">
+			</div>
+			<aside id="js_filter_bar" class="col-12 col-md-4 d-none d-md-block category__filter-wrap">
+				<div class="sticky-block">
+					<div class="filter-box p-35 mb-2">
 						<div class="filter-box__title mb-2">Price range</div>
 						<select class="filter-box__select mb-4 form-select _js_selectpicker">
 							<option>$1000-$1500</option>
@@ -118,6 +72,31 @@ $this->registerCssFile('@web/theme/css/category.css', ['depends' => [BootstrapAs
 							<button class="filter-box__reset-btn me-1">Reset</button>
 							<button class="btn-primary-large">Apply Filter</button>
 						</div>
+					</div>
+					<?=$this->render('sidebar/category-filter', ['categories' => $categories, 'property' => $property, 'form_url' => $form_url, 'found_label' => $found_label]);?>
+					<div class="filter-box p-35 mb-2">
+						<div class="filter-box__title mb-2">Nearby cities</div>
+						<div class="d-flex flex-wrap">
+							<div class="filter-box__btn filter-box__btn--active d-flex align-items-center justify-content-center px-2 mb-15 me-1">Marietta, GA</div>
+							<div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Alpharetta, GA</div>
+							<div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Macon County, GA</div>
+							<div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Athens, GA</div>
+							<div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Sandy Springs, GA</div>
+							<div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Atlanta, GA</div>
+							<div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Columbus, GA</div>
+							<div class="filter-box__btn d-flex align-items-center justify-content-center px-2 mb-15 me-1">Savannah, GA</div>
+						</div>
+					</div>
+					<?=$this->render('sidebar/narrow-cities-widget', ['display_narrow_cities' => $display_narrow_cities, 'narrow_cities' => $narrow_cities, 'with_wrap' => true]);?>
+					<?=$this->render('sidebar/nearby-cities-widget', ['display_nearby_cities' => $display_nearby_cities, 'nearby_cities' => $nearby_cities, 'with_wrap' => true]);?>
+					<?php #=$this->render('sidebar/subscribe');?>
+				</div>
+			</aside>
+			<div class="col-12 col-md-8">
+				<h1 class="main-title"><?=$meta['title'];?></h1>
+				<div class="row mb-2 mb-xl-4">
+					<div class="col-12">
+						<?=Breadcrumbs::widget(['links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : []]);?>
 					</div>
 				</div>
 				
