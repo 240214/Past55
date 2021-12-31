@@ -26,7 +26,7 @@ use yii\helpers\Url;
 				<span class="count d-none"><?=$model->likes;?></span>
 			</a>
 
-			<h2 class="category-card__title mb-1 fw-bold"><a href="<?=$url;?>"><?=$model->title;?></a></h2>
+			<h2 class="category-card__title mb-1 fw-bold trans-all"><a href="<?=$url;?>"><?=$model->title;?></a></h2>
 			<div class="mb-15 category-card__adress"><span><?=$model->address;?></span></div>
 			<?php if($options['display_rating']):?>
 			<div class="d-flex">

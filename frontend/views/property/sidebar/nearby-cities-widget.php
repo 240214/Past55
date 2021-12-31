@@ -1,24 +1,18 @@
 <?php
 use yii\helpers\Url;
 use yii\helpers\VarDumper;
+$widget_class = $display_nearby_cities ? '' : 'hide';
 ?>
 <?php if($with_wrap):?>
-<div id="js_nearby_cities_widget" class="cat-widget">
+<div id="js_nearby_cities_widget" class="filter-box p-35 mb-2 <?=$widget_class;?>">
 <?php endif;?>
 	<?php if($display_nearby_cities):?>
-	<div class="card">
-		<div class="header">
-			<h2>Nearby Cities box</h2>
-			<small class="">Found locations: <?=count($nearby_cities);?></small>
+		<div class="filter-box__title mb-2">Nearby cities</div> <small class="d-none"><?=count($nearby_cities);?></small>
+		<div class="d-flex flex-wrap list-wrap">
+			<?php foreach($nearby_cities as $city):?>
+				<a href="<?=Url::toRoute(['property/index'] + $city);?>" class="filter-box__btn trans-me"><?=$city['city_label'];?></a>
+			<?php endforeach;?>
 		</div>
-		<div class="body">
-			<ul class="list-link">
-				<?php foreach($nearby_cities as $city):?>
-					<li class="item"><a href="<?=Url::toRoute(['property/index'] + $city);?>"><i class="zmdi zmdi-pin me-2"></i> <?=$city['city_label'];?></a></li>
-				<?php endforeach;?>
-			</ul>
-		</div>
-	</div>
 	<?php endif;?>
 <?php if($with_wrap):?>
 </div>

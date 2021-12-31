@@ -8,6 +8,7 @@ body {margin-top: 110px;}
 .filter-box__title,
 .category-card__avalible-btn,
 .filter-option-inner-inner,
+.category-article__subtitle,
 .category-card__rating-box {font-family: 'Airbnb Cereal App'; font-style: normal;}
 .filter-box__select {font-family: 'Airbnb Cereal App Book';}
 .filter-box__select option {font-family: 'Roboto'; font-size: 14px;}
@@ -23,15 +24,35 @@ body {margin-top: 110px;}
 .category-card__rating-box {width: 48px; height: 24px; box-shadow: 0 1px 7px rgba(66, 96, 123, 0.16); border-radius: 132px; font-size: 13px; line-height: 17px;}
 .category-card__desc {}
 .category-article {background: linear-gradient(180deg, #e1f3ff 7.86%, rgba(216, 206, 255, 0.3) 109.88%);}
-.category-article__textbox {max-width: 990px;}
-.category-article__subtitle {font-size: 18px; line-height: 26px; letter-spacing: -0.005em;}
+.category-article__textbox {}
+.category-article__subtitle {font-size: 18px; line-height: 26px; font-weight: 500; letter-spacing: -0.005em;}
 .filter-box {background: #f8f8f8; border-radius: 10px;}
-.filter-box__btn {height: 45px; background-color: #fff; box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08); border-radius: 8px; font-weight: 500; font-size: 15px; line-height: normal; text-align: center; letter-spacing: -0.005em; color: #5c5e60; cursor: pointer;}
-.filter-box__btn--active {color: var(--bs-brand)}
+.filter-box:empty {display: none;}
+.list-wrap {margin: 0 -5px;}
+.filter-box__btn {
+	background-color: #fff;
+	box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+	border-radius: 8px;
+	font-weight: 500;
+	font-size: 15px;
+	line-height: normal;
+	text-align: center;
+	letter-spacing: -0.005em;
+	color: #5c5e60;
+	cursor: pointer;
+	text-decoration: none;
+	margin: 7px 5px;
+	padding: 13px 20px;
+}
+.filter-box__btn:hover,
+.filter-box__btn.active,
+.filter-box__item input[type="checkbox"]:checked + label {color: var(--bs-brand);}
+.filter-box__item input[type="checkbox"] {display: none;}
 .filter-box__reset-btn {width: 100%; max-width: 160px; height: 60px; border: 1px solid #959595; border-radius: 8px; background-color: transparent; font-weight: 500; font-size: 18px; line-height: 25px; text-align: center; color: #000;}
 .filter-box__title {font-weight: 500; font-size: 18px; line-height: 25px; letter-spacing: -0.005em; color: #000;}
 .category-card__title {font-size: 28px; line-height: 37px; letter-spacing: -0.005em; color: #000;}
-.category-card__title a {text-decoration: none;}
+.category-card__title a {text-decoration: none; color: #000;}
+.category-card__title a:hover {color: var(--bs-brand);}
 .filter-btn {width: 100%; height: 45px; border: 1px solid #a1a1a1; border-radius: 6px; cursor: pointer;}
 .filter-btn .icon-arrow-down {background: transparent url(../icons/arrow-down-indigo.svg); display: block; width: 17px; height: 10px;}
 .category-card__avalible-btn {width: 100%; max-width: 100px; height: 23px; border: 1px solid #c8c8c8; border-radius: 3px; font-weight: 500; font-size: 10px; line-height: 14px; letter-spacing: -0.005em; color: #6d459c;}
@@ -70,8 +91,8 @@ body {margin-top: 110px;}
 .actions__toggle.mob-to-fav-float a.checked  ~ i.uncheck {opacity: 0;}
 .actions__toggle.mob-to-fav-float a.checked  ~ i.check {opacity: 1;}
 
+.category-article__list {padding-left: 0 !important;}
 @media all and (max-width: 1200px) {
-	.category-article__list {padding-left: 0 !important;}
 	.category {padding: 50px 0;}
 	.category-card {height: 100%;}
 }

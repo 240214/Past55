@@ -25,6 +25,13 @@
 	.trans-xs-none-all * {transition:none; -moz-transition:none; -webkit-transition:none; -ms-transition:none; -o-transition:none;}
 }
 
+.hide {display: none !important;}
+
+.max-w-1100 {max-width: 1100px;}
+.max-w-1070 {max-width: 1070px;}
+
+.fs-20 {font-size: 20px;}
+
 body.block-opened,
 body.filter-opened {overflow: hidden;}
 

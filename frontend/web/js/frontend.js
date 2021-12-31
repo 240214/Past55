@@ -161,7 +161,10 @@ $(function(){
 
 				switch(action){
 					case "property_filter":
-						FJS.Properties.Filter(e, $this);
+						FJS.Properties.Filter(e, $this, false);
+						break;
+					case "property_filter_reset":
+						FJS.Properties.Filter(e, $this, true);
 						break;
 					case "toggle_filter_sidebar":
 						FJS.Properties.ToggleFilterBar($this);
@@ -446,10 +449,14 @@ $(function(){
 			},
 		},
 		Properties: {
-			Filter: function(e, $btn){
+			Filter: function(e, $btn, reset){
 				e.stopPropagation();
 
 				FJS.Loader.start();
+
+				if(reset){
+					FJS.Properties.FilterReset();
+				}
 
 				var ids = [],
 					sorting = 0,//FJS.els.sorting.val(),
@@ -463,7 +470,7 @@ $(function(){
 				data.push({'name': 'Property[ids]', 'value': ids});
 
 				if($btn){
-					if($btn.attr('id') == 'js_filter_form'){
+					if($btn.attr('id') == 'js_filter_form' || $btn.attr('id') == 'js_reset_filter'){
 						if(FJS.vars.ww < 768){
 							FJS.Properties.ToggleFilterBar();
 						}
@@ -526,9 +533,12 @@ $(function(){
 				return false;
 
 			},
+			FilterReset: function(){
+				FJS.els.js_filter_form.find('input[type="checkbox"]').prop('checked', false);
+			},
 			ToggleFilterBar: function($btn){
-				FJS.els.js_filter_bar.toggleClass('open');
-				FJS.els.body.toggleClass('filter-opened');
+				FJS.els.js_filter_bar.toggleClass('d-none');
+				//FJS.els.body.toggleClass('filter-opened');
 			},
 			ToggleCompareItems: function(){
 				var $compare_items = FJS.els.js_compare_panel.find('#js_compare_items');

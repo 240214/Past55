@@ -1,24 +1,18 @@
 <?php
 use yii\helpers\Url;
 use yii\helpers\VarDumper;
+$widget_class = $display_narrow_cities ? '' : 'hide';
 ?>
 <?php if($with_wrap):?>
-<div id="js_narrow_cities_widget" class="cat-widget">
+<div id="js_narrow_cities_widget" class="filter-box p-35 mb-2 <?=$widget_class;?>">
 <?php endif;?>
 	<?php if($display_narrow_cities):?>
-	<div class="card">
-		<div class="header">
-			<h2>Narrow your search box</h2>
-			<small class="">Found locations: <?=count($narrow_cities);?></small>
-		</div>
-		<div class="body">
-			<ul class="list-link">
-				<?php foreach($narrow_cities as $city):?>
-					<li class="item"><a href="<?=Url::toRoute(['property/index'] + $city);?>"><i class="zmdi zmdi-pin me-2"></i> <?=$city['city_label'];?></a></li>
-				<?php endforeach;?>
-			</ul>
-		</div>
-	</div>
+		<div class="filter-box__title mb-2">Narrow your search</div> <small class="d-none"><?=count($narrow_cities);?></small>
+		<ul class="d-flex flex-wrap list-wrap">
+			<?php foreach($narrow_cities as $city):?>
+				<a href="<?=Url::toRoute(['property/index'] + $city);?>" class="filter-box__btn trans-me"><?=$city['city_label'];?></a>
+			<?php endforeach;?>
+		</ul>
 	<?php endif;?>
 <?php if($with_wrap):?>
 </div>
