@@ -1,0 +1,199 @@
+.author__first-screen {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(225, 243, 255, 0.3),rgba(216, 206, 255, 0.3));
+}
+
+.author__first-screen-img-1,
+.author__first-screen-img-2 {
+    opacity: 0.3;
+    z-index: -1;
+    top: 165px;
+}
+
+.author__first-screen-img-1 {
+    left: 0;
+}
+
+.author__first-screen-img-2 {
+    right: 0;
+}
+
+.author-box {
+    position: absolute;
+    left: 50%;
+    bottom: -55%;
+    width: 100%;
+    max-width: 630px;
+    min-height: 680px;
+    background: #FFFFFF;
+    border: 1px solid #D9DBDF;
+    box-shadow: 0px 0px 24px rgba(23, 37, 57, 0.06);
+    border-radius: 20px;
+    transform: translateX(-50%);
+    z-index: 2;
+    color: #424A53 !important;
+    z-index: 3;
+}
+
+.author-social-icon-wrapp {
+    display: block;
+    width: 35px;
+    height: 35px;
+    border: 1px solid #EAEAEA;
+    transition: all .15s linear;
+}
+
+.author-social-icon-wrapp:hover {
+    box-shadow: 0px 10px 24px rgba(0, 0, 0, 0.11);
+    transition: all .15s linear;
+}
+
+.author-box__subtitle {
+    position: relative;
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 21px;
+    letter-spacing: 0.05em;
+}
+
+.author-box__subtitle:before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    display: block;
+    width: 15px;
+    height: 2px;
+    background-color: #FFA767;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.author__content {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 165%;
+}
+
+.author-articles {
+    padding-top: 450px;
+}
+
+.author-articles__title {
+    font-family: 'PT Serif';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 34px;
+    line-height: 150%;
+    color: #000000;
+}
+
+.author-article {
+    width: 100%;
+    max-width: 380px;
+}
+
+.author-article__date {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 150%;
+    color: #4F525C;
+}
+
+.author-article__title {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 135%;
+    letter-spacing: -0.01em;
+    color: #000000;
+}
+
+.author-article__text {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 150%;
+    color: #4F525C;
+}
+
+.author-article__btn {
+    display: block;
+    width: 150px;
+    height: 50px;
+    border: 1px solid #6D459C;
+    box-sizing: border-box;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 25px;
+    color: #141414;
+    transition: all .15s linear;
+}
+
+.author-article__btn:hover {
+    color: var(--bs-brand);
+    transition: all .15s linear;
+}
+
+@media screen and (max-width: 991px) {
+    .author-article {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .author-box {
+        min-height: 540px;
+        padding: 15px !important;
+        bottom: -25%;
+        max-width: 90%;
+    }
+    .author-article {
+        max-width: 100%;
+    }
+    .author-box__subtitle {
+        font-size: 11px;
+        line-height: 14px;
+    }
+    .author__content {
+        font-size: 14px;
+        line-height: 165%;
+    }
+    .author-articles {
+        padding-top: 175px;
+    }
+    .author-articles__title {
+        font-size: 28px;
+        line-height: 37px;
+    }
+    .author-article__title {
+        font-size: 23px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .author-box {
+        position: relative;
+        margin-top: 20px;
+    }
+    .author__first-screen {
+        height: 100%;
+        padding-bottom: 20px;
+    }
+    .author-articles {
+        padding-top: 50px;
+    }
+}
