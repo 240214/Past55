@@ -1,0 +1,132 @@
+.hub-page {
+    position: relative;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    background: linear-gradient(180deg, #E1F3FF 7.86%, rgba(216, 206, 255, 0.3) 109.88%);
+}
+
+.hub-page__first-screen {
+    padding-top: 120px;
+}
+
+.first-screen-bg-1,
+.first-screen-bg-2 {
+    position: absolute;
+    opacity: 0.3;
+}
+
+.first-screen-bg-1 {
+    bottom: 0;
+    left: 0;
+}
+
+.first-screen-bg-2 {
+    bottom: 0;
+    right: 0;
+}
+
+.icon-box {
+    width: 25px;
+    height: 25px;
+    background: #F5ECFF;
+}
+
+.hub-page__title {
+    font-family: 'PT Serif';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 35px;
+    line-height: 135%;
+    letter-spacing: -0.005em;
+    color: #000000;
+}
+
+.author-info {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 135%;
+    color: #3C3C3D;
+}
+
+.numbered-title {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 170%;
+    letter-spacing: -0.005em;
+    color: #000000;
+}
+
+.highlighted-title {
+    position: relative;
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 170%;
+    letter-spacing: -0.005em;
+    color: #000000;
+    padding-left: 30px;
+}
+.highlighted-title:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 4px;
+    height: 25px;
+    background-color: #6D459C;
+}
+
+.hub-page__content>li>a {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 170%;
+    letter-spacing: -0.01em;
+    color: #000000;
+}
+
+.hub-page__content>li>a:hover {
+    text-decoration: underline !important;
+}
+
+.related-article-card__title {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 23px;
+    line-height: 135%;
+    letter-spacing: -0.01em;
+    color: #000000;
+    transition: all .15s ease;
+}
+
+.related-article-card__title:hover {
+    text-decoration: underline;
+    color: var(--bs-brand);
+    transition: all .15s ease;
+}
+
+.related-article__link {
+    background: #FFFFFF !important;
+    border: 1px solid #6D459C !important;
+    color: #141414 !important;
+    transition: all .1s ease-in;
+}
+
+.related-article__link:hover {
+    background-color: var(--bs-brand) !important;
+    color: #ffffff !important;
+    transition: all .1s ease-in;
+}
+
+@media screen and (max-width: 767px) {
+    .author-info {
+        font-size: 15px;
+    }
+}

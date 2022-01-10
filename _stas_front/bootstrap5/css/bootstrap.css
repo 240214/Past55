@@ -48,6 +48,10 @@
   color: var(--bs-black);
 }
 
+.text-color-black {
+  color: var(--bs-black) !important;
+}
+
 .text-color-secondary {
   color: var(--bs-secondary);
 }
@@ -7488,6 +7492,10 @@ textarea.form-control-lg {
   padding-top: 85px !important;
 }
 
+.pt-9 {
+  padding-top: 90px !important;
+}
+
 .pe-0 {
   padding-right: 0 !important;
 }
@@ -8985,6 +8993,10 @@ textarea.form-control-lg {
 
   .mb-md-2 {
     margin-bottom: 20px !important;
+  }
+
+  .mb-md-25 {
+    margin-bottom: 25px !important;
   }
 
   .mb-md-3 {
