@@ -1,0 +1,33 @@
+.my-favorites__add-btn,
+.my-favorites__item-text,
+.widget-title {font-family: 'Airbnb Cereal App'; font-style: normal;}
+.my-favorites__item-title,
+.compare-place-item__title {font-family: 'PT Serif'; font-style: normal;}
+
+.favorites {padding-top: 110px; background: linear-gradient(180deg, #E1F3FF 7.86%, rgba(216, 206, 255, 0.3) 109.88%);}
+.widget-title {font-size: 20px; font-weight: normal;}
+.widget-desc {font-size: 16px;}
+.my-favorites {padding-top: 115px;}
+.my-favorites__item {position: relative; box-shadow: 0 10px 55px rgba(7, 12, 16, 0.04); border-radius: 5px;}
+.my-favorites__img {max-width: 310px; width: 100%;}
+.compare-place-item {position: relative;}
+.compare-place-item:after {content: "×"; position: absolute; right: 5px; top: 2px; width: 15px; height: 15px; background-color: #6D459C; border-radius: 2px; display: flex; justify-content: center; align-items: center; color: #fff; cursor: pointer; font-size: 15px; line-height: 15px; padding-bottom: 2px; font-weight: 600;}
+.my-favorites__add-btn {width: 100%; max-width: 195px; height: 48px; border: 1px solid #E4E4E4; border-radius: 5px; font-weight: 300; font-size: 15px; line-height: 150%; letter-spacing: -0.005em; color: #000;}
+.my-favorites-add-btn__icon-wrapp {width: 20px; height: 20px; background: #6D459C; border-radius: 2px; color: #fff; line-height: 20px; font-size: 18px; padding-top: 3px;}
+.my-favorites__item-text {font-weight: 300; font-size: 15px; line-height: 150%; letter-spacing: -0.005em; color: #5A5A5A;}
+.my-favorites__item-title {font-weight: bold; font-size: 28px; line-height: 37px; letter-spacing: -0.005em; color: #000;}
+.my-favorites__box {overflow: hidden;}
+.compare__btn,
+.compare__reset-btn {max-width: 270px;}
+.compare__reset-btn {background-color: #FFF; border: 1px solid #D7D7D7; border-radius: 5px; color: #545454;}
+.my-favorites-item__compare-btn {position: absolute; top: 40px; left: 50px; width: 24px; height: 24px; background-color: #FFF; border-radius: 3px; display: flex; justify-content: center; align-items: center;}
+.add-to-favorite-btn--favorite-page {width: 25px !important; top: 40px; left: 50px; height: 25px !important;}
+.compare-place-item__title {font-weight: bold; font-size: 18px; line-height: 24px; letter-spacing: -0.005em; color: #000;}
+.my-favorites__item {margin-bottom: 20px !important;}
+@media screen and (max-width: 767px){
+    .compare-place-item__title {font-size: 15px; line-height: 20px;}
+    .compare__btn,
+    .compare__reset-btn {max-width: 200px; font-size: 13px; line-height: 19px;}
+    .my-favorites__item-title {font-size: 23px; line-height: 30px;}
+    .my-favorites {padding-top: 50px !important; padding-bottom: 50px !important;}
+}

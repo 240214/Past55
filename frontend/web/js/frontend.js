@@ -232,7 +232,9 @@ $(function(){
 				FJS.els.js_loader.addClass('show');
 			},
 			stop: function(){
-				FJS.els.js_loader.removeClass('show');
+				setTimeout(function(){
+					FJS.els.js_loader.removeClass('show');
+				}, 500);
 			},
 		},
 		Common: {
