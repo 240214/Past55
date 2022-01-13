@@ -30,7 +30,7 @@ $this->registerCssFile('@web/theme/css/favorites.css', ['depends' => [BootstrapA
 ?>
 
 <section class="favorites">
-	<div class="js_data_loader loader trans-all"></div>
+	<div class="js_data_loader loader fixed trans-all"></div>
 
 	<div class="my-favorites container pb-6">
 		<h1 class="main-title">My Favorites</h1>
@@ -112,7 +112,7 @@ $this->registerCssFile('@web/theme/css/favorites.css', ['depends' => [BootstrapA
 							<img class="my-favorites__img mb-2 mb-xxl-0 img-fluid" src="./img/favorites-place-1.png" alt="">
 						</div>
 						<div class="col-xxl-7 col-12">
-							<h4 class="my-favorites__item-title mb-1">Historic Roswell Place</h4>
+							<h2 class="my-favorites__item-title mb-1"><a>Historic Roswell Place</a></h2>
 							<div class="address mb-15">
 								<i class="bi bi-geo-alt me-1"></i>
 								<span class="similar-offers__adress">295 East Crossville Road, Roswell, GA 30075, USA</span>

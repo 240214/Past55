@@ -38,7 +38,7 @@ $options['display_rating'] = intval(Yii::$app->params['settings']['category_page
 $this->registerCssFile('@web/theme/css/category.css', ['depends' => [BootstrapAsset::className()]]);
 ?>
 <section class="category">
-	<div class="js_data_loader loader trans-all"></div>
+	<div class="js_data_loader loader fixed trans-all"></div>
 	<div class="container-fluid container-lg">
 		<div class="row mb-3">
 			<div class="col-12">
