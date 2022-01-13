@@ -570,7 +570,7 @@ $(function(){
 							.attr('role', 'button')
 							.attr('data-trigger', 'js_action_click')
 							.attr('data-action', 'remove_compare_item')
-							.append('<i class="zmdi zmdi-close-circle"></i>');
+							.append('<i class="zmdi zmdi-close"></i>');
 
 						$image.removeClass().addClass('img-fluid');
 						$figure.addClass('image empty-bg col-4 col-md-3').append($image);
@@ -589,7 +589,6 @@ $(function(){
 						$div.append($close);
 						$div.append($figure);
 						$div.append($content);
-						$div.append($text);
 
 						$compare_items.prepend($div);
 					}

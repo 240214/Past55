@@ -51,9 +51,9 @@ use yii\helpers\Url;
 			</div>
 			<?php endif;?>
 			<?php if($options['display_desc']):?>
-			<p class="category-card__desc mt-3"><?=Yii::$app->Helpers->createExcerpt($model->description, $desc_length);?></p>
+			<p class="category-card__desc mt-3"><?=Yii::$app->Helpers->createExcerpt($model->description, $options['desc_length']);?></p>
 			<?php endif;?>
-			<?php if($add_to_compare):?>
+			<?php if($options['add_to_compare']):?>
 				<div class="decor-checkbox">
 					<?=Html::checkbox('add_to_compare', false, ['id' => 'compare_'.$model->id, 'data-id' => $model->id, 'data-slug' => $model->slug, 'data-trigger' => 'js_action_change', 'data-action' => 'add_to_compare']);?>
 					<label class="text-decoration-underline" for="compare_<?=$model->id;?>">Add to comparison</label>

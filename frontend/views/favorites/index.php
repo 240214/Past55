@@ -20,11 +20,14 @@ $this->title = $meta['title'];
 $this->params['breadcrumbs'] = $breadcrumbs;
 #$this->params['breadcrumbs'][] = $this->title;
 
+$options['add_to_compare'] = true;
+$options['desc_length'] = 140;
+$options['display_desc'] = true;
 $options['display_price'] = intval(Yii::$app->params['settings']['category_page_display_listing_item_price']);
-$options['display_desc'] = intval(Yii::$app->params['settings']['category_page_display_listing_item_description']);
 $options['display_rating'] = intval(Yii::$app->params['settings']['category_page_display_listing_item_rating']);
 
 $this->registerCssFile('@web/theme/css/favorites.css', ['depends' => [BootstrapAsset::className()]]);
+$this->registerCssFile('@web/theme/css/properties.css', ['depends' => [BootstrapAsset::className()]]);
 
 #VarDumper::dump($model, 10, 1);
 ?>
@@ -107,6 +110,10 @@ $this->registerCssFile('@web/theme/css/favorites.css', ['depends' => [BootstrapA
 					</div>
 				</aside>
 				<div class="col-md-8">
+					<div id="js_favorite_items" class="property-listing trans_all">
+						<?=$this->render('partials/items', ['models' => $models, 'options' => $options]);?>
+					</div>
+
 					<div class="my-favorites__item row bg-white p-2 m-0">
 						<div class="col-xxl-5 col-12">
 							<img class="my-favorites__img mb-2 mb-xxl-0 img-fluid" src="./img/favorites-place-1.png" alt="">
