@@ -40,11 +40,12 @@ use yii\helpers\Url;
 			<?php endif;?>
 			
 			<?php if($options['add_to_compare']):?>
-				<button class="my-favorites__add-btn d-flex align-items-center justify-content-center bg-white">
+				<a role="button" class="compare__toggle position-relative d-block bg-white trans-all">
 					<?=Html::checkbox('add_to_compare', false, ['id' => 'compare_'.$model->id, 'data-id' => $model->id, 'data-slug' => $model->slug, 'data-trigger' => 'js_action_change', 'data-action' => 'add_to_compare']);?>
-					<i class="bi bi-check-square-fill icon"></i>
+					<i class="bi bi-check-square-fill check"></i>
+					<i class="bi bi-check-square uncheck"></i>
 					<label for="compare_<?=$model->id;?>">Add to comparison</label>
-				</button>
+				</a>
 			<?php endif;?>
 		</div>
 	</div>
