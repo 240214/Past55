@@ -15,11 +15,11 @@
 .actions__toggle.mob-to-fav-float i {right: 15px; left: auto; top: auto; font-size: 22px; width: 20px; height: 20px; color: #fff;}
 .actions__toggle.mob-to-fav-float a:not(.checked)  ~ i.check {opacity: 0;}
 .actions__toggle.mob-to-fav-float a:not(.checked)  ~ i.uncheck {opacity: 1;}
-.actions__toggle.mob-to-fav-float a.checked  ~ i.uncheck {opacity: 0;}
-.actions__toggle.mob-to-fav-float a.checked  ~ i.check {opacity: 1;}
+.actions__toggle.mob-to-fav-float a.checked ~ i.uncheck {opacity: 0;}
+.actions__toggle.mob-to-fav-float a.checked ~ i.check {opacity: 1;}
 
 .compare__toggle {width: 100%; max-width: 196px; border: 1px solid #E4E4E4; border-radius: 5px; text-decoration: none; padding: 11px; color: #000; font-family: 'Airbnb Cereal App'; font-style: normal;}
-.compare__toggle:hover {border-color: #6D459C; color: #6D459C; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);}
+.compare__toggle:hover {border-color: #6D459C; color: #6D459C; /*box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);*/}
 .compare__toggle label {margin-left: 42px; font-weight: 300; font-size: 15px; line-height: normal; letter-spacing: -0.005em;}
 .compare__toggle > i {color: #757575; font-size: 22px; position: absolute; z-index: 0; left: 15px; top: 12px; width: 22px; height: 22px; line-height: 1;}
 .compare__toggle > i.check {color: #6D459C;}
@@ -28,3 +28,5 @@
 .compare__toggle input[type=checkbox] ~ i.uncheck {opacity: 1;}
 .compare__toggle input[type=checkbox]:checked ~ i.uncheck {opacity: 0;}
 .compare__toggle input[type=checkbox]:checked ~ i.check {opacity: 1;}
+.compare__toggle input[type=checkbox]:disabled ~ i.uncheck,
+.compare__toggle input[type=checkbox]:disabled ~ label {opacity: 0.3;}

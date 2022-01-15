@@ -440,7 +440,7 @@ abbr[data-bs-original-title] {
   font-style: normal;
   font-weight: 300;
   font-size: 15px;
-  line-height: 24px;
+  line-height: normal;
   letter-spacing: -0.005em;
   color: #5A5A5A;
 }
@@ -7231,6 +7231,10 @@ textarea.form-control-lg {
 
 .me-0 {
   margin-right: 0 !important;
+}
+
+.me-05 {
+  margin-right: 5px !important;
 }
 
 .me-1 {

@@ -555,7 +555,7 @@ $(function(){
 							$figure = $('<figure>'),
 							$image = _this.parents('.box').find('img').clone(),
 							$close = $('<a>'),
-							$title = $('<strong>'),
+							$title = $('<h4>'),
 							$content = $('<div>'),
 							$address = _this.parents('.box').find('.address').clone();
 
@@ -573,7 +573,7 @@ $(function(){
 							.append('<i class="zmdi zmdi-close"></i>');
 
 						$image.removeClass().addClass('img-fluid');
-						$figure.addClass('image empty-bg col-4 col-md-3').append($image);
+						$figure.addClass('image empty-bg col-4').append($image);
 
 
 						$title
@@ -581,7 +581,7 @@ $(function(){
 							.html(_this.parents('.box').find('h2').find('a').clone());
 
 						$content
-							.addClass('col-8 col-md-9 pe-1')
+							.addClass('col-8 pe-1')
 							.append($title)
 							.append($address)
 							.append(_this.parents('.box').find('small').clone());

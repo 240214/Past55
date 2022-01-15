@@ -30,9 +30,9 @@ use yii\helpers\Url;
 
 		<div class="col-12 col-md-7">
 			<h2 class="my-favorites__item-title mb-1"><a href="<?=$url;?>"><?=$model->title;?></a></h2>
-			<div class="address mb-15">
-				<i class="bi bi-geo-alt me-1"></i>
-				<span class="similar-offers__adress"><?=$model->address;?></span>
+			<div class="address mb-15 d-flex flex-row flex-nowrap">
+				<i class="bi bi-geo-alt me-05"></i>
+				<div class="similar-offers__adress"><?=$model->address;?></div>
 			</div>
 
 			<?php if($options['display_desc']):?>
