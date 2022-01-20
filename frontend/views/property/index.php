@@ -31,13 +31,17 @@ $this->params['breadcrumbs'] = $breadcrumbs;
 #$cityDefault = ($city)?$city:"jodhpur";
 $property = new Property();
 
+$options['add_to_compare'] = false;
+$options['desc_length'] = 300;
 $options['display_price'] = intval(Yii::$app->params['settings']['category_page_display_listing_item_price']);
 $options['display_desc'] = intval(Yii::$app->params['settings']['category_page_display_listing_item_description']);
 $options['display_rating'] = intval(Yii::$app->params['settings']['category_page_display_listing_item_rating']);
 
 $this->registerCssFile('@web/theme/css/category.css', ['depends' => [BootstrapAsset::className()]]);
+$this->registerCssFile('@web/theme/css/properties.css', ['depends' => [BootstrapAsset::className()]]);
 ?>
 <section class="category">
+	<div class="js_data_loader loader fixed trans-all"></div>
 	<div class="container-fluid container-lg">
 		<div class="row mb-3">
 			<div class="col-12">
@@ -71,7 +75,7 @@ $this->registerCssFile('@web/theme/css/category.css', ['depends' => [BootstrapAs
 					<div id="js_filter_results" class="row property-listing trans_all <?=(!$dataProvider->getCount() ? 'no-results' : '');?>">
 						<?php
 						if($dataProvider->getCount()):?>
-							<?=$this->render('partials/items', ['models' => $dataProvider->getModels(), 'add_to_compare' => false, 'desc_length' => 300, 'options' => $options]);?>
+							<?=$this->render('partials/items', ['models' => $dataProvider->getModels(), 'options' => $options]);?>
 						<?php else:?>
 							<div class="card box">
 								<h3><?=$not_found_label;?></h3>

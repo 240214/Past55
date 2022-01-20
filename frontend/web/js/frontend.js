@@ -232,7 +232,9 @@ $(function(){
 				FJS.els.js_loader.addClass('show');
 			},
 			stop: function(){
-				FJS.els.js_loader.removeClass('show');
+				setTimeout(function(){
+					FJS.els.js_loader.removeClass('show');
+				}, 500);
 			},
 		},
 		Common: {
@@ -553,30 +555,40 @@ $(function(){
 							$figure = $('<figure>'),
 							$image = _this.parents('.box').find('img').clone(),
 							$close = $('<a>'),
-							$text = $('<div>'),
-							$strong = $('<strong>');
+							$title = $('<h4>'),
+							$content = $('<div>'),
+							$address = _this.parents('.box').find('.address').clone();
 
 						$div
 							.data('parent', _this.attr('id'))
 							.data('item', _this.data('id'))
 							.data('name', _this.data('slug'))
-							.addClass('item list-group-item d-flex flex-row align-items-center');
+							.addClass('item compare-place-item row bg-white');
+
 						$close
 							.addClass('close-btn')
 							.attr('role', 'button')
 							.attr('data-trigger', 'js_action_click')
 							.attr('data-action', 'remove_compare_item')
-							.append('<i class="zmdi zmdi-close-circle"></i>');
+							.append('<i class="zmdi zmdi-close"></i>');
 
-						$image.removeClass('hidden-xs');
-						$figure.addClass('image empty-bg').append($image);
+						$image.removeClass().addClass('img-fluid');
+						$figure.addClass('image empty-bg col-4').append($image);
 
-						$strong.addClass('mb-2').html(_this.parents('.box').find('h2').find('a').clone());
-						$text.addClass('text').append($strong).append(_this.parents('.box').find('small').clone());
+
+						$title
+							.addClass('compare-place-item__title')
+							.html(_this.parents('.box').find('h2').find('a').clone());
+
+						$content
+							.addClass('col-8 pe-1')
+							.append($title)
+							.append($address)
+							.append(_this.parents('.box').find('small').clone());
 
 						$div.append($close);
 						$div.append($figure);
-						$div.append($text);
+						$div.append($content);
 
 						$compare_items.prepend($div);
 					}
