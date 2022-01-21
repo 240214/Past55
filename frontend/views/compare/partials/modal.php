@@ -27,13 +27,13 @@ $customer_address = new CustomerAddresses();
 			</div>
 			<div class="modal-body">
 				<div class="row js_customer_address_row">
-					<div class="col-3">
-						<?=$form->field($customer_address, 'title[]')->textInput(['class' => 'form-control border-bottom-1 js_customer_address_title', 'placeholder' => 'Visitor name'])->label(false);?>
+					<div class="col-12">
+						<?=$form->field($customer_address, 'title[]')->textInput(['class' => 'form-control border-bottom-1 js_customer_address_title', 'placeholder' => 'Name'])->label('Visitor or Place name');?>
 					</div>
-					<div class="col-9 js_address_col">
-						<?=$form->field($customer_address, 'address[]')->textInput(['class' => 'form-control border-bottom-1 js_customer_address_address', 'placeholder' => 'Visitor address', 'data-loaded' => 0])->label(false);?>
+					<div class="col-12 mt-2 js_address_col">
+						<?=$form->field($customer_address, 'address[]')->textInput(['class' => 'form-control border-bottom-1 js_customer_address_address', 'placeholder' => 'Address', 'data-loaded' => 0])->label('Visitor or Place address');?>
 					</div>
-					<div class="col-12 mt-4 mb-3 js_distance_col">
+					<div class="col-12 mt-2 js_distance_col">
 						<small>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small>
 						<?=$form->field($customer_address, 'lat[]')->hiddenInput(['class' => 'js_customer_address_lat'])->label(false);?>
 						<?=$form->field($customer_address, 'lng[]')->hiddenInput(['class' => 'js_customer_address_lng'])->label(false);?>
@@ -42,8 +42,8 @@ $customer_address = new CustomerAddresses();
 				</div>
 			</div>
 			<div class="modal-footer">
-				<?=Html::button('Cancel', ['class' => 'btn btn-secondary', 'data-bs-dismiss' => 'modal']);?>
-				<?=Html::button('Add to list', ['class' => 'btn btn-primary', 'data-trigger' => 'js_action_click', 'data-action' => 'store_customer_address_to_compare_list']);?>
+				<?=Html::button('Cancel', ['class' => 'btn btn-brand-outline', 'data-bs-dismiss' => 'modal']);?>
+				<?=Html::button('Add to list', ['class' => 'btn btn-brand', 'data-trigger' => 'js_action_click', 'data-action' => 'store_customer_address_to_compare_list']);?>
 			</div>
 			<?php ActiveForm::end();?>
 		</div>

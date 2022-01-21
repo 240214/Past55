@@ -1,5 +1,6 @@
 .my-favorites__add-btn,
 .my-favorites__item-text,
+.compare-panel-info,
 .widget-title {font-family: 'Airbnb Cereal App'; font-style: normal;}
 .my-favorites__item-title,
 .compare-place-item__title {font-family: 'PT Serif'; font-style: normal;}
@@ -9,21 +10,41 @@
 .widget-desc {font-size: 16px;}
 .my-favorites {padding-top: 115px;}
 .my-favorites__item {position: relative; box-shadow: 0 10px 55px rgba(7, 12, 16, 0.04); border-radius: 5px; margin-bottom: 20px !important; padding: 20px 8px;}
-.my-favorites__img {max-width: 310px; width: 100%;}
+figure.image {margin: 0; height: 100%; overflow: hidden; }
+@media all and (min-width: 768px){
+    figure.image {display: flex; justify-content: center;}
+}
+figure.image .my-favorites__img {/*width: auto; height: 100%; max-width: none;*/}
 .compare-place-item {position: relative;}
-.compare-place-item:after {content: "×"; position: absolute; right: 5px; top: 2px; width: 15px; height: 15px; background-color: #6D459C; border-radius: 2px; display: flex; justify-content: center; align-items: center; color: #fff; cursor: pointer; font-size: 15px; line-height: 15px; padding-bottom: 2px; font-weight: 600;}
-.compare-place-item figure {margin: 0;}
 .my-favorites__item-text {font-weight: 300; font-size: 15px; line-height: 150%; letter-spacing: -0.005em; color: #5A5A5A;}
-.my-favorites__item-title {font-weight: bold; font-size: 28px; line-height: 37px; letter-spacing: -0.005em; color: #000;}
+.my-favorites__item-title {font-weight: bold; font-size: 28px; line-height: 37px; letter-spacing: -0.005em;}
 .my-favorites__box {overflow: hidden;}
 .compare__btn,
 .compare__reset-btn {max-width: 270px;}
-.compare__reset-btn {background-color: #FFF; border: 1px solid #D7D7D7; border-radius: 5px; color: #545454;}
+.compare__reset-btn {background-color: #FFF; border: 1px solid #D7D7D7; color: #545454; cursor: pointer;}
+.compare__reset-btn:hover {color: #6D459C;}
 .my-favorites-item__compare-btn {position: absolute; top: 40px; left: 50px; width: 24px; height: 24px; background-color: #FFF; border-radius: 3px; display: flex; justify-content: center; align-items: center;}
 .add-to-favorite-btn--favorite-page {width: 25px !important; top: 40px; left: 50px; height: 25px !important;}
-.compare-place-item__title {font-weight: bold; font-size: 18px; line-height: 24px; letter-spacing: -0.005em;}
+.compare-place-item__title {font-weight: bold; font-size: 16px; line-height: normal; letter-spacing: -0.005em; max-height: 44px; overflow: hidden; text-overflow: ellipsis;}
+
+.my-favorites__item-title a,
 .compare-place-item__title a {color: #000; text-decoration: none;}
+.compare-items {padding: 0 12px;}
+.compare-items .item {padding-top: 25px; margin-top: 25px; border-top: 1px dashed #ADADAD;}
+.compare-items .address,
+.compare-items .compare-place-item__title {padding: 0 30px 0 8px;}
+.compare-items .similar-offers__adress {font-size: 14px;}
+.compare-items figure.image {height: 86px;}
+.compare-items figure.image img {width: auto; height: 100%; max-width: none;}
+
+.close-btn {display: block; position: absolute; z-index: 1; top: 25px; right: 0; color: #6D459C; cursor: pointer; font-size: 16px; width: 16px; height: 16px; padding: 0; line-height: 1;}
+.close-btn:hover {color: #8859EC;}
+
+.compare-panel-info .desc {font-size: 16px; margin: 0; color: #3F3F3F; font-weight: normal;}
+.compare-panel-info .icon {font-size: 24px; color: #6D6D6D;}
+
 @media all and (max-width: 767px){
+    .compare-panel-info {border-top: 1px dashed #ADADAD;}
     .compare-place-item__title {font-size: 15px; line-height: 20px;}
     .compare__btn,
     .compare__reset-btn {max-width: 200px; font-size: 13px; line-height: 19px;}

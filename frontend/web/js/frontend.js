@@ -102,6 +102,7 @@ $(function(){
 			js_nav_tabs: $(".js_nav_tabs"),
 			js_backdrop: $("#js_backdrop"),
 			js_compare_panel: $('#js_compare_panel'),
+			js_compare_panel_info: $('#js_compare_panel_info'),
 			js_favorite_items: $('#js_favorite_items'),
 			js_user_favs_count: $('.js_user_favs_count'),
 			js_add_to_favs_btn: $('#js_add_to_favs_btn'),
@@ -570,18 +571,20 @@ $(function(){
 							.attr('role', 'button')
 							.attr('data-trigger', 'js_action_click')
 							.attr('data-action', 'remove_compare_item')
-							.append('<i class="zmdi zmdi-close"></i>');
+							.append('<i class="bi bi-x-square-fill"></i>');
 
 						$image.removeClass().addClass('img-fluid');
-						$figure.addClass('image empty-bg col-4').append($image);
+						$figure.addClass('image empty-bg col-3 rounded-4').append($image);
 
 
 						$title
 							.addClass('compare-place-item__title')
 							.html(_this.parents('.box').find('h2').find('a').clone());
 
+						$address.removeClass('mb-15');
+
 						$content
-							.addClass('col-8 pe-1')
+							.addClass('col-9 pe-1')
 							.append($title)
 							.append($address)
 							.append(_this.parents('.box').find('small').clone());
@@ -602,6 +605,14 @@ $(function(){
 					FJS.els.js_favorite_items.find('input[name="add_to_compare"]:not(:checked)').prop('disabled', true);
 				}else{
 					FJS.els.js_favorite_items.find('input[name="add_to_compare"]:not(:checked)').prop('disabled', false);
+				}
+
+				if(cl == 0){
+					FJS.els.js_compare_panel.addClass('d-none');
+					FJS.els.js_compare_panel_info.removeClass('d-none').addClass('d-flex');
+				}else{
+					FJS.els.js_compare_panel.removeClass('d-none');
+					FJS.els.js_compare_panel_info.removeClass('d-flex').addClass('d-none');
 				}
 
 				FJS.els.js_compare_panel.removeAttr('style');
@@ -911,6 +922,13 @@ $(function(){
 						}
 					}).height(h);
 
+					h = 0;
+					$('.js_small_desc').removeAttr('style').each(function(i, el){
+						if(h < $(el).height()){
+							h = $(el).height();
+						}
+					}).height(h);
+
 					if(image_block){
 						h = 99999;
 						$('.js_item_image').removeAttr('style').each(function(i, el){
@@ -974,7 +992,7 @@ $(function(){
 						$.each(responce.data, function(i, n){
 							$('.compare-item[data-id="'+n.id+'"]')
 								.find('.distance-to-relatives table tbody')
-								.append('<tr data-address_id="'+n.address_id+'"><td>'+n.title+'</td><td>&thickapprox;'+n.distance+' '+n.distance_type+'</td><td><a role="button" data-trigger="js_action_click" data-action="remove_customer_address_from_compare" class="btn-remove-current-address"><i class="zmdi zmdi-close-circle"></i></a></td></tr>');
+								.prepend('<tr data-address_id="'+n.address_id+'"><td><div class="name">'+n.title+'</div><div class="location">'+n.address+'</div></td><td><div class="btn-distance-indigo">'+n.distance+' '+n.distance_type+'</div><a role="button" data-trigger="js_action_click" data-action="remove_customer_address_from_compare" class="btn-remove-current-address"><i class="zmdi zmdi-close-circle"></i></a></td></tr>');
 						});
 					}else{
 						console.log(responce);
