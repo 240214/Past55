@@ -132,6 +132,7 @@ class CustomerController extends BaseController{
 				'id' => $property['id'],
 				'address_id' => $model->id,
 				'title' => $model->title,
+				'address' => $model->address,
 				'distance' => Yii::$app->Helpers->distance($property['address_lat'], $property['address_lng'], $model->lat, $model->lng, 'M'),
 				'distance_type' => CustomerAddresses::$distance_type,
 				#'prop_coords' => [$property['address_lat'], $property['address_lng']],

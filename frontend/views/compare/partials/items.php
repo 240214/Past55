@@ -6,7 +6,7 @@ use yii\helpers\VarDumper;
 #VarDumper::dump($models, 10, 1);
 
 $user_favorites_html = Html::dropDownList('user_favorites', [], $user_favorites, [
-	'class' => 'form-select form-select-lg mb-3',
+	'class' => 'form-select mb-3 custom-select',
 	'aria-label' => 'Select Favorite',
 	'prompt' => 'Select Favorite',
 	'data-trigger' => 'js_action_change',

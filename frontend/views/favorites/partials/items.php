@@ -15,17 +15,19 @@ use yii\helpers\Url;
 				<i class="bi bi-heart-fill text-color-primary check"></i>
 				<span class="count d-none"><?=$model->likes;?></span>
 			</a>
-			<a href="<?=$url;?>">
-				<?=Yii::$app->Helpers->getImage([
-					'src' => $model->getMainImage('250'),
-					'data-srcset' => $model->getMainImage('575').' 575w, '.$model->getMainImage('767').' 767w, '.$model->getMainImage('250').' 768w',
-					'data-sizes' => '250w',
-					'alt' => $model->title,
-					'from_cdn' => false,
-					'lazyload' => true,
-					'class' => 'my-favorites__img mb-2 mb-xxl-0 img-fluid',
-				]);?>
-			</a>
+			<figure class="image empty-bg rounded-4">
+				<a href="<?=$url;?>">
+					<?=Yii::$app->Helpers->getImage([
+						'src' => $model->getMainImage('250'),
+						'data-srcset' => $model->getMainImage('575').' 575w, '.$model->getMainImage('767').' 767w, '.$model->getMainImage('250').' 768w',
+						'data-sizes' => '250w',
+						'alt' => $model->title,
+						'from_cdn' => false,
+						'lazyload' => true,
+						'class' => 'my-favorites__img mb-xxl-0 img-fluid',
+					]);?>
+				</a>
+			</figure>
 		</div>
 
 		<div class="col-12 col-md-7">
