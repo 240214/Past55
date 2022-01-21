@@ -1,0 +1,93 @@
+.business-category__first-screen {
+    padding-top: 20px;
+    min-height: 445px;
+    background: linear-gradient(rgba(225, 243, 255, 0.3),rgba(216, 206, 255, 0.3));
+    z-index: 2;
+    overflow: hidden;
+}
+
+.business-category__first-screen-img-1,
+.business-category__first-screen-img-2 {
+    opacity: 0.3;
+    z-index: -1;
+    top: 150px;
+}
+
+.business-category__first-screen-img-1 {
+    left: -10px;
+}
+
+.business-category__first-screen-img-2 {
+    right: -10px;
+}
+
+.business-category-first-screen__sub-title {
+    max-width: 635px;
+}
+
+.business-category__body-label {
+    font-weight: 500;
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-size: 17px;
+    line-height: 22px;
+    color: #2B2B2B;
+}
+
+.business-category-card {
+    min-height: 560px;
+    box-shadow: 0px 10px 55.4px rgba(7, 12, 16, 0.04);
+    border-radius: 10px;
+}
+
+.business-category-card__title {
+    display: block;
+    max-width: 340px;
+}
+
+.business-category-card__info-btn {
+    width: 95px;
+    height: 30px;
+    border: 0.5px solid #C8C8C8;
+    border-radius: 5px;
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    text-transform: capitalize;
+    color: #6D459C;
+}
+
+.business-category-card__item {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 135%;
+    letter-spacing: -0.01em;
+    color: #000000;
+}
+
+.business-category-card__see-all-link {
+    width: 120px;
+    height: 40px;
+    border: 1px solid #6D459C;
+    border-radius: 8px;
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 25px;
+}
+
+@media screen and (max-width: 767px) {
+    .business-category-card {
+        margin: 0 auto;
+        max-width: 320px;
+        height: 100%;
+    }
+    .business-category__first-screen {
+        min-height: 295px;
+    }
+}

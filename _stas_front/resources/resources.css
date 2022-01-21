@@ -55,9 +55,6 @@
 }
 
 @media screen and (max-width: 767px) {
-    /* .resources-card__img {
-        width: 100%;
-    } */
     .resources-card {
         margin: 0 auto;
     }
