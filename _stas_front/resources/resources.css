@@ -1,0 +1,36 @@
+.resources__first-screen {
+    padding-top: 20px;
+    height: 100vh;
+    background: linear-gradient(rgba(225, 243, 255, 0.3),rgba(216, 206, 255, 0.3));
+    z-index: 2;
+    overflow: hidden;
+}
+
+.resources__first-screen-img-1,
+.resources__first-screen-img-2 {
+    opacity: 0.3;
+    z-index: -1;
+    top: 150px;
+}
+
+.resources__first-screen-img-1 {
+    left: -10px;
+}
+
+.resources__first-screen-img-2 {
+    right: -10px;
+}
+
+.resources-first-screen__sub-title {
+    max-width: 530px;
+}
+
+.resources-card {
+    box-shadow: 0px 10px 27.4px rgba(7, 12, 16, 0.06);
+    border-radius: 10px;
+}
+
+.resources-card__img {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}

@@ -7481,7 +7481,11 @@ textarea.form-control-lg {
 }
 
 .pt-7 {
-  padding-top: 60px !important;
+  padding-top: 70px !important;
+}
+
+.pt-8 {
+  padding-top: 80px !important;
 }
 
 .pt-55 {
