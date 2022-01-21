@@ -11,6 +11,8 @@ use yii\bootstrap\Html;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
+VarDumper::dump($meta, 10, 1);
+
 $this->registerMetaTag(['name' => 'description', 'content' => $meta['description']]);
 $this->registerMetaTag(['name' => 'keywords', 'content' => $meta['keywords']]);
 if($meta['noindex']){

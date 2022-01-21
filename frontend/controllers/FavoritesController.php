@@ -87,6 +87,8 @@ class FavoritesController extends BaseController{
 	}
 	
 	public function actionIndex(){
+		$noindex = YII_ENV_DEV;
+		
 		#$uid     = (Yii::$app->user->identity) ? Yii::$app->user->identity->getId() : 0;
 		$sid     = Yii::$app->session->id;
 		
@@ -97,7 +99,13 @@ class FavoritesController extends BaseController{
 			->all();
 		
 		return $this->render('index', [
-			'models' => $models
+			'models' => $models,
+			'meta' => [
+				'title' => 'Favorites',
+				'description' => '',
+				'keywords' => '',
+				'noindex' => $noindex,
+			],
 		]);
 	}
 	
