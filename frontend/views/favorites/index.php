@@ -11,7 +11,7 @@ use yii\bootstrap\Html;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-VarDumper::dump($meta, 10, 1);
+#VarDumper::dump($meta, 10, 1);
 
 $this->registerMetaTag(['name' => 'description', 'content' => $meta['description']]);
 $this->registerMetaTag(['name' => 'keywords', 'content' => $meta['keywords']]);
@@ -19,7 +19,7 @@ if($meta['noindex']){
 	$this->registerMetaTag(['name' => 'robots', 'content' => 'noindex,nofollow']);
 }
 $this->title = $meta['title'];
-$this->params['breadcrumbs'] = $breadcrumbs;
+#$this->params['breadcrumbs'] = $breadcrumbs;
 #$this->params['breadcrumbs'][] = $this->title;
 
 $options['add_to_compare'] = true;
@@ -41,7 +41,7 @@ $this->registerCssFile('@web/theme/css/properties.css', ['depends' => [Bootstrap
 		<h1 class="main-title mb-15">My Favorites</h1>
 		<p class="main-text-content main-desc m-0">Compare your favorite senior living communities here.</p>
 
-		<div class="row mb-5 mt-45">
+		<div class="row mb-5 mt-4">
 			<?php if(count($models)):?>
 				<aside id="js_filter_bar" class="col-md-4 mb-4 mb-md-0 trans-me">
 					<div class="sticky-block">

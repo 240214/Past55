@@ -40,7 +40,7 @@ return [
                 'yii\bootstrap\BootstrapAsset' => [
 	                'sourcePath' => '@frontend/web/theme/plugins/bootstrap5',
                     'css' => [
-                    	'css/bootstrap-mod.css',
+                    	'css/bootstrap.min.css',
                     ]
                 ]
             ]

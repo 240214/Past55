@@ -22,26 +22,9 @@ $this->registerCssFile('@web/theme/css/compare.css', ['depends' => [BootstrapAss
 		<h1 class="main-title text-center text-xl-start mb-15">Facility Comparison</h1>
 		<p class="main-text-content main-desc text-center text-xl-start mb-0">Compare your favorite senior living communities here.</p>
 		
-		<div id="js_compare_items" class="row flex-nowrap property-listing mt-45 trans-all cols-<?=$total_count;?>">
+		<div id="js_compare_items" class="row flex-nowrap property-listing mt-4 trans-all cols-<?=$total_count;?>">
 			<?=$this->render('partials/items', ['models' => $models, 'user_favorites' => $user_favorites, 'intersect_features' => $intersect_features, 'desc_length' => 100]);?>
 		</div>
 		<?=$this->render('partials/modal');?>
 	</div>
 </section>
-<?php /*
-<section class="section page-content compare-index">
-	<div class="loader trans_me"></div>
-	<div class="container-lg">
-		<header class="section__title text-center text-md-start">
-			<h1>Facility Comparison</h1>
-			<small>Vestibulum id ligula porta felis euismod semper</small>
-		</header>
-
-		<div id="js_compare_items" class="row flex-nowrap property-listing trans_all cols-<?=$total_count;?>">
-			<?=$this->render('partials/items', ['models' => $models, 'user_favorites' => $user_favorites, 'intersect_features' => $intersect_features, 'desc_length' => 100]);?>
-		</div>
-		<?=$this->render('partials/modal');?>
-	</div>
-</section>
-*/?>
-

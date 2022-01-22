@@ -30,6 +30,7 @@ class CompareController extends PropertyController{
 	
 	public function actionIndex(){
 		$user_favorites = $titles = [];
+		$dataProvider = null;
 		
 		$request = Yii::$app->request;
 		#VarDumper::dump($request->get(), 10, 1);
@@ -47,7 +48,7 @@ class CompareController extends PropertyController{
 		
 		$intersect_features = [];
 		
-		if($dataProvider->getTotalCount()){
+		if(!is_null($dataProvider) && $dataProvider->getTotalCount()){
 			foreach($dataProvider->getModels() as $model){
 				$model->nearby_places = $this->getPropertyNearbyPlaces($model);
 				$model->categories = $this->getPropertyCategories($model);

@@ -11,6 +11,7 @@ use yii\helpers\VarDumper;
  */
 class AppAsset extends AssetBundle {
 	
+	public $version = '2';
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
@@ -55,7 +56,7 @@ class AppAsset extends AssetBundle {
 	
 	    // Theme
         #'theme/css/main.css?=4',
-        'theme/css/common.css',
+        'theme/css/common.css%s',
         'theme/css/header.css',
         'theme/css/footer.css',
         #'css/site.css',
@@ -147,4 +148,14 @@ class AppAsset extends AssetBundle {
 		$this->js[] = $_js.http_build_query($q);
 	}
 	
+	public function init(){
+		parent::init();
+		
+		foreach($this->css as $k => $v)
+			$this->css[$k] = sprintf($v, '?v='.$this->version);
+		
+		foreach($this->js as $k => $v)
+			$this->js[$k] = sprintf($v, '?v='.$this->version);
+		
+	}
 }
