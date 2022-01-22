@@ -1,6 +1,6 @@
 .resources__first-screen {
     padding-top: 20px;
-    height: 100vh;
+    min-height: 445px;
     background: linear-gradient(rgba(225, 243, 255, 0.3),rgba(216, 206, 255, 0.3));
     z-index: 2;
     overflow: hidden;
@@ -33,4 +33,42 @@
 .resources-card__img {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
+}
+
+.resiurces-card__text-content {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 150%;
+    color: #6D6D6D;
+}
+
+.resources-card__title {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 23px;
+    line-height: 135%;
+    letter-spacing: -0.01em;
+    color: #000000;
+}
+
+@media screen and (max-width: 767px) {
+    .resources-card {
+        margin: 0 auto;
+    }
+    .resources__first-screen {
+        min-height: 295px;
+    }
+    .resiurces-card__text-content {
+        font-size: 14px;
+    }
+    .resources-card {
+        max-width: 320px;
+        height: 100%;
+    }
+    .resources-card__title {
+        font-size: 20px;
+    }
 }
