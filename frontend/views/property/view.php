@@ -21,8 +21,8 @@ $this->params['breadcrumbs'][] = $this->title;
 $this->registerLinkTag(['rel' => 'canonical', 'href' => $property->canonical_url]);
 
 $bundle = AppAsset::register($this);
-$this->registerCssFile('@web/theme/plugins/slick/css/slick.css', ['depends' => [BootstrapAsset::className()]]);
-$this->registerCssFile('@web/theme/plugins/slick/css/slick-theme.css', ['depends' => [BootstrapAsset::className()]]);
+$this->registerCssFile('@web/theme/plugins/slick/css/slick.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
+$this->registerCssFile('@web/theme/plugins/slick/css/slick-theme.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 #$this->registerCssFile('@web/theme/plugins/rateYo/src/jquery.rateyo.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 #$this->registerCssFile('@web/theme/plugins/materialize/css/materialize.min.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 $this->registerJsFile('@web/theme/plugins/slick/js/slick.min.js', ['depends' => [JqueryAsset::className(), AppAsset::className()]]);

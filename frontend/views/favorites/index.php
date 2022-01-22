@@ -7,6 +7,7 @@ use yii\helpers\VarDumper;
 use yii\web\View;
 use yii\widgets\LinkPager;
 use yii\bootstrap\Html;
+use frontend\assets\AppAsset;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -28,8 +29,8 @@ $options['display_desc'] = true;
 $options['display_price'] = intval(Yii::$app->params['settings']['category_page_display_listing_item_price']);
 $options['display_rating'] = intval(Yii::$app->params['settings']['category_page_display_listing_item_rating']);
 
-$this->registerCssFile('@web/theme/css/favorites.css', ['depends' => [BootstrapAsset::className()]]);
-$this->registerCssFile('@web/theme/css/properties.css', ['depends' => [BootstrapAsset::className()]]);
+$this->registerCssFile('@web/theme/css/favorites.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
+$this->registerCssFile('@web/theme/css/properties.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 
 #VarDumper::dump($model, 10, 1);
 ?>

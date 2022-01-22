@@ -1,6 +1,7 @@
 <?php
 
 use yii\bootstrap\BootstrapAsset;
+use frontend\assets\AppAsset;
 use yii\helpers\Html;
 use yii\grid\GridView;
 #use yii\widgets\Breadcrumbs;
@@ -37,8 +38,8 @@ $options['display_price'] = intval(Yii::$app->params['settings']['category_page_
 $options['display_desc'] = intval(Yii::$app->params['settings']['category_page_display_listing_item_description']);
 $options['display_rating'] = intval(Yii::$app->params['settings']['category_page_display_listing_item_rating']);
 
-$this->registerCssFile('@web/theme/css/category.css', ['depends' => [BootstrapAsset::className()]]);
-$this->registerCssFile('@web/theme/css/properties.css', ['depends' => [BootstrapAsset::className()]]);
+$this->registerCssFile('@web/theme/css/category.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
+$this->registerCssFile('@web/theme/css/properties.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 ?>
 <section class="category">
 	<div class="js_data_loader loader fixed trans-all"></div>
