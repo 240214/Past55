@@ -206,6 +206,9 @@ $(function(){
 					case "compare_items":
 						FJS.Comparison.CompareItems($this);
 						break;
+					case "reset_compare_items":
+						FJS.Comparison.ResetItems($this);
+						break;
 					case "type_of_place_change":
 						FJS.Comparison.changeTypeOfPlace($this);
 						break;
@@ -829,6 +832,10 @@ $(function(){
 				window.location.href = url;
 
 				//console.log(url);
+			},
+			ResetItems: function($obj){
+				FJS.els.js_favorite_items.find('input[name="add_to_compare"]:checked').prop('checked', false);
+				FJS.Properties.ToggleCompareItems();
 			},
 			initTypeOfPlaces: function(){
 				var flag = false;

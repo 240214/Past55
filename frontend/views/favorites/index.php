@@ -53,8 +53,8 @@ $this->registerCssFile('@web/theme/css/properties.css', ['depends' => [Bootstrap
 							</div>
 							<div id="js_compare_items" class="compare-items"></div>
 							<div id="js_compare_btn_group" class="d-flex flex-column align-items-center mt-3">
-								<?=Html::button('Compare these planes', ['id' => 'js_btn_compare', 'class' => 'compare__btn btn-primary-medium mb-2', 'disabled' => 'disabled', 'data-trigger' => 'js_action_click', 'data-action' => 'compare_items']);?>
-								<?=Html::button('Reset all places', ['id' => 'js_btn_reset', 'class' => 'compare__reset-btn btn-primary-medium mb-1', 'disabled' => 'disabled', 'data-trigger' => 'js_action_click', 'data-action' => 'reset_items']);?>
+								<?=Html::button('Compare these places', ['id' => 'js_btn_compare', 'class' => 'compare__btn btn-primary-medium mb-2', 'disabled' => 'disabled', 'data-trigger' => 'js_action_click', 'data-action' => 'compare_items']);?>
+								<?=Html::button('Reset all places', ['id' => 'js_btn_compare_reset', 'class' => 'compare__reset-btn btn-primary-medium mb-1', 'data-trigger' => 'js_action_click', 'data-action' => 'reset_compare_items']);?>
 							</div>
 						</div>
 						<div id="js_compare_panel_info" class="compare-panel-info d-flex flex-row flex-nowrap align-items-start pt-2 pt-md-0">
