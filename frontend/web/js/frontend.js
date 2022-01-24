@@ -161,6 +161,9 @@ $(function(){
 					action = $(this).data('action');
 
 				switch(action){
+					case "apply_cat_filter":
+						FJS.Properties.SingleFilter($this);
+						break;
 					case "property_filter":
 						FJS.Properties.Filter(e, $this, false);
 						break;
@@ -455,6 +458,12 @@ $(function(){
 			},
 		},
 		Properties: {
+			SingleFilter: function($obj){
+				var $form = $obj.parents('form');
+				setTimeout(function(){
+					$form.submit();
+				}, 500);
+			},
 			Filter: function(e, $btn, reset){
 				e.stopPropagation();
 
@@ -648,6 +657,7 @@ $(function(){
 					$obj.text(FJS.labels.show_less);
 				}
 			},
+
 		},
 		Customer: {
 			AddressStore: function($btn){

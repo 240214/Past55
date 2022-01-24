@@ -39,7 +39,7 @@ $form = ActiveForm::begin([
 			$checked = in_array($label['id'], $category_ids) ? 'checked="checked"' : '';
 			$return = '';
 			$return .= '<div class="filter-box__item">';
-			$return .= '<input type="checkbox" id="'.$id.'" name="'.str_replace('[]', '['.$label['id'].']', $name).'" value="'.$label['id'].'" '.$checked.' label="'.$label['name'].'">';
+			$return .= '<input type="checkbox" id="'.$id.'" name="'.str_replace('[]', '['.$label['id'].']', $name).'" value="'.$label['id'].'" '.$checked.' label="'.$label['name'].'" data-trigger="js_action_change" data-action="apply_cat_filter">';
 			$return .= '<label for="'.$id.'" class="filter-box__btn">'.$label['name'].'</label>';
 			$return .= '</div>';
 			
