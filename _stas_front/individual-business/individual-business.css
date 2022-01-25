@@ -1,5 +1,6 @@
 .individual-business__first-screen {
     min-height: 100vh;
+    background: linear-gradient(rgba(225, 243, 255, 0.3),rgba(216, 206, 255, 0.3));
 }
 
 .individual-business-first-screen__title {
@@ -56,4 +57,195 @@
 
 .individual-business-first-screen__sign-in-text > a:hover > b {
     text-decoration: underline;
+}
+
+.explore-business__box {
+    width: 490px;
+    height: 510px;
+    background: #FFFFFF;
+    box-shadow: 0px 8px 44px rgba(7, 12, 16, 0.04);
+    border-radius: 8px;
+}
+
+.explore-business__title {
+    font-family: 'PT Serif';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 33px;
+}
+
+.explore-business__text-content {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 156%;
+    letter-spacing: -0.005em;
+}
+
+.explore-business__subtitle {
+    font-family: 'PT Serif';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 26px;
+}
+
+.explore-business__item {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: -0.01em;
+    color: #363636 !important;
+}
+
+.explore-business__list-item {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: -0.01em;
+    color: #363636;
+}
+
+.explore-business__list-item--tel:hover {
+    text-decoration: underline !important;
+}
+
+.explore-business__icon-wrapp {
+    width: 40px;
+    height: 40px;
+    box-shadow: 0px 2px 17px rgba(22, 30, 52, 0.07);
+    border-radius: 5px;
+}
+
+.about-business {
+    width: 100%;
+    max-width: 780px;
+}
+
+.about-business__title {
+    font-family: 'PT Serif';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 35px;
+    line-height: 46px;
+}
+
+.about-business__list {
+    list-style: disc;
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 23px;
+    color: #828282;
+}
+
+.reviews__box {
+    height: 260px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 74px rgba(23, 37, 57, 0.07);
+    border-radius: 20px;
+}
+
+.reviews__box> div:first-child {
+    width: 100%;
+    max-width: 420px;
+}
+
+.reviews__box> div:last-child {
+    width: 100%;
+    max-width: 325px;
+}
+
+.reviews__title {
+    font-family: 'PT Serif';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 150%;
+    color: #000000;
+}
+
+.reviews__subtitle {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 150%;
+    color: #000000;
+}
+
+.reviews__icon-wrapp {
+    width: 30px;
+    height: 30px;
+    background: #F4F4F4;
+    border-radius: 2px;
+}
+
+.reviews__icon-wrapp > i.bi-star-fill {
+    color: #D0D0D0;
+}
+
+.review__rating-box {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 100%;
+    color: #000000;
+}
+
+.review__rating-box > i {
+    font-size: 25px;
+    color: #6D459C;
+}
+
+.review__title {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 150%;
+}
+
+.review__user-name {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 23px;
+}
+
+.review__user-location {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 150%;
+    color: #555555;
+}
+
+.review__text-content {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 150%;
+}
+
+.review__from-link {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    text-decoration-line: underline;
+    color: #6D459C;
 }

@@ -4791,6 +4791,8 @@ textarea.form-control-lg {
   padding: 0 0;
   margin-bottom: 1rem;
   list-style: none;
+  font-family: 'Airbnb Cereal App';
+  font-weight: 300;
 }
 
 .breadcrumb-item + .breadcrumb-item {
@@ -7378,6 +7380,11 @@ textarea.form-control-lg {
 .p-3 {
   padding: 30px !important;
 }
+
+.p-35 {
+  padding: 25px!important;
+}
+
 
 .p-4 {
   padding: 40px !important;
