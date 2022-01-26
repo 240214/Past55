@@ -7568,6 +7568,10 @@ textarea.form-control-lg {
   padding-bottom: 20px !important;
 }
 
+.pb-25 {
+  padding-bottom: 25px !important;
+}
+
 .pb-3 {
   padding-bottom: 30px !important;
 }
@@ -10451,23 +10455,28 @@ textarea.form-control-lg {
   }
 
   .p-xl-1 {
-    padding: 0.25rem !important;
+    padding: 10px !important;
   }
 
   .p-xl-2 {
-    padding: 0.5rem !important;
+    padding: 20px !important;
   }
 
   .p-xl-3 {
-    padding: 1rem !important;
+    padding: 30px !important;
+  }
+
+  
+  .p-xl-35 {
+    padding: 35px !important;
   }
 
   .p-xl-4 {
-    padding: 1.5rem !important;
+    padding: 40px !important;
   }
 
   .p-xl-5 {
-    padding: 3rem !important;
+    padding: 50px !important;
   }
 
   .px-xl-0 {

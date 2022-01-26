@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <div class="individual-business__first-screen position-relative">
+    <div class="individual-business__first-screen pb-2 position-relative">
         <header class="container header-home d-flex align-items-center justify-content-between mt-0">
             <div class="header-logo">GeorgiaCaring</div>
             <div class="flex-grow-1 d-none d-xl-block">
@@ -38,9 +38,9 @@
 
         <div class="container pt-4 pt-md-10">
             <div class="row">
-                <div class="col-12 col-xl-8">
+                <div class="col-12 col-xl-8 mb-3 mb-xl-0">
                     <h1 class="individual-business-first-screen__title text-color-black">
-                        Build the future with<br> Georgia
+                        Build the future with<br class="d-none d-md-block"> Georgia
                     </h1>
                     <div class="d-flex align-items-center mb-3">
                         <div class="d-flex me-15">
@@ -83,14 +83,14 @@
                     </div>
                 </div>
                 <div class="col-12 col-xl-4">
-                    <div class="explore-business__box p-35">
-                        <img class="mb-2" src="./img/explore-business-icon.png" alt="">
-                        <h1 class="explore-business__title text-color-black mb-15">Explore the business</h1>
-                        <p class="explore-business__text-content text-color-black">
+                    <div class="explore-business__box p-25 p-xl-35">
+                        <img class="mb-15 mb-xl-2" src="./img/explore-business-icon.png" alt="">
+                        <h1 class="explore-business__title text-color-black mb-1 mb-md-15">Explore the business</h1>
+                        <p class="explore-business__text-content text-color-black mb-0 mb-md-1">
                             <b class="text-decoration-underline">Our mission is to create a workplace where work empowers people.</b>
                             Our mission is to create a workplace where work empowers people
                         </p>
-                        <div class="divider-wrapp mb-2">
+                        <div class="divider-wrapp mb-1 mb-md-2">
                             <img src="../shared/images/divider.png" alt="">
                         </div>
                         <h2 class="explore-business__subtitle text-color-black mb-1">Contact Info</h2>
@@ -110,7 +110,7 @@
                                 <div class="explore-business__icon-wrapp bg-white d-flex justify-content-center align-items-center me-2">
                                     <i class="bi bi-geo-alt-fill text-color-primary"></i>
                                 </div>
-                                <span class="explore-business__list-item">400 Marietta Hwy, Roswell, GA <br>30075, USA</span>
+                                <span class="explore-business__list-item">400 Marietta Hwy, Roswell, GA <br class="d-none d-md-block">30075, USA</span>
                             </li>
                         </ul>
                     </div>
@@ -119,7 +119,7 @@
         </div>
     </div>
 
-    <div class="container">
+    <!-- <div class="container">
         <section class="container py-5"> 
             <nav aria-label="business-category-2__breadcrumb breadcrumb mb-1">
                 <ol class="breadcrumb">
@@ -173,8 +173,8 @@
             </div>
         </section>
 
-        <div class="reviews__body">
-            <div class="row">
+        <div class="reviews__body pb-8">
+            <div class="reviews__row row pb-25 mb-4">
                 <div class="col-5">
                     <div class="review">
                         <div class="d-flex mb-2">
@@ -204,11 +204,11 @@
                             <div class="d-flex">
                                 <a href="#" class="text-color-black text-decoration-none d-flex align-items-center me-25" role="button">
                                     <img class="me-1" src="./img/like-icon.png" alt="">
-                                    <span>Helpful? (0)</span>
+                                    <span class="review__link-label text-color-black">Helpful? (0)</span>
                                 </a>
                                 <a href="#" class="text-color-black text-decoration-none d-flex align-items-center me-2" role="button">
                                     <i class="bi bi-share me-1"></i>
-                                    <span>Share</span>
+                                    <span class="review__link-label text-color-black">Share</span>
                                 </a>
                                 <a href="#" class="text-color-black" role="button">
                                     <i class="bi bi-three-dots-vertical"></i>
@@ -218,11 +218,212 @@
                     </div>
                 </div>
                 <div class="col-2">3</div>
-                <div class="col-5">2</div>
+                <div class="col-5">
+                    <div class="review">
+                        <div class="d-flex mb-2">
+                            <div class="review__rating-box me-2">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <div>5.0</div>
+                        </div>
+                        <h2 class="review__title text-color-black mb-25">Luckily discovered Jessica a few years ago via Thumbtack</h2>
+                        <div class="d-flex align-items-start mb-2">
+                            <img class="me-2" src="./img/review-user-avatar-default-img.png" alt="">
+                            <div class="d-flex flex-column ">
+                                <div class="review__user-name text-color-black">Alivia Franklin</div>
+                                <div class="review__user-location">Lawrenceville, Georgia</div>
+                            </div>
+                        </div>
+                        <p class="review__text-content mb-2 text-color-black">Luckily discovered Jessica a few years ago via Thumbtack and I consider myself lucky for it. She's so easy to work with. She also has a very quick turnaround time after you have delivered your year end documents to her. Jessica is also in the real estate industry, so she knows how to help maximize your return. For under $100, you're getting a true professional who provides customized service and takes care of everything for you! Beat that TurboTax!!</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center">
+                                <img src="./img/trustpilot-icon.png" alt="">
+                                <a href="#" class="review__from-link text-color-primary">Trustpilot</a>
+                            </div>
+                            <div class="d-flex">
+                                <a href="#" class="text-color-black text-decoration-none d-flex align-items-center me-25" role="button">
+                                    <img class="me-1" src="./img/like-icon.png" alt="">
+                                    <span class="review__link-label text-color-black">Helpful? (0)</span>
+                                </a>
+                                <a href="#" class="text-color-black text-decoration-none d-flex align-items-center me-2" role="button">
+                                    <i class="bi bi-share me-1"></i>
+                                    <span class="review__link-label text-color-black">Share</span>
+                                </a>
+                                <a href="#" class="text-color-black" role="button">
+                                    <i class="bi bi-three-dots-vertical"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="reviews__row row pb-25 mb-4">
+                <div class="col-5">
+                    <div class="review">
+                        <div class="d-flex mb-2">
+                            <div class="review__rating-box me-2">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <div>5.0</div>
+                        </div>
+                        <h2 class="review__title text-color-black mb-25">Luckily discovered Jessica a few years ago via Thumbtack</h2>
+                        <div class="d-flex align-items-start mb-2">
+                            <img class="me-2" src="./img/review-user-avatar-1.png" alt="">
+                            <div class="d-flex flex-column ">
+                                <div class="review__user-name text-color-black">Alivia Franklin</div>
+                                <div class="review__user-location">Lawrenceville, Georgia</div>
+                            </div>
+                        </div>
+                        <p class="review__text-content mb-2 text-color-black">Luckily discovered Jessica a few years ago via Thumbtack and I consider myself lucky for it. She's so easy to work with. She also has a very quick turnaround time after you have delivered your year end documents to her. Jessica is also in the real estate industry, so she knows how to help maximize your return. For under $100, you're getting a true professional who provides customized service and takes care of everything for you! Beat that TurboTax!!</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center">
+                                <img src="./img/trustpilot-icon.png" alt="">
+                                <a href="#" class="review__from-link text-color-primary">Trustpilot</a>
+                            </div>
+                            <div class="d-flex">
+                                <a href="#" class="text-color-black text-decoration-none d-flex align-items-center me-25" role="button">
+                                    <img class="me-1" src="./img/like-icon.png" alt="">
+                                    <span class="review__link-label text-color-black">Helpful? (0)</span>
+                                </a>
+                                <a href="#" class="text-color-black text-decoration-none d-flex align-items-center me-2" role="button">
+                                    <i class="bi bi-share me-1"></i>
+                                    <span class="review__link-label text-color-black">Share</span>
+                                </a>
+                                <a href="#" class="text-color-black" role="button">
+                                    <i class="bi bi-three-dots-vertical"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2">3</div>
+                <div class="col-5">
+                    <div class="review">
+                        <div class="d-flex mb-2">
+                            <div class="review__rating-box me-2">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <div>5.0</div>
+                        </div>
+                        <h2 class="review__title text-color-black mb-25">Luckily discovered Jessica a few years ago via Thumbtack</h2>
+                        <div class="d-flex align-items-start mb-2">
+                            <img class="me-2" src="./img/review-user-avatar-default-img.png" alt="">
+                            <div class="d-flex flex-column ">
+                                <div class="review__user-name text-color-black">Alivia Franklin</div>
+                                <div class="review__user-location">Lawrenceville, Georgia</div>
+                            </div>
+                        </div>
+                        <p class="review__text-content mb-2 text-color-black">Luckily discovered Jessica a few years ago via Thumbtack and I consider myself lucky for it. She's so easy to work with. She also has a very quick turnaround time after you have delivered your year end documents to her. Jessica is also in the real estate industry, so she knows how to help maximize your return. For under $100, you're getting a true professional who provides customized service and takes care of everything for you! Beat that TurboTax!!</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center">
+                                <img src="./img/trustpilot-icon.png" alt="">
+                                <a href="#" class="review__from-link text-color-primary">Trustpilot</a>
+                            </div>
+                            <div class="d-flex">
+                                <a href="#" class="text-color-black text-decoration-none d-flex align-items-center me-25" role="button">
+                                    <img class="me-1" src="./img/like-icon.png" alt="">
+                                    <span class="review__link-label text-color-black">Helpful? (0)</span>
+                                </a>
+                                <a href="#" class="text-color-black text-decoration-none d-flex align-items-center me-2" role="button">
+                                    <i class="bi bi-share me-1"></i>
+                                    <span class="review__link-label text-color-black">Share</span>
+                                </a>
+                                <a href="#" class="text-color-black" role="button">
+                                    <i class="bi bi-three-dots-vertical"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="btn-primary-medium my-0 mx-auto">See more</a>
+        </div>
+    </div>
+
+    <section class="related-business">
+        <div class="container">
+            <h1 class="related-business__title mb-3">Related Business</h1>
+
+            <div class="row">
+                <div class="col-3">
+                    <div class="related-business__box mb-25 d-flex flex-column align-items-center justify-content-center">
+                        <div class="related-business__img-wrapp rounded-circle mb-2 d-flex justify-content-center align-items-center">
+                            <img src="./img/related-business-icon-1.png" alt="">
+                        </div>
+                        <h2 class="related-business__box-title text-color-black">Accountant</h2>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="related-business__box mb-25 d-flex flex-column align-items-center justify-content-center">
+                        <div class="related-business__img-wrapp rounded-circle mb-2 d-flex justify-content-center align-items-center">
+                            <img src="./img/related-business-icon-2.png" alt="">
+                        </div>
+                        <h2 class="related-business__box-title text-color-black">Attorney</h2>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="related-business__box mb-25 d-flex flex-column align-items-center justify-content-center">
+                        <div class="related-business__img-wrapp rounded-circle mb-2 d-flex justify-content-center align-items-center">
+                            <img src="./img/related-business-icon-3.png" alt="">
+                        </div>
+                        <h2 class="related-business__box-title text-color-black">Accountant</h2>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="related-business__box mb-25 d-flex flex-column align-items-center justify-content-center">
+                        <div class="related-business__img-wrapp rounded-circle mb-2 d-flex justify-content-center align-items-center">
+                            <img src="./img/related-business-icon-4.png" alt="">
+                        </div>
+                        <h2 class="related-business__box-title text-color-black">Accountant</h2>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="related-business__box mb-25 d-flex flex-column align-items-center justify-content-center">
+                        <div class="related-business__img-wrapp rounded-circle mb-2 d-flex justify-content-center align-items-center">
+                            <img src="./img/related-business-icon-5.png" alt="">
+                        </div>
+                        <h2 class="related-business__box-title text-color-black">Accountant</h2>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="related-business__box mb-25 d-flex flex-column align-items-center justify-content-center">
+                        <div class="related-business__img-wrapp rounded-circle mb-2 d-flex justify-content-center align-items-center">
+                            <img src="./img/related-business-icon-6.png" alt="">
+                        </div>
+                        <h2 class="related-business__box-title text-color-black">Accountant</h2>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="related-business__box mb-25 d-flex flex-column align-items-center justify-content-center">
+                        <div class="related-business__img-wrapp rounded-circle mb-2 d-flex justify-content-center align-items-center">
+                            <img src="./img/related-business-icon-7.png" alt="">
+                        </div>
+                        <h2 class="related-business__box-title text-color-black">Accountant</h2>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="related-business__box mb-25 d-flex flex-column align-items-center justify-content-center">
+                        <div class="related-business__img-wrapp rounded-circle mb-2 d-flex justify-content-center align-items-center">
+                            <img src="./img/related-business-icon-8.png" alt="">
+                        </div>
+                        <h2 class="related-business__box-title text-color-black">Accountant</h2>
+                    </div>
+                </div>
             </div>
         </div>
-
-    </div>
+    </section> -->
 
     <section class="contact-us text-center">
         <div class="container">
