@@ -146,7 +146,7 @@
 }
 
 .reviews__box {
-    height: 260px;
+    min-height: 260px;
     background: #FFFFFF;
     box-shadow: 0px 0px 74px rgba(23, 37, 57, 0.07);
     border-radius: 20px;
@@ -217,6 +217,10 @@
     line-height: 150%;
 }
 
+.review__title:hover {
+    text-decoration: underline !important;
+}
+
 .review__user-name {
     font-family: 'Airbnb Cereal App';
     font-style: normal;
@@ -281,6 +285,44 @@
     line-height: 33px;
 }
 
+.write-review__notice {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 150%;
+}
+
+.review__rating-box+b {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 150%;
+}
+
+@media screen and (max-width: 991px) {
+    .reviews__box > div:last-child,
+    .reviews__box > div:first-child {
+        max-width: 100%;
+    }
+    .reviews__row > .col-12 {
+        position: relative;
+    }
+    .reviews__row > .col-12:after {
+        content: "";
+        height: 1px;
+        position: absolute;
+        bottom: -20px;
+        left: 0;
+        right: 0;
+        background-color: #DCDCDC;
+    }
+    .reviews__row {
+        border-bottom: none;
+    } 
+}
+
 @media screen and (max-width: 767px) {
     .individual-business-first-screen__write-review-btn {
         width: 165px;
@@ -316,5 +358,58 @@
     .explore-business__list-item {
         font-size: 12px;
         line-height: 17px;
+    }
+    .individual-business-first-screen__share-btn {
+        width: 120px;
+        height: 40px;
+        padding: 0 10px;
+    }
+    .breadcrumb-item {
+        font-size: 13px !important;
+        line-height: 17px !important;
+    }
+    .about-business__title {
+        font-size: 31px;
+        line-height: 41px;
+    }
+    .about-business__list {
+        font-size: 16px;
+        line-height: 21px;
+    }
+    .write-review__notice {
+        font-size: 14px;
+    }
+    .reviews__title {
+        font-size: 22px;
+    }
+    .reviews__subtitle {
+        font-size: 14px;
+    }
+    .review__rating-box+b {
+        font-size: 17px;
+    }
+    .review__title {
+        font-size: 18px;
+    }
+    .review__user-name {
+        font-size: 17px;
+    }   
+    .review__text-content {
+        font-size: 14px;
+    }
+    .review__from-link {
+        font-size: 14px;
+    }
+    .related-business__box {
+        max-width: 240px;
+        margin: auto;
+    }
+    .related-business__box-title {
+        font-size: 22px;
+        line-height: 29px;
+    }
+    .related-business__img-wrapp {
+        width: 70px;
+        height: 70px;
     }
 }

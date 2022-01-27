@@ -4795,6 +4795,10 @@ textarea.form-control-lg {
   font-weight: 300;
 }
 
+.breadcrumb-item {
+  margin-bottom: 10px;
+}
+
 .breadcrumb-item + .breadcrumb-item {
   padding-left: 0.5rem;
 }
