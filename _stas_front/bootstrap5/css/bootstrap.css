@@ -300,6 +300,10 @@
     height: 30px;
 }
 
+.bi-star-fill {
+  color: #FFB681;;
+}
+
 body {
   margin: 0;
   font-family: var(--bs-font-sans-serif);
@@ -4787,6 +4791,12 @@ textarea.form-control-lg {
   padding: 0 0;
   margin-bottom: 1rem;
   list-style: none;
+  font-family: 'Airbnb Cereal App';
+  font-weight: 300;
+}
+
+.breadcrumb-item {
+  margin-bottom: 10px;
 }
 
 .breadcrumb-item + .breadcrumb-item {
@@ -4801,6 +4811,7 @@ textarea.form-control-lg {
 }
 .breadcrumb-item.active {
   color: #6c757d;
+  font-weight: 600;
 }
 
 .breadcrumb-item>a {
@@ -7226,8 +7237,16 @@ textarea.form-control-lg {
   margin-right: 10px !important;
 }
 
+.me-15 {
+  margin-right: 15px !important;
+}
+
 .me-2 {
   margin-right: 20px !important;
+}
+
+.me-25 {
+  margin-right: 25px !important;
 }
 
 .me-3 {
@@ -7366,6 +7385,11 @@ textarea.form-control-lg {
   padding: 30px !important;
 }
 
+.p-35 {
+  padding: 25px!important;
+}
+
+
 .p-4 {
   padding: 40px !important;
 }
@@ -7476,6 +7500,10 @@ textarea.form-control-lg {
   padding-top: 50px !important;
 }
 
+.pt-55 {
+  padding-top: 55px !important;
+}
+
 .pt-6 {
   padding-top: 60px !important;
 }
@@ -7488,16 +7516,16 @@ textarea.form-control-lg {
   padding-top: 80px !important;
 }
 
-.pt-55 {
-  padding-top: 55px !important;
-}
-
 .pt-85 {
   padding-top: 85px !important;
 }
 
 .pt-9 {
   padding-top: 90px !important;
+}
+
+.pt-10 {
+  padding-top: 100px !important;
 }
 
 .pe-0 {
@@ -7542,6 +7570,10 @@ textarea.form-control-lg {
 
 .pb-2 {
   padding-bottom: 20px !important;
+}
+
+.pb-25 {
+  padding-bottom: 25px !important;
 }
 
 .pb-3 {
@@ -8956,23 +8988,27 @@ textarea.form-control-lg {
   }
 
   .me-md-1 {
-    margin-right: 0.25rem !important;
+    margin-right: 10px !important;
   }
 
   .me-md-2 {
-    margin-right: 0.5rem !important;
+    margin-right: 20px !important;
+  }
+
+  .me-md-25 {
+    margin-right: 25px !important;
   }
 
   .me-md-3 {
-    margin-right: 1rem !important;
+    margin-right: 30px !important;
   }
 
   .me-md-4 {
-    margin-right: 1.5rem !important;
+    margin-right: 40px !important;
   }
 
   .me-md-5 {
-    margin-right: 3rem !important;
+    margin-right: 50px !important;
   }
 
   .me-md-auto {
@@ -9194,6 +9230,10 @@ textarea.form-control-lg {
 
   .pt-md-9 {
     padding-top: 90px !important;
+  }
+
+  .pt-md-10 {
+    padding-top: 100px !important;
   }
 
   .pe-md-0 {
@@ -10419,23 +10459,28 @@ textarea.form-control-lg {
   }
 
   .p-xl-1 {
-    padding: 0.25rem !important;
+    padding: 10px !important;
   }
 
   .p-xl-2 {
-    padding: 0.5rem !important;
+    padding: 20px !important;
   }
 
   .p-xl-3 {
-    padding: 1rem !important;
+    padding: 30px !important;
+  }
+
+  
+  .p-xl-35 {
+    padding: 35px !important;
   }
 
   .p-xl-4 {
-    padding: 1.5rem !important;
+    padding: 40px !important;
   }
 
   .p-xl-5 {
-    padding: 3rem !important;
+    padding: 50px !important;
   }
 
   .px-xl-0 {

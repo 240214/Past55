@@ -1,0 +1,182 @@
+.business-category-2__first-screen {
+    padding-top: 20px;
+    min-height: 445px;
+    background: linear-gradient(rgba(225, 243, 255, 0.3),rgba(216, 206, 255, 0.3));
+    z-index: 2;
+    overflow: hidden;
+}
+
+.business-category-2__first-screen-img {
+    opacity: 0.3;
+    z-index: -1;
+    top: -100px;
+    right: -10px;
+    transform: matrix(0.74, -0.52, 0.83, 0.76, 0, 0);
+}
+
+.business-category-first-screen__sub-title {
+    max-width: 635px;
+}
+
+.business-category-2-card {
+    width: 100%;
+    max-width: 410px;
+    min-height: 480px;
+    background: #FFFFFF;
+    box-shadow: 0px 10px 55.4px rgba(7, 12, 16, 0.04);
+    border-radius: 10px;
+}
+
+.business-category-2-card__img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.business-category-2-card__info-btn {
+    width: 115px;
+    height: 35px;
+    border: 0.5px solid #C8C8C8;
+    border-radius: 5px;
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    text-transform: capitalize;
+    color: #6D459C;
+}
+
+.bi-star-fill {
+    margin-right: 5px;
+}
+
+.business-category-2-card__title {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 23px;
+    line-height: 135%;
+    letter-spacing: -0.01em;
+    color: #000000;
+}
+
+.business-category-2-card__icon-wrapp {
+    width: 30px;
+    height: 30px;
+    box-shadow: 0px 10px 29.4px rgba(7, 12, 16, 0.14);
+}
+
+.business-category-2-card__text-content {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 150%;
+    color: #555555;
+}
+
+.business-category-2-card__link:hover {
+    color: #555555;
+    text-decoration: underline !important;
+}
+
+.business-category-2-card__rating-icon-wrapp {
+    width: 50px;
+    height: 25px;
+    background: #FFFFFF;
+    box-shadow: 0px 0.852459px 7.67213px rgba(66, 96, 123, 0.16);
+    border-radius: 132.26px;
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 17px;
+    color: #000000;
+}
+
+.business-category-2__location-box {
+    min-width: 155px;
+    width: 100%;
+    max-width: 175px;
+    height: 60px;
+    box-shadow: 0px 0px 30px rgba(26, 62, 95, 0.1);
+    border-radius: 8px;
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 23px;
+    color: #000000;
+}
+
+.business-category-2__breadcrumb {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 21px;
+    color: #2B2B2B;
+}
+
+@media screen and (max-width: 1200px) {
+    .business-category-2-card__info-btn {
+        width: 100px;
+        height: 30px;
+        font-size: 12px;
+        line-height: 17px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .business-category-first-screen__sub-title {
+        font-size: 16px;
+        line-height: 140%;
+    }
+    .business-category-2__first-screen {
+        min-height: 295px;
+    }
+    .business-category-2-card {
+        margin: 0 auto;
+        max-width: 320px;
+        min-height: auto !important;
+    }
+    .breadcrumb-item {
+        font-size: 14px;
+    }
+    .business-category-2-card__title {
+        font-size: 22px;
+    }
+    .business-category-2__location-box {
+        min-width: 0;
+        max-width: 140px;
+    }
+}
+
+@media screen and (max-width: 424px) {
+    .breadcrumb-item {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .business-category-2-card__rating-box {
+        flex-direction: column !important;
+    }
+    .business-category-2-card__info-btn {
+        margin-bottom: 10px;
+    }
+    .business-category-2__location-box {
+        margin-right: 0 !important;
+    }
+    .business-category-2__location-list {
+        flex-direction: column !important;
+        align-items: center;
+    }
+    .business-category-2__location-box {
+        width: 100%;
+        max-width: 100%;
+    }
+    .business-category-2__location-box > span {
+        min-width: 100px;
+    }
+}

@@ -6,19 +6,12 @@
     overflow: hidden;
 }
 
-.resources__first-screen-img-1,
-.resources__first-screen-img-2 {
+.resources__first-screen-img {
     opacity: 0.3;
     z-index: -1;
-    top: 150px;
-}
-
-.resources__first-screen-img-1 {
-    left: -10px;
-}
-
-.resources__first-screen-img-2 {
+    top: -100px;
     right: -10px;
+    transform: matrix(0.74, -0.52, 0.83, 0.76, 0, 0);
 }
 
 .resources-first-screen__sub-title {

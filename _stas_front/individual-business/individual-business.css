@@ -1,0 +1,415 @@
+.individual-business__first-screen {
+    min-height: 100vh;
+    background: linear-gradient(rgba(225, 243, 255, 0.3),rgba(216, 206, 255, 0.3));
+}
+
+.individual-business-first-screen__title {
+    font-family: 'PT Serif';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 55px;
+    line-height: 73px;
+}
+
+.individual-business-first-screen__icon-box {
+    margin-right: 7px;
+    width: 30px;
+    height: 30px;
+    box-shadow: 0px 0px 22px rgba(61, 74, 105, 0.09);
+    border-radius: 2px;
+}
+
+.individual-business-first-screen__rating-count {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 21px;
+}
+
+.individual-business-first-screen__write-review-btn {
+    max-width: 180px;
+}
+
+.individual-business-first-screen__share-btn {
+    width: 120px;
+    height: 45px;
+    border: 1px solid #C0C0C0;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color: transparent;
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 21px;
+}
+
+.individual-business-first-screen__sign-in-text {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 21px;
+    letter-spacing: -0.01em;
+    color: #747474;
+}
+
+.individual-business-first-screen__sign-in-text > a:hover > b {
+    text-decoration: underline;
+}
+
+.explore-business__box {
+    min-height: 510px;
+    background: #FFFFFF;
+    box-shadow: 0px 8px 44px rgba(7, 12, 16, 0.04);
+    border-radius: 8px;
+}
+
+.explore-business__title {
+    font-family: 'PT Serif';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 33px;
+}
+
+.explore-business__text-content {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 156%;
+    letter-spacing: -0.005em;
+}
+
+.explore-business__subtitle {
+    font-family: 'PT Serif';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 26px;
+}
+
+.explore-business__item {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: -0.01em;
+    color: #363636 !important;
+}
+
+.explore-business__list-item {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: -0.01em;
+    color: #363636;
+}
+
+.explore-business__list-item--tel:hover {
+    text-decoration: underline !important;
+}
+
+.explore-business__icon-wrapp {
+    width: 40px;
+    height: 40px;
+    box-shadow: 0px 2px 17px rgba(22, 30, 52, 0.07);
+    border-radius: 5px;
+}
+
+.about-business {
+    width: 100%;
+    max-width: 780px;
+}
+
+.about-business__title {
+    font-family: 'PT Serif';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 35px;
+    line-height: 46px;
+}
+
+.about-business__list {
+    list-style: disc;
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 23px;
+    color: #828282;
+}
+
+.reviews__box {
+    min-height: 260px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 74px rgba(23, 37, 57, 0.07);
+    border-radius: 20px;
+}
+
+.reviews__box> div:first-child {
+    width: 100%;
+    max-width: 420px;
+}
+
+.reviews__box> div:last-child {
+    width: 100%;
+    max-width: 325px;
+}
+
+.reviews__title {
+    font-family: 'PT Serif';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 150%;
+    color: #000000;
+}
+
+.reviews__subtitle {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 150%;
+    color: #000000;
+}
+
+.reviews__icon-wrapp {
+    width: 30px;
+    height: 30px;
+    background: #F4F4F4;
+    border-radius: 2px;
+}
+
+.reviews__icon-wrapp > i.bi-star-fill {
+    color: #D0D0D0;
+}
+
+.reviews__row {
+    border-bottom: 1px solid #DCDCDC;
+}
+
+.review__rating-box {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 100%;
+    color: #000000;
+}
+
+.review__rating-box > i {
+    font-size: 25px;
+    color: #6D459C;
+}
+
+.review__title {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 150%;
+}
+
+.review__title:hover {
+    text-decoration: underline !important;
+}
+
+.review__user-name {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 23px;
+}
+
+.review__user-location {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 150%;
+    color: #555555;
+}
+
+.review__text-content {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 150%;
+}
+
+.review__from-link {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    text-decoration-line: underline;
+    color: #6D459C;
+}
+
+.review__link-label {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+}
+
+.related-business__box {
+    height: 225px;
+    box-shadow: 0px 8px 44px rgba(7, 12, 16, 0.04);
+    border-radius: 8px;
+}
+
+.related-business__img-wrapp {
+    width: 80px;
+    height: 80px;
+    background: #E8F4FF;
+}
+
+.related-business__box-title {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 33px;
+}
+
+.write-review__notice {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 150%;
+}
+
+.review__rating-box+b {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 150%;
+}
+
+@media screen and (max-width: 991px) {
+    .reviews__box > div:last-child,
+    .reviews__box > div:first-child {
+        max-width: 100%;
+    }
+    .reviews__row > .col-12 {
+        position: relative;
+    }
+    .reviews__row > .col-12:after {
+        content: "";
+        height: 1px;
+        position: absolute;
+        bottom: -20px;
+        left: 0;
+        right: 0;
+        background-color: #DCDCDC;
+    }
+    .reviews__row {
+        border-bottom: none;
+    } 
+}
+
+@media screen and (max-width: 767px) {
+    .individual-business-first-screen__write-review-btn {
+        width: 165px;
+        height: 40px;
+        font-size: 15px;
+        line-height: 19px;
+    }
+    .individual-business-first-screen__sign-in-text {
+        font-size: 14px;
+        line-height: 18px;
+    }
+    .individual-business__first-screen {
+        min-height: auto;
+    }
+    .individual-business-first-screen__title {
+        font-size: 38px;
+        line-height: 50px;
+    }
+    .explore-business__box {
+        min-height: auto;
+    }
+    .explore-business__title {
+        font-size: 16px;
+        line-height: 22px;
+    }
+    .explore-business__text-content {
+        font-size: 10px;
+    }
+    .explore-business__subtitle {
+        font-size: 13px;
+        line-height: 17px;
+    }
+    .explore-business__list-item {
+        font-size: 12px;
+        line-height: 17px;
+    }
+    .individual-business-first-screen__share-btn {
+        width: 120px;
+        height: 40px;
+        padding: 0 10px;
+    }
+    .breadcrumb-item {
+        font-size: 13px !important;
+        line-height: 17px !important;
+    }
+    .about-business__title {
+        font-size: 31px;
+        line-height: 41px;
+    }
+    .about-business__list {
+        font-size: 16px;
+        line-height: 21px;
+    }
+    .write-review__notice {
+        font-size: 14px;
+    }
+    .reviews__title {
+        font-size: 22px;
+    }
+    .reviews__subtitle {
+        font-size: 14px;
+    }
+    .review__rating-box+b {
+        font-size: 17px;
+    }
+    .review__title {
+        font-size: 18px;
+    }
+    .review__user-name {
+        font-size: 17px;
+    }   
+    .review__text-content {
+        font-size: 14px;
+    }
+    .review__from-link {
+        font-size: 14px;
+    }
+    .related-business__box {
+        max-width: 240px;
+        margin: auto;
+    }
+    .related-business__box-title {
+        font-size: 22px;
+        line-height: 29px;
+    }
+    .related-business__img-wrapp {
+        width: 70px;
+        height: 70px;
+    }
+}
