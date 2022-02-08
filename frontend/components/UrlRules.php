@@ -14,6 +14,7 @@ use common\models\State;
 use common\models\City;
 use yii\web\UrlRule;
 use yii\web\UrlManager;
+use common\models\Pages;
 
 class UrlRules implements UrlRuleInterface{
 	
@@ -94,8 +95,10 @@ class UrlRules implements UrlRuleInterface{
 			return false;
 		
 		/** Page rules **/
-		
-		switch($last_fragment){
+		if($this->is_page($last_fragment)){
+			return ['pages/view', ['slug' => $last_fragment]];
+		}
+		/*switch($last_fragment){
 			case "our-story":
 			case "privacy-policy":
 			case "terms-and-conditions":
@@ -107,7 +110,7 @@ class UrlRules implements UrlRuleInterface{
 			case "refer-get-10":
 				return ['pages/view', ['slug' => $last_fragment]];
 				break;
-		}
+		}*/
 		
 		
 		/** Property rules **/
@@ -161,6 +164,16 @@ class UrlRules implements UrlRuleInterface{
 		}
 		
 		return isset($this->states[$state]) ? strtolower($this->states[$state]) : '';
+	}
+	
+	private function is_page($arg){
+		if(is_numeric($arg) > 0){
+			$model = Pages::find()->where(['id' => $arg])->one();
+		}else{
+			$model = Pages::find()->where(['slug' => $arg])->one();
+		}
+		
+		return (!is_null($model)) ? $model->id : false;
 	}
 	
 	private function is_property($arg){

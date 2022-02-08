@@ -267,8 +267,13 @@ class PropertyController extends BaseController{
 			$ret['html']['items'] = $this->renderPartial('/property/partials/items', [
 				'searchModel'  => $searchModel,
 				'models' => $dataProvider->getModels(),
-				'desc_length' => 300,
-				'add_to_compare' => false,
+				'options' => [
+					'desc_length' => 300,
+					'add_to_compare' => false,
+					'display_price' => false,
+					'display_desc' => false,
+					'display_rating' => false,
+				],
 			]);
 			$ret['html']['pagination'] = LinkPager::widget(['pagination' => $dataProvider->getPagination()]);
 			$ret['title'] = $this->generateH1Title($state, $city, $category);

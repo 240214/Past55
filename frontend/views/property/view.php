@@ -40,7 +40,7 @@ $favs_title = $liked ? 'Remove from Favorite' : 'Add to Favorite';
 <section class="section property-index">
     <div class="container-xl">
         <header class="row section__title section__title-alt">
-	        <div class="js_data_loader bg-loader"></div>
+	        <div class="js_data_loader loader fixed trans-all"></div>
 	        <div class="col-md-9 col-12">
 	            <h1><?=$property->title;?></h1>
 	            <small class="address"><i class="zmdi zmdi-pin me-2"></i><?=$property->address;?></small>

@@ -110,6 +110,7 @@ return [
                 'property/features/<id>' => 'property/features',
                 'property/pricing/<id>' => 'property/pricing',
                 'property/photos/<id>' => 'property/photos',
+                'POST property/filter/' => 'property/filter',
                 #'saved/property/<ref>' => 'saved/property',
                 #'saved/remove-property/<ref>' => 'saved/remove-property',
                 #'saved/agents/<ref>' => 'saved/agents',
