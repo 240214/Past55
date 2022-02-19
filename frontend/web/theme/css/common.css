@@ -234,6 +234,7 @@ button:focus {outline: none; outline: -webkit-focus-ring-color auto 5px;}
 .btn-brand-outline:hover {background-color: var(--bs-brand); color: var(--bs-white);}
 .accordion-button:focus {z-index: 3; border-color: #6D459C; outline: 0; box-shadow: 0 0 0 0.25rem rgba(109, 69, 156, 0.25);}
 .breadcrumb {}
+.breadcrumb-item {}
 .breadcrumb-item + .breadcrumb-item::before {content: url("../icons/breadcrumb.svg");}
 .breadcrumb-item > a {}
 .pagination {margin-bottom: 0;}
@@ -376,6 +377,7 @@ button:focus {outline: none; outline: -webkit-focus-ring-color auto 5px;}
 	.pt-sm-5 {padding-top: 50px !important;}
 }
 @media all and (min-width: 768px) {
+	.mt-md-0 {margin-top: 0 !important;}
 	.mt-md-1 {margin-top: 10px !important;}
 	.mt-md-2 {margin-top: 20px !important;}
 	.mt-md-3 {margin-top: 30px !important;}

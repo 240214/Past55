@@ -98,6 +98,7 @@ class CategoryController extends Controller {
 		}else{
 			return $this->render('create', [
 				'model' => $model,
+				'templates' => $this->getTemplatesTree(),
 			]);
 		}
 	}
@@ -119,6 +120,7 @@ class CategoryController extends Controller {
 		}else{
 			return $this->render('update', [
 				'model' => $model,
+				'templates' => $this->getTemplatesTree(),
 			]);
 		}
 	}
@@ -175,4 +177,37 @@ class CategoryController extends Controller {
 			throw new NotFoundHttpException('The requested page does not exist.');
 		}
 	}
+	
+	public function getTemplatesTree($dir = ''){
+		$result = [];
+		
+		$root = Yii::getAlias('@frontend');
+		
+		if(empty($dir)){
+			#$dir = $root.'/views/main/resources';
+			$dir = $root.'/views/category';
+		}
+		
+		$cdir = array_diff(scandir($dir), ['..', '.']);
+		//VarDumper::dump($cdir, 10, 1);
+		
+		foreach($cdir as $key => $value){
+			if(is_dir($dir.DIRECTORY_SEPARATOR.$value)){
+				if(substr($value, 0, 1) != '_'){
+					$result[$value] = $this->getTemplatesTree($dir.DIRECTORY_SEPARATOR.$value);
+				}
+			}else{
+				$path = str_replace($root, '', $dir.DIRECTORY_SEPARATOR.$value);
+				$result[$path] = $value;
+			}
+		}
+		
+		ksort($result);
+		reset($result);
+		
+		#VarDumper::dump($result, 10, 1);
+		
+		return $result;
+	}
+	
 }

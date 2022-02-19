@@ -16,6 +16,7 @@ use yii\db\ActiveRecord;
  * @property string $meta_title
  * @property string $meta_keywords
  * @property string $meta_description
+ * @property string $template
  */
 class Category extends ActiveRecord{
 	
@@ -32,7 +33,7 @@ class Category extends ActiveRecord{
 	public function rules(){
 		return [
 			[['name'], 'required'],
-			[['type', 'slug', 'meta_title', 'meta_keywords', 'meta_description'], 'string'],
+			[['type', 'slug', 'meta_title', 'meta_keywords', 'meta_description', 'template'], 'string'],
 			[['name', 'icon'], 'string', 'max' => 225],
 		];
 	}
@@ -50,6 +51,7 @@ class Category extends ActiveRecord{
 			'meta_title'       => Yii::t('app', 'Meta Title & H1'),
 			'meta_keywords'    => Yii::t('app', 'Meta Keywords'),
 			'meta_description' => Yii::t('app', 'Meta Description'),
+			'template' => Yii::t('app', 'Template'),
 		];
 	}
 	

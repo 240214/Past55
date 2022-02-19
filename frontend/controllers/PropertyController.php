@@ -71,16 +71,17 @@ class PropertyController extends BaseController{
 	public function actionIndex(){
 		$city = $state = $category = '';
 		$category_ids = [];
-		$noindex = false;
+		$noindex = YII_ENV_DEV;
 		$display_narrow_cities = false;
 		$display_nearby_cities = false;
 		$session = Yii::$app->session;
+		
 		#$request = Yii::$app->request;
-		#VarDumper::dump(Yii::$app, 10, 1); exit;
+		#VarDumper::dump($request, 10, 1); exit;
 		#VarDumper::dump($queryParams, 10, 1); exit;
 		
 		$categories = Category::getCategoryList([
-			'fields' => ['id', 'name', 'slug', 'meta_title'],
+			'fields' => ['id', 'name', 'slug', 'meta_title', 'template'],
 			'key_field' => 'slug',
 			'order' => 'name ASC',
 		]);
@@ -111,6 +112,9 @@ class PropertyController extends BaseController{
 		}
 		
 		if(isset($queryParams['category'])){
+			if(count($queryParams) == 1){
+			
+			}
 			$category_ids[] = $categories[$queryParams['category']]['id'];
 			$queryParams['category_ids'] = $category_ids;
 			$category = $categories[$queryParams['category']]['meta_title'];
@@ -189,6 +193,24 @@ class PropertyController extends BaseController{
 			'display_nearby_cities' => $display_nearby_cities,
 			'nearby_cities' => $nearby_cities,
 		]);
+		
+	}
+	
+	public function actionCategoryPage(){
+		$queryParams = Yii::$app->request->getQueryParams();
+		$cat_slug = $queryParams['category'];
+		
+		$model = Category::find()->where(['slug' => $cat_slug])->one();
+		
+		if(!is_null($model->template)){
+			$path = $model->template;
+			$path = str_replace(['/views'], [''], $path);
+			$path = trim($path, '/');
+			#VarDumper::dump($path, 10, 1); exit;
+			return $this->render($path);
+		}else{
+			return $this->actionIndex();
+		}
 		
 	}
 	

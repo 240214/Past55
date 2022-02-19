@@ -131,6 +131,7 @@ class UrlRules implements UrlRuleInterface{
 		
 		$last_fragment = end($request_fragments);
 		if(strstr($last_fragment, '-and-') !== false){
+			$this->objcet_type = 'categories';
 			$this->setParam('categories', $last_fragment);
 			$request_fragments = array_slice($request_fragments, 0, -1);
 		}
@@ -149,8 +150,10 @@ class UrlRules implements UrlRuleInterface{
 				break;
 			case "state":
 			case "city":
-			case "category":
+			case "categories":
 				return ['property/index', $this->params];
+			case "category":
+				return ['category/index', $this->params];
 				break;
 		}
 		

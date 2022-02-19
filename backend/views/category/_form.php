@@ -15,6 +15,7 @@ use yii\widgets\ActiveForm;
 	<?=$form->field($model, 'name')->textInput(['maxlength' => true, 'data-trigger' => 'js_action_blur', 'data-action' => 'create_slug_n_meta', 'data-target' => '#category-slug', 'data-target2' => '#category-meta_title']);?>
 	<?=$form->field($model, 'slug')->textInput(['maxlength' => true]);?>
 	<?=$form->field($model, 'meta_title')->textInput(['maxlength' => false]);?>
+	<?=$form->field($model, 'template')->dropDownList($templates, ['prompt' => 'None']);?>
 	
 	<?php //=$form->field($model, 'type')->dropDownList([ 'residential' => 'Residential', 'commercial' => 'Commercial', ], ['prompt' => '']);?>
 	

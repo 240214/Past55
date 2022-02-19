@@ -12,5 +12,5 @@ $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id
 $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 ?>
 <div class="card">
-	<?=$this->render('_form', ['model' => $model]);?>
+	<?=$this->render('_form', ['model' => $model, 'templates' => $templates]);?>
 </div>
