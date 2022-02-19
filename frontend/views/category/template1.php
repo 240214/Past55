@@ -9,7 +9,7 @@ use yii\grid\GridView;
 #use frontend\components\BreadcrumbsNew;
 use yii\web\View;
 use yii\widgets\Pjax;
-use common\models\User;
+use common\models\Users;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Url;
 use yii\helpers\VarDumper;

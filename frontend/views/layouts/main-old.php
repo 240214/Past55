@@ -13,9 +13,9 @@ use yii\helpers\VarDumper;
 
 AppAsset::register($this);
 
-$model = new \common\models\User();
+$model = new \common\models\Users();
 $siteSeting = \common\models\SiteSettings::find()->one();
-$blog = \common\models\Blog::find()->select(['blog_title','created_at','id'])->limit(3)->all();
+$blog = \common\models\Posts::find()->select(['blog_title','created_at','id'])->limit(3)->all();
 $page = \common\models\Pages::find()->select(['title','id'])->all();
 
 

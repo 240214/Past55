@@ -2,14 +2,14 @@
 
 namespace frontend\controllers;
 
-use common\models\Blog;
+use common\models\Posts;
 use common\models\BlogComment;
 use common\models\BlogTags;
 use frontend\models\TaskLabelForm;
 use Symfony\Component\Finder\Exception\AccessDeniedException;
 use Yii;
 use common\models\Property;
-use common\models\User;
+use common\models\Users;
 use yii\base\ErrorException;
 use yii\data\ActiveDataProvider;
 use yii\db\Query;
@@ -75,9 +75,9 @@ class BlogController extends BaseController {
 	 * @return mixed
 	 */
 	public function actionIndex($sort = false){
-		$count = Blog::find()->count();
+		$count = Posts::find()->count();
 		$pages = new Pagination(['totalCount' => $count, 'pageSize' => 1]);
-		$model = Blog::find()->offset($pages->offset)->limit($pages->limit)->all();
+		$model = Posts::find()->offset($pages->offset)->limit($pages->limit)->all();
 		$tags  = BlogTags::find()->limit(20)->orderBy(['blog' => SORT_DESC])->all();
 		
 		return $this->render('index', [
@@ -95,9 +95,9 @@ class BlogController extends BaseController {
 	 * @return mixed
 	 */
 	public function actionTag($tag){
-		$count = Blog::find()->count();
+		$count = Posts::find()->count();
 		$pages = new Pagination(['totalCount' => $count, 'pageSize' => 5]);
-		$model = Blog::find()->where(['like', 'blog_tags', $tag])->offset($pages->offset)->limit($pages->limit)->all();
+		$model = Posts::find()->where(['like', 'blog_tags', $tag])->offset($pages->offset)->limit($pages->limit)->all();
 		$tags  = BlogTags::find()->limit(20)->orderBy(['blog' => SORT_DESC])->all();
 		
 		return $this->render('index', [
@@ -116,7 +116,7 @@ class BlogController extends BaseController {
 	/// #########################################################////
 	public function actionDetail($id, $title){
 		$id       = base64_decode($id);
-		$model    = Blog::findOne($id);
+		$model    = Posts::findOne($id);
 		$reply    = new BlogComment();
 		$comments = BlogComment::find()->where(['blog_id' => $id])->all();
 		if($reply->load(Yii::$app->request->post())){
@@ -153,7 +153,7 @@ class BlogController extends BaseController {
 			return $this->redirect(Url::toRoute('site/login'));
 		}
 		$uid   = Yii::$app->user->identity->getId();
-		$model = new Blog();
+		$model = new Posts();
 		if($model->load(Yii::$app->request->post())){
 			//$model->
 			if(UploadedFile::getInstance($model, 'blog_image') != null){
@@ -192,8 +192,8 @@ class BlogController extends BaseController {
 		}
 		$id    = base64_decode($id);
 		$uid   = Yii::$app->user->identity->getId();
-		$model = Blog::findOne($id);
-		$bkp   = Blog::findOne($id);
+		$model = Posts::findOne($id);
+		$bkp   = Posts::findOne($id);
 		
 		if($model->load(Yii::$app->request->post())){
 			//$model->
@@ -231,7 +231,7 @@ class BlogController extends BaseController {
 	public function actionDelete($id){
 		$id    = base64_decode($id);
 		$uid   = Yii::$app->user->identity->getId();
-		$model = Blog::find()->where(['id' => $id])->andWhere(['user_id' => $uid])->one();
+		$model = Posts::find()->where(['id' => $id])->andWhere(['user_id' => $uid])->one();
 		// $model->delete();
 		Yii::$app->getSession()->setFlash('success', 'Delete successfully');
 		

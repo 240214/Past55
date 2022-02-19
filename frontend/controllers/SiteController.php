@@ -4,7 +4,7 @@ namespace frontend\controllers;
 
 use common\models\Property;
 use common\models\City;
-use common\models\User;
+use common\models\Users;
 use frontend\models\SearchForm;
 use Yii;
 use yii\base\InvalidParamException;
@@ -104,10 +104,10 @@ class SiteController extends BaseController {
 		$totalListing = Property::find()->where(['active' => 1])->count();
 		$rent         = Property::find()->where(['active' => 1, 'list_for' => 'rent'])->andWhere(['!=', 'image', ''])->limit(4)->all();
 		$sell         = Property::find()->where(['active' => 1, 'list_for' => 'sell'])->andWhere(['!=', 'image', ''])->limit(4)->all();
-		/// $agents = User::find()->where(['role'=>'agent'])->limit(9)->all();
+		/// $agents = Users::find()->where(['role'=>'agent'])->limit(9)->all();
 		
 		$sql = "SELECT user.name,user.image, COUNT(properties.user_id) AS total FROM user LEFT JOIN properties ON user.id = properties.user_id GROUP BY user.id,user.`name`";
-		// $agents = User::findBySql($sql)->all();
+		// $agents = Users::findBySql($sql)->all();
 		$connection = \Yii::$app->db;
 		$model      = $connection->createCommand($sql);
 		$agents     = $model->queryAll();

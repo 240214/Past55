@@ -1,11 +1,11 @@
 <?php
 
-use common\models\Blog;
+use common\models\Posts;
 use common\models\Pages;
 use yii\helpers\Url;
 use frontend\widgets\PageLink;
 
-#$blog = Blog::find()->select(['blog_title', 'created_at', 'id'])->limit(3)->all();
+#$blog = Posts::find()->select(['blog_title', 'created_at', 'id'])->limit(3)->all();
 
 ?>
 <footer class="footer trans-all">

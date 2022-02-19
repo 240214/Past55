@@ -39,7 +39,7 @@ use yii\web\IdentityInterface;
  * @property string $password
  *
  */
-class User extends ActiveRecord implements IdentityInterface
+class Users extends ActiveRecord implements IdentityInterface
 {
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
@@ -51,7 +51,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public static function tableName()
     {
-        return '{{%user}}';
+        return '{{%users}}';
     }
 
     /**
@@ -166,7 +166,7 @@ class User extends ActiveRecord implements IdentityInterface
 
     public static function agentDetail($type,$id)
     {
-        $agent = User::findOne($id);
+        $agent = Users::findOne($id);
         return $agent->$type;
     }
 

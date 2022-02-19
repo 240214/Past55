@@ -4,12 +4,12 @@ namespace common\models\search;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\Blog;
+use common\models\Posts;
 
 /**
- * SearchNearbyPlaces represents the model behind the search form of `common\models\NearbyPlaces`.
+ * SearchPosts represents the model behind the search form of `common\models\NearbyPlaces`.
  */
-class SearchBlog extends Blog{
+class SearchPosts extends Posts {
 	
 	public $Property;
 	
@@ -39,7 +39,7 @@ class SearchBlog extends Blog{
 	 * @return ActiveDataProvider
 	 */
 	public function search($params){
-		$query = Blog::find();
+		$query = Posts::find();
 		
 		// add conditions that should always apply here
 		
@@ -52,7 +52,7 @@ class SearchBlog extends Blog{
 				'id',
 				'title',
 				'slug',
-				'active',
+				'type',
 			]
 		]);
 		
@@ -67,10 +67,11 @@ class SearchBlog extends Blog{
 		// grid filtering conditions
 		$query->andFilterWhere([
 			'id'     => $this->id,
-			'active' => $this->active,
 		]);
 		
-		$query->andFilterWhere(['like', 'title', $this->title])->andFilterWhere(['like', 'slug', $this->slug]);
+		$query
+			->andFilterWhere(['like', 'title', $this->title])
+			->andFilterWhere(['like', 'slug', $this->slug]);
 		
 		return $dataProvider;
 	}

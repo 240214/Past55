@@ -8,7 +8,7 @@ use common\models\SavedProperty;
 use frontend\models\ContactForm;
 use Yii;
 use common\models\Property;
-use common\models\User;
+use common\models\Users;
 use yii\data\ActiveDataProvider;
 use yii\data\Pagination;
 use yii\db\Query;
@@ -63,7 +63,7 @@ class MyController extends BaseController
      */
     public function actionIndex()
     {
-        $agents = User::find()->all();
+        $agents = Users::find()->all();
         return $this->render('index',['agent'=>$agents]);
     }
 
@@ -77,16 +77,16 @@ class MyController extends BaseController
     {
         if(!$username and !$id)
         {
-            $model = User::findOne(Yii::$app->user->identity->getId());
+            $model = Users::findOne(Yii::$app->user->identity->getId());
 
         }
         elseif($id)
         {
-            $model = User::findByUsername($id);
+            $model = Users::findByUsername($id);
         }
         else
         {
-            $model = User::findByUsername($username);
+            $model = Users::findByUsername($username);
 
         };
 
@@ -126,7 +126,7 @@ class MyController extends BaseController
     public function actionProperty()
     {
        $uid = Yii::$app->user->identity->getId();
-       $model = User::find()->where(['id'=>$uid])->one();
+       $model = Users::find()->where(['id'=>$uid])->one();
        //$saveProperty = SavedProperty::find()->where(['user_id'=>$uid])->all();
         //for join saved property table and ad table
         //here is SQl query for manual mode
@@ -150,7 +150,7 @@ class MyController extends BaseController
     public function actionSearch()
     {
         $uid = Yii::$app->user->identity->getId();
-        $model = User::find()->where(['id'=>$uid])->one();
+        $model = Users::find()->where(['id'=>$uid])->one();
         $count = MySearch::find()->where(['user_id'=>$uid])->count();
         $pages = new Pagination(['totalCount' => $count,'pageSize'=>10]);
         $search = MySearch::find()->where(['user_id'=>$uid])->offset($pages->offset)->limit($pages->limit)->all();
@@ -172,7 +172,7 @@ class MyController extends BaseController
     public function actionAgents($user=false)
     {
         $uid = Yii::$app->user->identity->getId();
-        $model = User::find()->where(['id'=>$uid])->one();
+        $model = Users::find()->where(['id'=>$uid])->one();
 
         $query = new Query();
         $query->select(['saved_agents.agent_id as agent_id','user.id','user.username','user.mobile','user.email','user.image'])->from('user')->join('inner join','saved_agents','saved_agents.agent_id = user.id')->where(['saved_agents.user_id'=>$uid]);
@@ -192,7 +192,7 @@ class MyController extends BaseController
     public function actionListing()
     {
         $uid = Yii::$app->user->identity->getId();
-        $model = User::find()->where(['id'=>$uid])->one();
+        $model = Users::find()->where(['id'=>$uid])->one();
 
         $listing = Property::find()->where(['user_id'=>$uid])->all();
 
@@ -241,7 +241,7 @@ class MyController extends BaseController
      */
     public function actionUpdate()
     {
-        $model = User::findOne(Yii::$app->user->identity->getId());
+        $model = Users::findOne(Yii::$app->user->identity->getId());
 
         if ($model->load(Yii::$app->request->post())) {
 
@@ -270,7 +270,7 @@ class MyController extends BaseController
      */
     public function actionAccount()
     {
-        $model = User::find()->where(['id'=>Yii::$app->user->identity->getId()])->one();
+        $model = Users::find()->where(['id'=>Yii::$app->user->identity->getId()])->one();
 
         if ($model->load(Yii::$app->request->post()))
         {

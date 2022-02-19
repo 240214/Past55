@@ -12,7 +12,7 @@ use common\widgets\Alert;
 use yii\bootstrap\ActiveForm;
 DashboardAsset::register($this);
 
-$model = new \common\models\User();
+$model = new \common\models\Users();
 $uid = Yii::$app->user->identity->getId();
 
 $leads = \common\models\Leads::find()->where(['reciever'=>$uid])->limit(5)->orderBy(['id'=>SORT_ASC])->all();;

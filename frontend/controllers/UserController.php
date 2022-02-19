@@ -9,7 +9,7 @@ use frontend\models\ContactForm;
 use frontend\models\SearchAgentsForm;
 use Yii;
 use common\models\Property;
-use common\models\User;
+use common\models\Users;
 use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
 use yii\helpers\Url;
@@ -71,11 +71,11 @@ class UserController extends BaseController
     public function actionIndex()
     {
 
-        $agents = User::find()->all();
-        $findAgent = new User();
+        $agents = Users::find()->all();
+        $findAgent = new Users();
         if ($findAgent->load(Yii::$app->request->post()))
         {
-            $searchResult = User::find()
+            $searchResult = Users::find()
                 ->where(['city'=>$findAgent->city])
                 ->andWhere(['deal_property_type'=>$findAgent->deal_property_type])
                 ->andWhere(['dealing_in'=>$findAgent->dealing_in])->all();
@@ -88,7 +88,7 @@ class UserController extends BaseController
             }
             else
             {
-                $searchResult = User::find()
+                $searchResult = Users::find()
                     ->where(['city'=>$findAgent->city])
                     ->orWhere(['deal_property_type'=>$findAgent->deal_property_type])
                     ->orWhere(['dealing_in'=>$findAgent->dealing_in])->limit(5)->all();
@@ -114,12 +114,12 @@ class UserController extends BaseController
     public function actionAgents()
     {
 
-        $model = User::find()->where(['role'=>'agent'])->all();;
+        $model = Users::find()->where(['role'=>'agent'])->all();;
 
         $serach = new SearchAgentsForm();
         if ($serach->load(Yii::$app->request->post()))
         {
-            $find = User::find()->where(['profile_status'=>'active']);
+            $find = Users::find()->where(['profile_status'=>'active']);
             if($serach->role)
             {
                 $find->andWhere(['role'=>$serach->role]);
@@ -164,16 +164,16 @@ class UserController extends BaseController
     {
         if(!$username and !$id)
         {
-            $model = User::findOne(Yii::$app->user->identity->getId());
+            $model = Users::findOne(Yii::$app->user->identity->getId());
 
         }
         elseif($id == true)
         {
-            $model = User::find()->where(['id'=>$username])->one();
+            $model = Users::find()->where(['id'=>$username])->one();
         }
         else
         {
-            $model = User::findByUsername($username);
+            $model = Users::findByUsername($username);
 
         };
         $fvrt = SavedAgents::find()->where(['agent_id'=>$model['id']])->count();
@@ -221,7 +221,7 @@ class UserController extends BaseController
     //    agent detail property displayed below ########
     public function actionProperty($username=false)
     {
-        $model = User::findByUsername($username);
+        $model = Users::findByUsername($username);
 
         $listing = Property::find()->where(['user_id'=>$model['id']])->all();
         $rating = UserRating::find()->where(['agent_id'=>$model->id])->one();
@@ -250,7 +250,7 @@ class UserController extends BaseController
     public function actionU($user=false)
     {
         $user = empty($user)?Yii::$app->user->identity->username:$user;
-        $model = User::findByUsername($user);
+        $model = Users::findByUsername($user);
         $property = Property::find()->where(['user_id'=>$model['id']])->all();
         return $this->render('agent_detail', [
             'agent' => $model,
@@ -261,7 +261,7 @@ class UserController extends BaseController
     public function actionReview($user)
     {
         $user = $user;
-        $model = User::findByUsername($user);
+        $model = Users::findByUsername($user);
         $reviewform = new UserReview();
 
 
@@ -415,7 +415,7 @@ class UserController extends BaseController
      */
     public function actionUpdate()
     {
-        $model = User::findOne(Yii::$app->user->identity->getId());
+        $model = Users::findOne(Yii::$app->user->identity->getId());
 
         if ($model->load(Yii::$app->request->post())) {
 
@@ -446,7 +446,7 @@ class UserController extends BaseController
      */
     public function actionAccount()
     {
-        $model = User::find()->where(['id'=>Yii::$app->user->identity->getId()])->one();
+        $model = Users::find()->where(['id'=>Yii::$app->user->identity->getId()])->one();
 
         if ($model->load(Yii::$app->request->post()))
         {

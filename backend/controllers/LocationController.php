@@ -17,7 +17,7 @@ use yii\data\Pagination;
 use yii\helpers\Url;
 use yii\web\Controller;
 use yii\web\UploadedFile;
-use yii\web\User;
+use yii\web\Users;
 
 /**
  * Settings controller

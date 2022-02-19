@@ -1,5 +1,5 @@
 <?php
-use common\models\User;
+use common\models\Users;
 use \yii\bootstrap\ActiveForm;
 $this->title = Yii::t('app',  $agent['name'].' saved property listing');
 $this->params['breadcrumbs'][] = $this->title;

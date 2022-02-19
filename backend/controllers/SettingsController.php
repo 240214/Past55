@@ -21,7 +21,7 @@ use common\models\SiteSettings;
 use common\models\MainMenu;
 use common\models\Product;
 use common\models\Track;
-use common\models\User;
+use common\models\Users;
 use common\models\VipPlan;
 #use frontend\models\SignupForm;
 use yii\data\Pagination;
@@ -225,7 +225,7 @@ class SettingsController extends Controller{
 	}
 	
 	public function actionDashboard(){
-		$user     = User::find()->orderBy(['created_at' => SORT_DESC])->limit('5')->all();
+		$user     = Users::find()->orderBy(['created_at' => SORT_DESC])->limit('5')->all();
 		$property = Property::find()->orderBy(['created_at' => SORT_DESC])->limit('5')->all();;
 		
 		$statistics = Track::find()->limit('5')->all();

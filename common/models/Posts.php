@@ -9,13 +9,13 @@ use yii\db\ActiveRecord;
 
 
 /**
- * This is the model class for table "blog".
+ * This is the model class for table "posts".
  * @property integer $id
  * @property integer $user_id
  * @property string $image
  * @property string $title
  * @property string $content
- * @property string $meta_desctiption
+ * @property string $meta_description
  * @property string $slug
  * @property string $type
  * @property integer $category_id
@@ -23,7 +23,7 @@ use yii\db\ActiveRecord;
  * @property integer $created_at
  */
 
-define('IMG_BLOG', \yii::getAlias('@frontend').'/web/images/blog/');
+define('IMG_POSTS', \yii::getAlias('@frontend').'/web/images/posts/');
 
 class Posts extends ActiveRecord {
 	
@@ -41,7 +41,9 @@ class Posts extends ActiveRecord {
 		return [
 			[['title', 'content'], 'required'],
 			[['comment_id', 'user_id', 'category_id'], 'integer'],
-			[['image', 'title', 'content', 'meta_desctiption', 'slug', 'type'], 'string'],
+			['content', 'string'],
+			[['type'], 'string', 'max' => 10],
+			[['image', 'title', 'meta_description', 'slug'], 'string', 'max' => 255],
 			['created_at', 'safe'],
 			['image', 'image', 'skipOnEmpty' => true, 'extensions' => 'png, jpg', 'maxWidth' => 960, 'minWidth' => 960, 'maxHeight' => 520, 'minHeight' => 520, 'maxFiles' => 1],
 		
@@ -58,7 +60,7 @@ class Posts extends ActiveRecord {
 			'image' => Yii::t('app', 'Image'),
 			'title' => Yii::t('app', 'Title'),
 			'content'  => Yii::t('app', 'Content'),
-			'meta_desctiption'  => Yii::t('app', 'Meta desctiption'),
+			'meta_description'  => Yii::t('app', 'Meta desctiption'),
 			'slug'  => Yii::t('app', 'Slug'),
 			'type'  => Yii::t('app', 'Type'),
 			'category_id'  => Yii::t('app', 'Category ID'),
@@ -68,7 +70,7 @@ class Posts extends ActiveRecord {
 	
 	public function uploadLogo(){
 		$name = rand(137, 999).time();
-		$this->image->saveAs(IMG_BLOG.$name.'.'.$this->image->extension);
+		$this->image->saveAs(IMG_POSTS.$name.'.'.$this->image->extension);
 		
 		return $name.'.'.$this->image->extension;
 	}

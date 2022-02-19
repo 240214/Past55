@@ -1,13 +1,13 @@
 <?php
 
 use bl\newsletter\frontend\widgets\Subscribe;
-use common\models\Blog;
+use common\models\Posts;
 use common\models\BlogTags;
 use common\models\BlogComment;
-use common\models\User;
+use common\models\Users;
 use yii\helpers\Url;
 
-$recentBlog     = Blog::find()->limit(4)->orderBy(['id' => SORT_DESC])->all();
+$recentBlog     = Posts::find()->limit(4)->orderBy(['id' => SORT_DESC])->all();
 $tags           = BlogTags::find()->limit(20)->orderBy(['blog' => SORT_DESC])->all();
 $recentComments = BlogComment::find()->limit(4)->orderBy(['id' => SORT_DESC])->all();
 

@@ -2,7 +2,7 @@
 
 namespace frontend\controllers;
 
-use common\models\Blog;
+use common\models\Posts;
 use common\models\BlogComment;
 use common\models\BlogTags;
 use common\models\Pages;
@@ -10,7 +10,7 @@ use common\models\SiteSettings;
 use frontend\models\TaskLabelForm;
 use Yii;
 use common\models\Property;
-use common\models\User;
+use common\models\Users;
 use yii\data\ActiveDataProvider;
 use yii\db\Query;
 use yii\helpers\Url;

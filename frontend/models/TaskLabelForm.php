@@ -3,7 +3,7 @@ namespace frontend\models;
 
 use common\models\TaskLabels;
 use yii\base\Model;
-use common\models\User;
+use common\models\Users;
 
 /**
  * TaskLabel form

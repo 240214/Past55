@@ -2,20 +2,20 @@
 
 namespace backend\controllers;
 
-use common\models\Pages;
+use common\models\Posts;
 use Yii;
 use yii\filters\AccessControl;
 use yii\helpers\Url;
 use yii\web\Controller;
 use common\models\LoginForm;
 use yii\filters\VerbFilter;
-use common\models\search\SearchPages;
+use common\models\search\SearchPosts;
 use yii\web\NotFoundHttpException;
 
 /**
- * PagesController controller
+ * PostsController controller
  */
-class BlogController extends Controller{
+class PostsController extends Controller{
 	
 	public $default_pageSize = 20;
 	public $pageSize_list = [7 => 7, 10 => 10, 20 => 20, 30 => 30, 40 => 40, 50 => 50, 100 => 100];
@@ -45,7 +45,7 @@ class BlogController extends Controller{
 	public function actionIndex(){
 		$pageSize = Yii::$app->request->get('per-page') ? intval(Yii::$app->request->get('per-page')) : $this->default_pageSize;
 		
-		$searchModel  = new SearchPages();
+		$searchModel  = new SearchPosts();
 		$dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 		$dataProvider->pagination->pageSize = $pageSize ? $pageSize : $this->default_pageSize;
 		
@@ -83,7 +83,7 @@ class BlogController extends Controller{
 	 * @return mixed
 	 */
 	public function actionCreate(){
-		$model = new Pages();
+		$model = new Posts();
 		
 		if($model->load(Yii::$app->request->post()) && $model->save()){
 			return $this->redirect(['view', 'id' => $model->id]);
@@ -137,7 +137,6 @@ class BlogController extends Controller{
 		
 		if(Yii::$app->request->isAjax){
 			$model = $this->findModel($id);
-			$model->active = Yii::$app->request->post('active') == 'true' ? 1 : 0;
 			if(!$model->save(false)){
 				$ret['error'] = 1;
 			}
@@ -152,11 +151,11 @@ class BlogController extends Controller{
 	 *
 	 * @param integer $id
 	 *
-	 * @return Pages the loaded model
+	 * @return Posts the loaded model
 	 * @throws NotFoundHttpException if the model cannot be found
 	 */
 	protected function findModel($id){
-		if(($model = Pages::findOne($id)) !== null){
+		if(($model = Posts::findOne($id)) !== null){
 			return $model;
 		}
 		

@@ -1,5 +1,5 @@
 <?php
-use common\models\User;
+use common\models\Users;
 
 $this->title = Yii::t('app', 'All Registered Agent');
 $this->params['breadcrumbs'][] = $this->title;

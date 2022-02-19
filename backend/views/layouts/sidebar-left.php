@@ -168,10 +168,10 @@ $navs = [
 	],
 	[
 		'type' => 'item',
-		'key' => 'blog',
-		'label' => 'Blog',
+		'key' => 'post',
+		'label' => 'Posts',
 		'icon' => 'fa-pagelines',
-		'link' => Url::toRoute('blog/index'),
+		'link' => Url::toRoute('posts/index'),
 		'class' => [],
 		'method' => '',
 		'visible' => true,

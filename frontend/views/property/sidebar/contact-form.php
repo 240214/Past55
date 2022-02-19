@@ -1,7 +1,7 @@
 <?php
 
 use yii\bootstrap\ActiveForm;
-use common\models\User;
+use common\models\Users;
 
 ?>
 <div class="card">
@@ -11,9 +11,9 @@ use common\models\User;
 		<small>Call us now or send us your information</small>
 	</div>
 	<div class="body">
-		<a href="tel:<?=User::agentDetail("mobile", $property['user_id'])?>" class="inquire__number">
+		<a href="tel:<?=Users::agentDetail("mobile", $property['user_id'])?>" class="inquire__number">
 			<i class="zmdi zmdi-phone"></i>
-			+091-<?=User::agentDetail("mobile", $property['user_id'])?>
+			+091-<?=Users::agentDetail("mobile", $property['user_id'])?>
 		</a>
 		<input name="ContactForm[reciever]" type="hidden" value="<?=$property['user_id'];?>">
 		<input name="ContactForm[title]" type="hidden" value="<?=$property['title'];?>">

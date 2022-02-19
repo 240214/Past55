@@ -3,7 +3,7 @@
 namespace backend\models;
 
 use yii\base\Model;
-use common\models\User;
+use common\models\Users;
 use common\models\Admin;
 
 /**

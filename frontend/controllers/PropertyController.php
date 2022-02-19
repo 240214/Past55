@@ -9,7 +9,7 @@ use common\models\search\SearchProperty;
 use Yii;
 use common\models\Property;
 use common\models\Category;
-use common\models\User;
+use common\models\Users;
 use common\models\Views;
 use frontend\models\ContactForm;
 use yii\data\ActiveDataProvider;
@@ -340,7 +340,7 @@ class PropertyController extends BaseController{
 		
 		/*$contact = new ContactForm();
 		if($contact->load(Yii::$app->request->post()) && $contact->validate()){
-			$email = User::agentDetail("email", $model['user_id']);
+			$email = Users::agentDetail("email", $model['user_id']);
 			if($contact->inquiry($email)){
 				Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
 			}else{

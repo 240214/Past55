@@ -1,6 +1,6 @@
 <?php
 
-use common\models\User;
+use common\models\Users;
 
 $this->title = $blog['blog_title'];
 ?>
@@ -37,7 +37,7 @@ $this->title = $blog['blog_title'];
 						</div>
 						<div class="blog__arthur-contents">
 							<h2><?=$blog['blog_author'];?></h2>
-							<p><?=User::getAbout($blog['user_id']);?></p>
+							<p><?=Users::getAbout($blog['user_id']);?></p>
 
 							<div class="blog__arthur-social">
 								<a href="#" class="mdc-bg-indigo-500"><i class="zmdi zmdi-facebook"></i></a>

@@ -5,7 +5,7 @@ namespace frontend\models;
 use common\models\Property;
 use common\models\MySearch;
 use yii\base\Model;
-use common\models\User;
+use common\models\Users;
 
 /**
  * Search form
