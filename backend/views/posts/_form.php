@@ -24,16 +24,16 @@ use yii\widgets\ActiveForm;
 		<div class="col-xs-3">
 			<div class="row">
 				<div class="col-xs-12">
-					<?=$form->field($model, 'slug')->textInput(['maxlength' => true]);?>
+					<?=$form->field($model, 'slug')->textInput(['maxlength' => true, 'data-trigger' => 'js_action_focus', 'data-action' => 'create_slug', 'data-source' => '#posts-title']);?>
 				</div>
 				<div class="col-xs-12">
 					<?=$form->field($model, 'type')->dropDownList($model->Types);?>
 				</div>
 				<div class="col-xs-12">
-					<?=$form->field($model, 'meta_description')->textarea(['maxlength' => true]);?>
+					<?=$form->field($model, 'category_id')->dropDownList($model->Categories);?>
 				</div>
 				<div class="col-xs-12">
-					<?=$form->field($model, 'category_id')->dropDownList($model->Categories);?>
+					<?=$form->field($model, 'meta_description')->textarea(['maxlength' => true]);?>
 				</div>
 				<div class="col-xs-12 text-right">
 					<?=Html::submitButton('Update', ['class' => 'btn btn-success'])?>

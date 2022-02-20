@@ -149,11 +149,24 @@ $(function(){
 		Forms: {
 			createSlug: function($obj){
 				var $target = $($obj.data('target')),
-					val = $obj.val(),
-					slug = BJS.string_to_slug(val, '-');
+					$source = $($obj.data('source')),
+					val = '',
+					slug = '';
 
-				if($target.val() == ''){
-					$target.val(slug);
+				if($source.length){
+					val = $source.val();
+					slug = BJS.string_to_slug(val, '-');
+					if($obj.val() == ''){
+						$obj.val(slug);
+					}
+				}
+
+				if($target.length){
+					val = $obj.val();
+					slug = BJS.string_to_slug(val, '-');
+					if($target.val() == ''){
+						$target.val(slug);
+					}
 				}
 			},
 			createMetaTitle: function($obj){
