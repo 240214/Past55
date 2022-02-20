@@ -19,13 +19,18 @@ use yii\db\ActiveRecord;
  * @property string $slug
  * @property string $type
  * @property integer $category_id
- * @property integer $comment_id
  * @property integer $created_at
  */
 
 define('IMG_POSTS', \yii::getAlias('@frontend').'/web/images/posts/');
 
 class Posts extends ActiveRecord {
+	
+	public $categories = [];
+	public $types = [
+		'post' => 'Post',
+		'article' => 'Article',
+	];
 	
 	/**
 	 * @inheritdoc
@@ -40,7 +45,7 @@ class Posts extends ActiveRecord {
 	public function rules(){
 		return [
 			[['title', 'content'], 'required'],
-			[['comment_id', 'user_id', 'category_id'], 'integer'],
+			[['user_id', 'category_id'], 'integer'],
 			['content', 'string'],
 			[['type'], 'string', 'max' => 10],
 			[['image', 'title', 'meta_description', 'slug'], 'string', 'max' => 255],
@@ -56,16 +61,34 @@ class Posts extends ActiveRecord {
 	public function attributeLabels(){
 		return [
 			'id' => Yii::t('app', 'ID'),
-			'user_id' => Yii::t('app', 'User ID'),
+			'user_id' => Yii::t('app', 'User'),
 			'image' => Yii::t('app', 'Image'),
 			'title' => Yii::t('app', 'Title'),
 			'content'  => Yii::t('app', 'Content'),
 			'meta_description'  => Yii::t('app', 'Meta desctiption'),
 			'slug'  => Yii::t('app', 'Slug'),
-			'type'  => Yii::t('app', 'Type'),
-			'category_id'  => Yii::t('app', 'Category ID'),
+			'type'  => Yii::t('app', 'Post type'),
+			'category_id'  => Yii::t('app', 'Category'),
 			'created_at'  => Yii::t('app', 'Created at'),
 		];
+	}
+	
+	public function getCategory(){
+		return $this->hasOne(PostsCategories::className(), ['id' => 'category_id']);
+	}
+	
+	public function getCategories(){
+		if(empty($this->categories)){
+			$listCategory = PostsCategories::find()->orderBy('title ASC')->all();
+			
+			$this->categories = ArrayHelper::map($listCategory, 'id', 'title');
+		}
+		
+		return $this->categories;
+	}
+	
+	public function getTypes(){
+		return $this->types;
 	}
 	
 	public function uploadLogo(){

@@ -27,7 +27,13 @@ use yii\widgets\ActiveForm;
 					<?=$form->field($model, 'slug')->textInput(['maxlength' => true]);?>
 				</div>
 				<div class="col-xs-12">
+					<?=$form->field($model, 'type')->dropDownList($model->Types);?>
+				</div>
+				<div class="col-xs-12">
 					<?=$form->field($model, 'meta_description')->textarea(['maxlength' => true]);?>
+				</div>
+				<div class="col-xs-12">
+					<?=$form->field($model, 'category_id')->dropDownList($model->Categories);?>
 				</div>
 				<div class="col-xs-12 text-right">
 					<?=Html::submitButton('Update', ['class' => 'btn btn-success'])?>

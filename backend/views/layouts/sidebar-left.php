@@ -168,13 +168,29 @@ $navs = [
 	],
 	[
 		'type' => 'item',
-		'key' => 'post',
+		'key' => 'posts',
 		'label' => 'Posts',
-		'icon' => 'fa-pagelines',
+		'icon' => 'fa-list',
 		'link' => Url::toRoute('posts/index'),
-		'class' => [],
+		'class' => ['treeview'],
 		'method' => '',
 		'visible' => true,
+		'submenu' => [
+			'posts' => [
+				'label' => 'Posts',
+				'icon' => 'fa-pagelines',
+				'link' => Url::toRoute('posts/index'),
+				'class' => [],
+				'visible' => true,
+			],
+			'posts-category' => [
+				'label' => 'Categories',
+				'icon' => 'fa-th',
+				'link' => Url::toRoute('posts-category/index'),
+				'class' => [],
+				'visible' => true,
+			],
+		]
 	],
 	[
 		'type' => 'item',
@@ -212,7 +228,7 @@ $r = explode('/', Yii::$app->request->getPathInfo());
 #VarDumper::dump($r, 10, 1); exit;
 $first_path = $r[0];
 #$second_path = $r[1];
-$submenu_class = in_array($first_path, ['property', 'property-features', 'category', 'nearby-places', 'nearby-places-types']) ? 'menu-open' : '';
+$submenu_class = in_array($first_path, ['property', 'property-features', 'category', 'posts-category', 'nearby-places', 'nearby-places-types']) ? 'menu-open' : '';
 ?>
 <aside class="main-sidebar trans_all">
 	<!-- sidebar: style can be found in sidebar.less -->

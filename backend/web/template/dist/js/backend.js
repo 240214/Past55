@@ -107,14 +107,14 @@ $(function(){
 					BJS.Properties.toggleMoreLocationFields($this);
 					break;
 				case "create_slug":
-					BJS.Properties.createSlug($this);
+					BJS.Forms.createSlug($this);
 					break;
 				case "create_slug_n_meta":
-					BJS.Properties.createSlug($this);
-					BJS.Properties.createMetaTitle($this);
+					BJS.Forms.createSlug($this);
+					BJS.Forms.createMetaTitle($this);
 					break;
 				case "select_text":
-					BJS.Properties.selectText($this);
+					BJS.Forms.selectText($this);
 					break;
 				case "property_features_search":
 					BJS.Properties.searchFeatures($this);
@@ -145,6 +145,28 @@ $(function(){
 				BJS.els.js_data_loader.removeClass('show');
 				console.log("SYSTEM TECHNICAL ERROR");
 			});
+		},
+		Forms: {
+			createSlug: function($obj){
+				var $target = $($obj.data('target')),
+					val = $obj.val(),
+					slug = BJS.string_to_slug(val, '-');
+
+				if($target.val() == ''){
+					$target.val(slug);
+				}
+			},
+			createMetaTitle: function($obj){
+				var $target = $($obj.data('target2')),
+					val = $obj.val();
+
+				if($target.val() == ''){
+					$target.val(val);
+				}
+			},
+			selectText: function($obj){
+				$obj.select();
+			},
 		},
 		Properties: {
 			/** Method ajaxGetPropCats not used **/
@@ -219,26 +241,6 @@ $(function(){
 			toggleMoreLocationFields: function($obj){
 				var $target = $($obj.data('target'));
 				$target.toggleClass('show');
-			},
-			createSlug: function($obj){
-				var $target = $($obj.data('target')),
-					val = $obj.val(),
-					slug = BJS.string_to_slug(val, '-');
-
-				if($target.val() == ''){
-					$target.val(slug);
-				}
-			},
-			createMetaTitle: function($obj){
-				var $target = $($obj.data('target2')),
-					val = $obj.val();
-
-				if($target.val() == ''){
-					$target.val(val);
-				}
-			},
-			selectText: function($obj){
-				$obj.select();
 			},
 			searchFeatures: function($input){
 				// Declare variables

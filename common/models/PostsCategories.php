@@ -6,7 +6,6 @@ use Yii;
 use yii\db\ActiveRecord;
 
 /**
- * This is the model class for table "blog_tags".
  * @property integer $id
  * @property string  $title
  * @property string  $slug
@@ -19,5 +18,23 @@ class PostsCategories extends ActiveRecord {
 		return 'posts_categories';
 	}
 	
+	public function rules(){
+		return [
+			[['title', 'slug'], 'required'],
+			[['title', 'slug'], 'string', 'max' => 255],
+		
+		];
+	}
+	
+	/**
+	 * @inheritdoc
+	 */
+	public function attributeLabels(){
+		return [
+			'id' => Yii::t('app', 'ID'),
+			'title' => Yii::t('app', 'Title'),
+			'slug'  => Yii::t('app', 'Slug'),
+		];
+	}
 	
 }
