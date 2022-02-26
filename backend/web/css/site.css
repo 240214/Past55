@@ -25,7 +25,7 @@ h3, .h3 {margin: 0;}
 
 .card {padding: 20px; position: relative;}
 
-.property-form .tab-pane {padding: 20px; border-radius: 4px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1); background-color: #fff; margin-bottom: 10px; position: relative;}
+.custom-form .tab-pane {padding: 20px; border-radius: 4px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1); background-color: #fff; margin-bottom: 10px; position: relative;}
 
 .wrap {min-height: 100%; height: auto; margin: 0 auto -60px; padding: 0 0 60px;}
 
@@ -116,34 +116,40 @@ a.desc:after {content: /*"\e114"*/ "\e152";}
 
 .page-size-box {float: right; margin: 0 10px 0 0;}
 
-.property-form .file-drop-zone.clickable {margin: 0; padding: 0; border: 0;}
-.property-form .file-drop-zone.clickable:hover,
-.property-form .file-drop-zone.clickable:focus,
-.property-form .file-drop-zone.clickable:active {background-color: #fcfcfc;}
+.custom-form .file-drop-zone.clickable {margin: 0; padding: 0; border: 0;}
+.custom-form .file-drop-zone.clickable:hover,
+.custom-form .file-drop-zone.clickable:focus,
+.custom-form .file-drop-zone.clickable:active {background-color: #fcfcfc;}
 .file-drop-zone .file-preview-thumbnails {display: flex; flex-flow: row wrap;}
 .krajee-default.file-preview-frame {margin: 2px; box-shadow: none; padding: 5px; float: none; border-radius: 5px;}
 .krajee-default .file-footer-caption {margin-bottom: 0;}
-.property-form .fileinput-remove {font-size: 30px; background: #fff !important; display: block; line-height: 1; padding: 0 4px 2px; border: 1px solid #999; border-radius: 4px; opacity: 1;}
-.property-form .fileinput-remove span {display: block; background-color: #fff; width: 100%; height: 100%; line-height: 20px;}
-.property-form .fileinput-remove:hover {opacity: 0.7;}
-.property-form input[type="file"] {display: none !important;}
-.property-form .gallery-images {display: flex; flex-flow: row wrap; align-items: center; list-style: none; margin: -5px; padding: 0;}
-.property-form .gallery-images li {position: relative; margin: 5px;}
-.property-form .gallery-images img {border-radius: 5px; max-width: 220px;}
-.property-form .gallery-images .fileinput-remove {display: flex; align-items: center; justify-content: center; position: absolute; z-index: 1; right: 0; top: 0; font-size: 20px; transition: all .2s ease;}
-.property-form .gallery-images .fileinput-remove:hover {left: 0; bottom: 0; font-size: 40px; color: #f00;}
-.property-form .check-container {display: flex; flex-flow: row wrap; align-items: center; justify-content: flex-start; margin: 0 -2px;}
-.property-form .check-container .check-item {position: relative; padding: 2px;}
-.property-form .check-container input {opacity: 0; position: absolute;}
-.property-form .check-container label {cursor: pointer; display: block; padding: 5px 10px; margin: 0; border: 1px solid #d2d6de; text-align: left;}
-.property-form .check-container label i {color: #eee; margin-right: 5px;}
-.property-form .check-container input:checked + label {border-color: #03A9F4; background-color: rgba(3, 169, 244, 0.1);}
-.property-form .check-container input:checked + label i {color: #03A9F4;}
-.property-form .property_features .check-container .check-item {width: 25%; flex: 1 1 auto;}
-.property-form .property_features .check-container label i {display: inline-block; margin: 0 5px 0 0;}
+.custom-form .fileinput-remove {font-size: 30px; background: #fff !important; display: block; line-height: 1; padding: 0 4px 2px; border: 1px solid #999; border-radius: 4px; opacity: 1;}
+.custom-form .fileinput-remove span {display: block; background-color: #fff; width: 100%; height: 100%; line-height: 20px;}
+.custom-form .fileinput-remove:hover {opacity: 0.7;}
+.custom-form input[type="file"] {display: none !important;}
+.custom-form .gallery-images {display: flex; flex-flow: row wrap; align-items: center; list-style: none; margin: -5px; padding: 0;}
+.custom-form .gallery-images li {position: relative; margin: 5px;}
+.custom-form .gallery-images img {border-radius: 5px; max-width: 220px;}
+.custom-form .gallery-images .fileinput-remove {display: flex; align-items: center; justify-content: center; position: absolute; z-index: 1; right: 0; top: 0; font-size: 20px; transition: all .2s ease;}
+.custom-form .gallery-images .fileinput-remove:hover {left: 0; bottom: 0; font-size: 40px; color: #f00;}
+.custom-form .check-container {display: flex; flex-flow: row wrap; align-items: center; justify-content: flex-start; margin: 0 -2px;}
+.custom-form .check-container .check-item {position: relative; padding: 2px;}
+.custom-form .check-container input {opacity: 0; position: absolute;}
+.custom-form .check-container label {cursor: pointer; display: block; padding: 5px 10px; margin: 0; border: 1px solid #d2d6de; text-align: left;}
+.custom-form .check-container label i {color: #eee; margin-right: 5px;}
+.custom-form .check-container input:checked + label {border-color: #03A9F4; background-color: rgba(3, 169, 244, 0.1);}
+.custom-form .check-container input:checked + label i {color: #03A9F4;}
+.custom-form .property_features .check-container .check-item {width: 25%; flex: 1 1 auto;}
+.custom-form .property_features .check-container label i {display: inline-block; margin: 0 5px 0 0;}
 @media all and (max-width: 991px){
-	.property-form .property_features .check-container .check-item {width: 33.33%;}
+	.custom-form .property_features .check-container .check-item {width: 33.33%;}
 }
+
+.file-drop-zone-title {font-size: 12px;}
+.file-footer-buttons .btn {box-shadow: none;}
+.krajee-default.file-preview-frame .kv-file-content {width: auto; height: auto; max-width: 213px; max-height: 160px;}
+.krajee-default.file-preview-frame {border: 1px solid rgba(0, 0, 0, 0.05);}
+.krajee-default.file-preview-frame:not(.file-preview-error):hover {border: 1px solid rgba(0, 0, 0, 0.1); box-shadow: none;}
 
 
 #description {font-size: 15px; font-weight: 300;}

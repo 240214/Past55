@@ -47,7 +47,7 @@ foreach($tabs as $tab_name => $tab){
 }
 ?>
 
-<div class="property-form">
+<div class="property-form custom-form">
 
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data', 'class' => 'pr']]);?>
 		<div id="js_data_loader" class="js_data_loader bg-loader"></div>

@@ -10,6 +10,7 @@ $widget_class = $display_nearby_cities ? '' : 'hide';
 		<div class="filter-box__title mb-2">Nearby cities</div> <small class="d-none"><?=count($nearby_cities);?></small>
 		<div class="d-flex flex-wrap list-wrap">
 			<?php foreach($nearby_cities as $city):?>
+				<?php #VarDumper::dump($city, 10, 1);?>
 				<a href="<?=Url::toRoute(['property/index'] + $city);?>" class="filter-box__btn trans-me"><?=$city['city_label'];?></a>
 			<?php endforeach;?>
 		</div>

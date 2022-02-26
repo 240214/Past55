@@ -12,30 +12,21 @@ use yii\image\drivers\Image;
 use yii\web\UploadedFile;
 use yii\helpers\VarDumper;
 
-
 /**
- * This is the model class for table "posts".
- * @property integer $id
- * @property integer $user_id
+ * This is the model class for table "category_city_content".
+ * @property integer $category_id
+ * @property integer $state_id
+ * @property integer $city_id
  * @property string $image
  * @property string $title
  * @property string $content
- * @property string $meta_description
- * @property string $slug
- * @property string $type
- * @property integer $category_id
- * @property integer $created_at
  */
 
-define('IMG_POSTS', \yii::getAlias('@frontend').'/web/images/posts/');
+define('IMG_POSTS', \yii::getAlias('@frontend').'/web/images/3c/');
 
-class Posts extends ActiveRecord {
+class CategoryCityContent extends ActiveRecord {
 	
 	public $categories = [];
-	public $types = [
-		'post' => 'Post',
-		'article' => 'Article',
-	];
 	public $preview;
 	public $image_exts = 'gif, png, jpg, jpeg';
 	public $image_sizes = [
@@ -48,7 +39,7 @@ class Posts extends ActiveRecord {
 	 * @inheritdoc
 	 */
 	public static function tableName(){
-		return 'posts';
+		return 'category_city_content';
 	}
 	
 	/**
@@ -56,12 +47,11 @@ class Posts extends ActiveRecord {
 	 */
 	public function rules(){
 		return [
-			[['title', 'content'], 'required'],
-			[['user_id', 'category_id'], 'integer'],
+			[['category_id', 'state_id', 'city_id'], 'required'],
+			[['category_id', 'state_id', 'city_id'], 'integer'],
 			['content', 'string'],
 			[['type'], 'string', 'max' => 10],
-			[['image', 'title', 'meta_description', 'slug'], 'string', 'max' => 255],
-			['created_at', 'safe'],
+			[['image', 'title'], 'string', 'max' => 255],
 			['image', 'image', 'skipOnEmpty' => true, 'extensions' => $this->image_exts, 'maxFiles' => 1],
 		
 		];
@@ -72,21 +62,25 @@ class Posts extends ActiveRecord {
 	 */
 	public function attributeLabels(){
 		return [
-			'id' => Yii::t('app', 'ID'),
-			'user_id' => Yii::t('app', 'User'),
-			'image' => Yii::t('app', 'Image'),
+			'category_id' => Yii::t('app', 'Category'),
+			'state_id' => Yii::t('app', 'State'),
+			'city_id' => Yii::t('app', 'Image'),
+			'image'  => Yii::t('app', 'Image'),
 			'title' => Yii::t('app', 'Title'),
 			'content'  => Yii::t('app', 'Content'),
-			'meta_description'  => Yii::t('app', 'Meta desctiption'),
-			'slug'  => Yii::t('app', 'Slug'),
-			'type'  => Yii::t('app', 'Post type'),
-			'category_id'  => Yii::t('app', 'Category'),
-			'created_at'  => Yii::t('app', 'Created at'),
 		];
 	}
 	
 	public function getCategory(){
-		return $this->hasOne(PostsCategories::className(), ['id' => 'category_id']);
+		return $this->hasOne(Category::className(), ['id' => 'category_id']);
+	}
+	
+	public function getState(){
+		return $this->hasOne(State::className(), ['id' => 'state_id']);
+	}
+	
+	public function getCity(){
+		return $this->hasOne(City::className(), ['id' => 'city_id']);
 	}
 	
 	public function getCategories(){
@@ -97,10 +91,6 @@ class Posts extends ActiveRecord {
 		}
 		
 		return $this->categories;
-	}
-	
-	public function getTypes(){
-		return $this->types;
 	}
 	
 	public function uploadLogo(){
@@ -165,7 +155,7 @@ class Posts extends ActiveRecord {
 	}
 	
 	public function getMainImage($size = '250'){
-		$image = Yii::$app->urlManagerFrontend->baseUrl.'/images/posts/nophoto.svg';
+		$image = Yii::$app->urlManagerFrontend->baseUrl.'/images/3c/nophoto.svg';
 		
 		if($this->image){
 			$pathinfo = pathinfo($this->image);
@@ -178,7 +168,7 @@ class Posts extends ActiveRecord {
 			}
 			
 			if(file_exists(Yii::getAlias('@posts_images').'/'.$file)){
-				$image = Yii::$app->urlManagerFrontend->baseUrl.'/images/posts/'.$file;
+				$image = Yii::$app->urlManagerFrontend->baseUrl.'/images/3c/'.$file;
 			}
 		}
 		

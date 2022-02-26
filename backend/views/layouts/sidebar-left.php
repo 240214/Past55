@@ -56,6 +56,13 @@ $navs = [
 				'class' => [],
 				'visible' => true,
 			],
+			'category-city-content' => [
+				'label' => '3C Content',
+				'icon' => 'fa-th',
+				'link' => Url::toRoute('category-city-content/index'),
+				'class' => [],
+				'visible' => true,
+			],
 			'property-features' => [
 				'label' => 'Features',
 				'icon' => 'fa-plug',
