@@ -11,6 +11,9 @@ use yii\helpers\Json;
 use yii\image\drivers\Image;
 use yii\web\UploadedFile;
 use yii\helpers\VarDumper;
+use common\models\Category;
+use common\models\State;
+use common\models\City;
 
 /**
  * This is the model class for table "category_city_content".
@@ -27,6 +30,8 @@ define('IMG_POSTS', \yii::getAlias('@frontend').'/web/images/3c/');
 class CategoryCityContent extends ActiveRecord {
 	
 	public $categories = [];
+	public $states = [];
+	public $cities = [];
 	public $preview;
 	public $image_exts = 'gif, png, jpg, jpeg';
 	public $image_sizes = [
@@ -50,7 +55,6 @@ class CategoryCityContent extends ActiveRecord {
 			[['category_id', 'state_id', 'city_id'], 'required'],
 			[['category_id', 'state_id', 'city_id'], 'integer'],
 			['content', 'string'],
-			[['type'], 'string', 'max' => 10],
 			[['image', 'title'], 'string', 'max' => 255],
 			['image', 'image', 'skipOnEmpty' => true, 'extensions' => $this->image_exts, 'maxFiles' => 1],
 		
@@ -64,7 +68,7 @@ class CategoryCityContent extends ActiveRecord {
 		return [
 			'category_id' => Yii::t('app', 'Category'),
 			'state_id' => Yii::t('app', 'State'),
-			'city_id' => Yii::t('app', 'Image'),
+			'city_id' => Yii::t('app', 'City'),
 			'image'  => Yii::t('app', 'Image'),
 			'title' => Yii::t('app', 'Title'),
 			'content'  => Yii::t('app', 'Content'),
@@ -85,12 +89,32 @@ class CategoryCityContent extends ActiveRecord {
 	
 	public function getCategories(){
 		if(empty($this->categories)){
-			$listCategory = PostsCategories::find()->orderBy('title ASC')->all();
+			$list = Category::find()->orderBy('name ASC')->all();
 			
-			$this->categories = ArrayHelper::map($listCategory, 'id', 'title');
+			$this->categories = ArrayHelper::map($list, 'id', 'name');
 		}
 		
 		return $this->categories;
+	}
+	
+	public function getStates(){
+		if(empty($this->states)){
+			$list = State::find()->orderBy('name ASC')->all();
+			
+			$this->states = ArrayHelper::map($list, 'id', 'name');
+		}
+		
+		return $this->states;
+	}
+	
+	public function getCities(){
+		if(empty($this->cities)){
+			$list = City::find()->orderBy('name ASC')->all();
+			
+			$this->cities = ArrayHelper::map($list, 'id', 'name');
+		}
+		
+		return $this->cities;
 	}
 	
 	public function uploadLogo(){
@@ -114,7 +138,8 @@ class CategoryCityContent extends ActiveRecord {
 		parent::afterSave($insert, $changedAttributes);
 
 		if($insert){
-			$this->saveImages($this->id, $insert);
+			
+			$this->saveImages($this->category_id, $insert);
 		}
 	}
 	

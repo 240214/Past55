@@ -6,7 +6,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Posts */
+/* @var $model common\models\CategoryCityContent */
 /* @var $form yii\widgets\ActiveForm */
 
 $pluginOptions = [
@@ -25,7 +25,7 @@ $pluginOptions = [
 		<div class="col-xs-9">
 			<div class="row">
 				<div class="col-xs-12">
-					<?=$form->field($model, 'title')->textInput(['maxlength' => true, 'data-trigger' => 'js_action_blur', 'data-action' => 'create_slug', 'data-target' => '#posts-slug']);?>
+					<?=$form->field($model, 'title')->textInput(['maxlength' => true, 'value' => $model->isNewRecord ? 'Getting Ready to Move to %CATEGORY% in %CITY%' : $model->title]);?>
 				</div>
 				<div class="col-xs-12">
 					<?=$form->field($model, 'content')->widget(TinyMce::className(), Yii::$app->params['tinymce'])->label(false);?>
@@ -35,16 +35,13 @@ $pluginOptions = [
 		<div class="col-xs-3">
 			<div class="row">
 				<div class="col-xs-12">
-					<?=$form->field($model, 'slug')->textInput(['maxlength' => true, 'data-trigger' => 'js_action_focus', 'data-action' => 'create_slug', 'data-source' => '#posts-title']);?>
-				</div>
-				<div class="col-xs-12">
-					<?=$form->field($model, 'type')->dropDownList($model->Types);?>
-				</div>
-				<div class="col-xs-12">
 					<?=$form->field($model, 'category_id')->dropDownList($model->Categories);?>
 				</div>
 				<div class="col-xs-12">
-					<?=$form->field($model, 'meta_description')->textarea(['maxlength' => true]);?>
+					<?=$form->field($model, 'state_id')->dropDownList($model->States);?>
+				</div>
+				<div class="col-xs-12">
+					<?=$form->field($model, 'city_id')->dropDownList($model->Cities);?>
 				</div>
 				<div class="col-xs-12">
 					<?=$form->field($model, 'preview')->widget(FileInput::classname(), ['options' => ['accept' => 'image/*', 'multiple' => false], 'pluginOptions' => $pluginOptions])->label('Featured image');?>

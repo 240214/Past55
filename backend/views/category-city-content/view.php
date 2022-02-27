@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 use yii\web\YiiAsset;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Posts */
+/* @var $model common\models\CategoryCityContent */
 
 $this->title                   = 'Post';
 $this->params['breadcrumbs'][] = ['label' => 'Posts', 'url' => ['index']];

@@ -1,7 +1,7 @@
 <?php
 
 use common\components\CustomActionColumn;
-use common\models\search\SearchPages;
+use common\models\search\SearchCategoryCityContent;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\grid\GridView;
@@ -9,7 +9,7 @@ use yii\web\View;
 use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
-/* @var $searchModel common\models\search\SearchPages */
+/* @var $searchModel common\models\search\SearchCategoryCityContent */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Categoty & City Content';
@@ -35,9 +35,9 @@ $this->params['breadcrumbs'][] = $this->title;
 		'columns' => [
 			#['class' => 'yii\grid\SerialColumn'],
 			
-			'category',
-			'state',
-			'city',
+			'category_id',
+			'state_id',
+			'city_id',
 			'title',
 			/*[
 				'attribute' => 'url_php_code',
