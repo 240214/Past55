@@ -8,18 +8,18 @@ use yii\web\YiiAsset;
 /* @var $this yii\web\View */
 /* @var $model common\models\CategoryCityContent */
 
-$this->title                   = 'Post';
-$this->params['breadcrumbs'][] = ['label' => 'Posts', 'url' => ['index']];
+$this->title                   = 'Categoty & City Content';
+$this->params['breadcrumbs'][] = ['label' => 'Categoty & City Content', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 YiiAsset::register($this);
 ?>
 <div class="card">
 	<div class="row" style="margin-bottom: 15px;">
 		<div class="col-md-7">
-			<h1><?=Html::encode($model->title)?></h1>
+			<h1><?=Html::encode($model->FormatedTitle())?></h1>
 		</div>
 		<div class="col-md-5 text-right">
-			<?=Html::a('<i class="fa fa-chevron-left"></i> '.Yii::t('app', 'Back'), Url::toRoute('posts/index'), ['class' => 'btn btn-warning'])?>
+			<?=Html::a('<i class="fa fa-chevron-left"></i> '.Yii::t('app', 'Back'), Url::toRoute('category-city-content/index'), ['class' => 'btn btn-warning'])?>
 			<?=Html::a('<i class="fa fa-pencil"></i> '.Yii::t('app', 'Edit'), ['update', 'id' => $model->id], ['class' => 'btn btn-success'])?>
 			<?=Html::a('<i class="fa fa-trash"></i> '.Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], ['class' => 'btn btn-danger',
                 'data'  => [
@@ -35,8 +35,11 @@ YiiAsset::register($this);
 				'model'      => $model,
 				'attributes' => [
 					'id',
+					'category_id',
+					'state_id',
+					'city_id',
 					'title',
-					'slug',
+					'mainImage:image',
 					'content:html',
 				],
 			]);?>

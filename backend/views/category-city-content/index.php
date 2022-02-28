@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
 		'filterSelector' => 'select[name="per-page"]',
 		'columns' => [
 			#['class' => 'yii\grid\SerialColumn'],
-			
+			'id',
 			'category_id',
 			'state_id',
 			'city_id',

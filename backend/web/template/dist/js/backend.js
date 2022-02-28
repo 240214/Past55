@@ -33,13 +33,12 @@ $(function(){
 			js_data_loader: $('#js_data_loader'),
 			property_category_id: $('#property-category_id'),
 			property_categories: $('#property-categories'),
+			js_category_city_content_state: $('#js_category_city_content_state'),
 		},
 		Init: function(){
 			this.initEvents();
-
-			if(this.els.property_category_id.length){
-				//this.Properties.actionFilterCategories(this.els.property_category_id);
-			}
+			this.Properties.Init();
+			this.Categories.Init();
 		},
 		initEvents: function(){
 			$(document)
@@ -48,26 +47,6 @@ $(function(){
 				.on('blur', '[data-trigger="js_action_blur"]', BJS.doAction)
 				.on('change', '[data-trigger="js_action_change"]', BJS.doAction)
 				.on('click', '[data-trigger="js_action_click"]', BJS.doAction);
-		},
-		string_to_slug: function(str, separator){
-			str = str.trim();
-			str = str.toLowerCase();
-
-			// remove accents, swap ñ for n, etc
-			const from = "åàáãäâèéëêìíïîòóöôùúüûñç·/_,:;";
-			const to = "aaaaaaeeeeiiiioooouuuunc------";
-
-			for (let i = 0, l = from.length; i < l; i++) {
-				str = str.replace(new RegExp(from.charAt(i), "g"), to.charAt(i));
-			}
-
-			return str
-				.replace(/[^a-z0-9 -]/g, "") // remove invalid chars
-				.replace(/\s+/g, "-") // collapse whitespace and replace by -
-				.replace(/-+/g, "-") // collapse dashes
-				.replace(/^-+/, "") // trim - from start of text
-				.replace(/-+$/, "") // trim - from end of text
-				.replace(/-/g, separator);
 		},
 		doAction: function(e){
 			e.preventDefault();
@@ -89,19 +68,19 @@ $(function(){
 					//BJS.Properties.ajaxGetPropCats($this);
 					break;
 				case "ajax_change_prop_status":
-					BJS.ajaxChangeEntryStatus($this, 'property', 'active');
+					BJS.Forms.ajaxChangeEntryStatus($this, 'property', 'active');
 					break;
 				case "ajax_change_npt_status":
-					BJS.ajaxChangeEntryStatus($this, 'nearby_places_type', 'active');
+					BJS.Forms.ajaxChangeEntryStatus($this, 'nearby_places_type', 'active');
 					break;
 				case "ajax_change_np_status":
-					BJS.ajaxChangeEntryStatus($this, 'nearby_places', 'active');
+					BJS.Forms.ajaxChangeEntryStatus($this, 'nearby_places', 'active');
 					break;
 				case "ajax_change_page_status":
-					BJS.ajaxChangeEntryStatus($this, 'pages', 'active');
+					BJS.Forms.ajaxChangeEntryStatus($this, 'pages', 'active');
 					break;
 				case "ajax_change_prop_feature_type_separated":
-					BJS.ajaxChangeEntryStatus($this, 'property_features_types', 'separated');
+					BJS.Forms.ajaxChangeEntryStatus($this, 'property_features_types', 'separated');
 					break;
 				case "toggle_more_location_fields":
 					BJS.Properties.toggleMoreLocationFields($this);
@@ -119,34 +98,34 @@ $(function(){
 				case "property_features_search":
 					BJS.Properties.searchFeatures($this);
 					break;
+				case "filter_cities_by_state":
+					BJS.Categories.FilterCitiesByState($this);
+					break;
 			}
 
 		},
-		ajaxChangeEntryStatus: function($obj, type, field){
-			var checked = $obj.is(':checked'),
-				id = $obj.val(),
-				data = {};
-
-			data[field] = checked;
-
-			BJS.els.js_data_loader.addClass('show');
-
-			$.ajax({
-				type: "POST",
-				url: BJS.route[type].change_status + id,
-				data: data,
-				dataType: "json"
-			}).done(function(responce){
-				if(responce.error == 0){
-
-				}
-				BJS.els.js_data_loader.removeClass('show');
-			}).fail(function(){
-				BJS.els.js_data_loader.removeClass('show');
-				console.log("SYSTEM TECHNICAL ERROR");
-			});
-		},
 		Forms: {
+			Init: function(){},
+			string_to_slug: function(str, separator){
+				str = str.trim();
+				str = str.toLowerCase();
+
+				// remove accents, swap ñ for n, etc
+				const from = "åàáãäâèéëêìíïîòóöôùúüûñç·/_,:;";
+				const to = "aaaaaaeeeeiiiioooouuuunc------";
+
+				for (let i = 0, l = from.length; i < l; i++) {
+					str = str.replace(new RegExp(from.charAt(i), "g"), to.charAt(i));
+				}
+
+				return str
+					.replace(/[^a-z0-9 -]/g, "") // remove invalid chars
+					.replace(/\s+/g, "-") // collapse whitespace and replace by -
+					.replace(/-+/g, "-") // collapse dashes
+					.replace(/^-+/, "") // trim - from start of text
+					.replace(/-+$/, "") // trim - from end of text
+					.replace(/-/g, separator);
+			},
 			createSlug: function($obj){
 				var $target = $($obj.data('target')),
 					$source = $($obj.data('source')),
@@ -155,7 +134,7 @@ $(function(){
 
 				if($source.length){
 					val = $source.val();
-					slug = BJS.string_to_slug(val, '-');
+					slug = BJS.Forms.string_to_slug(val, '-');
 					if($obj.val() == ''){
 						$obj.val(slug);
 					}
@@ -163,7 +142,7 @@ $(function(){
 
 				if($target.length){
 					val = $obj.val();
-					slug = BJS.string_to_slug(val, '-');
+					slug = BJS.Forms.string_to_slug(val, '-');
 					if($target.val() == ''){
 						$target.val(slug);
 					}
@@ -180,8 +159,37 @@ $(function(){
 			selectText: function($obj){
 				$obj.select();
 			},
+			ajaxChangeEntryStatus: function($obj, type, field){
+				var checked = $obj.is(':checked'),
+					id = $obj.val(),
+					data = {};
+
+				data[field] = checked;
+
+				BJS.els.js_data_loader.addClass('show');
+
+				$.ajax({
+					type: "POST",
+					url: BJS.route[type].change_status + id,
+					data: data,
+					dataType: "json"
+				}).done(function(responce){
+					if(responce.error == 0){
+
+					}
+					BJS.els.js_data_loader.removeClass('show');
+				}).fail(function(){
+					BJS.els.js_data_loader.removeClass('show');
+					console.log("SYSTEM TECHNICAL ERROR");
+				});
+			},
 		},
 		Properties: {
+			Init: function(){
+				if(BJS.els.property_category_id.length){
+					//BJS.Properties.actionFilterCategories(BJS.els.property_category_id);
+				}
+			},
 			/** Method ajaxGetPropCats not used **/
 			ajaxGetPropCats: function($obj){
 				var post_data = {
@@ -273,6 +281,20 @@ $(function(){
 						li[i].style.display = "none";
 					}
 				}
+			},
+		},
+		Categories: {
+			Init: function(){
+				if(BJS.els.js_category_city_content_state.length){
+					BJS.els.js_category_city_content_state.trigger('change');
+				}
+			},
+			FilterCitiesByState: function($obj){
+				var state_id = $obj.val(),
+					$target = $($obj.data('target'));
+
+				$target.find('option:not(.empty-value)').addClass('hidden');
+				$target.find('option[data-state_id="'+state_id+'"]').removeClass('hidden');
 			},
 		},
 	};

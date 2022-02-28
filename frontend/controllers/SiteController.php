@@ -106,7 +106,7 @@ class SiteController extends BaseController {
 		$sell         = Property::find()->where(['active' => 1, 'list_for' => 'sell'])->andWhere(['!=', 'image', ''])->limit(4)->all();
 		/// $agents = Users::find()->where(['role'=>'agent'])->limit(9)->all();
 		
-		$sql = "SELECT user.name,user.image, COUNT(properties.user_id) AS total FROM user LEFT JOIN properties ON user.id = properties.user_id GROUP BY user.id,user.`name`";
+		$sql = "SELECT u.name, u.image, COUNT(p.user_id) AS total FROM users u LEFT JOIN properties p ON u.id = p.user_id GROUP BY u.id, u.name";
 		// $agents = Users::findBySql($sql)->all();
 		$connection = \Yii::$app->db;
 		$model      = $connection->createCommand($sql);

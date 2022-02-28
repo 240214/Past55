@@ -4,6 +4,7 @@ use dosamigos\tinymce\TinyMce;
 use kartik\file\FileInput;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\VarDumper;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\CategoryCityContent */
@@ -17,7 +18,7 @@ $pluginOptions = [
 	'showBrowse' => false,
 	'showCancel' => false,
 ];
-
+#VarDumper::dump($model->CitiesOptions, 10, 1);
 ?>
 
 <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data', 'class' => 'custom-form']]);?>
@@ -38,10 +39,10 @@ $pluginOptions = [
 					<?=$form->field($model, 'category_id')->dropDownList($model->Categories);?>
 				</div>
 				<div class="col-xs-12">
-					<?=$form->field($model, 'state_id')->dropDownList($model->States);?>
+					<?=$form->field($model, 'state_id')->dropDownList($model->States, ['id' => 'js_category_city_content_state', 'data-trigger' => 'js_action_change', 'data-action' => 'filter_cities_by_state', 'data-target' => '#js_category_city_content_city']);?>
 				</div>
 				<div class="col-xs-12">
-					<?=$form->field($model, 'city_id')->dropDownList($model->Cities);?>
+					<?=$form->field($model, 'city_id')->dropDownList($model->Cities, ['id' => 'js_category_city_content_city', 'options' => $model->CitiesOptions]);?>
 				</div>
 				<div class="col-xs-12">
 					<?=$form->field($model, 'preview')->widget(FileInput::classname(), ['options' => ['accept' => 'image/*', 'multiple' => false], 'pluginOptions' => $pluginOptions])->label('Featured image');?>
@@ -57,7 +58,6 @@ $pluginOptions = [
 				<div class="col-xs-12 text-right">
 					<?=Html::submitButton('Update', ['class' => 'btn btn-success'])?>
 				</div>
-			
 			</div>
 		</div>
 	</div>

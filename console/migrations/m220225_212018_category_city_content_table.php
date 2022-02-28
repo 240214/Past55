@@ -11,6 +11,7 @@ class m220225_212018_category_city_content_table extends Migration{
 	 */
 	public function safeUp(){
 		$this->createTable('category_city_content', [
+			'id'    => $this->primaryKey(),
 			'category_id' => $this->integer(11)->notNull()->defaultValue(0),
 			'state_id' => $this->integer(11)->notNull()->defaultValue(0),
 			'city_id' => $this->integer(11)->notNull()->defaultValue(0),

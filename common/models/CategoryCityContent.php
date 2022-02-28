@@ -17,6 +17,7 @@ use common\models\City;
 
 /**
  * This is the model class for table "category_city_content".
+ * @property integer $id
  * @property integer $category_id
  * @property integer $state_id
  * @property integer $city_id
@@ -32,6 +33,7 @@ class CategoryCityContent extends ActiveRecord {
 	public $categories = [];
 	public $states = [];
 	public $cities = [];
+	public $cities_options = [];
 	public $preview;
 	public $image_exts = 'gif, png, jpg, jpeg';
 	public $image_sizes = [
@@ -53,7 +55,7 @@ class CategoryCityContent extends ActiveRecord {
 	public function rules(){
 		return [
 			[['category_id', 'state_id', 'city_id'], 'required'],
-			[['category_id', 'state_id', 'city_id'], 'integer'],
+			[['id', 'category_id', 'state_id', 'city_id'], 'integer'],
 			['content', 'string'],
 			[['image', 'title'], 'string', 'max' => 255],
 			['image', 'image', 'skipOnEmpty' => true, 'extensions' => $this->image_exts, 'maxFiles' => 1],
@@ -75,14 +77,23 @@ class CategoryCityContent extends ActiveRecord {
 		];
 	}
 	
+	/**
+	 * @return \yii\db\ActiveQuery
+	 */
 	public function getCategory(){
 		return $this->hasOne(Category::className(), ['id' => 'category_id']);
 	}
 	
+	/**
+	 * @return \yii\db\ActiveQuery
+	 */
 	public function getState(){
 		return $this->hasOne(State::className(), ['id' => 'state_id']);
 	}
 	
+	/**
+	 * @return \yii\db\ActiveQuery
+	 */
 	public function getCity(){
 		return $this->hasOne(City::className(), ['id' => 'city_id']);
 	}
@@ -109,12 +120,41 @@ class CategoryCityContent extends ActiveRecord {
 	
 	public function getCities(){
 		if(empty($this->cities)){
-			$list = City::find()->orderBy('name ASC')->all();
+			$list = City::find()
+			            ->where(['not', ['name' => null]])
+			            ->orWhere(['not', ['name' => '']])
+			            ->orderBy('name ASC')->all();
 			
-			$this->cities = ArrayHelper::map($list, 'id', 'name');
+			$this->cities[0] = '---';
+			$this->cities += ArrayHelper::map($list, 'id', 'name');
 		}
 		
 		return $this->cities;
+	}
+	
+	public function getCitiesOptions(){
+		if(empty($this->cities_options)){
+			$list = City::find()->orderBy('name ASC')->all();
+			
+			$options = [];
+			$options[0] = ['class' => 'empty-value'];
+			
+			foreach($list as $item)
+				if(!empty($item->name))
+					$options[$item->id] = ['class' => 'hidden', 'data-state_id' => $item->state_id];
+			
+			
+			$this->cities_options = $options;
+		}
+		
+		return $this->cities_options;
+	}
+	
+	public function FormatedTitle(){
+		$category = $this->getCategory();
+		$city = $this->getCity();
+		VarDumper::dump($category, 10, 1); exit;
+		return str_replace(['%CATEGORY%', '%CITY%'], [$category->name, $city->name], $this->title);
 	}
 	
 	public function uploadLogo(){
@@ -146,7 +186,7 @@ class CategoryCityContent extends ActiveRecord {
 	private function saveImages($id = 0, $insert){
 		if($id == 0) return;
 		
-		$dir = Yii::getAlias('@posts_images').'/'.$id;
+		$dir = Yii::getAlias('@3c_images').'/'.$id;
 		
 		if(!is_dir($dir)){
 			FileHelper::createDirectory($dir, 0777);
@@ -192,7 +232,7 @@ class CategoryCityContent extends ActiveRecord {
 				$file = $this->id.'/thumbs/'.$file_name;
 			}
 			
-			if(file_exists(Yii::getAlias('@posts_images').'/'.$file)){
+			if(file_exists(Yii::getAlias('@3c_images').'/'.$file)){
 				$image = Yii::$app->urlManagerFrontend->baseUrl.'/images/3c/'.$file;
 			}
 		}

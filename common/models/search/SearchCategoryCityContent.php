@@ -18,7 +18,7 @@ class SearchCategoryCityContent extends CategoryCityContent {
 	 */
 	public function rules(){
 		return [
-			[['category_id', 'state_id', 'city_id'], 'integer'],
+			[['id', 'category_id', 'state_id', 'city_id'], 'integer'],
 			[['title', 'image', 'content'], 'safe'],
 		];
 	}
@@ -65,9 +65,9 @@ class SearchCategoryCityContent extends CategoryCityContent {
 		}
 		
 		// grid filtering conditions
-		/*$query->andFilterWhere([
+		$query->andFilterWhere([
 			'id'     => $this->id,
-		]);*/
+		]);
 		
 		$query
 			->andFilterWhere(['like', 'title', $this->title]);
