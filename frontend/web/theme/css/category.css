@@ -1,5 +1,11 @@
 body {margin-top: 110px;}
 
+h2.main-title {
+	font-weight: bold;
+	font-size: 50px;
+	line-height: 130%;
+	color: #152430;
+}
 .category-card__adress,
 .category-card__footer > div:first-child,
 .category-card__footer > div:last-child,

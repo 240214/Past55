@@ -104,7 +104,7 @@ $this->registerCssFile('@web/theme/css/properties.css', ['depends' => [Bootstrap
 
 <section class="category-article pt-6">
 	<div class="container max-w-1100">
-		<h1 class="main-title text-center mb-2 mb-md-6">Getting Ready to Move to Assisted<br /> Living in Miami</h1>
+		<h2 class="main-title text-center mb-2 mb-md-6 me-auto ms-auto">Getting Ready to Move to Assisted Living in Miami</h2>
 		<img src="/theme/img/category/category-article.png" alt="" class="img-fluid ml-auto mr-auto mb-2 mb-md-6 d-block">
 		<p class="category-article__textbox main-text-content mb-25">Moving into an assisted living community near you in Miami requires some time and planning, but the
 			process is a lot easier on you and your loved one if you're prepared. It's important to keep your loved

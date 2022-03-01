@@ -51,6 +51,10 @@ class City extends ActiveRecord{
 		];
 	}
 	
+	public static function getIDBySlug(string $slug){
+		return self::find()->select('*')->where(['slug' => $slug])->one();
+	}
+	
 	
 	/**
 	 * @return \yii\db\ActiveQuery

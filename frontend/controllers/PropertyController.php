@@ -31,6 +31,7 @@ use frontend\controllers\BaseController;
 use common\models\FavoriteProperties;
 use common\models\PropertyFeaturesTypes;
 use common\models\City;
+use common\models\CategoryCityContent;
 
 class PropertyController extends BaseController{
 	
@@ -70,6 +71,7 @@ class PropertyController extends BaseController{
 	 */
 	public function actionIndex(){
 		$city = $state = $category = '';
+		$category_id = $state_id = $city_id = 0;
 		$category_ids = [];
 		$noindex = YII_ENV_DEV;
 		$display_narrow_cities = false;
@@ -98,12 +100,15 @@ class PropertyController extends BaseController{
 		$breadcrumbs = $this->generateBreadcrumbs($queryParams);
 		
 		if(isset($queryParams['state'])){
+			$state_id = State::getIDBySlug($queryParams['state']);
 			$states = State::getStatesIsoNameList();
 			$state = $states[strtoupper($queryParams['state'])];
 			$queryParams['state'] = $state;
 		}
+		#VarDumper::dump($states, 10, 1); exit;
 		
 		if(isset($queryParams['city'])){
+			$city_id = City::getIDBySlug($queryParams['city']);
 			$city = ucfirst($queryParams['city']);
 			$queryParams['city'] = $city;
 			$display_nearby_cities = true;
@@ -112,6 +117,7 @@ class PropertyController extends BaseController{
 		}
 		
 		if(isset($queryParams['category'])){
+			$category_id = $categories[$queryParams['category']]['id'];
 			if(count($queryParams) == 1){
 			
 			}
@@ -173,6 +179,8 @@ class PropertyController extends BaseController{
 			}
 		}
 		
+		$_3c_content = $this->get3cContent($category_id, $state_id, $city_id);
+		
 		return $this->render('index', [
 			'dataProvider' => $dataProvider,
 			'searchModel' => $searchModel,
@@ -192,8 +200,13 @@ class PropertyController extends BaseController{
 			'narrow_cities' => $narrow_cities,
 			'display_nearby_cities' => $display_nearby_cities,
 			'nearby_cities' => $nearby_cities,
+			'_3c_content' => $_3c_content,
 		]);
 		
+	}
+	
+	public function get3cContent($category_id = 0, $state_id = 0, $city_id = 0){
+	
 	}
 	
 	public function actionCategoryPage(){

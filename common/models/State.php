@@ -73,6 +73,10 @@ class State extends ActiveRecord{
 		return $this->countries;
 	}
 	
+	public static function getIDBySlug(string $slug){
+		return self::find()->select('*')->where(['slug' => $slug])->one();
+	}
+	
 	public static function getStatesIsoNameList(){
 		$model = self::find()->select('iso_code, name')->orderBy('iso_code ASC')->all();
 		
@@ -95,6 +99,12 @@ class State extends ActiveRecord{
 		$data = self::find()->where(['name' => $name])->asArray()->one();
 		
 		return $data;
+	}
+	
+	public static function getStatesSlugIDList(){
+		$model = self::find()->select('id, slug')->orderBy('slug ASC')->all();
+		
+		return ArrayHelper::map($model, 'slug', 'id');
 	}
 	
 }
