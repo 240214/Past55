@@ -27,6 +27,7 @@ $pluginOptions = [
 			<div class="row">
 				<div class="col-xs-12">
 					<?=$form->field($model, 'title')->textInput(['maxlength' => true, 'value' => $model->isNewRecord ? 'Getting Ready to Move to %CATEGORY% in %CITY%' : $model->title]);?>
+					<small class="d-block mb-2">Title keywords: <b>%CATEGORY%</b> = Category name, <b>%STATE%</b> = State name, <b>%CITY%</b> = City name</small>
 				</div>
 				<div class="col-xs-12">
 					<?=$form->field($model, 'content')->widget(TinyMce::className(), Yii::$app->params['tinymce'])->label(false);?>

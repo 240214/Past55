@@ -35,12 +35,6 @@ class CategoryCityContent extends ActiveRecord {
 	public $cities = [];
 	public $cities_options = [];
 	public $preview;
-	public $image_exts = 'gif, png, jpg, jpeg';
-	public $image_sizes = [
-		'thumb' => 250,
-		'mob_small' => 575,
-		'mob_big' => 767,
-	];
 	
 	/**
 	 * @inheritdoc
@@ -58,7 +52,7 @@ class CategoryCityContent extends ActiveRecord {
 			[['id', 'category_id', 'state_id', 'city_id'], 'integer'],
 			['content', 'string'],
 			[['image', 'title'], 'string', 'max' => 255],
-			['image', 'image', 'skipOnEmpty' => true, 'extensions' => $this->image_exts, 'maxFiles' => 1],
+			['image', 'image', 'skipOnEmpty' => true, 'extensions' => Yii::$app->params['image_exts'], 'maxFiles' => 1],
 		
 		];
 	}
@@ -190,7 +184,7 @@ class CategoryCityContent extends ActiveRecord {
 	}
 	
 	public function FormatedTitle(){
-		return str_replace(['%CATEGORY%', '%CITY%'], [$this->category->name, $this->city->name], $this->title);
+		return str_replace(['%CATEGORY%', '%STATE%', '%CITY%'], [$this->category->name, $this->state->name, $this->city->name], $this->title);
 	}
 	
 	public function uploadLogo(){
@@ -241,8 +235,8 @@ class CategoryCityContent extends ActiveRecord {
 			$this->image = $id.'_'.time().'_'.rand(137, 999).'.'.$file->extension;
 			
 			$file->saveAs($dir.'/'.$this->image);
-			
-			foreach($this->image_sizes as $name => $size){
+
+			foreach(Yii::$app->params['image_sizes'] as $name => $size){
 				$image = Yii::$app->image->load($dir.'/'.$this->image);
 				$image->background('#fff', 0);
 				$image->resize($size, null, Image::INVERSE);

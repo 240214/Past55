@@ -37,12 +37,6 @@ class Posts extends ActiveRecord {
 		'article' => 'Article',
 	];
 	public $preview;
-	public $image_exts = 'gif, png, jpg, jpeg';
-	public $image_sizes = [
-		'thumb' => 250,
-		'mob_small' => 575,
-		'mob_big' => 767,
-	];
 	
 	/**
 	 * @inheritdoc
@@ -62,7 +56,7 @@ class Posts extends ActiveRecord {
 			[['type'], 'string', 'max' => 10],
 			[['image', 'title', 'meta_description', 'slug'], 'string', 'max' => 255],
 			['created_at', 'safe'],
-			['image', 'image', 'skipOnEmpty' => true, 'extensions' => $this->image_exts, 'maxFiles' => 1],
+			['image', 'image', 'skipOnEmpty' => true, 'extensions' => Yii::$app->params['image_exts'], 'maxFiles' => 1],
 		
 		];
 	}
@@ -151,7 +145,7 @@ class Posts extends ActiveRecord {
 			
 			$file->saveAs($dir.'/'.$this->image);
 			
-			foreach($this->image_sizes as $name => $size){
+			foreach(Yii::$app->params['image_sizes'] as $name => $size){
 				$image = Yii::$app->image->load($dir.'/'.$this->image);
 				$image->background('#fff', 0);
 				$image->resize($size, null, Image::INVERSE);

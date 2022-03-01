@@ -116,12 +116,6 @@ class Property extends ActiveRecord{
 		'Saturday'  => ['from' => '9:00', 'to' => '16:00'],
 		'Sunday'    => ['from' => '9:00', 'to' => '16:00'],
 	];
-	public $image_exts = 'gif, png, jpg, jpeg';
-	public $image_sizes = [
-		'thumb' => 250,
-		'mob_small' => 575,
-		'mob_big' => 767,
-	];
 	public $categories = [];
 	public $category_links = [];
 	public $prop_features = [];
@@ -150,9 +144,9 @@ class Property extends ActiveRecord{
 			[['slug', 'type', 'description', 'ownership', 'parking', 'garden', 'location', 'address', 'prop_number', 'contacts', 'pet_policy', 'office_hours', 'address_lat', 'address_lng', 'contact_widget_title', 'contact_phone', 'contact_email', 'contact_website', 'contact_address'], 'string'],
 			[['title', 'city', 'state', 'country'], 'string', 'max' => 225],
 			[['price'], 'string', 'max' => 20],
-			[['preview', 'gallery'], 'image', 'skipOnEmpty' => true, 'extensions' => $this->image_exts, 'maxFiles' => 500],
-			#[['gallery'], 'image', 'skipOnEmpty' => true, 'extensions' => $this->image_exts, 'maxFiles' => 500],
-			[['floorplan'], 'file', 'skipOnEmpty' => true, 'extensions' => $this->image_exts, 'maxFiles' => 500],
+			[['preview', 'gallery'], 'image', 'skipOnEmpty' => true, 'extensions' => Yii::$app->params['image_exts'], 'maxFiles' => 500],
+			#[['gallery'], 'image', 'skipOnEmpty' => true, 'extensions' => Yii::$app->params['image_exts'], 'maxFiles' => 500],
+			[['floorplan'], 'file', 'skipOnEmpty' => true, 'extensions' => Yii::$app->params['image_exts'], 'maxFiles' => 500],
 		];
 	}
 	
@@ -306,7 +300,7 @@ class Property extends ActiveRecord{
 			
 			$file->saveAs($dir.'/'.$this->image);
 			
-			foreach($this->image_sizes as $name => $size){
+			foreach(Yii::$app->params['image_sizes'] as $name => $size){
 				$image = Yii::$app->image->load($dir.'/'.$this->image);
 				$image->background('#fff', 0);
 				$image->resize($size, null, Image::INVERSE);
@@ -325,7 +319,7 @@ class Property extends ActiveRecord{
 				$gallery_image = $property_id.'_'.time().'_'.rand(137, 999).'.'.$file->extension;
 				$file->saveAs($dir.'/'.$gallery_image);
 				
-				foreach($this->image_sizes as $name => $size){
+				foreach(Yii::$app->params['image_sizes'] as $name => $size){
 					$image = Yii::$app->image->load($dir.'/'.$gallery_image);
 					$image->background('#fff', 0);
 					$image->resize($size, null, Image::INVERSE);

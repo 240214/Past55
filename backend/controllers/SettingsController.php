@@ -43,7 +43,6 @@ define('IMG_DIR_THIS_DELETE', Yii::getAlias('@frontend').'/web/images/members/al
  */
 class SettingsController extends Controller{
 	
-	public $image_exts = 'gif, png, jpg, jpeg';
 	
 	/**
 	 * {@inheritdoc}
@@ -172,7 +171,7 @@ class SettingsController extends Controller{
 			if($setting->field_type == 'email'){
 				$e_r = [$setting->setting_name, $setting->field_type];
 			}elseif($setting->field_type == 'image'){
-				$i_r = [[$setting->setting_name], $setting->field_type, 'skipOnEmpty' => true, 'extensions' => $this->image_exts, 'maxFiles' => 500];
+				$i_r = [[$setting->setting_name], $setting->field_type, 'skipOnEmpty' => true, 'extensions' => Yii::$app->params['image_exts'], 'maxFiles' => 500];
 			}else{
 				$t_r[] = $setting->setting_name;
 			}

@@ -100,21 +100,22 @@ class PropertyController extends BaseController{
 		$breadcrumbs = $this->generateBreadcrumbs($queryParams);
 		
 		if(isset($queryParams['state'])){
-			$state_id = State::getIDBySlug($queryParams['state']);
+			$state_id = State::getIDByIso($queryParams['state']);
 			$states = State::getStatesIsoNameList();
 			$state = $states[strtoupper($queryParams['state'])];
 			$queryParams['state'] = $state;
 		}
-		#VarDumper::dump($states, 10, 1); exit;
+		#VarDumper::dump($state_id, 10, 1); exit;
 		
 		if(isset($queryParams['city'])){
-			$city_id = City::getIDBySlug($queryParams['city']);
+			$city_id = City::getIDByName($queryParams['city']);
 			$city = ucfirst($queryParams['city']);
 			$queryParams['city'] = $city;
 			$display_nearby_cities = true;
 		}else{
 			$display_narrow_cities = true;
 		}
+		#VarDumper::dump($city_id, 10, 1); exit;
 		
 		if(isset($queryParams['category'])){
 			$category_id = $categories[$queryParams['category']]['id'];
@@ -125,6 +126,7 @@ class PropertyController extends BaseController{
 			$queryParams['category_ids'] = $category_ids;
 			$category = $categories[$queryParams['category']]['meta_title'];
 		}
+		#VarDumper::dump($category_id, 10, 1); exit;
 		
 		if(isset($queryParams['categories'])){
 			$cats = explode('-and-', $queryParams['categories']);
@@ -179,7 +181,7 @@ class PropertyController extends BaseController{
 			}
 		}
 		
-		$_3c_content = $this->get3cContent($category_id, $state_id, $city_id);
+		$category_city_content = $this->get3CContent($category_id, $state_id, $city_id);
 		
 		return $this->render('index', [
 			'dataProvider' => $dataProvider,
@@ -200,13 +202,21 @@ class PropertyController extends BaseController{
 			'narrow_cities' => $narrow_cities,
 			'display_nearby_cities' => $display_nearby_cities,
 			'nearby_cities' => $nearby_cities,
-			'_3c_content' => $_3c_content,
+			'category_city_content' => $category_city_content,
 		]);
 		
 	}
 	
-	public function get3cContent($category_id = 0, $state_id = 0, $city_id = 0){
-	
+	public function get3CContent($category_id = 0, $state_id = 0, $city_id = 0){
+		$_where = [];
+		
+		if($category_id > 0)
+			$_where['category_id'] = $category_id;
+		
+		if($state_id > 0)
+			$_where['state_id'] = $state_id;
+		
+		
 	}
 	
 	public function actionCategoryPage(){

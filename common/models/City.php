@@ -6,6 +6,7 @@ use Yii;
 use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 use common\models\State;
+use yii\helpers\VarDumper;
 
 /**
  * City model
@@ -51,10 +52,16 @@ class City extends ActiveRecord{
 		];
 	}
 	
-	public static function getIDBySlug(string $slug){
-		return self::find()->select('*')->where(['slug' => $slug])->one();
+	public static function getIDByName($name){
+		$id = 0;
+		
+		$result = self::find()->select('id')->where(['name' => $name])->asArray()->one();
+
+		if(!is_null($result))
+			$id = intval($result['id']);
+		
+		return $id;
 	}
-	
 	
 	/**
 	 * @return \yii\db\ActiveQuery

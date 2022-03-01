@@ -12,6 +12,7 @@ use common\models\LoginForm;
 use yii\filters\VerbFilter;
 use common\models\search\SearchPosts;
 use yii\web\NotFoundHttpException;
+use yii\web\HttpException;
 
 /**
  * CategoryCityContentController controller
@@ -89,13 +90,15 @@ class CategoryCityContentController extends Controller{
 	public function actionCreate(){
 		$model = new CategoryCityContent();
 		
-		if($model->load(Yii::$app->request->post()) && $model->save()){
-			return $this->redirect(['view', 'id' => $model->id]);
+		if($model->load(Yii::$app->request->post())){
+			if($model->save()){
+				return $this->redirect(['view', 'id' => $model->id]);
+			}else{
+				throw new Exception($model->getErrors());
+			}
 		}
 		
-		return $this->render('create', [
-			'model' => $model,
-		]);
+		return $this->render('create', ['model' => $model]);
 	}
 	
 	/**
@@ -114,9 +117,7 @@ class CategoryCityContentController extends Controller{
 			return $this->redirect(['view', 'id' => $model->id]);
 		}
 		
-		return $this->render('update', [
-			'model' => $model,
-		]);
+		return $this->render('update', ['model' => $model]);
 	}
 	
 	/**

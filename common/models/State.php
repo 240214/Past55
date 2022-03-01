@@ -6,6 +6,7 @@ use Yii;
 use yii\db\ActiveRecord;
 use common\models\Country;
 use yii\helpers\ArrayHelper;
+use yii\helpers\VarDumper;
 
 /**
  * State model
@@ -23,7 +24,6 @@ class State extends ActiveRecord{
 	public static function tableName(){
 		return 'states';
 	}
-	
 	
 	/**
 	 * @inheritdoc
@@ -49,7 +49,6 @@ class State extends ActiveRecord{
 		];
 	}
 	
-	
 	public static function namebyid($id){
 		$state = static::findOne($id);
 		
@@ -73,8 +72,15 @@ class State extends ActiveRecord{
 		return $this->countries;
 	}
 	
-	public static function getIDBySlug(string $slug){
-		return self::find()->select('*')->where(['slug' => $slug])->one();
+	public static function getIDByIso($iso){
+		$id = 0;
+		
+		$result = self::find()->select('id')->where(['iso_code' => $iso])->asArray()->one();
+		
+		if(!is_null($result))
+			$id = intval($result['id']);
+		
+		return $id;
 	}
 	
 	public static function getStatesIsoNameList(){
