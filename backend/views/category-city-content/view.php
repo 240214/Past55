@@ -35,10 +35,27 @@ YiiAsset::register($this);
 				'model'      => $model,
 				'attributes' => [
 					'id',
-					'category_id',
-					'state_id',
-					'city_id',
-					'title',
+					[
+						'attribute' => 'category_id',
+						'value' => is_object($model->category) ? $model->category->name : '',
+					],
+					[
+						'attribute' => 'state_id',
+						'value' => is_object($model->state) ? $model->state->name : '',
+					],
+					[
+						'attribute' => 'city_id',
+						'value' => is_object($model->city) ? $model->city->name : '',
+					],
+					[
+						'attribute' => 'title',
+						'label' => 'Title original',
+					],
+					[
+						'attribute' => 'title',
+						'label' => 'Title formated',
+						'value' => $model->FormatedTitle(),
+					],
 					'mainImage:image',
 					'content:html',
 				],

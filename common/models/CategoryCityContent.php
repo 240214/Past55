@@ -68,12 +68,15 @@ class CategoryCityContent extends ActiveRecord {
 	 */
 	public function attributeLabels(){
 		return [
-			'category_id' => Yii::t('app', 'Category'),
-			'state_id' => Yii::t('app', 'State'),
-			'city_id' => Yii::t('app', 'City'),
-			'image'  => Yii::t('app', 'Image'),
-			'title' => Yii::t('app', 'Title'),
-			'content'  => Yii::t('app', 'Content'),
+			'category_id'  => Yii::t('app', 'Category'),
+			'state_id'     => Yii::t('app', 'State'),
+			'city_id'      => Yii::t('app', 'City'),
+			'image'        => Yii::t('app', 'Image'),
+			'title'        => Yii::t('app', 'Title'),
+			'content'      => Yii::t('app', 'Content'),
+			'categoryName' => Yii::t('app', 'Category'),
+			'stateName'    => Yii::t('app', 'State'),
+			'cityName'     => Yii::t('app', 'City'),
 		];
 	}
 	
@@ -108,6 +111,18 @@ class CategoryCityContent extends ActiveRecord {
 		return $this->categories;
 	}
 	
+	public function getFilterCategories(){
+		$list = [];
+		
+		$results = Category::find()->all();
+		
+		foreach($results as $result){
+			$list[$result->name] = $result->name;
+		}
+		
+		return $list;
+	}
+	
 	public function getStates(){
 		if(empty($this->states)){
 			$list = State::find()->orderBy('name ASC')->all();
@@ -116,6 +131,18 @@ class CategoryCityContent extends ActiveRecord {
 		}
 		
 		return $this->states;
+	}
+	
+	public function getFilterStates(){
+		$list = [];
+		
+		$results = State::find()->all();
+		
+		foreach($results as $result){
+			$list[$result->name] = $result->name;
+		}
+		
+		return $list;
 	}
 	
 	public function getCities(){
@@ -130,6 +157,18 @@ class CategoryCityContent extends ActiveRecord {
 		}
 		
 		return $this->cities;
+	}
+	
+	public function getFilterCities(){
+		$list = [];
+		
+		$results = City::find()->all();
+		
+		foreach($results as $result){
+			$list[$result->name] = $result->name;
+		}
+		
+		return $list;
 	}
 	
 	public function getCitiesOptions(){
@@ -151,10 +190,7 @@ class CategoryCityContent extends ActiveRecord {
 	}
 	
 	public function FormatedTitle(){
-		$category = $this->getCategory();
-		$city = $this->getCity();
-		VarDumper::dump($category, 10, 1); exit;
-		return str_replace(['%CATEGORY%', '%CITY%'], [$category->name, $city->name], $this->title);
+		return str_replace(['%CATEGORY%', '%CITY%'], [$this->category->name, $this->city->name], $this->title);
 	}
 	
 	public function uploadLogo(){

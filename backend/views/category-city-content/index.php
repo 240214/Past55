@@ -35,9 +35,21 @@ $this->params['breadcrumbs'][] = $this->title;
 		'columns' => [
 			#['class' => 'yii\grid\SerialColumn'],
 			'id',
-			'category_id',
-			'state_id',
-			'city_id',
+			[
+				'attribute' => 'categoryName',
+				'filter'=> $categories,
+				'value'=>'category.name',
+			],
+			[
+				'attribute' => 'stateName',
+				'filter'=> $states,
+				'value'=>'state.name',
+			],
+			[
+				'attribute' => 'cityName',
+				'filter'=> $cities,
+				'value'=>'city.name',
+			],
 			'title',
 			/*[
 				'attribute' => 'url_php_code',

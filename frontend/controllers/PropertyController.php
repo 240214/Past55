@@ -433,8 +433,28 @@ class PropertyController extends BaseController{
 	
 	public function generateBreadcrumbs($queryParams, $ajax = false){
 		$parts = $breadcrumbs = [];
-		
 		$state_iso = '';
+		
+		if(isset($queryParams['category']) && !empty($queryParams['category'])){
+			$category = Category::getCategoryBySlug($queryParams['category']);
+			$parts[] = $category['slug'];
+			$breadcrumbs[] = ['label' => $category['name'], 'url' => '/'.implode("/", $parts).'/'];
+		}
+		
+		if(isset($queryParams['category_id']) && !empty($queryParams['category_id']) && count($queryParams['category_id']) == 1){
+			$categories = Category::getCategoryList([
+				'fields'    => ['id', 'slug', 'name'],
+				'key_field' => 'id',
+				'order'     => 'name ASC',
+			]);
+			$category = '';
+			foreach($queryParams['category_id'] as $c_id){
+				$category = $categories[$c_id];
+			}
+			$parts[] = $category['slug'];
+			$breadcrumbs[] = ['label' => $category['name'], 'url' => '/'.implode("/", $parts).'/'];
+		}
+		
 		if(isset($queryParams['state']) && !empty($queryParams['state'])){
 			if($ajax){
 				$state = $queryParams['state'];
@@ -456,26 +476,6 @@ class PropertyController extends BaseController{
 				$city .= ', '.$state_iso;
 			}
 			$breadcrumbs[] = ['label' => $city, 'url' => '/'.implode("/", $parts).'/'];
-		}
-		
-		if(isset($queryParams['category']) && !empty($queryParams['category'])){
-			$category = Category::getCategoryBySlug($queryParams['category']);
-			$parts[] = $category['slug'];
-			$breadcrumbs[] = ['label' => $category['name'], 'url' => '/'.implode("/", $parts).'/'];
-		}
-		
-		if(isset($queryParams['category_id']) && !empty($queryParams['category_id']) && count($queryParams['category_id']) == 1){
-			$categories = Category::getCategoryList([
-				'fields'    => ['id', 'slug', 'name'],
-				'key_field' => 'id',
-				'order'     => 'name ASC',
-			]);
-			$category = '';
-			foreach($queryParams['category_id'] as $c_id){
-				$category = $categories[$c_id];
-			}
-			$parts[] = $category['slug'];
-			$breadcrumbs[] = ['label' => $category['name'], 'url' => '/'.implode("/", $parts).'/'];
 		}
 		
 		return $breadcrumbs;

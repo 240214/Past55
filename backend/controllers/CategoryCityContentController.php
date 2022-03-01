@@ -55,6 +55,9 @@ class CategoryCityContentController extends Controller{
 			'dataProvider' => $dataProvider,
 			'pageSize'      => $pageSize,
 			'pageSize_list' => $this->pageSize_list,
+			'categories' => $searchModel->getFilterCategories(),
+			'states' => $searchModel->getFilterStates(),
+			'cities' => $searchModel->getFilterCities(),
 		]);
 	}
 	
