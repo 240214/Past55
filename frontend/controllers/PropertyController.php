@@ -221,7 +221,8 @@ class PropertyController extends BaseController {
 		$model = CategoryCityContent::find()->where($_where)->one();
 		
 		if(!is_null($model)){
-			$model->title = '';
+			$model->title = $model->FormatedTitle();
+			$model->image = $model->getMainImage('full');
 		}
 		
 		return $model;

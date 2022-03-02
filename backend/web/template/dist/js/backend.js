@@ -56,7 +56,7 @@ $(function(){
 
 			switch(action){
 				case "remove_image":
-					BJS.Properties.ajaxRemoveImage($this);
+					BJS.Forms.ajaxRemoveImage($this);
 					break;
 				case "choose_icon":
 					BJS.Properties.actionChooseIcon($this);
@@ -186,6 +186,33 @@ $(function(){
 					console.log("SYSTEM TECHNICAL ERROR");
 				});
 			},
+			ajaxRemoveImage: function($obj){
+				var $loader_tag = $obj.find('i');
+				var $parent = $obj.parents('li');
+				var post_data = {
+					"id": $obj.data("id"),
+					"field": $obj.data("field"),
+					"file": $obj.data("file"),
+					"folder": $obj.data("folder"),
+				};
+				//console.log(post_data);
+
+				$loader_tag.addClass('fa-spinner fa-spin').removeClass('fa-times');
+
+				$.ajax({
+					type: "POST",
+					url: BJS.route.property.remove_image + post_data.id,
+					data: {'data': post_data},
+					dataType: "json"
+				}).done(function(responce){
+					if(responce.error == 0){
+						$parent.remove();
+					}
+				}).fail(function(){
+					$loader_tag.removeClass('fa-spinner').addClass('fa-times');
+					console.log("SYSTEM TECHNICAL ERROR");
+				});
+			},
 		},
 		Properties: {
 			Init: function(){
@@ -217,32 +244,6 @@ $(function(){
 					BJS.els.js_data_loader.removeClass('show');
 				}).fail(function(){
 					BJS.els.js_data_loader.removeClass('show');
-					console.log("SYSTEM TECHNICAL ERROR");
-				});
-			},
-			ajaxRemoveImage: function($obj){
-				var $loader_tag = $obj.find('i');
-				var $parent = $obj.parents('li');
-				var post_data = {
-					"id": $obj.data("id"),
-					"field": $obj.data("field"),
-					"file": $obj.data("file"),
-				};
-				//console.log(post_data);
-
-				$loader_tag.addClass('fa-spinner fa-spin').removeClass('fa-times');
-
-				$.ajax({
-					type: "POST",
-					url: BJS.route.property.remove_image + post_data.id,
-					data: {'data': post_data},
-					dataType: "json"
-				}).done(function(responce){
-					if(responce.error == 0){
-						$parent.remove();
-					}
-				}).fail(function(){
-					$loader_tag.removeClass('fa-spinner').addClass('fa-times');
 					console.log("SYSTEM TECHNICAL ERROR");
 				});
 			},

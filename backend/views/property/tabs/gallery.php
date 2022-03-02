@@ -9,7 +9,14 @@ use yii\helpers\Html;
 	<ul class="gallery-images">
 		<?php foreach($model->screenshot as $file_name):?>
 			<li>
-				<a role="button" class="fileinput-remove" data-trigger="js_action_click" data-action="remove_image" data-id="<?=$model->id;?>" data-field="screenshot" data-file="<?=$file_name;?>" aria-label="Remove"><i class="fa fa-times"></i></a>
+				<a role="button" class="fileinput-remove"
+				   data-trigger="js_action_click"
+				   data-action="remove_image"
+				   data-folder="property"
+				   data-id="<?=$model->id;?>"
+				   data-field="screenshot"
+				   data-file="<?=$file_name;?>"
+				   aria-label="Remove"><i class="fa fa-times"></i></a>
 				<?=Html::img($model->getImage($file_name, '250'), ['class' => 'max-w-100p']);?>
 			</li>
 		<?php endforeach;?>
