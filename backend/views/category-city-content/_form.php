@@ -3,6 +3,7 @@
 use dosamigos\tinymce\TinyMce;
 use kartik\file\FileInput;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 use yii\helpers\VarDumper;
 
@@ -21,7 +22,13 @@ $pluginOptions = [
 #VarDumper::dump($model->CitiesOptions, 10, 1);
 ?>
 
-<?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data', 'class' => 'custom-form']]);?>
+<?php $form = ActiveForm::begin([
+	'enableAjaxValidation' => true,
+	'enableClientValidation' => false,
+	'validationUrl' => Url::toRoute('/category-city-content/validation'),
+	'options' => ['enctype' => 'multipart/form-data', 'class' => 'custom-form'],
+	'fieldConfig' => ['options' => ['tag' => false]]
+]);?>
 	<div class="row">
 		<div class="col-xs-9">
 			<div class="row">

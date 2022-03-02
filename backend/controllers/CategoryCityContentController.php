@@ -13,6 +13,9 @@ use yii\filters\VerbFilter;
 use common\models\search\SearchPosts;
 use yii\web\NotFoundHttpException;
 use yii\web\HttpException;
+use yii\base\ErrorException;
+use yii\web\Response;
+use yii\widgets\ActiveForm;
 
 /**
  * CategoryCityContentController controller
@@ -86,15 +89,19 @@ class CategoryCityContentController extends Controller{
 	 * Creates a new CategoryCityContent model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 * @return mixed
+	 * @throws \Exception
 	 */
 	public function actionCreate(){
 		$model = new CategoryCityContent();
 		
 		if($model->load(Yii::$app->request->post())){
-			if($model->save()){
+			
+			try{
+				$model->save();
 				return $this->redirect(['view', 'id' => $model->id]);
-			}else{
-				throw new Exception($model->getErrors());
+			}catch(\Exception $e){
+				#Yii::warning($e->getMessage());
+				throw new \Exception($e->getMessage());
 			}
 		}
 		
@@ -108,13 +115,19 @@ class CategoryCityContentController extends Controller{
 	 * @param integer $id
 	 *
 	 * @return mixed
-	 * @throws NotFoundHttpException if the model cannot be found
+	 * @throws \Exception
 	 */
 	public function actionUpdate($id){
 		$model = $this->findModel($id);
 		
-		if($model->load(Yii::$app->request->post()) && $model->save()){
-			return $this->redirect(['view', 'id' => $model->id]);
+		if($model->load(Yii::$app->request->post())){
+			try{
+				$model->save();
+				return $this->redirect(['view', 'id' => $model->id]);
+			}catch(\Exception $e){
+				#Yii::warning($e->getMessage());
+				throw new \Exception($e->getMessage());
+			}
 		}
 		
 		return $this->render('update', ['model' => $model]);
@@ -128,6 +141,8 @@ class CategoryCityContentController extends Controller{
 	 *
 	 * @return mixed
 	 * @throws NotFoundHttpException if the model cannot be found
+	 * @throws \Throwable
+	 * @throws \yii\db\StaleObjectException
 	 */
 	public function actionDelete($id){
 		$this->findModel($id)->delete();
@@ -148,6 +163,24 @@ class CategoryCityContentController extends Controller{
 		}
 		
 		return $ret;
+	}
+	
+	public function actionValidation(){
+		Yii::$app->response->format = Response::FORMAT_JSON;
+
+		if(Yii::$app->request->isAjax){
+			$request = Yii::$app->request->post();
+			unset($request['CategoryCityContent']['title'], $request['CategoryCityContent']['content'], $request['CategoryCityContent']['preview']);
+			
+			$model = new CategoryCityContent();
+			$model->load($request);
+			
+			$validate = ActiveForm::validate($model);
+			
+			
+			
+			return $validate;
+		}
 	}
 	
 	/**
