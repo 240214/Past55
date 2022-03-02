@@ -48,7 +48,7 @@ class CategoryCityContent extends ActiveRecord {
 	 */
 	public function rules(){
 		return [
-			[['category_id', 'state_id', 'city_id'], 'required'],
+			[['title', 'category_id', 'state_id', 'city_id'], 'required'],
 			[['id', 'category_id', 'state_id', 'city_id'], 'integer'],
 			['content', 'string'],
 			[['image', 'title'], 'string', 'max' => 255],

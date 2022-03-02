@@ -102,6 +102,7 @@ $this->registerCssFile('@web/theme/css/properties.css', ['depends' => [Bootstrap
 	</div>
 </section>
 
+<?php if(!is_null($category_city_content)):?>
 <section class="category-article pt-6">
 	<div class="container max-w-1100">
 		<h2 class="main-title text-center mb-2 mb-md-6 me-auto ms-auto">Getting Ready to Move to Assisted Living in Miami</h2>
@@ -135,3 +136,4 @@ $this->registerCssFile('@web/theme/css/properties.css', ['depends' => [Bootstrap
 		</div>
 	</div>
 </section>
+<?php endif;?>

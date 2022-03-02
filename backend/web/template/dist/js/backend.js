@@ -101,6 +101,9 @@ $(function(){
 				case "filter_cities_by_state":
 					BJS.Categories.FilterCitiesByState($this);
 					break;
+				case "category_city_content_custom_validate":
+					BJS.Categories.CustomValidate($this);
+					break;
 			}
 
 		},
@@ -295,6 +298,9 @@ $(function(){
 
 				$target.find('option:not(.empty-value)').addClass('hidden');
 				$target.find('option[data-state_id="'+state_id+'"]').removeClass('hidden');
+			},
+			CustomValidate: function($obj){
+				return false;
 			},
 		},
 	};

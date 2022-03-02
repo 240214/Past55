@@ -16,6 +16,7 @@ use yii\web\HttpException;
 use yii\base\ErrorException;
 use yii\web\Response;
 use yii\widgets\ActiveForm;
+use yii\helpers\VarDumper;
 
 /**
  * CategoryCityContentController controller
@@ -170,14 +171,18 @@ class CategoryCityContentController extends Controller{
 
 		if(Yii::$app->request->isAjax){
 			$request = Yii::$app->request->post();
-			unset($request['CategoryCityContent']['title'], $request['CategoryCityContent']['content'], $request['CategoryCityContent']['preview']);
+			#unset($request['CategoryCityContent']['title'], $request['CategoryCityContent']['content'], $request['CategoryCityContent']['preview']);
 			
 			$model = new CategoryCityContent();
 			$model->load($request);
 			
 			$validate = ActiveForm::validate($model);
+			unset($model);
 			
+			#VarDumper::dump($validate);
 			
+			#$model = CategoryCityContent::find()->where($request['CategoryCityContent'])->one();
+			#if(!is_null($model)) $validate = false;
 			
 			return $validate;
 		}

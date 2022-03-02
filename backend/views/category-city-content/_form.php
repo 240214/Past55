@@ -26,8 +26,13 @@ $pluginOptions = [
 	'enableAjaxValidation' => true,
 	'enableClientValidation' => false,
 	'validationUrl' => Url::toRoute('/category-city-content/validation'),
-	'options' => ['enctype' => 'multipart/form-data', 'class' => 'custom-form'],
-	'fieldConfig' => ['options' => ['tag' => false]]
+	'options' => [
+		'enctype' => 'multipart/form-data',
+		'class' => 'custom-form',
+		#'data-trigger' => 'js_action_submit',
+		#'data-action' => 'category_city_content_custom_validate',
+	],
+	#'fieldConfig' => ['options' => ['tag' => false]]
 ]);?>
 	<div class="row">
 		<div class="col-xs-9">

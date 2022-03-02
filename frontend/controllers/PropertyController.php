@@ -33,7 +33,7 @@ use common\models\PropertyFeaturesTypes;
 use common\models\City;
 use common\models\CategoryCityContent;
 
-class PropertyController extends BaseController{
+class PropertyController extends BaseController {
 	
 	public $default_pageSize = 14;
 	public $customer_all_addresses = [];
@@ -139,7 +139,6 @@ class PropertyController extends BaseController{
 			$noindex = true;
 		}
 		
-		
 		#$queryParams['per-page'] = $pageSize;
 		#$queryParams['page'] = isset($queryParams['page']) ? $queryParams['page'] : 0;
 		$queryParams['SearchProperty'] = $queryParams;
@@ -216,7 +215,16 @@ class PropertyController extends BaseController{
 		if($state_id > 0)
 			$_where['state_id'] = $state_id;
 		
+		if($city_id > 0)
+			$_where['city_id'] = $city_id;
 		
+		$model = CategoryCityContent::find()->where($_where)->one();
+		
+		if(!is_null($model)){
+			$model->title = '';
+		}
+		
+		return $model;
 	}
 	
 	public function actionCategoryPage(){
