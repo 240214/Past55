@@ -207,17 +207,12 @@ class PropertyController extends BaseController {
 	}
 	
 	public function get3CContent($category_id = 0, $state_id = 0, $city_id = 0){
-		$_where = [];
-		
-		if($category_id > 0)
-			$_where['category_id'] = $category_id;
-		
-		if($state_id > 0)
-			$_where['state_id'] = $state_id;
-		
-		if($city_id > 0)
-			$_where['city_id'] = $city_id;
-		
+		$_where = [
+			'category_id' => $category_id,
+			'state_id' => $state_id,
+			'city_id' => $city_id
+		];
+
 		$model = CategoryCityContent::find()->where($_where)->one();
 		
 		if(!is_null($model)){

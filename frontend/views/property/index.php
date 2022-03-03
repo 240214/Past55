@@ -105,7 +105,7 @@ $this->registerCssFile('@web/theme/css/properties.css', ['depends' => [Bootstrap
 </section>
 
 <?php if(!is_null($category_city_content)):?>
-<section class="category-article pt-6">
+<section class="category-article">
 	<div class="container max-w-1100">
 		<h2 class="main-title text-center mb-2 mb-md-6 me-auto ms-auto"><?=$category_city_content->title;?></h2>
 		<img src="<?=$category_city_content->image;?>" alt="" class="img-fluid ml-auto mr-auto mb-2 mb-md-6 d-block rounded-8">
