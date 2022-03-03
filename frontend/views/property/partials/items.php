@@ -2,10 +2,12 @@
 
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\helpers\VarDumper;
 
+#VarDumper::dump($models, 10, 1);exit;
 ?>
 <?php foreach($models as $model):?>
-	<?php $url = Url::toRoute(['property/view', 'slug' => $model->slug, 'state' => $model->state, 'city' => $model->city]);?>
+	<?php $url = Url::toRoute(['property/view', 'slug' => $model->slug, 'state' => $model->state, 'city' => $model->city, 'category_id' => $model->category_id]);?>
 	<div class="col-12 col-lg-6 mb-25" data-id="<?=$model->id;?>">
 		<div class="category-card bg-white p-2 position-relative">
 			<a href="<?=$url;?>">

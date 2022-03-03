@@ -38,6 +38,22 @@ class UrlRules implements UrlRuleInterface{
 			
 			$url_a = [];
 			
+			if(isset($params['category_slug'])){
+				$url_a[] = $params['category_slug'];
+			}
+
+			if(isset($params['category_id'])){
+				$url_a[] = $this->getCategorySlug($params['category_id']);
+			}
+
+			if(isset($params['state'])){
+				$url_a[] = $this->getStateSlug($params['state']);
+			}
+
+			if(isset($params['city'])){
+				$url_a[] = strtolower(str_replace(' ', '-', $params['city']));
+			}
+			
 			if(isset($params['slug']) && !empty($params['slug'])){
 				$url_a[] = $params['slug'];
 			}elseif(isset($params['id']) && !empty($params['id'])){
@@ -48,13 +64,6 @@ class UrlRules implements UrlRuleInterface{
 				$url_a[] = $params['id'];
 			}
 			
-			if(isset($params['state'])){
-				$url_a[] = $this->getStateSlug($params['state']);
-			}
-
-			if(isset($params['city'])){
-				$url_a[] = strtolower(str_replace(' ', '-', $params['city']));
-			}
 			$url_a = array_filter($url_a);
 			
 			
@@ -78,9 +87,10 @@ class UrlRules implements UrlRuleInterface{
 	 * Parse request
 	 *
 	 * @param \yii\web\Request|UrlManager $manager
-	 * @param \yii\web\Request $request
+	 * @param \yii\web\Request            $request
 	 *
 	 * @return array|boolean
+	 * @throws \yii\base\InvalidConfigException
 	 */
 	public function parseRequest($manager, $request){
 
@@ -158,6 +168,16 @@ class UrlRules implements UrlRuleInterface{
 		}
 		
 		return false;
+	}
+	
+	private function getCategorySlug($id){
+		$slug = '';
+		$model = Category::find()->where(['id' => $id])->one();
+
+		if(!is_null($model))
+			$slug = $model->slug;
+		
+		return $slug;
 	}
 	
 	private function getStateSlug($state){

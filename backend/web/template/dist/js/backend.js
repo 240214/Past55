@@ -10,8 +10,10 @@ $(function(){
 		route: {
 			backend_url: '/backend/web',
 			frontend_url: '',
+			forms: {
+				remove_image: '/backend/web/%controller%/remove-image/',
+			},
 			property: {
-				remove_image: '/backend/web/property/remove-image/',
 				prop_cats_fragments: '/backend/web/property/get-cats-fragments/',
 				change_status: '/backend/web/property/set-status/',
 			},
@@ -193,7 +195,7 @@ $(function(){
 					"id": $obj.data("id"),
 					"field": $obj.data("field"),
 					"file": $obj.data("file"),
-					"folder": $obj.data("folder"),
+					"controller": $obj.data("controller"),
 				};
 				//console.log(post_data);
 
@@ -201,7 +203,7 @@ $(function(){
 
 				$.ajax({
 					type: "POST",
-					url: BJS.route.property.remove_image + post_data.id,
+					url: BJS.route.forms.remove_image.replace('%controller%', post_data.controller) + post_data.id,
 					data: {'data': post_data},
 					dataType: "json"
 				}).done(function(responce){

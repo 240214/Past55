@@ -17,6 +17,7 @@ use yii\base\ErrorException;
 use yii\web\Response;
 use yii\widgets\ActiveForm;
 use yii\helpers\VarDumper;
+use yii\helpers\FileHelper;
 
 /**
  * CategoryCityContentController controller
@@ -188,6 +189,59 @@ class CategoryCityContentController extends Controller{
 		}
 	}
 	
+	public function actionRemoveImage($id){
+		$ret = ['error' => 0];
+		
+		Yii::$app->response->format = 'json';
+		$request_data = Yii::$app->request->post('data');
+		
+		if(Yii::$app->request->isAjax){
+			$model = $this->findModel($id);
+			
+			switch($request_data['field']){
+				case "image":
+					if(!$this->removeMainImage($model, $request_data))
+						$ret['error'] = 1;
+					break;
+			}
+			
+			return $ret;
+		}
+	}
+	
+	private function removeMainImage($model, $data){
+		$model->image = '';
+		
+		if($ret = $model->save(false)){
+			$this->removeImageFile($data);
+		}
+		
+		return $ret;
+	}
+	
+	private function removeImageFile($data){
+		$dir = Yii::getAlias('@3c_images').'/';
+		
+		
+		$files = [
+			$dir.$data['id'].'/'.$data['file'],
+			$dir.$data['id'].'/thumbs/'.$data['file']
+		];
+		
+		$thumbs_directory = array_diff(scandir($dir.$data['id'].'/thumbs/'), ['..', '.']);
+		if(!empty($thumbs_directory)){
+			foreach($thumbs_directory as $file){
+				if(strstr($file, pathinfo($data['file'])['filename']) !== false){
+					$files[] = $dir.$data['id'].'/thumbs/'.$file;
+				}
+			}
+		}
+		
+		foreach($files as $file)
+			if(file_exists($file))
+				FileHelper::unlink($file);
+	}
+
 	/**
 	 * Finds the Pages model based on its primary key value.
 	 * If the model is not found, a 404 HTTP exception will be thrown.

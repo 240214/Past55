@@ -12,7 +12,7 @@ use yii\helpers\Html;
 				<a role="button" class="fileinput-remove"
 				   data-trigger="js_action_click"
 				   data-action="remove_image"
-				   data-folder="property"
+				   data-controller="property"
 				   data-id="<?=$model->id;?>"
 				   data-field="screenshot"
 				   data-file="<?=$file_name;?>"
