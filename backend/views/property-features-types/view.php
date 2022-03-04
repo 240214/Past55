@@ -31,7 +31,15 @@ $this->params['breadcrumbs'][] = $this->title;
 		            'id',
 		            'title',
 		            'order',
-		            'separated',
+			        [
+				        'attribute' => 'separated',
+				        'format' => 'html',
+				        'value' => function($data){
+					        $class = ($data->separated) ? 'badge label-success text-dark' : 'badge label-danger text-light';
+					        $text = ($data->separated) ? 'Yes' : 'No';
+					        return sprintf('<span class="%s">%s</span>', $class, $text);
+				        },
+			        ],
 		            'section_title',
 		            'section_description:ntext',
 		        ],

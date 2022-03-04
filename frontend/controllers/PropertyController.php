@@ -210,7 +210,8 @@ class PropertyController extends BaseController {
 		$_where = [
 			'category_id' => $category_id,
 			'state_id' => $state_id,
-			'city_id' => $city_id
+			'city_id' => $city_id,
+			'active' => 1
 		];
 
 		$model = CategoryCityContent::find()->where($_where)->one();

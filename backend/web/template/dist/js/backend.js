@@ -29,6 +29,9 @@ $(function(){
 			property_features_types: {
 				change_status: '/backend/web/property-features-types/set-status/',
 			},
+			category_city_content: {
+				change_status: '/backend/web/category-city-content/set-status/',
+			},
 		},
 		els: {
 			body: $('body'),
@@ -68,6 +71,9 @@ $(function(){
 					break;
 				case "ajax_get_prop_cats":
 					//BJS.Properties.ajaxGetPropCats($this);
+					break;
+				case "ajax_change_3c_status":
+					BJS.Forms.ajaxChangeEntryStatus($this, 'category_city_content', 'active');
 					break;
 				case "ajax_change_prop_status":
 					BJS.Forms.ajaxChangeEntryStatus($this, 'property', 'active');

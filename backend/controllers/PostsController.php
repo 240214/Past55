@@ -12,12 +12,14 @@ use yii\filters\VerbFilter;
 use common\models\search\SearchPosts;
 use yii\web\NotFoundHttpException;
 use yii\helpers\FileHelper;
+use yii\helpers\VarDumper;
 
 /**
  * PostsController controller
  */
 class PostsController extends Controller{
 	
+	private $user_id = 0;
 	public $default_pageSize = 20;
 	public $pageSize_list = [7 => 7, 10 => 10, 20 => 20, 30 => 30, 40 => 40, 50 => 50, 100 => 100];
 	
@@ -36,6 +38,8 @@ class PostsController extends Controller{
 	 * @inheritdoc
 	 */
 	public function actions(){
+		$this->user_id = Yii::$app->user->identity->getId();
+
 		return [
 			'error' => [
 				'class' => 'yii\web\ErrorAction',
@@ -55,6 +59,7 @@ class PostsController extends Controller{
 			'dataProvider' => $dataProvider,
 			'pageSize'      => $pageSize,
 			'pageSize_list' => $this->pageSize_list,
+			'categories' => $searchModel->getFilterCategories(),
 		]);
 	}
 	
@@ -84,9 +89,13 @@ class PostsController extends Controller{
 	 * @return mixed
 	 */
 	public function actionCreate(){
+		$request = Yii::$app->request->post();
+		$request['Posts']['user_id'] = $this->user_id;
+		$request['Posts']['created_at'] = time();
+
 		$model = new Posts();
 		
-		if($model->load(Yii::$app->request->post()) && $model->save()){
+		if($model->load($request) && $model->save()){
 			return $this->redirect(['view', 'id' => $model->id]);
 		}
 		
@@ -105,9 +114,15 @@ class PostsController extends Controller{
 	 * @throws NotFoundHttpException if the model cannot be found
 	 */
 	public function actionUpdate($id){
+		$request = Yii::$app->request->post();
+		
 		$model = $this->findModel($id);
 		
-		if($model->load(Yii::$app->request->post()) && $model->save()){
+		if($model->created_at == 0 || is_null($model->created_at)){
+			$request['Posts']['created_at'] = time();
+		}
+		
+		if($model->load($request) && $model->save()){
 			return $this->redirect(['view', 'id' => $model->id]);
 		}
 		

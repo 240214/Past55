@@ -42,19 +42,39 @@ $this->params['breadcrumbs'][] = $this->title;
 					return '<span class="label label-success label-id">'.$data->id.'</span>';
 				},
 			],
+			[
+				'attribute'      => 'type',
+				'contentOptions' => ['class' => 'col-100'],
+				'filter' => $searchModel->types,
+				'value' =>'posts.type',
+				'content'        => function($data){
+					$ret = '';
+					switch($data->type){
+						case "post":
+							$ret = 'Blog post';
+							break;
+						case "article":
+							$ret = 'Category article';
+							break;
+					}
+					return '<span class="label label-info label-id">'.$ret.'</span>';
+				},
+			],
 			'title',
 			'slug',
-			'type',
-			/*[
-				'attribute' => 'url_php_code',
-				'header' => 'URL php code',
-				'format' => 'text',
-				'content' => function($data) use ($searchModel){
-					$value = htmlspecialchars("<?=Url::toRoute(['page/view', 'slug' => '".strtolower($data->slug)."']);?>");
-					return '<input type="text" class="form-control" readonly="readonly" value="'.$value.'" data-trigger="js_action_focus" data-action="select_text">';
-				}
-			],*/
-			
+			[
+				'attribute' => 'categoryName',
+				'label' => 'Category',
+				'filter' => $categories,
+				'value' =>'category.name',
+			],
+			[
+				'attribute' => 'created_at',
+				'content'        => function($data){
+					$ret = !is_null($data->created_at) && $data->created_at != 0 ? date('Y-m-d H:i:s', $data->created_at) : '';
+					return '<span class="label label-info label-id">'.$ret.'</span>';
+				},
+			],
 			[
 				'class' => CustomActionColumn::className(),
 				'header' => 'Actions',

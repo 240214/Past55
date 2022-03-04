@@ -8,7 +8,7 @@ use yii\web\YiiAsset;
 /* @var $this yii\web\View */
 /* @var $model common\models\CategoryCityContent */
 
-$this->title                   = 'Categoty & City Content';
+$this->title = 'Categoty & City Content';
 $this->params['breadcrumbs'][] = ['label' => 'Categoty & City Content', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 YiiAsset::register($this);
@@ -35,6 +35,15 @@ YiiAsset::register($this);
 				'model'      => $model,
 				'attributes' => [
 					'id',
+					[
+						'attribute' => 'active',
+						'format' => 'html',
+						'value' => function($data){
+							$class = ($data->active) ? 'badge label-success text-dark' : 'badge label-danger text-light';
+							$text = ($data->active) ? 'Publish' : 'Draft';
+							return sprintf('<span class="%s">%s</span>', $class, $text);
+						},
+					],
 					[
 						'attribute' => 'category_id',
 						'value' => is_object($model->category) ? $model->category->name : '',

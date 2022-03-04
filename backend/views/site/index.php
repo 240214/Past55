@@ -2,8 +2,9 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'Admin Dashboard';
 use \yii\web\Request;
+
+$this->title = 'Admin Dashboard';
 $baseUrl = str_replace('/backend/web', '', (new Request)->getBaseUrl());
 Yii::setAlias('@front',$baseUrl. '/frontend/web');
 $front  = Yii::getAlias('@front');

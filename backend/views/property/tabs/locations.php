@@ -92,7 +92,7 @@ use yii\helpers\Json;
 	<div class="form-np">
 		<label>Search radius (in meters):</label>
 		<?=$form->field($model, 'radius')->input('number', ['id' => 'js_nearby_places_radius', 'step' => 10, 'min' => 0, 'max' => 50000, 'size' => 10, 'value' => $model->isNewRecord ? 5000 : $model->radius])->label(false);?>
-		<?php //=Html::input('number', 'radius', 5000, ['id' => 'js_nearby_places_radius', 'class' => 'form-control dib w-auto', 'step' => 10, 'min' => 0, 'max' => 50000, 'size' => 10]);?>
+		<?php //=Html::input('number', 'radius', 5000, ['id' => 'js_nearby_places_radius', 'class' => 'form-control d-inline-block w-auto', 'step' => 10, 'min' => 0, 'max' => 50000, 'size' => 10]);?>
 		<?=Html::button('Get nearby places', ['id' => 'js_get_nearby_places', 'class' => 'btn btn-warning', 'disabled' => 'disabled']);?>
 	</div>
 	<div id="nearby_places_container" class="nearby-places-container">

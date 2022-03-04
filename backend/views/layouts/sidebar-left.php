@@ -193,7 +193,7 @@ $navs = [
 			'posts-category' => [
 				'label' => 'Categories',
 				'icon' => 'fa-th',
-				'link' => Url::toRoute('posts-category/index'),
+				'link' => Url::toRoute('category/index'),
 				'class' => [],
 				'visible' => true,
 			],

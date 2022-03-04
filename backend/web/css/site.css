@@ -23,9 +23,7 @@ h3, .h3 {margin: 0;}
 .js_data_loader {background-color: rgba(255, 255, 255, 0.7); position: absolute; z-index: 1; left: 0; top: 0; right: 0; bottom: 0; border-radius: 5px;}
 .js_data_loader:not(.show) {display: none;}
 
-.d-block {display: block;}
 
-.mb-2 {margin-bottom: 20px;}
 
 .card {padding: 20px; position: relative;}
 
@@ -90,9 +88,11 @@ a.desc:after {content: /*"\e114"*/ "\e152";}
 
 .pr {position: relative;}
 
-.dib {display: inline-block;}
+.d-block {display: block;}
+.d-inline-block {display: inline-block;}
 
 .w-auto {width: auto;}
+.w-100p {width: 100%;}
 
 .mb-10 {margin-bottom: 10px;}
 .mb-15 {margin-bottom: 15px;}

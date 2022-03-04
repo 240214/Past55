@@ -25,7 +25,7 @@ class SearchCategoryCityContent extends CategoryCityContent {
 	 */
 	public function rules(){
 		return [
-			[['id', 'category_id', 'state_id', 'city_id'], 'integer'],
+			[['id', 'category_id', 'state_id', 'city_id', 'active'], 'integer'],
 			[['title', 'image', 'content', 'categoryName', 'stateName', 'cityName'], 'safe'],
 		];
 	}
@@ -61,6 +61,7 @@ class SearchCategoryCityContent extends CategoryCityContent {
 				'state_id',
 				'city_id',
 				'title',
+				'active',
 				'categoryName' => [
 					'asc' => [Category::tableName().'.name' => SORT_ASC],
 					'desc' => [Category::tableName().'.name' => SORT_DESC],
@@ -87,6 +88,7 @@ class SearchCategoryCityContent extends CategoryCityContent {
 		// grid filtering conditions
 		$query->andFilterWhere([
 			'id'     => $this->id,
+			'active'   => $this->active,
 		]);
 		
 		$query

@@ -30,9 +30,17 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
+	        [
+		        'attribute' => 'active',
+		        'format' => 'html',
+		        'value' => function($data){
+			        $class = ($data->active) ? 'badge label-success text-dark' : 'badge label-danger text-light';
+			        $text = ($data->active) ? 'Publish' : 'Draft';
+			        return sprintf('<span class="%s">%s</span>', $class, $text);
+		        },
+	        ],
             'name',
             'label',
-            'active',
         ],
     ]) ?>
 

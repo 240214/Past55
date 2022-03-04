@@ -24,6 +24,7 @@ use common\models\City;
  * @property string $image
  * @property string $title
  * @property string $content
+ * @property integer $active
  */
 
 define('IMG_POSTS', \yii::getAlias('@frontend').'/web/images/3c/');
@@ -49,7 +50,7 @@ class CategoryCityContent extends ActiveRecord {
 	public function rules(){
 		return [
 			[['title', 'category_id', 'state_id', 'city_id'], 'required'],
-			[['id', 'category_id', 'state_id', 'city_id'], 'integer'],
+			[['id', 'category_id', 'state_id', 'city_id', 'active'], 'integer'],
 			['content', 'string'],
 			[['image', 'title'], 'string', 'max' => 255],
 			['image', 'image', 'skipOnEmpty' => true, 'extensions' => Yii::$app->params['image_exts'], 'maxFiles' => 1],
@@ -68,6 +69,7 @@ class CategoryCityContent extends ActiveRecord {
 			'image'        => Yii::t('app', 'Image'),
 			'title'        => Yii::t('app', 'Title'),
 			'content'      => Yii::t('app', 'Content'),
+			'active'     => Yii::t('app', 'Post status'),
 			'categoryName' => Yii::t('app', 'Category'),
 			'stateName'    => Yii::t('app', 'State'),
 			'cityName'     => Yii::t('app', 'City'),

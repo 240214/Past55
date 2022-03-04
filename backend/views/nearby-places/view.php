@@ -35,6 +35,15 @@ YiiAsset::register($this);
 				'model'      => $model,
 				'attributes' => [
 					'id',
+					[
+						'attribute' => 'active',
+						'format' => 'html',
+						'value' => function($data){
+							$class = ($data->active) ? 'badge label-success text-dark' : 'badge label-danger text-light';
+							$text = ($data->active) ? 'Publish' : 'Draft';
+							return sprintf('<span class="%s">%s</span>', $class, $text);
+						},
+					],
 					'Property',
 					'place_id',
 					'icon_url:image',
@@ -46,7 +55,6 @@ YiiAsset::register($this);
 					'distance_type',
 					'type',
 					'rating',
-					'active',
 				],
 			]);?>
 		</div>

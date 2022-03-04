@@ -12,7 +12,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel common\models\search\SearchCategoryCityContent */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Categoty & City Content';
+$this->title = 'Categoty & State & City Content';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="card">
@@ -51,16 +51,20 @@ $this->params['breadcrumbs'][] = $this->title;
 				'value'=>'city.name',
 			],
 			'title',
-			/*[
-				'attribute' => 'url_php_code',
-				'header' => 'URL php code',
-				'format' => 'text',
-				'content' => function($data) use ($searchModel){
-					$value = htmlspecialchars("<?=Url::toRoute(['page/view', 'slug' => '".strtolower($data->slug)."']);?>");
-					return '<input type="text" class="form-control" readonly="readonly" value="'.$value.'" data-trigger="js_action_focus" data-action="select_text">';
-				}
-			],*/
-			
+			[
+				'attribute'      => 'active',
+				'contentOptions' => ['class' => 'col-50'],
+				'filter'         => [1 => 'Yes', 0 => 'No'],
+				'content'        => function($data){
+					$content = '<label class="switch">';
+					$content .= Html::checkbox('active', $data->active, ['data-trigger' => 'js_action_change', 'data-action' => 'ajax_change_3c_status', 'value' => $data->id]);
+					$content .= '<span class="slider round"></span>';
+					$content .= '</label>';
+					
+					return $content;
+				},
+			],
+		
 			[
 				'class' => CustomActionColumn::className(),
 				'header' => 'Actions',

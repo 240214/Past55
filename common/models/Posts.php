@@ -33,8 +33,8 @@ class Posts extends ActiveRecord {
 	
 	public $categories = [];
 	public $types = [
-		'post' => 'Post',
-		'article' => 'Article',
+		'post' => 'Blog Post',
+		'article' => 'Category Article',
 	];
 	public $preview;
 	
@@ -80,17 +80,29 @@ class Posts extends ActiveRecord {
 	}
 	
 	public function getCategory(){
-		return $this->hasOne(PostsCategories::className(), ['id' => 'category_id']);
+		return $this->hasOne(Category::className(), ['id' => 'category_id']);
 	}
 	
 	public function getCategories(){
 		if(empty($this->categories)){
-			$listCategory = PostsCategories::find()->orderBy('title ASC')->all();
+			$listCategory = Category::find()->orderBy('name ASC')->all();
 			
-			$this->categories = ArrayHelper::map($listCategory, 'id', 'title');
+			$this->categories = ArrayHelper::map($listCategory, 'id', 'name');
 		}
 		
 		return $this->categories;
+	}
+	
+	public function getFilterCategories(){
+		$list = [];
+		
+		$results = Category::find()->all();
+		
+		foreach($results as $result){
+			$list[$result->name] = $result->name;
+		}
+		
+		return $list;
 	}
 	
 	public function getTypes(){

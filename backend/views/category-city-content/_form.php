@@ -39,7 +39,7 @@ $pluginOptions = [
 			<div class="row">
 				<div class="col-xs-12">
 					<?=$form->field($model, 'title')->textInput(['maxlength' => true, 'value' => $model->isNewRecord ? 'Getting Ready to Move to %CATEGORY% in %CITY%' : $model->title]);?>
-					<small class="d-block mb-2">Title keywords: <b>%CATEGORY%</b> = Category name, <b>%STATE%</b> = State name, <b>%CITY%</b> = City name</small>
+					<small class="d-block mb-20">Title keywords: <b>%CATEGORY%</b> = Category name, <b>%STATE%</b> = State name, <b>%CITY%</b> = City name</small>
 				</div>
 				<div class="col-xs-12">
 					<?=$form->field($model, 'content')->widget(TinyMce::className(), Yii::$app->params['tinymce'])->label(false);?>
@@ -75,8 +75,11 @@ $pluginOptions = [
 						</ul>
 					<?php endif;?>
 				</div>
-				<div class="col-xs-12 text-right">
-					<?=Html::submitButton('Update', ['class' => 'btn btn-success'])?>
+				<div class="col-xs-12 mt-20">
+					<?=$form->field($model, 'active')->dropDownList([1 => 'Publish', 0 => 'Draft'], [])->label('Post status');?>
+				</div>
+				<div class="col-xs-12">
+					<?=Html::submitButton('Save', ['class' => 'btn btn-success d-block w-100p'])?>
 				</div>
 			</div>
 		</div>
