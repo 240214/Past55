@@ -15,6 +15,7 @@ use common\models\City;
 use yii\web\UrlRule;
 use yii\web\UrlManager;
 use common\models\Pages;
+use common\models\Posts;
 
 class UrlRules implements UrlRuleInterface{
 	
@@ -80,6 +81,20 @@ class UrlRules implements UrlRuleInterface{
 			}
 		}
 		
+		if($route === 'post/view'){
+			if(isset($params['category_slug'])){
+				$url_a[] = $params['category_slug'];
+			}
+
+			if(isset($params['post_slug'])){
+				$url_a[] = $params['post_slug'];
+			}
+
+			$url_a = array_filter($url_a);
+			
+			return implode('/', $url_a).'/';
+		}
+		
 		return $route;
 	}
 	
@@ -108,23 +123,13 @@ class UrlRules implements UrlRuleInterface{
 		if($this->is_page($last_fragment)){
 			return ['pages/view', ['slug' => $last_fragment]];
 		}
-		/*switch($last_fragment){
-			case "our-story":
-			case "privacy-policy":
-			case "terms-and-conditions":
-			case "contact-us":
-			case "press-media":
-			case "carriers":
-			case "careers-team":
-			case "life-insurance-101":
-			case "refer-get-10":
-				return ['pages/view', ['slug' => $last_fragment]];
-				break;
-		}*/
 		
+		/** Post rules **/
+		if($this->is_post($last_fragment)){
+			return ['posts/view', ['slug' => $last_fragment]];
+		}
 		
 		/** Property rules **/
-		
 		if($pathInfo == 'property/filter'){
 			return ['property/filter', []];
 		}
@@ -194,6 +199,16 @@ class UrlRules implements UrlRuleInterface{
 			$model = Pages::find()->where(['id' => $arg])->one();
 		}else{
 			$model = Pages::find()->where(['slug' => $arg])->one();
+		}
+		
+		return (!is_null($model)) ? $model->id : false;
+	}
+	
+	private function is_post($arg){
+		if(is_numeric($arg) > 0){
+			$model = Posts::find()->where(['id' => $arg])->one();
+		}else{
+			$model = Posts::find()->where(['slug' => $arg])->one();
 		}
 		
 		return (!is_null($model)) ? $model->id : false;

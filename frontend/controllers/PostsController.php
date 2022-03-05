@@ -3,8 +3,9 @@
 namespace frontend\controllers;
 
 use common\models\Posts;
-use common\models\BlogComment;
-use common\models\BlogTags;
+use common\models\PostsComments;
+use common\models\PostsTags;
+use common\models\PostsCategories;
 use frontend\models\TaskLabelForm;
 use Symfony\Component\Finder\Exception\AccessDeniedException;
 use Yii;
@@ -22,11 +23,11 @@ use yii\data\Pagination;
 use frontend\controllers\BaseController;
 
 /**
- * TasksController implements the CRUD actions for task model.
+ * PostsController implements the CRUD actions for task model.
  */
 define('USER_IMG', Yii::getAlias('@webroot').'/images/user/');
 
-class BlogController extends BaseController {
+class PostsController extends BaseController {
 	
 	/**
 	 * @inheritdoc
@@ -78,7 +79,7 @@ class BlogController extends BaseController {
 		$count = Posts::find()->count();
 		$pages = new Pagination(['totalCount' => $count, 'pageSize' => 1]);
 		$model = Posts::find()->offset($pages->offset)->limit($pages->limit)->all();
-		$tags  = BlogTags::find()->limit(20)->orderBy(['blog' => SORT_DESC])->all();
+		$tags  = PostsTags::find()->limit(20)->orderBy(['blog' => SORT_DESC])->all();
 		
 		return $this->render('index', [
 			'model' => $model,
@@ -87,6 +88,14 @@ class BlogController extends BaseController {
 			'tags'  => $tags
 		]);
 		
+	}
+	
+	public function actionView($slug){
+		$model = Posts::findOne(['slug' => $slug]);
+		
+		return $this->render('view', [
+			'model' => $model,
+		]);
 	}
 	
 	
@@ -98,7 +107,7 @@ class BlogController extends BaseController {
 		$count = Posts::find()->count();
 		$pages = new Pagination(['totalCount' => $count, 'pageSize' => 5]);
 		$model = Posts::find()->where(['like', 'blog_tags', $tag])->offset($pages->offset)->limit($pages->limit)->all();
-		$tags  = BlogTags::find()->limit(20)->orderBy(['blog' => SORT_DESC])->all();
+		$tags  = PostsTags::find()->limit(20)->orderBy(['blog' => SORT_DESC])->all();
 		
 		return $this->render('index', [
 			'model' => $model,
@@ -111,14 +120,13 @@ class BlogController extends BaseController {
 	}
 	
 	
-	////#########################################################/////
-	////////////////////////// Action Blog Detail ////////////////////////
-	/// #########################################################////
+	/////// OLD METHODS ////////
+
 	public function actionDetail($id, $title){
 		$id       = base64_decode($id);
 		$model    = Posts::findOne($id);
-		$reply    = new BlogComment();
-		$comments = BlogComment::find()->where(['blog_id' => $id])->all();
+		$reply    = new PostsComments();
+		$comments = PostsComments::find()->where(['blog_id' => $id])->all();
 		if($reply->load(Yii::$app->request->post())){
 			$uid = Yii::$app->user->identity->getId();
 			
@@ -143,9 +151,7 @@ class BlogController extends BaseController {
 		]);
 		
 	}
-	////#########################################################/////
-	////////////////////////// Action blog post  ////////////////////////
-	/// #########################################################////
+
 	public function actionPost(){
 		if(Yii::$app->user->isGuest){
 			Yii::$app->session->setFlash('error', 'Please Login Or Signup for Submit a Ad .');
@@ -166,7 +172,7 @@ class BlogController extends BaseController {
 			$model->user_id      = $uid;
 			$model->created_at   = time();
 			$model->save(false);
-			BlogTags::addTag($model->blog_tags);
+			PostsTags::addTag($model->blog_tags);
 			
 			Yii::$app->getSession()->setFlash('success', 'post successfully');
 			
@@ -181,9 +187,7 @@ class BlogController extends BaseController {
 		]);
 		
 	}
-	////#########################################################/////
-	////////////////////////// Action blog edit  ////////////////////////
-	/// #########################################################////
+
 	public function actionEdit($id){
 		if(Yii::$app->user->isGuest){
 			Yii::$app->session->setFlash('error', 'Please Login Or Signup for Submit a Ad .');
@@ -225,9 +229,6 @@ class BlogController extends BaseController {
 		
 	}
 	
-	////#########################################################/////
-	////////////////////////// Action blog edit  ////////////////////////
-	/// #########################################################////
 	public function actionDelete($id){
 		$id    = base64_decode($id);
 		$uid   = Yii::$app->user->identity->getId();
@@ -238,6 +239,4 @@ class BlogController extends BaseController {
 		return $this->redirect(Url::toRoute('dashboard/blog'));
 		
 	}
-	
-	
 }

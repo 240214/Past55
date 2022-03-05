@@ -16,6 +16,7 @@ use yii\helpers\VarDumper;
 use common\models\Property;
 use yii\widgets\LinkPager;
 use frontend\widgets\Breadcrumbs;
+use frontend\widgets\CategoryContentList;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -81,6 +82,7 @@ $this->registerCssFile('@web/theme/css/category-template.css', ['depends' => [Bo
 
 		<aside class="col-12 col-md-3 mt-4 mt-md-0">
 			<div class="sticky-block">
+				<?=CategoryContentList::widget(['category_id' => $category_id, 'title' => 'Content']);?>
 				<h4 class="content-title">Content</h4>
 				<ul class="content-list">
 					<li><a href="#section_1">What is assisted living?</a></li>
