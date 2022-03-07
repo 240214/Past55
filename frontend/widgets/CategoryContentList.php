@@ -24,11 +24,11 @@ class CategoryContentList extends Widget{
 			$queryParams = Yii::$app->request->getQueryParams();
 			$this->category_slug = $queryParams['category'];
 		}
-		if(empty($this->category_slug) || is_null($this->category_slug)){
+		if(empty($this->category_slug) || is_null($this->category_slug) && !is_null($this->category_id)){
 			$category = Category::find()->select(['slug'])->where(['id' => $this->category_id])->one();
 			$this->category_slug = $category->slug;
 		}
-		if(is_null($this->category_id)){
+		if(is_null($this->category_id) && !is_null($this->category_slug)){
 			$category = Category::find()->select(['id'])->where(['slug' => $this->category_slug])->one();
 			$this->category_id = $category->id;
 		}

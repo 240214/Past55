@@ -1,0 +1,4 @@
+.author-info {font-family: 'Airbnb Cereal App'; font-style: normal; font-weight: 300; font-size: 16px; line-height: 135%; color: #3c3c3d;}
+@media all and (max-width: 767px){
+	.author-info {font-size: 15px;}
+}

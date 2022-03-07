@@ -17,6 +17,7 @@ use common\models\Property;
 use yii\widgets\LinkPager;
 use frontend\widgets\Breadcrumbs;
 use frontend\widgets\CategoryContentList;
+use frontend\widgets\PageAuthor;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -30,10 +31,9 @@ $this->title = $meta['title'];
 $this->registerCssFile('@web/theme/css/category-template.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 ?>
 <section class="hub-page">
-	<div class="hub-page__first-screen">
-		<h1 class="d-none d-md-block main-title text-center mb-3">How to create, sell, and<br> profit from an online course</br> in 2021</h1>
-		<h1 class="d-block d-md-none main-title text-center mb-2">How to create, sell, and profit from an online course in 2021</h1>
-		<p class="main-text-content text-color-black text-center mb-0">People started talking about E‑A-T in August 2018, and it’s been mentioned</br> in hundreds of SEO articles ever since.</p>
+	<div class="container hub-page__first-screen">
+		<h1 class="d-none d-md-block main-title text-center mb-3 max-w-700 me-auto ms-auto"><?=$meta['title'];?></h1>
+		<p class="main-text-content text-color-black text-center mb-0 max-w-700 me-auto ms-auto">People started talking about E‑A-T in August 2018, and it’s been mentioned</br> in hundreds of SEO articles ever since.</p>
 	</div>
 </section>
 
@@ -42,13 +42,12 @@ $this->registerCssFile('@web/theme/css/category-template.css', ['depends' => [Bo
 		
 		<div class="col-12">
 			<h2 class="hub-page__title mb-2">What is E‑A-T? Why It’s Important</br> for senior living</h2>
-			<div class="mb-3 mb-md-4 d-flex align-items-center">
-				<img class="me-2" src="./img/hub-page-author-avatar.png" alt="">
-				<div class="author-info">
-					<date>October 15, 2021 by</date>
-					<a href="#" class="text-color-primary">Jackie Mckoy</a>
-				</div>
-			</div>
+			<?=PageAuthor::widget([
+				'date' => date('F j, Y', filemtime(__FILE__)),
+				'name' => 'Jackie Mckoy',
+				'link' => '#',
+				'avatar' => '/theme/img/authors/Jackie-Mckoy.png'
+			]);?>
 		</div>
 		
 		<div class="col-12 col-md-9">
@@ -82,21 +81,7 @@ $this->registerCssFile('@web/theme/css/category-template.css', ['depends' => [Bo
 
 		<aside class="col-12 col-md-3 mt-4 mt-md-0">
 			<div class="sticky-block">
-				<?=CategoryContentList::widget(['category_id' => $category_id, 'title' => 'Content']);?>
-				<h4 class="content-title">Content</h4>
-				<ul class="content-list">
-					<li><a href="#section_1">What is assisted living?</a></li>
-					<li><a href="#section_2">Assisted living cost</a></li>
-					<li><a href="#">Paying for assisted living</a></li>
-					<li><a href="#">Medicare assisted living</a></li>
-					<li><a href="#">Assisted living tax deduction</a></li>
-					<li><a href="#">Difference between assisted living and nursing home</a></li>
-					<li><a href="#">When to move from assisted living to nursing home</a></li>
-					<li><a href="#">Does long term care insurance cover assisted living</a></li>
-					<li><a href="#">Signs it is time for assisted living</a></li>
-					<li><a href="#">Talking to parent about moving to assisted living</a></li>
-					<li><a href="#">Georgia regulations for assisted living</a></li>
-				</ul>
+				<?=CategoryContentList::widget(['title' => 'Content']);?>
 			</div>
 		</aside>
 		
