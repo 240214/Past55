@@ -6,6 +6,7 @@ use common\models\Category;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use common\models\Posts;
+use common\models\Users;
 
 /**
  * SearchPosts represents the model behind the search form of `common\models\Posts`.
@@ -13,6 +14,7 @@ use common\models\Posts;
 class SearchPosts extends Posts {
 	
 	public $categoryName;
+	public $userName;
 	
 	/**
 	 * {@inheritdoc}
@@ -20,7 +22,7 @@ class SearchPosts extends Posts {
 	public function rules(){
 		return [
 			[['id', 'user_id'], 'integer'],
-			[['title', 'slug', 'categoryName', 'content', 'type'], 'safe'],
+			[['title', 'slug', 'categoryName', 'userName', 'content', 'type'], 'safe'],
 		];
 	}
 	
@@ -42,6 +44,7 @@ class SearchPosts extends Posts {
 	public function search($params){
 		$query = Posts::find();
 		$query->joinWith(['category']);
+		$query->joinWith(['users']);
 		
 		// add conditions that should always apply here
 		
@@ -80,6 +83,7 @@ class SearchPosts extends Posts {
 		$query
 			->andFilterWhere(['like', 'title', $this->title])
 			->andFilterWhere(['like', 'slug', $this->slug])
+			->andFilterWhere(['=', Users::tableName().'.name', $this->userName])
 			->andFilterWhere(['=', Posts::tableName().'.type', $this->type])
 			->andFilterWhere(['=', Category::tableName().'.name', $this->categoryName]);
 		

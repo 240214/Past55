@@ -18,6 +18,7 @@ use yii\widgets\LinkPager;
 use frontend\widgets\Breadcrumbs;
 use frontend\widgets\CategoryContentList;
 use frontend\widgets\PageAuthor;
+use frontend\widgets\RelatedPosts;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -81,7 +82,7 @@ $this->registerCssFile('@web/theme/css/category-template.css', ['depends' => [Bo
 
 		<aside class="col-12 col-md-3 mt-4 mt-md-0">
 			<div class="sticky-block">
-				<?=CategoryContentList::widget(['title' => 'Content']);?>
+				<?=CategoryContentList::widget(['category_id' => $category_id, 'title' => 'Content']);?>
 			</div>
 		</aside>
 		
@@ -89,63 +90,5 @@ $this->registerCssFile('@web/theme/css/category-template.css', ['depends' => [Bo
 </section>
 
 <section class="container main-text-content text-color-black pt-4 pt-md-9">
-	<h3 class="highlighted-title mb-3 mb-md-4">Related Articles</h3>
-	<div class="row mb-2 mb-md-6">
-		<div class="col-12 col-xl-3 my-2">
-			<div class="related-article-card bg-white">
-				<img class="img-fluid mb-2 mb-md-3" src="./img/related-article-img-1.png" alt="">
-				<div class="related-article-card__author mb-1">
-					<img class="me-1" src="./img/related-article-author-img-1.png" alt="">
-					<span class="related-article-card__author-name">Jane Cooper</span>
-				</div>
-				<a href="#" class="related-article-card__title d-block mb-15 mb-md-2 text-decoration-none">No one cares until
-					someone cares; be that one!</a>
-				<p class="related-article-card__text mb-2">The phrase ‘Love one another’ is so wise. By loving
-					one another, we invest in each other and ourselves</p>
-				<a href="#" class="related-article__link text-decoration-none btn-primary-medium">Read Article</a>
-			</div>
-		</div>
-		<div class="col-12 col-xl-3 my-2">
-			<div class="related-article-card bg-white">
-				<img class="img-fluid mb-2 mb-md-3" src="./img/related-article-img-2.png" alt="">
-				<div class="related-article-card__author mb-1">
-					<img class="me-1" src="./img/related-article-author-img-2.png" alt="">
-					<span class="related-article-card__author-name">Jane Cooper</span>
-				</div>
-				<a href="#" class="related-article-card__title d-block mb-15 mb-md-2 text-decoration-none">No one cares until
-					someone cares; be that one!</a>
-				<p class="related-article-card__text mb-2">The phrase ‘Love one another’ is so wise. By loving
-					one another, we invest in each other and ourselves</p>
-				<a href="#" class="related-article__link text-decoration-none btn-primary-medium">Read Article</a>
-			</div>
-		</div>
-		<div class="col-12 col-xl-3 my-2">
-			<div class="related-article-card bg-white">
-				<img class="img-fluid mb-2 mb-md-3" src="./img/related-article-img-3.png" alt="">
-				<div class="related-article-card__author mb-1">
-					<img class="me-1" src="./img/related-article-author-img-3.png" alt="">
-					<span class="related-article-card__author-name">Jane Cooper</span>
-				</div>
-				<a href="#" class="related-article-card__title d-block mb-15 mb-md-2 text-decoration-none">No one cares until
-					someone cares; be that one!</a>
-				<p class="related-article-card__text mb-2">The phrase ‘Love one another’ is so wise. By loving
-					one another, we invest in each other and ourselves</p>
-				<a href="#" class="related-article__link text-decoration-none btn-primary-medium">Read Article</a>
-			</div>
-		</div>
-		<div class="col-12 col-xl-3 my-2">
-			<div class="related-article-card bg-white">
-				<img class="img-fluid mb-2 mb-md-3" src="./img/related-article-img-4.png" alt="">
-				<div class="related-article-card__author mb-1">
-					<img class="me-1" src="./img/related-article-author-img-4.png" alt="">
-					<span class="related-article-card__author-name">Jane Cooper</span>
-				</div>
-				<a href="#" class="related-article-card__title d-block mb-15 mb-md-2 text-decoration-none">No one cares until
-					someone cares; be that one!</a>
-				<p class="related-article-card__text mb-2">The phrase ‘Love one another’ is so wise. By loving
-					one another, we invest in each other and ourselves</p>
-				<a href="#" class="related-article__link text-decoration-none btn-primary-medium">Read Article</a>
-			</div>
-		</div>
-	</div>
+	<?=RelatedPosts::widget(['category_id' => $category_id, 'title' => 'Related Articles', 'not_found_text' => 'no more posts']);?>
 </section>

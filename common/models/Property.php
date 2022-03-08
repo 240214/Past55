@@ -442,7 +442,7 @@ class Property extends ActiveRecord{
 	}
 
 	public function getMainImage($size = '250'){
-		$image = Yii::$app->urlManagerFrontend->baseUrl.'/images/property/nophoto.svg';
+		$image = Yii::$app->urlManagerFrontend->baseUrl.'/images/common/noimage.svg';
 		
 		if($this->image){
 			$pathinfo = pathinfo($this->image);
@@ -463,7 +463,7 @@ class Property extends ActiveRecord{
 	}
 	
 	public function getImage($file_name, $size = '250'){
-		$image = Yii::$app->urlManagerFrontend->baseUrl.'/images/property/nophoto.svg';
+		$image = Yii::$app->urlManagerFrontend->baseUrl.'/images/common/noimage.svg';
 		
 		if(!empty($file_name)){
 			$pathinfo = pathinfo($file_name);

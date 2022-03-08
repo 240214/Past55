@@ -11,6 +11,7 @@ use yii\helpers\Json;
 use yii\image\drivers\Image;
 use yii\web\UploadedFile;
 use yii\helpers\VarDumper;
+use common\models\Users;
 
 
 /**
@@ -79,6 +80,10 @@ class Posts extends ActiveRecord {
 		];
 	}
 	
+	public function getUsers(){
+		return $this->hasOne(Users::className(), ['id' => 'user_id']);
+	}
+	
 	public function getCategory(){
 		return $this->hasOne(Category::className(), ['id' => 'category_id']);
 	}
@@ -107,6 +112,29 @@ class Posts extends ActiveRecord {
 	
 	public function getTypes(){
 		return $this->types;
+	}
+	
+	public function getShortDescription($length = 77){
+		$_text = strip_tags($this->content);
+		if(mb_strlen($_text, 'utf-8') <= $length){
+			return $_text;
+		}
+		
+		$_text = trim($_text, ".,?:><;");
+		$a = explode(' ', $_text);
+		
+		$r = '';
+		$n = [];
+		foreach($a as $k => $t){
+			$r .= $t.' ';
+			if(mb_strlen($r, 'utf-8') >= $length){
+				continue;
+			}else{
+				$n[$k] = $t;
+			}
+		}
+		
+		return implode(' ', $n).'...';
 	}
 	
 	public function uploadLogo(){
@@ -171,7 +199,7 @@ class Posts extends ActiveRecord {
 	}
 	
 	public function getMainImage($size = '250'){
-		$image = Yii::$app->urlManagerFrontend->baseUrl.'/images/posts/nophoto.svg';
+		$image = Yii::$app->urlManagerFrontend->baseUrl.'/images/common/noimage.svg';
 		
 		if($this->image){
 			$pathinfo = pathinfo($this->image);

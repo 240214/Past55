@@ -252,7 +252,7 @@ class CategoryCityContent extends ActiveRecord {
 	}
 	
 	public function getMainImage($size = '250'){
-		$image = Yii::$app->urlManagerFrontend->baseUrl.'/images/3c/nophoto.svg';
+		$image = Yii::$app->urlManagerFrontend->baseUrl.'/images/common/noimage.svg';
 		
 		if($this->image){
 			$pathinfo = pathinfo($this->image);

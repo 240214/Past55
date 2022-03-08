@@ -59,6 +59,10 @@ class Category extends ActiveRecord{
 		return $this->hasMany(Property::className(), ['category_id' => 'id']);
 	}
 	
+	public function getPosts(){
+		return $this->hasMany(Posts::className(), ['category_id' => 'id']);
+	}
+	
 	public static function getCategoryList($params){
 		$ret = [];
 		
