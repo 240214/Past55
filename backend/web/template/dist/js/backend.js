@@ -32,6 +32,9 @@ $(function(){
 			category_city_content: {
 				change_status: '/backend/web/category-city-content/set-status/',
 			},
+			users: {
+				change_status: '/backend/web/users/set-status/',
+			},
 		},
 		els: {
 			body: $('body'),
@@ -71,6 +74,9 @@ $(function(){
 					break;
 				case "ajax_get_prop_cats":
 					//BJS.Properties.ajaxGetPropCats($this);
+					break;
+				case "ajax_change_user_status":
+					BJS.Forms.ajaxChangeEntryStatus($this, 'users', 'active');
 					break;
 				case "ajax_change_3c_status":
 					BJS.Forms.ajaxChangeEntryStatus($this, 'category_city_content', 'active');

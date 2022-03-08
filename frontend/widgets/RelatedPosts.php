@@ -31,9 +31,6 @@ class RelatedPosts extends Widget{
 		$this->dataProvider = $searchModel->search(['category_id' => $this->category_id, 'type' => $this->post_type]);
 		$this->dataProvider->sort->defaultOrder = ['created_at' => SORT_DESC];
 		$this->dataProvider->pagination = ['pageSize' => $this->limit];
-		#$this->found = $dataProvider->getCount();
-		#$this->models = $dataProvider;
-		#VarDumper::dump($this->models, 10, 1); exit;
 	}
 	
 	public function run(){

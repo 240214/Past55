@@ -30,7 +30,7 @@ use yii\helpers\VarDumper;
 				</figure>
 				<div class="related-article-card__author mb-1">
 					<img class="me-1" src="./img/related-article-author-img-1.png" alt="">
-					<span class="related-article-card__author-name">Jane Cooper</span>
+					<span class="related-article-card__author-name"><?=$model->users->name;?></span>
 				</div>
 				<a href="<?=$url;?>" class="related-article-card__title d-block mb-15 mb-md-2 text-decoration-none"><?=$model->title;?></a>
 				<p class="related-article-card__text mb-2"><?=$model->getShortDescription();?></p>

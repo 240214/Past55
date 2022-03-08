@@ -25,7 +25,6 @@ use frontend\controllers\BaseController;
 /**
  * PostsController implements the CRUD actions for task model.
  */
-define('USER_IMG', Yii::getAlias('@webroot').'/images/user/');
 
 class PostsController extends BaseController {
 	

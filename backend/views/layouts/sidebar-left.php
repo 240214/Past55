@@ -145,16 +145,6 @@ $navs = [
 	],
 	[
 		'type' => 'item',
-		'key' => 'user',
-		'label' => 'Users',
-		'icon' => 'fa-user',
-		'link' => Url::toRoute('site/user'),
-		'class' => [],
-		'method' => '',
-		'visible' => true,
-	],
-	[
-		'type' => 'item',
 		'key' => 'newsletter',
 		'label' => 'Subscribers',
 		'icon' => 'fa-newspaper-o',
@@ -198,6 +188,16 @@ $navs = [
 				'visible' => true,
 			],
 		]
+	],
+	[
+		'type' => 'item',
+		'key' => 'user',
+		'label' => 'Users',
+		'icon' => 'fa-user',
+		'link' => Url::toRoute('users/index'),
+		'class' => [],
+		'method' => '',
+		'visible' => true,
 	],
 	[
 		'type' => 'item',
