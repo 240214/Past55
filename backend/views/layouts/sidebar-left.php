@@ -172,7 +172,7 @@ $navs = [
 		'class' => ['treeview'],
 		'method' => '',
 		'visible' => true,
-		'submenu' => [
+		/*'submenu' => [
 			'posts' => [
 				'label' => 'Posts',
 				'icon' => 'fa-pagelines',
@@ -187,7 +187,7 @@ $navs = [
 				'class' => [],
 				'visible' => true,
 			],
-		]
+		]*/
 	],
 	[
 		'type' => 'item',

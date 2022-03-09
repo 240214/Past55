@@ -8,5 +8,9 @@ return [
 		'mob_small' => 575,
 		'mob_big' => 767,
 	],
+	'avatar_sizes' => [
+		'thumb' => 150,
+		'big' => 250,
+	],
 	'image_exts' => 'gif, png, jpg, jpeg',
 ];

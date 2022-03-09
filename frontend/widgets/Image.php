@@ -16,6 +16,8 @@ class Image extends Widget{
 	public $alt = '';
 	public $from_cdn = false;
 	public $lazyload = true;
+	public $data_srcset = '';
+	public $data_sizes = '';
 	
 	public function init(){
 		parent::init();
@@ -28,6 +30,8 @@ class Image extends Widget{
 			'from_cdn' => $this->from_cdn,
 			'lazyload' => $this->lazyload,
 			'class' => $this->css_class,
+			'data-srcset' => $this->data_srcset,
+			'data-sizes' => $this->data_sizes,
 		]);
 	}
 }

@@ -28,8 +28,6 @@ use common\models\Users;
  * @property integer $created_at
  */
 
-define('IMG_POSTS', \yii::getAlias('@frontend').'/web/images/posts/');
-
 class Posts extends ActiveRecord {
 	
 	public $categories = [];
@@ -135,13 +133,6 @@ class Posts extends ActiveRecord {
 		}
 		
 		return implode(' ', $n).'...';
-	}
-	
-	public function uploadLogo(){
-		$name = rand(137, 999).time();
-		$this->image->saveAs(IMG_POSTS.$name.'.'.$this->image->extension);
-		
-		return $name.'.'.$this->image->extension;
 	}
 	
 	public function beforeSave($insert){

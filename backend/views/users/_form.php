@@ -34,7 +34,7 @@ $pluginOptions = [
 					<?=$form->field($model, 'username')->textInput(['maxlength' => true, 'data-trigger' => 'js_action_focus', 'data-action' => 'create_slug', 'data-source' => '#users-name']);?>
 				</div>
 				<div class="col-xs-12">
-					<?=$form->field($model, 'password_write')->passwordInput(['maxlength' => true]);?>
+					<?=$form->field($model, 'new_password')->passwordInput(['maxlength' => true])->label($model->isNewRecord ? 'Password' : 'New password');?>
 				</div>
 			</div>
 		</div>
@@ -66,12 +66,12 @@ $pluginOptions = [
 							<a role="button" class="fileinput-remove"
 							   data-trigger="js_action_click"
 							   data-action="remove_image"
-							   data-controller="posts"
+							   data-controller="users"
 							   data-id="<?=$model->id;?>"
 							   data-field="image"
 							   data-file="<?=$model->image;?>"
 							   aria-label="Remove"><i class="fa fa-times"></i></a>
-							<?=Html::img($model->getMainImage('250'));?>
+							<?=Html::img($model->getAvatar('250'));?>
 						</li>
 					</ul>
 				<?php endif;?>

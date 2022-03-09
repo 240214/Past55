@@ -43,12 +43,7 @@ $this->registerCssFile('@web/theme/css/category-template.css', ['depends' => [Bo
 		
 		<div class="col-12">
 			<h2 class="hub-page__title mb-2">What is E‑A-T? Why It’s Important</br> for senior living</h2>
-			<?=PageAuthor::widget([
-				'date' => date('F j, Y', filemtime(__FILE__)),
-				'name' => 'Jackie Mckoy',
-				'link' => '#',
-				'avatar' => '/theme/img/authors/Jackie-Mckoy.png'
-			]);?>
+			<?=PageAuthor::widget(['date' => date('F j, Y', filemtime(__FILE__)), 'name' => 'Jackie Mckoy', 'link' => '#', 'avatar' => '/theme/img/authors/Jackie-Mckoy.png']);?>
 		</div>
 		
 		<div class="col-12 col-md-9">

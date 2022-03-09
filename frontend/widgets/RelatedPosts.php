@@ -4,7 +4,9 @@ namespace frontend\widgets;
 
 use common\models\Posts;
 use common\models\search\SearchPosts;
+use frontend\assets\AppAsset;
 use Yii;
+use yii\bootstrap\BootstrapAsset;
 use yii\bootstrap\Widget;
 use yii\helpers\VarDumper;
 
@@ -31,6 +33,8 @@ class RelatedPosts extends Widget{
 		$this->dataProvider = $searchModel->search(['category_id' => $this->category_id, 'type' => $this->post_type]);
 		$this->dataProvider->sort->defaultOrder = ['created_at' => SORT_DESC];
 		$this->dataProvider->pagination = ['pageSize' => $this->limit];
+		
+		$this->view->registerCssFile('@web/theme/css/widgets/related-posts.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 	}
 	
 	public function run(){

@@ -89,13 +89,21 @@ class UsersController extends Controller{
 	 */
 	public function actionCreate(){
 		$request = Yii::$app->request->post();
-		$request['Posts']['user_id'] = $this->user_id;
-		$request['Posts']['created_at'] = time();
-
+		
 		$model = new Users();
 		
-		if($model->load($request) && $model->save()){
-			return $this->redirect(['view', 'id' => $model->id]);
+		if(!empty($request)){
+			$request['Users']['user_id']    = $this->user_id;
+			$request['Users']['created_at'] = time();
+			
+			if(!is_null($request['Users']['new_password'])){
+				$model->setPassword($request['Users']['new_password']);
+				$model->generateAuthKey();
+			}
+			
+			if($model->load($request) && $model->save()){
+				return $this->redirect(['view', 'id' => $model->id]);
+			}
 		}
 		
 		return $this->render('create', [
@@ -117,12 +125,18 @@ class UsersController extends Controller{
 		
 		$model = $this->findModel($id);
 		
-		if($model->created_at == 0 || is_null($model->created_at)){
-			$request['Posts']['created_at'] = time();
-		}
-		
-		if($model->load($request) && $model->save()){
-			return $this->redirect(['view', 'id' => $model->id]);
+		if(!empty($request)){
+			if($model->created_at == 0 || is_null($model->created_at)){
+				$request['Users']['created_at'] = time();
+			}
+			
+			if(!is_null($request['Users']['new_password'])){
+				$model->setPassword($request['Users']['new_password']);
+			}
+			
+			if($model->load($request) && $model->save()){
+				return $this->redirect(['view', 'id' => $model->id]);
+			}
 		}
 		
 		return $this->render('update', [

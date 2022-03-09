@@ -155,6 +155,7 @@ class PostsController extends Controller{
 		
 		if(Yii::$app->request->isAjax){
 			$model = $this->findModel($id);
+			$model->active = Yii::$app->request->post('active') == 'true' ? 1 : 0;
 			if(!$model->save(false)){
 				$ret['error'] = 1;
 			}

@@ -6,7 +6,10 @@ use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
+use yii\helpers\FileHelper;
+use yii\image\drivers\Image;
 use yii\web\IdentityInterface;
+use yii\web\UploadedFile;
 
 /**
  * User model
@@ -34,7 +37,7 @@ class Users extends ActiveRecord implements IdentityInterface{
 	const STATUS_DELETED = 0;
 	const STATUS_ACTIVE = 1;
 
-	public $password_write;
+	public $new_password;
 	public $preview;
 	
 	/**
@@ -60,7 +63,7 @@ class Users extends ActiveRecord implements IdentityInterface{
 		return [
 			['active', 'default', 'value' => self::STATUS_ACTIVE],
 			['active', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
-			[['username', 'password_write', 'email', 'name', 'mobile', 'about', 'city', 'country'], 'safe'],
+			[['username', 'new_password', 'email', 'name', 'mobile', 'about', 'city', 'country'], 'safe'],
 			[['mobile'], 'integer'],
 			
 			[['username', 'email', 'name', 'about', 'city', 'country'], 'string'],
@@ -83,27 +86,6 @@ class Users extends ActiveRecord implements IdentityInterface{
 		
 		
 		];
-	}
-	
-	public function getMainImage($size = '250'){
-		$image = Yii::$app->urlManagerFrontend->baseUrl.'/images/common/noimage.svg';
-		
-		if($this->image){
-			$pathinfo = pathinfo($this->image);
-			if($size == 'full' || $size == ''){
-				$file_name = $pathinfo['filename'].'.'.$pathinfo['extension'];
-				$file = $this->id.'/'.$file_name;
-			}else{
-				$file_name = $pathinfo['filename'].'_'.$size.'.'.$pathinfo['extension'];
-				$file = $this->id.'/thumbs/'.$file_name;
-			}
-			
-			if(file_exists(Yii::getAlias('@users_images').'/'.$file)){
-				$image = Yii::$app->urlManagerFrontend->baseUrl.'/images/users/'.$file;
-			}
-		}
-		
-		return $image;
 	}
 	
 	public function photo(){
@@ -257,4 +239,80 @@ class Users extends ActiveRecord implements IdentityInterface{
 	public function removePasswordResetToken(){
 		$this->password_reset_token = null;
 	}
+	
+	public function beforeSave($insert){
+		
+		if(!$insert){
+			$id = intval(Yii::$app->request->get('id'));
+			$this->saveImages($id, $insert);
+		}
+		
+		return parent::beforeSave($insert);
+	}
+	
+	public function afterSave($insert, $changedAttributes){
+		parent::afterSave($insert, $changedAttributes);
+		
+		if($insert){
+			$this->saveImages($this->id, $insert);
+		}
+	}
+	
+	private function saveImages($id = 0, $insert){
+		if($id == 0) return;
+		
+		$dir = Yii::getAlias('@users_images').'/'.$id;
+		
+		if(!is_dir($dir)){
+			FileHelper::createDirectory($dir, 0777);
+			FileHelper::createDirectory($dir.'/thumbs', 0777);
+		}
+		
+		if($file = UploadedFile::getInstance($this, 'preview')){
+			#VarDumper::dump($file, 10, 1); exit;
+			if(file_exists($dir.'/'.$this->image) && is_file($dir.'/'.$this->image)){
+				FileHelper::unlink($dir.'/'.$this->image);
+			}
+			if(file_exists($dir.'/thumbs/'.$this->image) && is_file($dir.'/thumbs/'.$this->image)){
+				FileHelper::unlink($dir.'/thumbs/'.$this->image);
+			}
+			
+			$this->image = $id.'_'.time().'_'.rand(137, 999).'.'.$file->extension;
+			
+			$file->saveAs($dir.'/'.$this->image);
+			
+			foreach(Yii::$app->params['avatar_sizes'] as $name => $size){
+				$image = Yii::$app->image->load($dir.'/'.$this->image);
+				$image->background('#ffffff', 0);
+				$image->resize($size, $size, Image::CROP);
+				$image->save($dir.'/thumbs/'.str_replace('.'.$file->extension, '_'.$size.'.'.$file->extension, $this->image), 90);
+			}
+		}
+		
+		if($insert){
+			$this->save();
+		}
+	}
+	
+	public function getAvatar($size = '250'){
+		$image = Yii::$app->urlManagerFrontend->baseUrl.'/images/common/noimage.svg';
+		
+		if($this->image){
+			$pathinfo = pathinfo($this->image);
+			if($size == 'full' || $size == ''){
+				$file_name = $pathinfo['filename'].'.'.$pathinfo['extension'];
+				$file = $this->id.'/'.$file_name;
+			}else{
+				$file_name = $pathinfo['filename'].'_'.$size.'.'.$pathinfo['extension'];
+				$file = $this->id.'/thumbs/'.$file_name;
+			}
+			
+			if(file_exists(Yii::getAlias('@users_images').'/'.$file)){
+				$image = Yii::$app->urlManagerFrontend->baseUrl.'/images/users/'.$file;
+			}
+		}
+		
+		return $image;
+	}
+	
 }

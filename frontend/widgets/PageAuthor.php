@@ -19,7 +19,7 @@ class PageAuthor extends Widget{
 	public function init(){
 		parent::init();
 		
-		$this->view->registerCssFile('@web/theme/css/page-author.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
+		$this->view->registerCssFile('@web/theme/css/widgets/page-author.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 	}
 	
 	public function run(){

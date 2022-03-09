@@ -4,6 +4,7 @@ use common\models\Property;
 use frontend\widgets\RelatedProperties;
 use yii\helpers\Url;
 use yii\helpers\VarDumper;
+use frontend\widgets\Image;
 
 #VarDumper::dump($found, 10, 1);
 ?>
@@ -17,22 +18,30 @@ use yii\helpers\VarDumper;
 			<div class="related-article-card bg-white">
 				<figure class="image empty-bg mb-2 mb-md-3">
 					<a href="<?=$url;?>">
-						<?=Yii::$app->Helpers->getImage([
+						<?=Image::widget([
 							'src'         => $model->getMainImage('250'),
-							'data-srcset' => $model->getMainImage('575').' 575w, '.$model->getMainImage('767').' 767w, '.$model->getMainImage('250').' 768w',
-							'data-sizes'  => '250w',
+							'data_srcset' => $model->getMainImage('575').' 575w, '.$model->getMainImage('767').' 767w, '.$model->getMainImage('250').' 768w',
+							'data_sizes'  => '250w',
 							'alt'         => $model->title,
 							'from_cdn'    => false,
 							'lazyload'    => true,
-							'class'       => 'img-fluid',
+							'css_class'       => 'img-fluid',
 						]);?>
 					</a>
 				</figure>
-				<div class="related-article-card__author mb-1">
-					<img class="me-1" src="./img/related-article-author-img-1.png" alt="">
-					<span class="related-article-card__author-name"><?=$model->users->name;?></span>
+				<div class="d-flex flex-row flex-nowrap mb-1 author">
+					<?=Image::widget([
+						'src' => $model->users->getAvatar('150'),
+						'data_srcset' => $model->users->getAvatar('250').' 575w, '.$model->users->getAvatar('250').' 767w, '.$model->users->getAvatar('250').' 768w',
+						'data_sizes' => '150w',
+						'alt' => $model->title,
+						'from_cdn' => false,
+						'lazyload' => true,
+						'css_class' => 'img-fluid me-1 rounded-50p d-block',
+					]);?>
+					<a href="#"><span class="name"><?=$model->users->name;?></span></a>
 				</div>
-				<a href="<?=$url;?>" class="related-article-card__title d-block mb-15 mb-md-2 text-decoration-none"><?=$model->title;?></a>
+				<a href="<?=$url;?>" class="related-article-card__title d-block mb-15 text-decoration-none"><?=$model->title;?></a>
 				<p class="related-article-card__text mb-2"><?=$model->getShortDescription();?></p>
 				<a href="<?=$url;?>" class="related-article__link text-decoration-none btn-primary-medium">Read Article</a>
 			</div>

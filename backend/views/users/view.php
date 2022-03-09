@@ -16,10 +16,10 @@ YiiAsset::register($this);
 <div class="card">
 	<div class="row" style="margin-bottom: 15px;">
 		<div class="col-md-7">
-			<h1><?=Html::encode($model->title)?></h1>
+			<h1><?=Html::encode($model->name)?></h1>
 		</div>
 		<div class="col-md-5 text-right">
-			<?=Html::a('<i class="fa fa-chevron-left"></i> '.Yii::t('app', 'Back'), Url::toRoute('posts/index'), ['class' => 'btn btn-warning'])?>
+			<?=Html::a('<i class="fa fa-chevron-left"></i> '.Yii::t('app', 'Back'), Url::toRoute('users/index'), ['class' => 'btn btn-warning'])?>
 			<?=Html::a('<i class="fa fa-pencil"></i> '.Yii::t('app', 'Edit'), ['update', 'id' => $model->id], ['class' => 'btn btn-success'])?>
 			<?=Html::a('<i class="fa fa-trash"></i> '.Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], ['class' => 'btn btn-danger',
                 'data'  => [
@@ -42,7 +42,7 @@ YiiAsset::register($this);
 						},
 					],
 					[
-						'attribute' => 'mainImage',
+						'attribute' => 'avatar',
 						'header' => 'Image',
 						'contentOptions' => ['class' => 'col-50'],
 						'format' => 'image',

@@ -43,7 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
 				},
 			],
 			[
-				'attribute' => 'mainImage',
+				'attribute' => 'avatar',
 				'header' => 'Image',
 				'contentOptions' => ['class' => 'col-50'],
 				'format' => 'image',
