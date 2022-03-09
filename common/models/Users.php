@@ -30,10 +30,12 @@ use yii\web\IdentityInterface;
  * @property string $password
  */
 class Users extends ActiveRecord implements IdentityInterface{
+
 	const STATUS_DELETED = 0;
 	const STATUS_ACTIVE = 1;
+
 	public $password_write;
-	
+	public $preview;
 	
 	/**
 	 * @inheritdoc
@@ -77,7 +79,7 @@ class Users extends ActiveRecord implements IdentityInterface{
 			'mobile'           => Yii::t('app', 'Mobile'),
 			'image'          => Yii::t('app', 'Avatar'),
 			'username'       => Yii::t('app', 'Username'),
-			'password_write' => Yii::t('app', 'Password'),
+			'password_write' => Yii::t('app', 'New Password'),
 		
 		
 		];
