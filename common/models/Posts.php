@@ -25,6 +25,7 @@ use common\models\Users;
  * @property string $slug
  * @property string $type
  * @property integer $category_id
+ * @property string $ccl_title
  * @property integer $created_at
  */
 
@@ -49,11 +50,11 @@ class Posts extends ActiveRecord {
 	 */
 	public function rules(){
 		return [
-			[['title', 'content'], 'required'],
+			[['title', 'ccl_title', 'content'], 'required'],
 			[['user_id', 'category_id'], 'integer'],
 			['content', 'string'],
 			[['type'], 'string', 'max' => 10],
-			[['image', 'title', 'meta_description', 'slug'], 'string', 'max' => 255],
+			[['image', 'title', 'meta_description', 'slug', 'ccl_title'], 'string', 'max' => 255],
 			['created_at', 'safe'],
 			['image', 'image', 'skipOnEmpty' => true, 'extensions' => Yii::$app->params['image_exts'], 'maxFiles' => 1],
 		
@@ -75,6 +76,7 @@ class Posts extends ActiveRecord {
 			'type'  => Yii::t('app', 'Post type'),
 			'category_id'  => Yii::t('app', 'Category'),
 			'created_at'  => Yii::t('app', 'Created at'),
+			'ccl_title'  => Yii::t('app', 'Title for Category content list'),
 		];
 	}
 	
@@ -138,8 +140,7 @@ class Posts extends ActiveRecord {
 	public function beforeSave($insert){
 		
 		if(!$insert){
-			$id = intval(Yii::$app->request->get('id'));
-			$this->saveImages($id, $insert);
+			$this->saveImages($insert);
 		}
 		
 		return parent::beforeSave($insert);
@@ -149,14 +150,13 @@ class Posts extends ActiveRecord {
 		parent::afterSave($insert, $changedAttributes);
 
 		if($insert){
-			$this->saveImages($this->id, $insert);
+			$this->saveImages($insert);
 		}
 	}
 	
-	private function saveImages($id = 0, $insert){
-		if($id == 0) return;
+	private function saveImages($insert){
 		
-		$dir = Yii::getAlias('@posts_images').'/'.$id;
+		$dir = Yii::getAlias('@posts_images').'/'.$this->id;
 		
 		if(!is_dir($dir)){
 			FileHelper::createDirectory($dir, 0777);
@@ -172,7 +172,7 @@ class Posts extends ActiveRecord {
 				FileHelper::unlink($dir.'/thumbs/'.$this->image);
 			}
 			
-			$this->image = $id.'_'.time().'_'.rand(137, 999).'.'.$file->extension;
+			$this->image = $this->id.'_'.time().'_'.rand(137, 999).'.'.$file->extension;
 			
 			$file->saveAs($dir.'/'.$this->image);
 			

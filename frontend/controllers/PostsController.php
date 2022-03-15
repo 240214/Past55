@@ -28,6 +28,8 @@ use frontend\controllers\BaseController;
 
 class PostsController extends BaseController {
 	
+	private $noindex = false;
+	
 	/**
 	 * @inheritdoc
 	 */
@@ -58,6 +60,8 @@ class PostsController extends BaseController {
 	}
 	
 	public function beforeAction($action){
+		$this->noindex = YII_ENV_DEV;
+		
 		$actionToRun = $action;
 		try{
 			$action->id;
@@ -94,6 +98,12 @@ class PostsController extends BaseController {
 		
 		return $this->render('view', [
 			'model' => $model,
+			'meta' => [
+				'title' => $model->title,
+				'description' => $model->meta_description,
+				'keywords' => '',
+				'noindex' => $this->noindex,
+			],
 		]);
 	}
 	

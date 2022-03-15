@@ -28,18 +28,11 @@ $pluginOptions = [
 					<?=$form->field($model, 'name')->textInput(['maxlength' => true, 'data-trigger' => 'js_action_blur', 'data-action' => 'create_slug', 'data-target' => '#users-username']);?>
 				</div>
 				<div class="col-xs-12">
+					<?=$form->field($model, 'position')->textInput(['maxlength' => true]);?>
+				</div>
+				<div class="col-xs-12">
 					<?=$form->field($model, 'email')->textInput(['maxlength' => true]);?>
 				</div>
-				<div class="col-xs-12">
-					<?=$form->field($model, 'username')->textInput(['maxlength' => true, 'data-trigger' => 'js_action_focus', 'data-action' => 'create_slug', 'data-source' => '#users-name']);?>
-				</div>
-				<div class="col-xs-12">
-					<?=$form->field($model, 'new_password')->passwordInput(['maxlength' => true])->label($model->isNewRecord ? 'Password' : 'New password');?>
-				</div>
-			</div>
-		</div>
-		<div class="col-sm-4">
-			<div class="row">
 				<div class="col-xs-12">
 					<?=$form->field($model, 'mobile')->textInput(['maxlength' => true]);?>
 				</div>
@@ -58,6 +51,40 @@ $pluginOptions = [
 			</div>
 		</div>
 		<div class="col-sm-4">
+			<div class="row">
+				<div class="col-xs-12">
+					<?=$form->field($model, 'social_tw')->textInput(['maxlength' => true]);?>
+				</div>
+				<div class="col-xs-12">
+					<?=$form->field($model, 'social_in')->textInput(['maxlength' => true]);?>
+				</div>
+				<div class="col-xs-12">
+					<?=$form->field($model, 'social_fb')->textInput(['maxlength' => true]);?>
+				</div>
+				<div class="col-xs-12">
+					<?=$form->field($model, 'social_yt')->textInput(['maxlength' => true]);?>
+				</div>
+				<div class="col-xs-12">
+					<?=$form->field($model, 'social_vm')->textInput(['maxlength' => true]);?>
+				</div>
+				<div class="col-xs-12">
+					<?=$form->field($model, 'social_ig')->textInput(['maxlength' => true]);?>
+				</div>
+				<div class="col-xs-12">
+					<?=$form->field($model, 'social_gp')->textInput(['maxlength' => true]);?>
+				</div>
+				<div class="col-xs-12">
+					<?=$form->field($model, 'social_tb')->textInput(['maxlength' => true]);?>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="col-xs-12">
+				<?=$form->field($model, 'username')->textInput(['maxlength' => true, 'data-trigger' => 'js_action_focus', 'data-action' => 'create_slug', 'data-source' => '#users-name']);?>
+			</div>
+			<div class="col-xs-12">
+				<?=$form->field($model, 'new_password')->passwordInput(['maxlength' => true])->label($model->isNewRecord ? 'Password' : 'New password');?>
+			</div>
 			<div class="col-xs-12">
 				<?=$form->field($model, 'preview')->widget(FileInput::classname(), ['options' => ['accept' => 'image/*', 'multiple' => false], 'pluginOptions' => $pluginOptions])->label('Avatar');?>
 				<?php if(!empty($model->image)):?>

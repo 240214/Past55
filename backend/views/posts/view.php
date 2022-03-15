@@ -36,6 +36,7 @@ YiiAsset::register($this);
 				'attributes' => [
 					'id',
 					'title',
+					'ccl_title',
 					'slug',
 					'content:html',
 				],

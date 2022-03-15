@@ -4,11 +4,13 @@ namespace frontend\controllers;
 
 use Yii;
 use common\models\Category;
+use yii\base\ErrorException;
 use yii\filters\VerbFilter;
 #use frontend\controllers\PropertyController;
 
 class CategoryController extends BaseController{
 	
+	private $noindex = false;
 	public $default_pageSize = 14;
 	public $customer_all_addresses = [];
 	
@@ -21,6 +23,12 @@ class CategoryController extends BaseController{
 				],
 			],
 		];
+	}
+	
+	public function beforeAction($action){
+		$this->noindex = YII_ENV_DEV;
+		
+		return parent::beforeAction($action);
 	}
 	
 	/**
@@ -44,7 +52,6 @@ class CategoryController extends BaseController{
 	 * @throws \yii\base\InvalidConfigException
 	 */
 	public function actionIndex(){
-		$noindex = YII_ENV_DEV;
 		$queryParams = Yii::$app->request->getQueryParams();
 		$cat_slug    = $queryParams['category'];
 		
@@ -63,7 +70,7 @@ class CategoryController extends BaseController{
 					'title' => $model->meta_title,
 					'description' => '',
 					'keywords' => '',
-					'noindex' => $noindex,
+					'noindex' => $this->noindex,
 				],
 			]);
 		}else{

@@ -23,11 +23,20 @@ use yii\web\UploadedFile;
  * @property integer $active
  * @property string $image
  * @property string $name
+ * @property string $position
  * @property string $mobile
  * @property string $about
  * @property string $city
  * @property string $country
  * @property string $address
+ * @property string $social_tw
+ * @property string $social_in
+ * @property string $social_fb
+ * @property string $social_yt
+ * @property string $social_vm
+ * @property string $social_ig
+ * @property string $social_gp
+ * @property string $social_tb
  * @property integer $created_at
  * @property integer $updated_at
  * @property string $password
@@ -67,7 +76,8 @@ class Users extends ActiveRecord implements IdentityInterface{
 			[['mobile'], 'integer'],
 			
 			[['username', 'email', 'name', 'about', 'city', 'country'], 'string'],
-			[['about'], 'string', 'max' => 225],
+			[['social_tw', 'social_in', 'social_fb', 'social_yt', 'social_vm', 'social_ig', 'social_gp', 'social_tb'], 'string', 'max' => 255],
+			[['position'], 'string', 'max' => 255],
 			[['address'], 'string', 'max' => 225],
 			[['name'], 'string', 'max' => 20],
 			[['image'], 'image', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
@@ -83,8 +93,15 @@ class Users extends ActiveRecord implements IdentityInterface{
 			'image'          => Yii::t('app', 'Avatar'),
 			'username'       => Yii::t('app', 'Username'),
 			'password_write' => Yii::t('app', 'New Password'),
-		
-		
+			'position' => Yii::t('app', 'Job position'),
+			'social_tw' => Yii::t('app', 'Twitter'),
+			'social_in' => Yii::t('app', 'LinkedIn'),
+			'social_fb' => Yii::t('app', 'Facebook'),
+			'social_yt' => Yii::t('app', 'YouTube'),
+			'social_vm' => Yii::t('app', 'Vimeo'),
+			'social_ig' => Yii::t('app', 'Instagram'),
+			'social_gp' => Yii::t('app', 'Google Plus'),
+			'social_tb' => Yii::t('app', 'Tumblr'),
 		];
 	}
 	

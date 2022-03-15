@@ -12,6 +12,6 @@ if(!$found) return '';
 <?php endif;?>
 <ul class="content-list">
 	<?php foreach($model as $item):?>
-		<li><a href="<?=Url::toRoute(['post/view', 'post_slug' => $item->slug, 'category_slug' => $category_slug]);?>"><?=$item->title;?></a></li>
+		<li><a href="<?=Url::toRoute(['post/view', 'post_slug' => $item->slug, 'category_slug' => $category_slug]);?>"><?=$item->ccl_title;?></a></li>
 	<?php endforeach;?>
 </ul>

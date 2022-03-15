@@ -99,6 +99,9 @@ $(function(){
 				case "toggle_more_location_fields":
 					BJS.Properties.toggleMoreLocationFields($this);
 					break;
+				case "copy_from_field":
+					BJS.Forms.copyFromField($this);
+					break;
 				case "create_slug":
 					BJS.Forms.createSlug($this);
 					break;
@@ -143,8 +146,17 @@ $(function(){
 					.replace(/-+$/, "") // trim - from end of text
 					.replace(/-/g, separator);
 			},
+			copyFromField: function($obj){
+				var $source = $($obj.data('source'));
+
+				if($source.length){
+					$obj.val($source.val());
+				}
+
+			},
 			createSlug: function($obj){
-				var $target = $($obj.data('target')),
+				var targets = $obj.data('target'),
+					$target = null,
 					$source = $($obj.data('source')),
 					val = '',
 					slug = '';
@@ -157,11 +169,19 @@ $(function(){
 					}
 				}
 
-				if($target.length){
-					val = $obj.val();
-					slug = BJS.Forms.string_to_slug(val, '-');
-					if($target.val() == ''){
-						$target.val(slug);
+				if(targets != undefined){
+					targets = targets.split(',');
+
+					for(var i = 0; i <= targets.length; i++){
+						$target = $(targets[i]);
+
+						if($target.length){
+							val = $obj.val();
+							slug = BJS.Forms.string_to_slug(val, '-');
+							if($target.val() == ''){
+								$target.val(slug);
+							}
+						}
 					}
 				}
 			},

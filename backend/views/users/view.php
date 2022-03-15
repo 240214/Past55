@@ -36,22 +36,24 @@ YiiAsset::register($this);
 				'attributes' => [
 					[
 						'attribute'      => 'id',
-						'contentOptions' => ['class' => 'col-50'],
+						#'contentOptions' => ['class' => 'col-50'],
 						'content'        => function($data){
 							return '<span class="label label-success label-id">'.$data->id.'</span>';
 						},
 					],
 					[
 						'attribute' => 'avatar',
-						'header' => 'Image',
-						'contentOptions' => ['class' => 'col-50'],
+						'header' => 'Avatar',
+						#'contentOptions' => ['class' => 'col-50'],
 						'format' => 'image',
 					],
 					'name',
 					'username',
+					'position',
 					'email',
 					'mobile',
 					'about:html',
+					'social_tw', 'social_in', 'social_fb', 'social_yt', 'social_vm', 'social_ig', 'social_gp', 'social_tb'
 				],
 			]);?>
 		</div>
