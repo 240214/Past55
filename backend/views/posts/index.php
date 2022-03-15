@@ -42,6 +42,20 @@ $this->params['breadcrumbs'][] = $this->title;
 					return '<span class="label label-success label-id">'.$data->id.'</span>';
 				},
 			],
+			'title',
+			#'slug',
+			[
+				'attribute' => 'category_id',
+				'label' => 'Category',
+				'filter' => $searchModel->getCategoriesList(),
+				'value' =>'category.name',
+			],
+			[
+				'attribute' => 'user_id',
+				'label' => 'Author',
+				'filter' => $searchModel->getUsersList(),
+				'value' =>'users.name',
+			],
 			[
 				'attribute'      => 'type',
 				'contentOptions' => ['class' => 'col-100'],
@@ -57,22 +71,14 @@ $this->params['breadcrumbs'][] = $this->title;
 							$ret = 'Category article';
 							break;
 					}
-					return '<span class="label label-info label-id">'.$ret.'</span>';
+					return $ret;
 				},
-			],
-			'title',
-			'slug',
-			[
-				'attribute' => 'categoryName',
-				'label' => 'Category',
-				'filter' => $categories,
-				'value' =>'category.name',
 			],
 			[
 				'attribute' => 'created_at',
 				'content'        => function($data){
-					$ret = !is_null($data->created_at) && $data->created_at != 0 ? date('Y-m-d H:i:s', $data->created_at) : '';
-					return '<span class="label label-info label-id">'.$ret.'</span>';
+					$ret = !is_null($data->created_at) && $data->created_at != 0 ? date('M j, Y - H:i', $data->created_at) : '';
+					return '<span class="label label-danger label-id">'.$ret.'</span>';
 				},
 			],
 			[

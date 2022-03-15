@@ -21,7 +21,7 @@ class SearchPosts extends Posts {
 	 */
 	public function rules(){
 		return [
-			[['id', 'user_id'], 'integer'],
+			[['id', 'user_id', 'category_id'], 'integer'],
 			[['title', 'slug', 'categoryName', 'userName', 'content', 'type'], 'safe'],
 		];
 	}
@@ -56,14 +56,11 @@ class SearchPosts extends Posts {
 			'attributes' => [
 				'id',
 				'category_id',
+				'user_id',
 				'title',
 				'slug',
 				'type',
 				'created_at',
-				'categoryName' => [
-					'asc' => [Category::tableName().'.name' => SORT_ASC],
-					'desc' => [Category::tableName().'.name' => SORT_DESC],
-				],
 			]
 		]);
 		
@@ -83,9 +80,9 @@ class SearchPosts extends Posts {
 		$query
 			->andFilterWhere(['like', 'title', $this->title])
 			->andFilterWhere(['like', 'slug', $this->slug])
-			->andFilterWhere(['=', Users::tableName().'.name', $this->userName])
+			->andFilterWhere(['=', Users::tableName().'.id', $this->user_id])
 			->andFilterWhere(['=', Posts::tableName().'.type', $this->type])
-			->andFilterWhere(['=', Category::tableName().'.name', $this->categoryName]);
+			->andFilterWhere(['=', Category::tableName().'.id', $this->category_id]);
 		
 		return $dataProvider;
 	}

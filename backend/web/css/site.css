@@ -120,6 +120,7 @@ a.desc:after {content: /*"\e114"*/ "\e152";}
 
 .page-size-box {float: right; margin: 0 10px 0 0;}
 
+.custom-form .file-drop-zone {min-height: auto;}
 .custom-form .file-drop-zone.clickable {margin: 0; padding: 0; border: 0;}
 .custom-form .file-drop-zone.clickable:hover,
 .custom-form .file-drop-zone.clickable:focus,
@@ -149,9 +150,9 @@ a.desc:after {content: /*"\e114"*/ "\e152";}
 	.custom-form .property_features .check-container .check-item {width: 33.33%;}
 }
 
-.file-drop-zone-title {font-size: 12px;}
+.file-drop-zone-title {font-size: 12px; padding: 0;}
 .file-footer-buttons .btn {box-shadow: none;}
-.krajee-default.file-preview-frame .kv-file-content {width: auto; height: auto; max-width: 213px; max-height: 160px;}
+.krajee-default.file-preview-frame .kv-file-content {width: auto; height: auto; max-width: 200px; max-height: 160px;}
 .krajee-default.file-preview-frame {border: 1px solid rgba(0, 0, 0, 0.05);}
 .krajee-default.file-preview-frame:not(.file-preview-error):hover {border: 1px solid rgba(0, 0, 0, 0.1); box-shadow: none;}
 

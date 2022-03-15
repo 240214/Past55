@@ -59,7 +59,6 @@ class PostsController extends Controller{
 			'dataProvider' => $dataProvider,
 			'pageSize'      => $pageSize,
 			'pageSize_list' => $this->pageSize_list,
-			'categories' => $searchModel->getFilterCategories(),
 		]);
 	}
 	

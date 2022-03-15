@@ -41,6 +41,7 @@ $this->registerCssFile('@web/theme/css/post.css', ['depends' => [BootstrapAsset:
 
 <section class="article">
 	<div class="container">
+		
 		<div class="row">
 			<div class="col-12 col-xl-2"></div>
 			<div class="col-12 col-xl-7">
@@ -111,36 +112,9 @@ $this->registerCssFile('@web/theme/css/post.css', ['depends' => [BootstrapAsset:
 				<p>By the time I was in college, healthy eating was about following nutritional guidelines and doing everything by the book. However, it meant that my view of the food on my plate had changed. I went from seeing meals I enjoyed to only seeing nutrients.</p>
 				<p class="highlighted-paragraph">Established in 2002, this Elmcroft location holds an assisted living license to care for 75 residents, 61 in assisted living and 14 in memory care.</p>
 				<p>Among the beautiful apartments and communal gathering spaces, residents love to come together for socializing and activities. There are multiple spaces for gathering inside and out. There are areas to sit and visit or play cards or billiards and more.</p>
-			</div>
-
-			<div class="article-autor col-12 col-xl-3 d-none d-xl-block">
-				<img class="mb-2" src="./img/article-avatar.png" alt="">
-				<div class="article-autor__name">Jonathan Holloway</div>
-				<div class="article-autor__position mb-15">Certified Senior Advisor</div>
-				<p class="article-autor__short-info mb-15">Head of Content @ Ahrefs (or, in plain English, I'm the guy responsible for ensuring that every blog post we publish is EPIC).</p>
-				<div class="d-flex">
-					<a href="#" class="social-icon-wrapp d-flex align-items-center justify-content-center rounded-circle me-1"><i class="zmdi zmdi-twitter"></i></a>
-					<a href="#" class="social-icon-wrapp d-flex align-items-center justify-content-center rounded-circle"><i class="zmdi zmdi-linkedin"></i></a>
-				</div>
-			</div>
-
-		</div>
-
-		<div class="row article-img-box mt-2 mb-3 mt-md-5 mb-md-9">
-			<div class="col-12 d-block d-xl-flex justify-content-center align-items-center">
-				<img class="img-fluid me-0 me-xl-3 mb-2 mb-xl-0" src="./img/article-img-1.png" alt="">
-				<img class="img-fluid" src="./img/article-img-2.png" alt="">
-			</div>
-		</div>
-
-		<div class="row">
-
-			<div class="col-12 col-xl-2">
-			</div>
-
-			<div class="col-12 col-xl-7 main-text-content text-color-black">
+				<img class="img-fluid" src="./img/article-img-1.png" alt="">
 				<h2 class="article-subtitle mb-2 mb-md-3 mt-1 mt-md-5">E‑A-T is important for all queries, but some more so than others.</h2>
-
+				
 				<h3 class="article__numeric-title">1. Just searching for pictures</h3>
 				<p>If you’re just searching for pictures of cute cats, then E‑A-T probably doesn’t matter that much. The topic is subjective, and it’s no big deal if you see a cat you don’t think is cute.</p>
 				<p class="highlighted-paragraph">Established in 2002, this Elmcroft location holds an assisted living license to care for 75 residents, 61 in assisted living and 14 in memory.</p>
@@ -150,7 +124,7 @@ $this->registerCssFile('@web/theme/css/post.css', ['depends' => [BootstrapAsset:
 				<p>E‑A-T is also important for queries like “how to improve credit score.” Here, advice from the clueless and unauthoritative is unlikely to be legit and shouldn’t be trusted.</p>
 				<h3 class="article__numeric-title">3. Our Mentors Tips</h3>
 				<p>Expertise, authoritativeness, and trustworthiness are similar concepts—but not identical. So, they’re each evaluated independently using a different set of criteria. Given the nature of the information being sought here.</p>
-
+				
 				<img class="img-fluid" src="./img/article-img-3.png" alt="">
 				<h2 class="article-subtitle mb-2 mb-md-3 mt-1 mt-md-5">They’re Rich in Vitamins and Plant Compounds</h2>
 				<p>E‑A-T- stands for expertise, authoritativeness, and trustworthiness. It comes from Google’s Search Quality Rater Guidelines—a 168-page document used by human quality raters to assess the quality of Google’s search results.</p>
@@ -166,9 +140,17 @@ $this->registerCssFile('@web/theme/css/post.css', ['depends' => [BootstrapAsset:
 				<p>By the time I was in college, healthy eating was about following nutritional guidelines and doing everything by the book. However, it meant that my view of the food on my plate had changed. I went from seeing meals I enjoyed to only seeing nutrients.</p>
 			</div>
 
-			<div class="col-12 col-xl-3">
+			<div class="article-autor col-12 col-xl-3 d-none d-xl-block">
+				<img class="mb-2" src="./img/article-avatar.png" alt="">
+				<div class="article-autor__name">Jonathan Holloway</div>
+				<div class="article-autor__position mb-15">Certified Senior Advisor</div>
+				<p class="article-autor__short-info mb-15">Head of Content @ Ahrefs (or, in plain English, I'm the guy responsible for ensuring that every blog post we publish is EPIC).</p>
+				<div class="d-flex">
+					<a href="#" class="social-icon-wrapp d-flex align-items-center justify-content-center rounded-circle me-1"><i class="zmdi zmdi-twitter"></i></a>
+					<a href="#" class="social-icon-wrapp d-flex align-items-center justify-content-center rounded-circle"><i class="zmdi zmdi-linkedin"></i></a>
+				</div>
 			</div>
-
+			
 		</div>
 	</div>
 

@@ -26,12 +26,14 @@ use common\models\Users;
  * @property string $type
  * @property integer $category_id
  * @property string $ccl_title
+ * @property string $content_list
  * @property integer $created_at
  */
 
 class Posts extends ActiveRecord {
 	
-	public $categories = [];
+	public $category_list = [];
+	public $users_list = [];
 	public $types = [
 		'post' => 'Blog Post',
 		'article' => 'Category Article',
@@ -52,7 +54,7 @@ class Posts extends ActiveRecord {
 		return [
 			[['title', 'ccl_title', 'content'], 'required'],
 			[['user_id', 'category_id'], 'integer'],
-			['content', 'string'],
+			[['content', 'content_list'], 'string'],
 			[['type'], 'string', 'max' => 10],
 			[['image', 'title', 'meta_description', 'slug', 'ccl_title'], 'string', 'max' => 255],
 			['created_at', 'safe'],
@@ -67,7 +69,7 @@ class Posts extends ActiveRecord {
 	public function attributeLabels(){
 		return [
 			'id' => Yii::t('app', 'ID'),
-			'user_id' => Yii::t('app', 'User'),
+			'user_id' => Yii::t('app', 'Author'),
 			'image' => Yii::t('app', 'Image'),
 			'title' => Yii::t('app', 'Title'),
 			'content'  => Yii::t('app', 'Content'),
@@ -77,6 +79,7 @@ class Posts extends ActiveRecord {
 			'category_id'  => Yii::t('app', 'Category'),
 			'created_at'  => Yii::t('app', 'Created at'),
 			'ccl_title'  => Yii::t('app', 'Title for Category content list'),
+			'content_list'  => Yii::t('app', 'Post Content list'),
 		];
 	}
 	
@@ -84,30 +87,28 @@ class Posts extends ActiveRecord {
 		return $this->hasOne(Users::className(), ['id' => 'user_id']);
 	}
 	
+	public function getUsersList(){
+		if(empty($this->users_list)){
+			$list = Users::find()->orderBy('name ASC')->all();
+			
+			$this->users_list = ArrayHelper::map($list, 'id', 'name');
+		}
+		
+		return $this->users_list;
+	}
+	
 	public function getCategory(){
 		return $this->hasOne(Category::className(), ['id' => 'category_id']);
 	}
 	
-	public function getCategories(){
-		if(empty($this->categories)){
-			$listCategory = Category::find()->orderBy('name ASC')->all();
+	public function getCategoriesList(){
+		if(empty($this->category_list)){
+			$list = Category::find()->orderBy('name ASC')->all();
 			
-			$this->categories = ArrayHelper::map($listCategory, 'id', 'name');
+			$this->category_list = ArrayHelper::map($list, 'id', 'name');
 		}
 		
-		return $this->categories;
-	}
-	
-	public function getFilterCategories(){
-		$list = [];
-		
-		$results = Category::find()->all();
-		
-		foreach($results as $result){
-			$list[$result->name] = $result->name;
-		}
-		
-		return $list;
+		return $this->category_list;
 	}
 	
 	public function getTypes(){

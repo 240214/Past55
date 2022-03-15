@@ -39,3 +39,8 @@ phpunit.phar
 *.log
 /_db-dumps
 /_prev_vers
+/frontend/web/images/property
+/frontend/web/images/posts
+/frontend/web/images/3c
+/frontend/web/images/users
+/frontend/web/images/site

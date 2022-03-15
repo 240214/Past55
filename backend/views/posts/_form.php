@@ -38,13 +38,19 @@ $pluginOptions = [
 					<?=$form->field($model, 'slug')->textInput(['maxlength' => true, 'data-trigger' => 'js_action_focus', 'data-action' => 'create_slug', 'data-source' => '#posts-title']);?>
 				</div>
 				<div class="col-xs-12">
+					<?=$form->field($model, 'content_list')->textarea(['rows' => 10]);?>
+				</div>
+				<div class="col-xs-12">
 					<?=$form->field($model, 'type')->dropDownList($model->Types);?>
 				</div>
 				<div class="col-xs-12">
-					<?=$form->field($model, 'category_id')->dropDownList($model->Categories);?>
+					<?=$form->field($model, 'category_id')->dropDownList($model->CategoriesList);?>
 				</div>
 				<div class="col-xs-12">
 					<?=$form->field($model, 'ccl_title')->textInput(['maxlength' => true, 'data-trigger' => 'js_action_focus', 'data-action' => 'copy_from_field', 'data-source' => '#posts-title']);?>
+				</div>
+				<div class="col-xs-12">
+					<?=$form->field($model, 'user_id')->dropDownList($model->UsersList);?>
 				</div>
 				<div class="col-xs-12">
 					<?=$form->field($model, 'meta_description')->textarea(['maxlength' => true]);?>
