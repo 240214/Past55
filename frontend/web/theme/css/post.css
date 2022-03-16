@@ -57,48 +57,6 @@
     color: #6D459C;
 }
 
-.article-autor__name {
-    font-family: 'Airbnb Cereal App'; 
-    font-style: normal;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 137%;
-    color: #6D459C;
-}
-
-.article-autor__position {
-    font-family: 'Airbnb Cereal App';
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 137%;
-    color: #7C7C7C;
-}
-
-.article-autor__short-info {
-    font-family: 'Airbnb Cereal App';
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 166%;
-    color: #000000;
-    padding-bottom: 25px;
-    border-bottom: 1px solid #C4C4C4;
-}
-
-.social-icon-wrapp {
-    width: 35px;
-    height: 35px;
-    border: 0.613167px solid #7C7F83;
-    color:  #7C7F83;
-    font-size: 20px;
-    text-decoration: none;
-}
-
-.social-icon-wrapp:hover {
-    color:  #7C7F83;
-}
-
 .article__info {
     display: block;
     position: relative;

@@ -7,6 +7,7 @@ use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\helpers\FileHelper;
+use yii\helpers\Html;
 use yii\image\drivers\Image;
 use yii\web\IdentityInterface;
 use yii\web\UploadedFile;
@@ -231,6 +232,8 @@ class Users extends ActiveRecord implements IdentityInterface{
 	 * Generates password hash from password and sets it to the model
 	 *
 	 * @param string $password
+	 *
+	 * @throws \yii\base\Exception
 	 */
 	public function setPassword($password){
 		$this->password_hash = Yii::$app->security->generatePasswordHash($password);
@@ -311,7 +314,7 @@ class Users extends ActiveRecord implements IdentityInterface{
 		}
 	}
 	
-	public function getAvatar($size = '250'){
+	public function getAvatar($size = '150'){
 		$image = Yii::$app->urlManagerFrontend->baseUrl.'/images/common/noimage.svg';
 		
 		if($this->image){
@@ -330,6 +333,33 @@ class Users extends ActiveRecord implements IdentityInterface{
 		}
 		
 		return $image;
+	}
+	
+	public function getFormatedAvatar(){
+		$ava_image_src = $this->getAvatar();
+		
+		if(basename($ava_image_src) == 'noimage.svg'){
+			$html = Html::tag('div', strtoupper($this->name[0]), ['class' => 'photo ava']);
+		}else{
+			$html = Html::img($ava_image_src, ['class' => 'img-fluid photo']);
+		}
+		
+		return $html;
+	}
+	
+	public function getSocialLinks(){
+		$list = [];
+		
+		if(!empty($this->social_fb)) $list['facebook'] = $this->social_fb;
+		if(!empty($this->social_gp)) $list['google'] = $this->social_gp;
+		if(!empty($this->social_ig)) $list['instagram'] = $this->social_ig;
+		if(!empty($this->social_in)) $list['linkedin'] = $this->social_in;
+		if(!empty($this->social_tb)) $list['tumblr'] = $this->social_tb;
+		if(!empty($this->social_tw)) $list['twitter'] = $this->social_tw;
+		if(!empty($this->social_vm)) $list['vimeo'] = $this->social_vm;
+		if(!empty($this->social_yt)) $list['youtube'] = $this->social_yt;
+		
+		return $list;
 	}
 	
 }

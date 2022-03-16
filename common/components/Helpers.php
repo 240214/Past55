@@ -7,8 +7,14 @@ use yii\base\Component;
 use yii\helpers\VarDumper;
 
 class Helpers extends Component{
-
-	public static function get_svg_inline($filename){
+	
+	public function create_html_attributes($attrs){
+		$compiled = implode('="%s" ', array_keys($attrs)).'="%s"';
+		
+		return vsprintf($compiled, array_map('htmlspecialchars', array_values($attrs)));
+	}
+	
+	public function get_svg_inline($filename){
 		$filename = Yii::getAlias('@app/web/img/'.$filename);
 		
 		return file_get_contents($filename);
