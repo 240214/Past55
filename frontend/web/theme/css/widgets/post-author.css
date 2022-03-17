@@ -4,6 +4,6 @@
 .post-author .name {font-weight: bold; font-size: 16px; line-height: 137%; color: #6D459C;}
 .post-author .position {font-weight: normal; font-size: 14px; line-height: 137%; color: #7C7C7C;}
 .post-author .about {font-weight: normal; font-size: 14px; line-height: 166%; color: #000; padding-bottom: 25px; border-bottom: 1px solid #C4C4C4;}
-.post-author .social-icon {width: 35px; height: 35px; border: 1px solid #7C7F83; color:  #7C7F83; font-size: 20px; text-decoration: none;}
-.post-author .social-icon:hover {color:  #7C7F83;}
+.post-author .social-icon {flex: 0 0 auto; width: 35px; height: 35px; border: 1px solid #7C7F83; color:  #7C7F83; font-size: 20px; text-decoration: none;}
+.post-author .social-icon:hover {color:  #6D459C; border-color: #6D459C;}
 

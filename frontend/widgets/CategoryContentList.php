@@ -33,7 +33,7 @@ class CategoryContentList extends Widget{
 			$this->category_id = $category->id;
 		}
 		
-		$fields = ['ccl_title', 'slug'];
+		$fields = ['title', 'ccl_title', 'slug'];
 		
 		if(!is_null($this->category_id)){
 			$this->model = Posts::find()
