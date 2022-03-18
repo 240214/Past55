@@ -2,6 +2,7 @@
 
 use common\models\Users;
 use frontend\assets\AppAsset;
+use frontend\widgets\Breadcrumbs;
 use \yii\bootstrap\ActiveForm;
 use yii\bootstrap\BootstrapAsset;
 use yii\data\ActiveDataProvider;
@@ -31,6 +32,7 @@ $this->registerCssFile('@web/theme/css/post.css', ['depends' => [BootstrapAsset:
 		<div class="row">
 			<div class="col-12 col-xl-2"></div>
 			<div class="col-12 col-xl-7">
+				<?=Breadcrumbs::widget(['links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : []]);?>
 				<div class="article__stickers d-flex align-items-center flex-wrap mb-15">
 					<div class="article-sticker me-1 mb-1 mb-md-0 d-flex align-items-center justify-content-center">Home</div>
 					<div class="article-sticker me-1 mb-1 mb-md-0 d-flex align-items-center justify-content-center">Resources</div>
