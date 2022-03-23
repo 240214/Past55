@@ -46,9 +46,13 @@ $this->params['breadcrumbs'][] = $this->title;
 			#'slug',
 			[
 				'attribute' => 'category_id',
-				'label' => 'Category',
 				'filter' => $searchModel->getCategoriesList(),
 				'value' =>'category.name',
+			],
+			[
+				'attribute' => 'post_category_id',
+				'filter' => $searchModel->getPostsCategoriesList(),
+				'value' =>'postsCategories.title',
 			],
 			[
 				'attribute' => 'user_id',

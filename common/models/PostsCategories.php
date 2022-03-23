@@ -37,4 +37,8 @@ class PostsCategories extends ActiveRecord {
 		];
 	}
 	
+	public function getPosts(){
+		return $this->hasMany(Posts::className(), ['post_category_id' => 'id']);
+	}
+	
 }

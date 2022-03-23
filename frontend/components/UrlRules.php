@@ -51,8 +51,16 @@ class UrlRules implements UrlRuleInterface{
 				$url_a[] = $this->getStateSlug($params['state']);
 			}
 
+			if(isset($params['state_slug'])){
+				$url_a[] = $params['state_slug'];
+			}
+
 			if(isset($params['city'])){
 				$url_a[] = strtolower(str_replace(' ', '-', $params['city']));
+			}
+			
+			if(isset($params['city_slug'])){
+				$url_a[] = $params['city_slug'];
 			}
 			
 			if(isset($params['slug']) && !empty($params['slug'])){

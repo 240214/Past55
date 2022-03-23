@@ -35,9 +35,37 @@ YiiAsset::register($this);
 				'model'      => $model,
 				'attributes' => [
 					'id',
+					[
+						'attribute'  => 'type',
+						'value' => function($data){
+							$ret = '';
+							switch($data->type){
+								case "post":
+									$ret = 'Blog post';
+									break;
+								case "article":
+									$ret = 'Category article';
+									break;
+							}
+							return $ret;
+						},
+					],
+					[
+						'attribute' => 'user_id',
+						'label' => 'Author',
+						'value' => is_object($model->users) ? $model->users->name : '',
+					],
 					'title',
-					'ccl_title',
 					'slug',
+					'ccl_title',
+					[
+						'attribute' => 'category_id',
+						'value' => is_object($model->category) ? $model->category->name : '',
+					],
+					[
+						'attribute' => 'post_category_id',
+						'value' => is_object($model->postsCategories) ? $model->postsCategories->title : '',
+					],
 					'content:html',
 				],
 			]);?>

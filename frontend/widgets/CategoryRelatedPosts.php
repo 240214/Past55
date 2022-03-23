@@ -10,7 +10,7 @@ use yii\bootstrap\BootstrapAsset;
 use yii\bootstrap\Widget;
 use yii\helpers\VarDumper;
 
-class RelatedPosts extends Widget{
+class CategoryRelatedPosts extends Widget{
 	
 	private $dataProvider;
 	private $models;
@@ -41,7 +41,7 @@ class RelatedPosts extends Widget{
 	}
 	
 	public function run(){
-		return $this->render('@frontend/views/widgets/related-posts', [
+		return $this->render('@frontend/views/widgets/category-related-posts', [
 			'dataProvider' => $this->dataProvider,
 			'found' => $this->dataProvider->getCount(),
 			'title' => $this->title,

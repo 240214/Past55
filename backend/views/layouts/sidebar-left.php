@@ -167,12 +167,12 @@ $navs = [
 		'type' => 'item',
 		'key' => 'posts',
 		'label' => 'Posts',
-		'icon' => 'fa-list',
+		'icon' => 'fa-pagelines',
 		'link' => Url::toRoute('posts/index'),
 		'class' => ['treeview'],
 		'method' => '',
 		'visible' => true,
-		/*'submenu' => [
+		'submenu' => [
 			'posts' => [
 				'label' => 'Posts',
 				'icon' => 'fa-pagelines',
@@ -183,11 +183,11 @@ $navs = [
 			'posts-category' => [
 				'label' => 'Categories',
 				'icon' => 'fa-th',
-				'link' => Url::toRoute('category/index'),
+				'link' => Url::toRoute('posts-category/index'),
 				'class' => [],
 				'visible' => true,
 			],
-		]*/
+		]
 	],
 	[
 		'type' => 'item',

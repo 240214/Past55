@@ -9,6 +9,7 @@ use yii\data\ActiveDataProvider;
 use yii\web\View;
 use frontend\widgets\PostAuthor;
 use yii\helpers\VarDumper;
+use frontend\widgets\PostContentList;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -23,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 $this->registerCssFile('@web/theme/css/post.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 
-#VarDumper::dump($model->users->id, 10, 1);
+#VarDumper::dump($model->users, 10, 1);
 ?>
 
 <section class="article">
@@ -48,22 +49,16 @@ $this->registerCssFile('@web/theme/css/post.css', ['depends' => [BootstrapAsset:
 				<div class="d-block d-xl-none">
 					<h1 class="main-title mb-15"><?=$model['title'];?></h1>
 					<div class="article-info-box d-flex mb-25">
-						<span class="article__info me-2">By Jonathan Holloway</span>
-						<span class="article__info me-1">July 30, 2021</span>
+						<span class="article__info me-2">By <?=$model->users->name;?></span>
+						<span class="article__info me-1"><?=date('F j, Y', $model->created_at);?></span>
 					</div>
 				</div>
 				<div class="article-content__open-tab-btn d-flex d-xl-none align-items-center justify-content-between mb-1">
 					<span>Table of Contents</span>
 					<img src="../shared/images/select-icon-checkbox.png" alt="">
 				</div>
-				<div class="article-content__body d-none d-xl-block">
-					<h4 class="article__content-title">Content</h4>
-					<a class="article__content-link article__content-link--active text-decoration-none mb-1" href="#">What is E-A-T</a>
-					<a class="article__content-link text-decoration-none mb-1" href="#">How important is EAT?</a>
-					<a class="article__content-link text-decoration-none mb-1" href="#">How is EAT evaluated?</a>
-					<a class="article__content-link text-decoration-none mb-1" href="#">Is E-A-T a ranking factor?</a>
-					<a class="article__content-link text-decoration-none mb-1" href="#">Do websites have an E-A-T score?</a>
-					<a class="article__content-link text-decoration-none mb-1" href="#">How to improve and demonstrate E-A-T</a>
+				<div class="article-content__body sticky-block d-none d-xl-block">
+					<?=PostContentList::widget(['title' => 'Content', 'model' => $model]);?>
 				</div>
 				<div class="article-author__open-tab-btn d-flex d-xl-none align-items-center justify-content-between mb-2">
 					<span>Author Bio</span>

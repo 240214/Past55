@@ -29,6 +29,21 @@ $pluginOptions = [
 				</div>
 				<div class="col-xs-12">
 					<?=$form->field($model, 'content')->widget(TinyMce::className(), Yii::$app->params['tinymce'])->label(false);?>
+					<div>
+						<h4>Help section (FAQs)</h4>
+						<ul>
+							<li><a href="https://www.loom.com/share/4c2c5ce681e840eb95e7b39728f50e50" target="_blank">How to add anchors in Tinymce editor? (video)</a></li>
+							<li>
+								<b>Content list structure</b>
+								<p>Separate the anchor link and title with the symbol "|". Write each set of anchor links and titles on a separate line.<br>
+								<u>Example:</u><br>
+								#anchor_link_1|Custom Title 1<br>
+								#anchor_link_1|Custom Title 2<br>
+								#anchor_link_100|Custom Title 100
+								</p>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -38,10 +53,13 @@ $pluginOptions = [
 					<?=$form->field($model, 'slug')->textInput(['maxlength' => true, 'data-trigger' => 'js_action_focus', 'data-action' => 'create_slug', 'data-source' => '#posts-title']);?>
 				</div>
 				<div class="col-xs-12">
-					<?=$form->field($model, 'content_list')->textarea(['rows' => 10]);?>
+					<?=$form->field($model, 'content_list')->textarea(['rows' => 10])->hint('<small>Example: #link|title</small>');?>
 				</div>
 				<div class="col-xs-12">
 					<?=$form->field($model, 'type')->dropDownList($model->Types);?>
+				</div>
+				<div class="col-xs-12">
+					<?=$form->field($model, 'post_category_id')->dropDownList($model->PostsCategoriesList);?>
 				</div>
 				<div class="col-xs-12">
 					<?=$form->field($model, 'category_id')->dropDownList($model->CategoriesList);?>

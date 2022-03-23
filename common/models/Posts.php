@@ -25,6 +25,7 @@ use common\models\Users;
  * @property string $slug
  * @property string $type
  * @property integer $category_id
+ * @property integer $post_category_id
  * @property string $ccl_title
  * @property string $content_list
  * @property integer $created_at
@@ -32,6 +33,7 @@ use common\models\Users;
 
 class Posts extends ActiveRecord {
 	
+	public $post_category_list = [];
 	public $category_list = [];
 	public $users_list = [];
 	public $types = [
@@ -53,7 +55,7 @@ class Posts extends ActiveRecord {
 	public function rules(){
 		return [
 			[['title', 'ccl_title', 'content'], 'required'],
-			[['user_id', 'category_id'], 'integer'],
+			[['user_id', 'category_id', 'post_category_id'], 'integer'],
 			[['content', 'content_list'], 'string'],
 			[['type'], 'string', 'max' => 10],
 			[['image', 'title', 'meta_description', 'slug', 'ccl_title'], 'string', 'max' => 255],
@@ -76,7 +78,8 @@ class Posts extends ActiveRecord {
 			'meta_description'  => Yii::t('app', 'Meta desctiption'),
 			'slug'  => Yii::t('app', 'Slug'),
 			'type'  => Yii::t('app', 'Post type'),
-			'category_id'  => Yii::t('app', 'Category'),
+			'category_id'  => Yii::t('app', 'Property Category'),
+			'post_category_id'  => Yii::t('app', 'Blog Category'),
 			'created_at'  => Yii::t('app', 'Created at'),
 			'ccl_title'  => Yii::t('app', 'Title for Category content list'),
 			'content_list'  => Yii::t('app', 'Post Content list'),
@@ -109,6 +112,20 @@ class Posts extends ActiveRecord {
 		}
 		
 		return $this->category_list;
+	}
+	
+	public function getPostsCategories(){
+		return $this->hasOne(PostsCategories::className(), ['id' => 'post_category_id']);
+	}
+	
+	public function getPostsCategoriesList(){
+		if(empty($this->post_category_list)){
+			$list = PostsCategories::find()->orderBy('title ASC')->all();
+			
+			$this->post_category_list = ArrayHelper::map($list, 'id', 'title');
+		}
+		
+		return $this->post_category_list;
 	}
 	
 	public function getTypes(){

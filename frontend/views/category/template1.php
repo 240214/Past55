@@ -18,7 +18,7 @@ use yii\widgets\LinkPager;
 use frontend\widgets\Breadcrumbs;
 use frontend\widgets\CategoryContentList;
 use frontend\widgets\PageAuthor;
-use frontend\widgets\RelatedPosts;
+use frontend\widgets\CategoryRelatedPosts;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -85,5 +85,5 @@ $this->registerCssFile('@web/theme/css/category-template.css', ['depends' => [Bo
 </section>
 
 <section class="container main-text-content text-color-black pt-4 pt-md-9">
-	<?=RelatedPosts::widget(['category_id' => $category_id, 'title' => 'Related Articles', 'not_found_text' => 'no more posts']);?>
+	<?=CategoryRelatedPosts::widget(['category_id' => $category_id, 'title' => 'Related Articles', 'not_found_text' => 'No Related Articles']);?>
 </section>

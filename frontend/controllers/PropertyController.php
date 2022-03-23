@@ -792,7 +792,7 @@ class PropertyController extends BaseController {
 				$properties[$k]['city_label'] = $property['city'].', '.$state_iso;
 				if($display_cat_in_url){
 					$properties[$k]['city_label'] .= ' '.$inversed_categories[$cat_id]['name'];
-					$properties[$k]['slug'] = $inversed_categories[$cat_id]['slug'];
+					$properties[$k]['category_slug'] = $inversed_categories[$cat_id]['slug'];
 				}
 				unset($properties[$k]['category_id']);
 			}
@@ -845,7 +845,7 @@ class PropertyController extends BaseController {
 						];
 						if($display_cat_in_url){
 							$data[$k]['city_label'] .= ' '.$inversed_categories[$cat_id]['name'];
-							$data[$k]['slug'] = $inversed_categories[$cat_id]['slug'];
+							$data[$k]['category_slug'] = $inversed_categories[$cat_id]['slug'];
 						}
 					}
 				}
