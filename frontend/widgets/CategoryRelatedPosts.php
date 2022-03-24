@@ -13,8 +13,6 @@ use yii\helpers\VarDumper;
 class CategoryRelatedPosts extends Widget{
 	
 	private $dataProvider;
-	private $models;
-	private $found = 0;
 	public $category_id = null;
 	public $post_type = 'post';
 	public $limit = 4;
@@ -37,7 +35,7 @@ class CategoryRelatedPosts extends Widget{
 		$this->dataProvider->sort->defaultOrder = ['created_at' => SORT_DESC];
 		$this->dataProvider->pagination = ['pageSize' => $this->limit];
 		
-		$this->view->registerCssFile('@web/theme/css/widgets/related-posts.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
+		$this->view->registerCssFile('@web/theme/css/widgets/category-related-posts.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 	}
 	
 	public function run(){

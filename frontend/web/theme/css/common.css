@@ -178,7 +178,8 @@ h2.secondary-title {font-family: 'PT Serif'; font-style: normal;}
 .highlighted-paragraph::before {}
 .main-input {width: 100%; max-width: 340px; height: 55px; padding: 0 20px; font-weight: 300; font-size: 16px; line-height: 21px; border: 1px solid #D3D3D3; border-radius: 5px;}
 .read-more-btn {font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: -0.008em; color: #000;}
-.divider-wrapp {overflow: hidden;}
+.divider-wrapp {}
+.dash-line {height: 1px; background-image: url(../img/dash-line.svg); background-position: center bottom; background-repeat: repeat-x;}
 .add-to-favorite-btn {height: 35px; width: 35px; top: 30px; left: 30px; border-radius: 5px; cursor: pointer;}
 .add-to-favorite-btn > i.bi-heart-fill {/*display: none;*/}
 .add-to-favorite-btn--active>i.bi-heart-fill {display: block; color: var(--bs-brand) !important;}

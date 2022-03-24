@@ -10,41 +10,29 @@ use frontend\widgets\Image;
 ?>
 
 <?php if($found):?>
-	<h3 class="highlighted-title mb-3 mb-md-4"><?=$title;?></h3>
-	<div class="row mb-2 mb-md-6">
+	<h3 class="article-subtitle-small"><?=$title;?></h3>
+	<p class="mb-4"><?=$subtitle;?></p>
+
+	<div class="related-article-list row mb-5">
 	<?php foreach($dataProvider->getModels() as $model):?>
-		<?php $url = Url::toRoute(['post/view', 'post_slug' => $model->slug, 'category_slug' => $model->category->slug]);?>
-		<div class="col-12 col-xl-3 my-2">
-			<div class="related-article-card bg-white">
-				<figure class="image empty-bg mb-2 mb-md-3">
-					<a href="<?=$url;?>">
-						<?=Image::widget([
-							'src'         => $model->getMainImage('250'),
-							'data_srcset' => $model->getMainImage('575').' 575w, '.$model->getMainImage('767').' 767w, '.$model->getMainImage('250').' 768w',
-							'data_sizes'  => '250w',
-							'alt'         => $model->title,
-							'from_cdn'    => false,
-							'lazyload'    => true,
-							'css_class'       => 'img-fluid',
-						]);?>
-					</a>
-				</figure>
-				<div class="d-flex flex-row flex-nowrap mb-1 author">
+		<?php $url = Url::toRoute(['post/view', 'post_slug' => $model->slug, 'category_slug' => $model->postsCategories->slug]);?>
+		<div class="related-article-item col-12 col-md-6 mb-4 mb-md-0">
+			<figure class="image empty-bg mb-2 mb-md-3">
+				<a href="<?=$url;?>">
 					<?=Image::widget([
-						'src' => $model->users->getAvatar('150'),
-						'data_srcset' => $model->users->getAvatar('250').' 575w, '.$model->users->getAvatar('250').' 767w, '.$model->users->getAvatar('250').' 768w',
-						'data_sizes' => '150w',
-						'alt' => $model->title,
-						'from_cdn' => false,
-						'lazyload' => true,
-						'css_class' => 'img-fluid me-1 rounded-50p d-block',
+						'src'         => $model->getMainImage('250'),
+						'data_srcset' => $model->getMainImage('575').' 575w, '.$model->getMainImage('767').' 767w, '.$model->getMainImage('250').' 768w',
+						'data_sizes'  => '250w',
+						'alt'         => $model->title,
+						'from_cdn'    => false,
+						'lazyload'    => true,
+						'css_class'       => 'img-fluid',
 					]);?>
-					<a href="#"><span class="name"><?=$model->users->name;?></span></a>
-				</div>
-				<a href="<?=$url;?>" class="related-article-card__title d-block mb-15 text-decoration-none"><?=$model->title;?></a>
-				<p class="related-article-card__text mb-2"><?=$model->getShortDescription();?></p>
-				<a href="<?=$url;?>" class="related-article__link text-decoration-none btn-primary-medium">Read Article</a>
-			</div>
+				</a>
+			</figure>
+			<a href="<?=Url::toRoute(['post/view', 'category_slug' => $model->postsCategories->slug]);?>" class="related-article-item__sticker mb-1"><?=$model->postsCategories->title;?></a>
+			<a href="<?=$url;?>" class="related-article-item__title mb-15 text-decoration-none"><?=$model->title;?></a>
+			<p class="related-article-item__text"><?=$model->getShortDescription(100);?></p>
 		</div>
 	<?php endforeach;?>
 	</div>

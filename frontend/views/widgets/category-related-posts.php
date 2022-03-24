@@ -14,14 +14,14 @@ use frontend\widgets\Image;
 	<div class="row mb-2 mb-md-6">
 	<?php foreach($dataProvider->getModels() as $model):?>
 		<?php $url = Url::toRoute(['post/view', 'post_slug' => $model->slug, 'category_slug' => $model->category->slug]);?>
-		<div class="col-12 col-xl-3 my-2">
+		<div class="col-12 col-md-6 col-xl-3 my-2">
 			<div class="related-article-card bg-white">
 				<figure class="image empty-bg mb-2 mb-md-3">
 					<a href="<?=$url;?>">
 						<?=Image::widget([
-							'src'         => $model->getMainImage('250'),
-							'data_srcset' => $model->getMainImage('575').' 575w, '.$model->getMainImage('767').' 767w, '.$model->getMainImage('250').' 768w',
-							'data_sizes'  => '250w',
+							'src'         => $model->getMainImage('575'),
+							'data_srcset' => $model->getMainImage('575').' 575w, '.$model->getMainImage('767').' 767w, '.$model->getMainImage('575').' 768w',
+							'data_sizes'  => '575w',
 							'alt'         => $model->title,
 							'from_cdn'    => false,
 							'lazyload'    => true,

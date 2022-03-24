@@ -132,7 +132,7 @@ class Posts extends ActiveRecord {
 		return $this->types;
 	}
 	
-	public function getShortDescription($length = 77){
+	public function getShortDescription($length = 70){
 		$_text = strip_tags($this->content);
 		if(mb_strlen($_text, 'utf-8') <= $length){
 			return $_text;

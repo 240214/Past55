@@ -149,7 +149,7 @@ $(function(){
 			copyFromField: function($obj){
 				var $source = $($obj.data('source'));
 
-				if($source.length){
+				if($source.length && $obj.val() == ''){
 					$obj.val($source.val());
 				}
 

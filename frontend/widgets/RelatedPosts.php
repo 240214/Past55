@@ -13,12 +13,11 @@ use yii\helpers\VarDumper;
 class RelatedPosts extends Widget{
 	
 	private $dataProvider;
-	private $models;
-	private $found = 0;
 	public $category_id = null;
 	public $post_type = 'post';
 	public $limit = 4;
 	public $title = '';
+	public $subtitle = '';
 	public $not_found_text = '';
 	
 	public function init(){
@@ -45,6 +44,7 @@ class RelatedPosts extends Widget{
 			'dataProvider' => $this->dataProvider,
 			'found' => $this->dataProvider->getCount(),
 			'title' => $this->title,
+			'subtitle' => $this->subtitle,
 			'not_found_text' => $this->not_found_text,
 		]);
 	}
