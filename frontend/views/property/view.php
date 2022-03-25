@@ -23,6 +23,7 @@ $this->registerLinkTag(['rel' => 'canonical', 'href' => $property->canonical_url
 $bundle = AppAsset::register($this);
 $this->registerCssFile('@web/theme/plugins/slick/css/slick.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 $this->registerCssFile('@web/theme/plugins/slick/css/slick-theme.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
+$this->registerCssFile('@web/theme/css/property.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 #$this->registerCssFile('@web/theme/plugins/rateYo/src/jquery.rateyo.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 #$this->registerCssFile('@web/theme/plugins/materialize/css/materialize.min.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 $this->registerJsFile('@web/theme/plugins/slick/js/slick.min.js', ['depends' => [JqueryAsset::className(), AppAsset::className()]]);
@@ -37,19 +38,45 @@ $likes_checked = $liked ? 'checked="checked"' : '';
 $favs_class = $liked ? 'checked' : '';
 $favs_title = $liked ? 'Remove from Favorite' : 'Add to Favorite';
 ?>
-<section class="section property-index">
+<section class="individual-listing container mb-35">
     <div class="container-xl">
-        <header class="row section__title section__title-alt">
+        <header class="section__title section__title-alt mb-35 mt-md-100 mt-3">
 	        <div class="js_data_loader loader fixed trans-all"></div>
-	        <div class="col-md-9 col-12">
-	            <h1><?=$property->title;?></h1>
-	            <small class="address"><i class="zmdi zmdi-pin me-2"></i><?=$property->address;?></small>
-		        <small class="tags">Found In:
-			        <?php foreach($property->categories as $category):?>
-			            <a href="<?=$category['url'];?>"><?=$category['name'];?></a>
-			        <?php endforeach;?>
-		        </small>
+
+	        <div class="row mb-35 align-items-end">
+		        <div class="col-12 col-xl-10 mb-3 mb-xl-0">
+			        <h1 class="main-title"><?=$property->title;?></h1>
+			        <div class="individual-listing__subtitle address"><i class="zmdi zmdi-pin me-2"></i><?=$property->address;?></div>
+			        <div class="individual-listing__subtitle tags">Found in:
+				        <?php foreach($property->categories as $category):?>
+					        <a href="<?=$category['url'];?>" class="text-color-primary"><?=$category['name'];?></a>
+				        <?php endforeach;?>
+			        </div>
+			        <div class="d-flex position-relative">
+				        <a role="button" class="add-to-favorite-btn action-btn actions__toggle js_property_likes trans-all" data-id="<?=$property->id;?>">
+					        <input type="checkbox" <?=($property->Liked ? 'checked="checked"' : '');?> class="js_trigger" data-property_id="<?=$property->id;?>" data-trigger="js_action_change" data-action="property_toggle_favorite">
+					        <i class="bi bi-heart uncheck"></i>
+					        <i class="bi bi-heart-fill check"></i>
+					        <span class="count d-none"><?=$property->likes;?></span>
+					        <span>Save</span>
+				        </a>
+				        <button class="action-btn">
+					        <i class="bi bi-heart me-1"></i>
+					        Save
+				        </button>
+				        <button class="action-btn">
+					        <i class="bi bi-box-arrow-in-up me-1"></i>
+					        Share
+				        </button>
+			        </div>
+		        </div>
+		        <div class="col-12 col-xl-2">
+			        <div class="individual-listing__pricing-title mb-25 text-start text-xl-end">Pricing ranges from</div>
+			        <button class="individual-listing__pricing-contact-btn btn-primary-medium ms-0 ms-xl-auto">Contact for pricing</button>
+		        </div>
 	        </div>
+	        <div class="dash-line"></div>
+
 	        
             <div class="col-md-3 col-12 actions align-self-md-end text-md-end justify-content-md-end justify-content-center mt-md-0 mt-3">
 	            <div class="views d-none"><i class="zmdi zmdi-eye"></i> <?=$property->views;?></i></div>

@@ -1,0 +1,101 @@
+body {margin-top: 110px;}
+
+.similar-offers__subtitle,
+.article__title,
+.elmcroft-title,
+.similar-offers__title,
+.features-item__title,
+.tabs-item__title {font-family: 'PT Serif'; font-style: normal;}
+
+.individual-listing__subtitle,
+.add-to-favorite-btn,
+.action-btn,
+.individual-listing__pricing-title,
+.contract-info-list > li > a,
+.contract-info__text,
+.similar-offers__text,
+.similar-offers__adress,
+.features-item__show-more-btn,
+.elmcroft__address,
+.tabs__header,
+.tabs__link {font-family: 'Airbnb Cereal App'; font-style: normal;}
+
+
+.individual-listing {padding: 100px 0;}
+.individual-listing .tags a {text-decoration: none;}
+.individual-listing .tags a:not(:last-child):after {content: ",";}
+
+.individual-listing__rating-box {width: 48px; height: 24px; box-shadow: 0 1px 7px rgba(66, 96, 123, 0.16); border-radius: 132px; font-size: 13px; line-height: 17px;}
+.individual-listing__subtitle {font-weight: 500; font-size: 16px; line-height: 24px; color: #484848;}
+.action-btn {display: flex; justify-content: center; align-items: center; width: 110px; height: 45px; border: 1px solid #c0c0c0; box-sizing: border-box; border-radius: 5px; background-color: #fff; font-weight: 300; font-size: 16px; line-height: 21px; color: #000; text-decoration: none;}
+.action-btn > i {transform: translateY(2px);}
+
+.add-to-favorite-btn {position: relative; top: auto; left: auto;}
+.actions__toggle {cursor: pointer;}
+.actions__toggle span {margin-left: 2px;}
+.actions__toggle > i {position: absolute; z-index: 0; left: 0; top: 0; width: 16px; height: 16px; right: 0; bottom: 0; margin: auto; line-height: 1;}
+.actions__toggle > i.check {color: #6D459C;}
+.actions__toggle input[type=checkbox] {width: 100%; height: 100%; opacity: 0; margin: 0; position: relative; z-index: 1; cursor: pointer;}
+.actions__toggle input[type=checkbox] ~ i.check {opacity: 0;}
+.actions__toggle input[type=checkbox] ~ i.uncheck {opacity: 1;}
+.actions__toggle input[type=checkbox]:checked ~ i.uncheck {opacity: 0;}
+.actions__toggle input[type=checkbox]:checked ~ i.check {opacity: 1;}
+
+.individual-listing__pricing-title {font-weight: 500; font-size: 20px; line-height: 24px; letter-spacing: -0.005em; color: #726b6b; text-align: right;}
+.article-box {position: relative; overflow: hidden; padding-bottom: 40px !important;}
+.article-box--active {height: 100%; padding-bottom: 0;}
+.article-box--active > .article-box__read-more-btn {display: none;}
+#show-more-content {display: block;}
+.article-box__read-more-btn {display: none; position: absolute; bottom: 5px; left: 50%; transform: translateX(-50%); cursor: pointer;}
+.article-box,
+.contract-info-box,
+.similar-offers-box,
+.elmcroft__box {background-color: #fff; box-shadow: 0 20px 25px rgba(22, 37, 51, 0.05); border-radius: 10px;}
+.contract-info-list > li > a {font-weight: 300; font-size: 18px; line-height: 26px; letter-spacing: -0.01em; color: #3f3f3f !important;}
+.community-website-icon {font-size: 20px;}
+.community-website-icon:before {color: var(--bs-brand) !important;}
+.similar-offers__title {font-weight: bold; font-size: 25px; line-height: 33px; color: #000;}
+.similar-offers__subtitle {font-weight: bold; font-size: 20px; line-height: 132%; letter-spacing: -0.005em; color: #000;}
+.contract-info__text,
+.similar-offers__text {font-weight: 300; font-size: 16px; line-height: 26px; letter-spacing: -0.005em; color: #5a5a5a;}
+.similar-offers__adress {font-weight: 300; font-size: 17px; line-height: 135%; letter-spacing: -0.005em; color: #5a5a5a;}
+.article__title,
+.elmcroft-title {font-weight: bold; font-size: 30px; line-height: 40px; color: #000;}
+.features-item__title {font-weight: bold; font-size: 24px; line-height: 32px; color: #6d459c;}
+.features-item__show-more-btn {width: 130px; height: 45px; border: 1px solid #d3d3d3; border-radius: 8px; background-color: #fff; font-weight: 500; font-size: 16px; line-height: 25px; text-align: center; color: #5a5a5a;}
+.elmcroft__box * li {width: 210px; margin-bottom: 10px;}
+.elmcroft__map {height: 525px;}
+.elmcroft__map > iframe {width: 100%; height: 100%;}
+.elmcroft__address {font-weight: 300; font-size: 18px; line-height: 26px; letter-spacing: -0.01em; color: #3f3f3f;}
+.elmcroft {background: linear-gradient(180deg, #e1f3ff 7.86%, rgba(216, 206, 255, 0.3) 100%);}
+.elmcroft-box-calc {height: 100%;}
+.tabs__header {border-bottom: 1px solid #000; height: 36px; font-weight: 500; font-size: 16px; line-height: 26px; color: #000;}
+.contract-info-list--icon {width: 40px;}
+
+/* TABS */
+.tabs {}
+.tabs__nav {border-bottom: 1px solid #d2d2d2; margin-bottom: 40px;}
+.tabs__link {font-weight: 500; font-size: 18px; line-height: 26px; color: #5a5a5a; text-decoration: none; margin-right: 30px; padding-right: 20px; display: inline-block; height: 35px;}
+.tabs__link_active {position: relative; color: var(--bs-brand);}
+.tabs__link_active:after {content: ""; height: 2px; width: 100%; background-color: var(--bs-brand); position: absolute; bottom: -1px; left: 0;}
+.tabs__link:not(.tabs__link_active):hover,
+.tabs__link:not(.tabs__link_active):focus {color: var(--bs-brand);}
+.tabs__content {}
+.tabs__pane {display: none;}
+.tabs__pane_show {display: block;}
+.tabs-item {position: relative; overflow: hidden;}
+.tabs-item:after {content: url("./img/divider.png"); position: absolute; bottom: 0; left: 0;}
+.tabs-item:last-child::after {content: none;}
+.tabs-item__title {font-weight: bold; font-size: 22px; line-height: 29px; letter-spacing: -0.005em; color: #000;}
+@media screen and (max-width: 767px) {
+	.contract-info-list > li > a {font-size: 16px;}
+	.article__title,
+	.elmcroft-title {font-size: 27px; line-height: 36px;}
+	.elmcroft__box * li {font-size: 15px; line-height: 20px;}
+	.features-item__title {font-size: 22px; line-height: 29px;}
+	.tabs-item__title {font-size: 15px; line-height: 140%;}
+	.tabs__link {margin-right: 10px; padding-right: 5px; font-size: 16px; line-height: 26px;}
+	.elmcroft__map {height: 265px;}
+	#show-more-content {display: none;}
+	.article-box__read-more-btn {display: block;}
+}

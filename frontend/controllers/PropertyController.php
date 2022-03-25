@@ -653,7 +653,7 @@ class PropertyController extends BaseController {
 			foreach($categories as $category_model){
 				$ret[$category_model->id] = [
 					'name' => $category_model->name,
-					'url' => Url::toRoute(['property/index', 'slug' => $category_model->slug, 'state' => $property->state, 'city' => $property->city]),
+					'url' => Url::toRoute(['property/index', 'category_slug' => $category_model->slug, 'state' => $property->state, 'city' => $property->city]),
 				];
 			}
 		}
