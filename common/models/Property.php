@@ -500,9 +500,11 @@ class Property extends ActiveRecord{
 			if(file_exists(Yii::getAlias('@property_images').'/'.$file)){
 				$image = Yii::$app->urlManagerFrontend->baseUrl.'/images/property/'.$file;
 			}else{
-				$image = $this->saveImage($src_file_name, $width, $height, $crop);
-				if(file_exists(Yii::getAlias('@property_images').'/'.$file)){
-					$image = Yii::$app->urlManagerFrontend->baseUrl.'/images/property/'.$file;
+				if(file_exists(Yii::getAlias('@property_images').'/'.$this->id.'/'.$src_file_name)){
+					$image = $this->saveImage($src_file_name, $width, $height, $crop);
+					if(file_exists(Yii::getAlias('@property_images').'/'.$file)){
+						$image = Yii::$app->urlManagerFrontend->baseUrl.'/images/property/'.$file;
+					}
 				}
 			}
 		}
