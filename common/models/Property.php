@@ -343,6 +343,23 @@ class Property extends ActiveRecord{
 		}
 	}
 	
+	private function saveImage($src_file_name, $width = 1290, $height = null, $crop = Image::INVERSE){
+		$dir = Yii::getAlias('@property_images').'/'.$this->id;
+		$pathinfo = pathinfo($src_file_name);
+		
+		$replace_fragment = [];
+		if(!is_null($width)) $replace_fragment[] = $width;
+		if(!is_null($height)) $replace_fragment[] = $height;
+		$replace_fragment = implode('_', $replace_fragment);
+		
+		$image = Yii::$app->image->load($dir.'/'.$src_file_name);
+		$image->background('#fff', 0);
+		$image->resize($width, $height, $crop);
+		$image->save($dir.'/thumbs/'.str_replace('.'.$pathinfo['extension'], '_'.$replace_fragment.'.'.$pathinfo['extension'], $src_file_name), 100);
+		
+		return $image;
+	}
+	
 	/**
 	 * @return \yii\db\ActiveQuery
 	 */
@@ -462,21 +479,31 @@ class Property extends ActiveRecord{
 		return $image;
 	}
 	
-	public function getImage($file_name, $size = '250'){
+	public function getImage($src_file_name, $width = 250, $height = null, $crop = Image::INVERSE){
 		$image = Yii::$app->urlManagerFrontend->baseUrl.'/images/common/noimage.svg';
 		
-		if(!empty($file_name)){
-			$pathinfo = pathinfo($file_name);
-			if($size == 'full' || $size == ''){
+		if(!empty($src_file_name)){
+			$pathinfo = pathinfo($src_file_name);
+			if($width == 'full' || $width == ''){
 				$file_name = $pathinfo['filename'].'.'.$pathinfo['extension'];
 				$file = $this->id.'/'.$file_name;
 			}else{
-				$file_name = $pathinfo['filename'].'_'.$size.'.'.$pathinfo['extension'];
+				$replace_fragment = [];
+				if(!is_null($width)) $replace_fragment[] = $width;
+				if(!is_null($height)) $replace_fragment[] = $height;
+				$replace_fragment = implode('_', $replace_fragment);
+
+				$file_name = $pathinfo['filename'].'_'.$replace_fragment.'.'.$pathinfo['extension'];
 				$file = $this->id.'/thumbs/'.$file_name;
 			}
 
 			if(file_exists(Yii::getAlias('@property_images').'/'.$file)){
 				$image = Yii::$app->urlManagerFrontend->baseUrl.'/images/property/'.$file;
+			}else{
+				$image = $this->saveImage($src_file_name, $width, $height, $crop);
+				if(file_exists(Yii::getAlias('@property_images').'/'.$file)){
+					$image = Yii::$app->urlManagerFrontend->baseUrl.'/images/property/'.$file;
+				}
 			}
 		}
 		

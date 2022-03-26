@@ -311,7 +311,9 @@ button:focus {outline: none; outline: -webkit-focus-ring-color auto 5px;}
 .p-2 {padding: 20px!important;}
 .p-25 {padding: 25px!important;}
 .p-3 {padding: 30px !important;}
+.p-35 {padding: 35px !important;}
 .p-4 {padding: 40px !important;}
+.p-45 {padding: 45px !important;}
 .p-5 {padding: 50px !important;}
 .p-25 {padding: 25px;}
 .p-35 {padding: 35px;}
@@ -408,7 +410,9 @@ button:focus {outline: none; outline: -webkit-focus-ring-color auto 5px;}
 	.p-md-1 {padding: 10px !important;}
 	.p-md-2 {padding: 20px !important;}
 	.p-md-3 {padding: 30px !important;}
+	.p-md-35 {padding: 35px !important;}
 	.p-md-4 {padding: 40px !important;}
+	.p-md-45 {padding: 45px !important;}
 	.p-md-5 {padding: 50px !important;}
 	.px-md-1 {padding-right: 10px !important; padding-left: 10px !important;}
 	.px-md-2 {padding-right: 20px !important; padding-left: 20px !important;}

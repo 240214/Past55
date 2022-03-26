@@ -3,9 +3,9 @@ use yii\helpers\VarDumper;
 
 ?>
 <?php if($property->display_office_hours_widget && !empty($property->office_hours)):?>
-	<div class="card">
+	<div class="card-box">
 		<div class="header">
-			<h2>Office hours</h2>
+			<h2 class="title">Office hours</h2>
 		</div>
 		<div class="body">
 			<table class="table table-striped">

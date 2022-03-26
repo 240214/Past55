@@ -7,6 +7,7 @@ return [
 		'thumb' => 250,
 		'mob_small' => 575,
 		'mob_big' => 767,
+		'large' => 1290,
 	],
 	'avatar_sizes' => [
 		'thumb' => 150,

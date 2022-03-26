@@ -7,10 +7,10 @@ use yii\helpers\VarDumper;
 
 #VarDumper::dump($found, 10, 1);
 ?>
-<div class="card <?=$wrapper_class;?>">
+<div class="card-box <?=$wrapper_class;?>">
 	<div class="header">
-		<h2><?=$title;?></h2>
-		<small><?=$sub_title;?></small>
+		<h2 class="title"><?=$title;?></h2>
+		<div class="subtitle"><?=$sub_title;?></div>
 	</div>
 	<div class="list-group">
 		<?php if($found): ?>

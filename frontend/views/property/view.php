@@ -41,7 +41,7 @@ $likes_checked = $liked ? 'checked="checked"' : '';
 $favs_class = $liked ? 'checked' : '';
 $favs_title = $liked ? 'Remove from Favorite' : 'Add to Favorite';
 ?>
-<section class="individual-listing">
+<section class="individual-listing section-1">
     <div class="container-fluid container-md">
         <header class="section__title section__title-alt">
 	        <div class="js_data_loader loader fixed trans-all"></div>
@@ -85,24 +85,16 @@ $favs_title = $liked ? 'Remove from Favorite' : 'Add to Favorite';
 	    
         <div class="dash-line mt-25 mb-25 mt-md-35 mb-md-45"></div>
 
+        <!--<?=$this->render('partials/gallery', ['property' => $property]);?>-->
+
+	    <div class="p-4 p-md-3"></div>
+	    
         <div class="row d-print-block">
-            <div class="col-lg-8 col-xl-9">
-                <?=$this->render('partials/gallery', ['property' => $property]);?>
-	
+	        <div class="col-12 col-md-8">
 	            <?=$this->render('partials/description', ['property' => $property]);?>
-	
-	            <?=$this->render('partials/features', ['property' => $property]);?>
-
-	            <?=$this->render('partials/pet-policy', ['property' => $property]);?>
-
-	            <?=$this->render('partials/location', ['property' => $property]);?>
-
-	            <?=$this->render('partials/dist-calc', ['property' => $property]);?>
-             
-	            <?=$this->render('partials/nearby-places', ['property' => $property]);?>
             </div>
 
-            <aside class="col-lg-4 col-xl-3 d-print-block">
+	        <aside class="col-12 col-md-4 d-print-block">
 	            <div class="sticky-block">
 	                <?=$this->render('sidebar/contacts', ['property' => $property]);?>
 	                <?=$this->render('sidebar/office-hours', ['property' => $property]);?>
@@ -121,11 +113,37 @@ $favs_title = $liked ? 'Remove from Favorite' : 'Add to Favorite';
 	            </div>
             </aside>
         </div>
+	    
+	    
     </div>
-	<div id="js_add_to_favs_btn" class="d-lg-none actions__toggle js_property_likes mob-to-fav-float trans_all align-items-center view" data-id="<?=$property->id;?>" data--bs-toggle="tooltip" data-bs-placement="left" title="<?=$favs_title;?>">
-		<a role="button" class="d-lg-none <?=$favs_class;?> js_trigger" data-property_id="<?=$property->id;?>" data-trigger="js_action_click" data-action="property_toggle_favorite">Add to Favorites</a>
-		<i class="zmdi zmdi-favorite-outline uncheck"></i>
-		<i class="zmdi zmdi-favorite check"></i>
+	
+</section>
+
+<section class="individual-listing section-2 elmcroft">
+	<div class="container-fluid container-md">
+		<div class="row d-print-block">
+			<div class="col-12 col-md-8">
+				
+				<?=$this->render('partials/features', ['property' => $property]);?>
+				
+				<?=$this->render('partials/pet-policy', ['property' => $property]);?>
+				
+				<?=$this->render('partials/location', ['property' => $property]);?>
+				
+				<?=$this->render('partials/nearby-places', ['property' => $property]);?>
+			</div>
+
+			<aside class="col-12 col-md-4 d-print-block">
+				<div class="sticky-block">
+					<?=$this->render('partials/dist-calc', ['property' => $property]);?>
+				</div>
+			</aside>
+		</div>
 	</div>
 </section>
 
+<div id="js_add_to_favs_btn" class="d-lg-none actions__toggle js_property_likes mob-to-fav-float trans_all align-items-center view" data-id="<?=$property->id;?>" data--bs-toggle="tooltip" data-bs-placement="left" title="<?=$favs_title;?>">
+	<a role="button" class="d-lg-none <?=$favs_class;?> js_trigger" data-property_id="<?=$property->id;?>" data-trigger="js_action_click" data-action="property_toggle_favorite">Add to Favorites</a>
+	<i class="zmdi zmdi-favorite-outline uncheck"></i>
+	<i class="zmdi zmdi-favorite check"></i>
+</div>

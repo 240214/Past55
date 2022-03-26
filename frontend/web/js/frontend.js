@@ -26,20 +26,20 @@ $(function(){
 				asNavFor: '.slider-nav'
 			},
 			slick_nav_options: {
-				slidesToShow: 4,
+				slidesToShow: 5,
 				slidesToScroll: 1,
-				vertical: true,
+				vertical: false,
 				asNavFor: '.slider-for',
 				dots: false,
 				arrows: false,
 				focusOnSelect: true,
-				verticalSwiping: true,
+				verticalSwiping: false,
 				centerMode: false,
 				responsive: [
-					{breakpoint: 1400, settings: {slidesToShow: 3}},
+					{breakpoint: 1400, settings: {vertical: false, slidesToShow: 5}},
 					{breakpoint: 992, settings: {vertical: false, slidesToShow: 4}},
 					{breakpoint: 840, settings: {vertical: false, slidesToShow: 3}},
-					{breakpoint: 768, settings: {vertical: false}},
+					{breakpoint: 768, settings: {vertical: false, slidesToShow: 3}},
 					{breakpoint: 580, settings: {vertical: false, slidesToShow: 3}},
 				]
 			}
