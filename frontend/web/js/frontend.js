@@ -249,7 +249,6 @@ $(function(){
 				FJS.Common.initLazyLoad();
 				FJS.Common.initSlickCarousel();
 				FJS.Common.initTooltip();
-				//FJS.Common.initSocialShare();
 				//FJS.Common.initFloatFavButtonTooltip();
 			},
 			setLocation: function(url){
@@ -299,18 +298,6 @@ $(function(){
 					var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 						return new bootstrap.Tooltip(tooltipTriggerEl, {'html': true, 'customClass': 'np-tooltip'});
 					})
-				}
-			},
-			initSocialShare: function(){
-				if($(".js_social_share").length){
-					$(".js_social_share > div").jsSocials({
-						shares: [
-							{share: "facebook", label: "", logo: "zmdi zmdi-facebook", shareIn: "blank", css: "rmds-item mdc-bg-indigo-400 animated bounceIn"},
-							{share: "twitter", label: "", logo: "zmdi zmdi-twitter", shareIn: "blank", css: "rmds-item mdc-bg-cyan-500 animated bounceIn"},
-							{share: "googleplus", label: "", logo: "zmdi zmdi-google", shareIn: "blank", css: "rmds-item mdc-bg-red-400 animated bounceIn"},
-							{share: "linkedin", label: "", logo: "zmdi zmdi-linkedin", shareIn: "blank", css: "rmds-item mdc-bg-blue-600 animated bounceIn"}
-						]
-					});
 				}
 			},
 			toggleMobileNav: function($obj){
@@ -375,6 +362,8 @@ $(function(){
 				enabled: true,
 			},
 			Init: function(){
+				//FJS.Share.initSocialShare();
+
 				if(navigator.share === undefined){
 					FJS.Share.vars.enabled = false;
 					$('[data-action="share"]').prop('disabled', true).addClass('hide');
@@ -404,6 +393,18 @@ $(function(){
 					}
 				}else{
 					console.error("Error: Your browser not supports share.");
+				}
+			},
+			initSocialShare: function(){
+				if($(".js_social_share").length){
+					$(".js_social_share > div").jsSocials({
+						shares: [
+							{share: "facebook", label: "facebook", logo: "zmdi zmdi-facebook", shareIn: "blank", css: "rmds-item mdc-bg-indigo-400 animated bounceIn"},
+							{share: "twitter", label: "twitter", logo: "zmdi zmdi-twitter", shareIn: "blank", css: "rmds-item mdc-bg-cyan-500 animated bounceIn"},
+							{share: "googleplus", label: "googleplus", logo: "zmdi zmdi-google", shareIn: "blank", css: "rmds-item mdc-bg-red-400 animated bounceIn"},
+							{share: "linkedin", label: "linkedin", logo: "zmdi zmdi-linkedin", shareIn: "blank", css: "rmds-item mdc-bg-blue-600 animated bounceIn"}
+						]
+					});
 				}
 			},
 		},
