@@ -3,7 +3,9 @@
 namespace frontend\widgets;
 
 use common\models\Property;
+use frontend\assets\AppAsset;
 use Yii;
+use yii\bootstrap\BootstrapAsset;
 use yii\bootstrap\Widget;
 use yii\helpers\VarDumper;
 
@@ -46,6 +48,8 @@ class RelatedProperties extends Widget{
 				->limit($this->limit)
 				->all();
 		}
+		
+		$this->view->registerCssFile('@web/theme/css/widgets/related-properties.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 	}
 	
 	public function run(){

@@ -227,6 +227,9 @@ $(function(){
 					case "remove_customer_address_from_compare":
 						FJS.Comparison.RemoveCustomerAddress($this);
 						break;
+					case "toggle_display_block":
+						FJS.Common.toggleDisplayBlock($this);
+						break;
 					default:
 						break;
 				}
@@ -342,6 +345,17 @@ $(function(){
 					if(FJS.vars.scroll_dir == 'top'){
 						FJS.els.js_add_to_favs_btn.addClass('view');
 					}
+				}
+			},
+			toggleDisplayBlock: function($btn){
+				var $target = $($btn.data('target')),
+					title = $btn.data('title');
+
+				$target.toggleClass('expand');
+				if($target.hasClass('expand')){
+					$btn.find('i').removeClass('bi-chevron-down').addClass('bi-chevron-up').end().find('span').text('Hide');
+				}else{
+					$btn.find('i').removeClass('bi-chevron-up').addClass('bi-chevron-down').end().find('span').text(title);
 				}
 			},
 		},

@@ -1,0 +1,24 @@
+.related-properties-list {}
+.related-properties-list .item {padding: 18px 0; border-bottom: 1px dashed #ADADAD;}
+.related-properties-list .item:last-child {border: 0; padding-bottom: 0;}
+.related-properties-list .item .image {flex: 0 0 auto; width: 110px; height: 100px; margin: 0 20px 0 0; border-radius: 10px; overflow: hidden;}
+.related-properties-list .item .image img {width: 100%; height: 100%; object-fit: cover;}
+.related-properties-list .item a {text-decoration: none; display: flex; flex-flow: row; align-items: start;}
+.related-properties-list .item .text {flex: 1 1 auto;}
+.related-properties-list .item .text strong {display: block; font-family: 'PT Serif'; font-weight: 700; font-size: 20px; letter-spacing: -0.005em; color: #000; margin-bottom: 12px; line-height: normal;}
+.related-properties-list .item .text small {display: flex; line-height: 1.2; font-weight: 300;	font-size: 16px; letter-spacing: -0.005em; color: #858585;}
+.related-properties-list .item .text small i {margin-top: 2px; font-size: 18px;}
+
+@media all and (max-width: 1199px) and (min-width: 992px), all and (max-width: 414px) and (min-width: 321px){
+	.related-properties-list .item .image {width: 80px; height: 70px; margin-right: 15px;}
+	.related-properties-list .item .text strong {font-size: 16px; margin-bottom: 10px;}
+	.related-properties-list .item .text small {font-size: 14px;}
+	.related-properties-list .item .text small i {font-size: 16px;}
+}
+@media all and (max-width: 991px) and (min-width: 768px), all and (max-width: 320px){
+	.related-properties-list .item a {flex-flow: column;}
+	.related-properties-list .item .image {width: 100%; height: 100px; margin-right: 0;}
+	.related-properties-list .item .text strong {font-size: 18px; margin-top: 12px;}
+	.related-properties-list .item .text small {font-size: 16px;}
+	.related-properties-list .item .text small i {font-size: 18px;}
+}

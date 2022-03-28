@@ -1,9 +1,9 @@
 <?php if(!empty($property->nearby_places)):?>
-<div class="card">
-	<div class="card__header">
-		<h2><?=$property->title;?> Nearby Places</h2>
+<div class="card-box big">
+	<div class="header">
+		<h2 class="title"><?=$property->title;?> Nearby Places</h2>
 	</div>
-	<div class="card__body">
+	<div class="body">
 		<ul class="nav nav-tabs js_nav_tabs" id="myTab" role="tablist">
 			<?php $i=0; foreach($property->nearby_places as $name => $nearby_place): $i++;?>
 			<?php $css_class = ($i == 1) ? 'active' : ''; ?>

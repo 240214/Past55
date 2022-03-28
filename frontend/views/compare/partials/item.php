@@ -135,8 +135,10 @@ if(!empty($model->nearby_places)){
 									<div class="location"><?=$customer_address['address'];?></div>
 								</td>
 								<td>
-									<div class="btn-distance-indigo"><?=$customer_address['distance'];?> <?=$customer_address['distance_type'];?></div>
-									<a role="button" data-trigger="js_action_click" data-action="remove_customer_address_from_compare" class="btn-remove-current-address"><i class="zmdi zmdi-close-circle"></i></a>
+									<div class="btn-distance-indigo">
+										<?=$customer_address['distance'];?> <?=$customer_address['distance_type'];?>
+										<a role="button" data-trigger="js_action_click" data-action="remove_customer_address_from_compare" class="btn-remove-current-address"><i class="bi bi-x"></i> Delete</a>
+									</div>
 								</td>
 							</tr>
 					<?php endforeach;?>

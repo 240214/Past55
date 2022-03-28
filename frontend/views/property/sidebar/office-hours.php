@@ -8,7 +8,7 @@ use yii\helpers\VarDumper;
 			<h2 class="title">Office hours</h2>
 		</div>
 		<div class="body">
-			<table class="table table-striped">
+			<table class="table">
 				<thead>
 					<tr>
 						<th scope="col">Day</th>

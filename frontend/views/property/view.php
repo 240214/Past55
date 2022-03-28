@@ -41,51 +41,55 @@ $likes_checked = $liked ? 'checked="checked"' : '';
 $favs_class = $liked ? 'checked' : '';
 $favs_title = $liked ? 'Remove from Favorite' : 'Add to Favorite';
 ?>
-<section class="individual-listing section-1">
-    <div class="container-fluid container-md">
-        <header class="section__title section__title-alt">
-	        <div class="js_data_loader loader fixed trans-all"></div>
-	        <div class="row mb-35 align-items-end">
-		        <div class="col-12 col-md-9">
-			        <h1 class="main-title"><?=$property->title;?></h1>
-			        <div class="individual-listing__subtitle address mt-15 mb-15"><i class="bi bi-geo-alt me-1"></i><?=$property->address;?></div>
-			        <div class="individual-listing__subtitle tags d-flex">
-				        <div class="text-nowrap me-1">Found in:</div>
-				        <div>
-				        <?php foreach($property->categories as $category):?>
-					        <a href="<?=$category['url'];?>" class="text-color-primary"><?=$category['name'];?></a>
-				        <?php endforeach;?>
-				        </div>
-			        </div>
-			        <div class="d-flex position-relative mt-3 mt-md-3 trans-all">
-				        <a role="button" class="add-to-favorite-btn action-btn actions__toggle js_property_likes" data-id="<?=$property->id;?>">
-					        <input type="checkbox" <?=($property->Liked ? 'checked="checked"' : '');?> class="js_trigger" data-property_id="<?=$property->id;?>" data-trigger="js_action_change" data-action="property_toggle_favorite">
-					        <i class="bi bi-heart uncheck"></i>
-					        <i class="bi bi-heart-fill check"></i>
-					        <span class="count d-none"><?=$property->likes;?></span>
-					        <span>Save</span>
-				        </a>
-				        <a role="button" data-trigger="js_action_click" data-action="print" class="action-btn"><i class="bi bi-printer"></i> <span>Print</span></a>
-				        <a role="button" data-trigger="js_action_click" data-action="share" class="action-btn"><i class="bi bi-box-arrow-in-up"></i> <span>Share</span></a>
-				        <a role="button" class="action-btn"><i class="bi bi-eye"></i> <span><?=$property->views;?></i></span></a>
-				        <?php /*
+<section class="individual-listing section-1 d-none">
+	<div class="container-fluid container-lg">
+		<header class="section__title section__title-alt">
+			<div class="js_data_loader loader fixed trans-all"></div>
+			<div class="row mb-35 align-items-end">
+				<div class="col-12 col-md-9">
+					<h1 class="main-title"><?=$property->title;?></h1>
+					<div class="individual-listing__subtitle address mt-15 mb-15"><i class="bi bi-geo-alt me-1"></i><?=$property->address;?></div>
+					<div class="individual-listing__subtitle tags d-flex">
+						<div class="text-nowrap me-1">Found in:</div>
+						<div>
+							<?php foreach($property->categories as $category):?>
+								<a href="<?=$category['url'];?>" class="text-color-primary"><?=$category['name'];?></a>
+							<?php endforeach;?>
+						</div>
+					</div>
+					<div class="d-flex position-relative mt-3 mt-md-3 trans-all">
+						<a role="button" class="add-to-favorite-btn action-btn actions__toggle js_property_likes" data-id="<?=$property->id;?>">
+							<input type="checkbox" <?=($property->Liked ? 'checked="checked"' : '');?> class="js_trigger" data-property_id="<?=$property->id;?>" data-trigger="js_action_change" data-action="property_toggle_favorite">
+							<i class="bi bi-heart uncheck"></i>
+							<i class="bi bi-heart-fill check"></i>
+							<span class="count d-none"><?=$property->likes;?></span>
+							<span>Save</span>
+						</a>
+						<a role="button" data-trigger="js_action_click" data-action="print" class="action-btn"><i class="bi bi-printer"></i> <span>Print</span></a>
+						<a role="button" data-trigger="js_action_click" data-action="share" class="action-btn"><i class="bi bi-box-arrow-in-up"></i> <span>Share</span></a>
+						<a role="button" class="action-btn"><i class="bi bi-eye"></i> <span><?=$property->views;?></i></span></a>
+						<?php /*
 		                <div class="dropdown">
 		                    <a role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="zmdi zmdi-share"></i></a>
 		                    <div class="dropdown-menu pull-right js_social_share"><div></div></div>
 		                </div>
 		                */?>
-			        </div>
-		        </div>
-		        <div class="col-12 col-md-3">
-			        <div class="individual-listing__pricing-title mb-25 text-start text-xl-end">Pricing ranges from</div>
-			        <a role="button" href="#" class="individual-listing__pricing-contact-btn btn-primary-medium ms-0 ms-xl-auto">Contact for pricing</a>
-		        </div>
-	        </div>
-        </header>
-	    
-        <div class="dash-line mt-25 mb-25 mt-md-35 mb-md-45"></div>
+					</div>
+				</div>
+				<div class="col-12 col-md-3">
+					<div class="individual-listing__pricing-title mb-25 text-start text-xl-end">Pricing ranges from</div>
+					<a role="button" href="#" class="individual-listing__pricing-contact-btn btn-primary-medium ms-0 ms-xl-auto">Contact for pricing</a>
+				</div>
+			</div>
+		</header>
 
-        <!--<?=$this->render('partials/gallery', ['property' => $property]);?>-->
+		<div class="dash-line mt-25 mt-md-35"></div>
+	</div>
+</section>
+
+<section class="individual-listing section-2 d-none">
+    <div class="container-fluid container-lg">
+        <?=$this->render('partials/gallery', ['property' => $property]);?>
 
 	    <div class="p-4 p-md-3"></div>
 	    
@@ -100,27 +104,14 @@ $favs_title = $liked ? 'Remove from Favorite' : 'Add to Favorite';
 	                <?=$this->render('sidebar/office-hours', ['property' => $property]);?>
 	                <?php #=$this->render('sidebar/contact-form', ['property' => $property, 'contact' => $contact]);?>
 	                <?php #=$this->render('sidebar/agent', ['property' => $property]);?>
-		            <?=RelatedProperties::widget([
-	                    'limit' => 4,
-	                    'city' => $property['city'],
-	                    'category_id' => $property['category_id'],
-	                    'exclude_id' => $property['id'],
-	                    'title' => 'You may also like...',
-	                    'sub_title' => 'Morbi risus porta consectetur vestibulum ateros',
-	                    'not_found_text' => 'No Suggession yet!!!',
-		                'wrapper_class' => 'd-print-none'
-		            ]);?>
 	            </div>
             </aside>
         </div>
-	    
-	    
     </div>
-	
 </section>
 
-<section class="individual-listing section-2 elmcroft">
-	<div class="container-fluid container-md">
+<section class="individual-listing section-3">
+	<div class="container-fluid container-lg">
 		<div class="row d-print-block">
 			<div class="col-12 col-md-8">
 				
@@ -135,7 +126,17 @@ $favs_title = $liked ? 'Remove from Favorite' : 'Add to Favorite';
 
 			<aside class="col-12 col-md-4 d-print-block">
 				<div class="sticky-block">
-					<?=$this->render('partials/dist-calc', ['property' => $property]);?>
+					<?=$this->render('sidebar/dist-calc', ['property' => $property]);?>
+					<?=RelatedProperties::widget([
+						'limit' => 3,
+						'city' => $property['city'],
+						'category_id' => $property['category_id'],
+						'exclude_id' => $property['id'],
+						'title' => 'You may also like...',
+						'sub_title' => 'Morbi risus porta consectetur vestibulum ateros',
+						'not_found_text' => 'No Suggession yet!!!',
+						'wrapper_class' => 'd-print-none'
+					]);?>
 				</div>
 			</aside>
 		</div>
