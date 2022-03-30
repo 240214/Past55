@@ -6,7 +6,7 @@ use yii\helpers\Url;
 use yii\helpers\VarDumper;
 use frontend\widgets\Image;
 
-#VarDumper::dump($found, 10, 1); exit;
+#VarDumper::dump($model, 10, 1); exit;
 ?>
 
 <?php if($found):?>

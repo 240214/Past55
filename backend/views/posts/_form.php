@@ -71,6 +71,9 @@ $pluginOptions = [
 					<?=$form->field($model, 'user_id')->dropDownList($model->UsersList);?>
 				</div>
 				<div class="col-xs-12">
+					<?=$form->field($model, 'meta_title')->textInput(['maxlength' => true, 'data-trigger' => 'js_action_focus', 'data-action' => 'copy_from_field', 'data-source' => '#posts-title']);?>
+				</div>
+				<div class="col-xs-12">
 					<?=$form->field($model, 'meta_description')->textarea(['maxlength' => true]);?>
 				</div>
 				<div class="col-xs-12">

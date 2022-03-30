@@ -4,12 +4,46 @@
 .article__numeric-title,
 .article-content__open-tab-btn,
 .article-author__open-tab-btn {font-family: 'Airbnb Cereal App'; font-style: normal;}
+.article h1,
+.article h2,
+.article h3,
+.article h4,
+.article h5,
+.article h6,
 .article-subtitle {font-family: 'PT Serif'; font-style: normal;}
 
 .site-header {position: inherit;}
 
 .article {padding-top: 115px; padding-bottom: 50px;}
+
+.article h1,
+.article h2,
+.article h3,
+.article h4,
+.article h5,
+.article h6 {font-weight: bold;}
+.article h1 {font-size: 48px;}
+.article h2 {font-size: 40px; margin-top: 50px; margin-bottom: 30px;}
+.article h3 {font-size: 32px;}
+.article h4 {font-size: 24px;}
+.article h5 {font-size: 16px;}
+.article h6 {font-size: 10px;}
 .article img {border-radius: 10px;}
+.article p {font-size: 18px; line-height: 170%; letter-spacing: -0.005em;}
+.article blockquote {background-color: #F8F7FF; padding: 30px 35px; margin-bottom: 30px; border: 1px dashed #6D459C; border-radius: 10px; font-weight: 500; font-size: 18px; line-height: 170%; letter-spacing: -0.005em; color: #6D459C;}
+.article blockquote p:last-child {margin: 0;}
+.article ol:not(.breadcrumb) {list-style: decimal; padding-left: 18px;}
+.article ol.big {font-size: 25px; line-height: 170%; padding-left: 25px;}
+.article ol.big li::marker {font-weight: 500;}
+.article ol.big blockquote {margin-top: 20px;}
+.article ul {padding: 0;}
+.article ul li {background: transparent url(../icons/list.svg) no-repeat 0 4px; padding-left: 30px; margin-bottom: 8px;}
+@media all and (max-width: 767px){
+    .article h2 {font-size: 28px; margin-top: 10px; margin-bottom: 20px;}
+    .article blockquote {padding: 18px 20px; font-size: 16px; line-height: 160%;}
+    .article p {font-size: 16px; line-height: 160%;}
+}
+
 
 .breadcrumb {margin-bottom: 25px;}
 .breadcrumb .breadcrumb-item {font-weight: 500; font-size: 16px; line-height: normal; min-width: 120px; background-color: #F2FAFD; border-radius: 5px; text-align: center; padding: 10px;}

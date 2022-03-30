@@ -80,6 +80,7 @@ $this->registerCssFile('@web/theme/css/post.css', ['depends' => [BootstrapAsset:
 		<div class="col-12 col-md-2"></div>
 		<div class="col-12 col-md-8">
 			<?=RelatedPosts::widget([
+				'current_post_id' => $model->id,
 				'category_id' => $model->category_id,
 				'title' => 'Related Articles',
 				'subtitle' => 'Trust is about the legitimacy, transparency, and accuracy of the</br> website and its content.'

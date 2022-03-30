@@ -67,21 +67,21 @@ var MapJS = {
 					distance = distance.toFixed(2);
 					//console.log('distance', distance, distance_type);
 
-					var $js_distance_col = $(input).parent('.js_address_col').siblings('.js_distance_col');
-					if($js_distance_col.find('.js_customer_distance_label').length){
-						$js_distance_col.find('.js_customer_distance_label').text(distance + ' ' + distance_type);
+					var $js_address_col = $(input).parent('.js_address_col');
+					if($js_address_col.find('.js_customer_distance_label').length){
+						$js_address_col.find('.js_customer_distance_label').text(distance + ' ' + distance_type);
 					}
-					if($js_distance_col.find('.js_customer_address_lat').length){
-						$js_distance_col.find('.js_customer_address_lat').val(lat);
+					if($js_address_col.find('.js_customer_address_lat').length){
+						$js_address_col.find('.js_customer_address_lat').val(lat);
 					}
-					if($js_distance_col.find('.js_customer_address_lng').length){
-						$js_distance_col.find('.js_customer_address_lng').val(lng);
+					if($js_address_col.find('.js_customer_address_lng').length){
+						$js_address_col.find('.js_customer_address_lng').val(lng);
 					}
-					/*if($js_distance_col.find('.js_customer_distance').length){
-						$js_distance_col.find('.js_customer_distance').val(distance);
+					/*if($js_address_col.find('.js_customer_distance').length){
+						$js_address_col.find('.js_customer_distance').val(distance);
 					}
-					if($js_distance_col.find('.js_customer_distance_type').length){
-						$js_distance_col.find('.js_customer_distance_type').val(distance_type);
+					if($js_address_col.find('.js_customer_distance_type').length){
+						$js_address_col.find('.js_customer_distance_type').val(distance_type);
 					}*/
 				});
 				$(input).data('loaded', 1);

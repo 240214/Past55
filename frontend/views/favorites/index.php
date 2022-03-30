@@ -64,7 +64,7 @@ $this->registerCssFile('@web/theme/css/properties.css', ['depends' => [Bootstrap
 					</div>
 				</aside>
 				<div class="col-md-8">
-					<div id="js_favorite_items" class="property-listing trans_all">
+					<div id="js_favorite_items" class="property-listing trans-all">
 						<?=$this->render('partials/items', ['models' => $models, 'options' => $options]);?>
 					</div>
 				</div>

@@ -27,7 +27,7 @@ header#header * {text-decoration: none;}
 
 .header-home__favorite-box {padding: 3px 10px; border: 2px solid #d0d0d0; border-radius: 5px; font-size: 14px; font-weight: 300; line-height: 24px; letter-spacing: -0.01em; color: #000;}
 .header-home__favorite-box:hover {background-color: #6d459c; color: #fff; border-color: #6d459c;}
-.header-home__favorite-box svg {margin-right: 8px;}
+.header-home__favorite-box svg {margin-right: 8px; flex: 0 0 auto;}
 .header-home__favorite-box:hover svg path {fill: #fff;}
 .header-home__favorite-box .badge {display: block; position: relative; border-left: 2px solid rgba(208, 208, 208, 0.5); border-radius: 0; width: 20px; height: 30px; text-align: center; padding: 0 0 0 6px; margin: -3px 0 -3px 8px; color: #6d459c; line-height: 30px;}
 .header-home__favorite-box:hover .badge {color: #fff; border-color: rgba(255, 255, 255, 0.2);}
@@ -70,6 +70,6 @@ header#header * {text-decoration: none;}
 @media all and (max-width: 575px){
 	/*.header-home {padding-left: 10px; padding-right: 10px;}*/
 }
-@media all and (max-width: 340px){
+@media all and (max-width: 355px){
 	.header-home__favorite-box {width: 32px; overflow: hidden; justify-content: flex-start !important; white-space: nowrap; padding: 0 8px;}
 }

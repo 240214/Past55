@@ -75,7 +75,7 @@ $this->registerCssFile('@web/theme/css/properties.css', ['depends' => [Bootstrap
 				</div>
 
 				<div class="category__body">
-					<div id="js_filter_results" class="row property-listing trans_all <?=(!$dataProvider->getCount() ? 'no-results' : '');?>">
+					<div id="js_filter_results" class="row property-listing trans-all <?=(!$dataProvider->getCount() ? 'no-results' : '');?>">
 						<?php
 						if($dataProvider->getCount()):?>
 							<?=$this->render('partials/items', ['models' => $dataProvider->getModels(), 'options' => $options]);?>

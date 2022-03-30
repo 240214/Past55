@@ -17,6 +17,7 @@ return [
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'assetManager' => [
+	        'appendTimestamp' => YII_ENV_DEV ? true : false,
             'bundles' => [
                 /*'yii\web\JqueryAsset' => [
 	                'sourcePath' => '@frontend/web/theme/plugins/jquery',

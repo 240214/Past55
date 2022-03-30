@@ -35,6 +35,7 @@ YiiAsset::register($this);
 				'model'      => $model,
 				'attributes' => [
 					'id',
+					'mainImage:image',
 					[
 						'attribute'  => 'type',
 						'value' => function($data){
@@ -67,6 +68,8 @@ YiiAsset::register($this);
 						'value' => is_object($model->postsCategories) ? $model->postsCategories->title : '',
 					],
 					'content:html',
+					'meta_title',
+					'meta_description',
 				],
 			]);?>
 		</div>

@@ -8,6 +8,7 @@ $config = [
 		'plugins' => [
 			"advlist",
 			"anchor",
+			#"attributes",
 			"autolink",
 			"autoresize",
 			#"autosave",
@@ -64,7 +65,7 @@ $config = [
 		'image_caption' => true,
 		'image_description' => true,
 		#'contextmenu_never_use_native' => true,
-		'contextmenu' => 'link image table anchor lists',
+		'contextmenu' => 'link image table anchor lists setattributes',
 		'toolbar' => "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | hr | link image responsivefilemanager",
 		'toolbar_sticky' => true,
 		'external_filemanager_path' => '/backend/web/plugins/responsive_filemanager/filemanager/',
@@ -74,6 +75,7 @@ $config = [
 			'filemanager' => '/backend/web/plugins/responsive_filemanager/filemanager/plugin.min.js',
 			// Кнопка загрузки файла в тулбаре.
 			'responsivefilemanager' => '/backend/web/plugins/responsive_filemanager/tinymce/plugins/responsivefilemanager/plugin.min.js',
+			#'attributes' => '/backend/web/plugins/attributes/plugin.js',
 		]
 	]
 ];

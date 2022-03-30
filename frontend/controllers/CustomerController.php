@@ -38,12 +38,13 @@ class CustomerController extends BaseController{
 	 */
 	public function actionAddressStore(){
 		Yii::$app->response->format = Response::FORMAT_JSON;
-		$response = ['error' => 1, 'ids' => []];
+		$response = ['error' => 1, 'ids' => [], 'html' => ''];
 		
 		$session = Yii::$app->session;
 		$request = Yii::$app->request->post();
 		$user_id = (Yii::$app->user->identity) ? Yii::$app->user->identity->getId() : 0;
 		$sid = $session->getId();
+		$property_id = isset($request['CustomerAddresses']['property_id']) ? $request['CustomerAddresses']['property_id'] : 0;
 		
 		if(!empty($request['CustomerAddresses']['id'])){
 			foreach($request['CustomerAddresses']['id'] as $k => $id){
@@ -72,10 +73,40 @@ class CustomerController extends BaseController{
 					unset($model);
 				}
 			}
+			if($property_id > 0){
+				$response['html'] = $this->getCustomerAddresses($property_id);
+			}
 		}
 		
 		return $response;
 	}
+	
+	public function getCustomerAddresses($property_id){
+		$session = Yii::$app->session;
+		
+		$property = Property::findOne($property_id);
+		$customer_addresses = CustomerAddresses::find()->where(['sid' => $session->getId()])->orderBy(['title' => 'ASC'])->asArray()->all();
+		
+		if(!empty($customer_addresses)){
+			foreach($customer_addresses as $k => $customer_address){
+				$customer_addresses[$k]['distance'] = Yii::$app->Helpers->distance($property->address_lat, $property->address_lng, $customer_address['lat'], $customer_address['lng'], 'M');
+				$customer_addresses[$k]['distance_type'] = CustomerAddresses::$distance_type;
+			}
+		}else{
+			$customer_addresses[] = [
+				'id'            => 0,
+				'title'         => '',
+				'address'       => '',
+				'distance'      => '',
+				'distance_type' => '',
+				'lat'           => '',
+				'lng'           => '',
+			];
+		}
+		
+		return $this->renderPartial('addresses-list', ['customer_addresses' => $customer_addresses, 'property' => $property]);
+	}
+	
 	
 	/**
 	 * Deletes an existing CustomerAddresses model.

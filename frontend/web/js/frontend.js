@@ -179,8 +179,14 @@ $(function(){
 					case "add_customer_address":
 						FJS.Customer.AddressAdd($this);
 						break;
+					case "cancel_customer_address":
+						FJS.Customer.AddressCancel($this);
+						break;
 					case "remove_customer_address":
 						FJS.Customer.AddressRemove($this);
+						break;
+					case "edit_customer_address":
+						FJS.Customer.AddressEdit($this);
 						break;
 					case "store_customer_address":
 						FJS.Customer.AddressStore($this);
@@ -688,9 +694,8 @@ $(function(){
 					format: 'json'
 				}).done(function(responce){
 					if(!responce.error){
-						$form.find('.js_customer_address_id').each(function(i, el){
-							$(el).val(responce.ids[i]);
-						});
+						$form.parent('#js_customer_addresses').html(responce.html);
+						MapJS.initAutocomplete();
 					}else{
 						console.log(responce);
 					}
@@ -743,9 +748,21 @@ $(function(){
 					FJS.Loader.stop();
 				}
 			},
+			AddressEdit: function($btn){
+				var $form = $btn.parents('form'),
+					$row = $btn.parents('.js_customer_address_row');
+
+				$row.find('.fields').removeClass('d-none').end().find('.labels').addClass('d-none');
+			},
+			AddressCancel: function($btn){
+				var $form = $btn.parents('form'),
+					$row = $btn.parents('.js_customer_address_row');
+
+				$row.find('.fields').addClass('d-none').end().find('.labels').removeClass('d-none');
+			},
 			AddressAdd: function($btn){
 				var $form = $btn.parents('form'),
-					$last_address_row = $form.find('.js_customer_address_row:last'),
+					$last_address_row = $form.find('.js_address_col:last'),
 					$clone = $last_address_row.clone(false);
 				$clone
 					.find('input').val('')

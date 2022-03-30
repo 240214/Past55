@@ -86,10 +86,6 @@
 .compare-item table tr td {padding: 15px 5px; vertical-align: middle; position: relative;}
 .compare-item table tr td .name {font-size: 14px; font-weight: bold; line-height: 1.3; color: #000; margin-bottom: 6px;}
 .compare-item table tr td .location {font-size: 13px; font-weight: 300; line-height: 1.3; color: #3F3F3F;}
-.compare-item .btn-distance-orange,
-.compare-item .btn-distance-indigo {background-repeat: no-repeat; background-position: left 7px center; border: 1px solid transparent; border-radius: 5px; font-size: 13px; font-weight: 500; line-height: 1; padding: 11px 7px 11px 39px; margin-left: 10px; text-align: right; position: relative;}
-.compare-item .btn-distance-orange {background-color: #6D459C; background-image: url(../icons/compass-orange.svg); color: #ffffff; border-color: #6D459C;}
-.compare-item .btn-distance-indigo {background-color: #ffffff; background-image: url(../icons/compass-indigo.svg); color: #5A5A5A; border-color: #D3D3D3;}
 .compare-item .btn-remove-current-address {
 	color: #6D459C;
 	position: absolute;

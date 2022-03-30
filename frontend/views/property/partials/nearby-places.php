@@ -4,7 +4,7 @@
 		<h2 class="title"><?=$property->title;?> Nearby Places</h2>
 	</div>
 	<div class="body">
-		<ul class="nav nav-tabs js_nav_tabs" id="myTab" role="tablist">
+		<ul class="nav nav-tabs listing-nav-tabs js_nav_tabs" id="myTab" role="tablist">
 			<?php $i=0; foreach($property->nearby_places as $name => $nearby_place): $i++;?>
 			<?php $css_class = ($i == 1) ? 'active' : ''; ?>
 			<?php $selected = ($i == 1) ? 'true' : 'false'; ?>
@@ -25,11 +25,11 @@
 				</ul>
 			</li>
 		</ul>
-		<div class="tab-content" id="myTabContent">
+		<div class="tab-content listing-tab-content" id="myTabContent">
 			<?php $i=0; foreach($property->nearby_places as $name => $nearby_place): $i++;?>
 			<?php $css_class = ($i == 1) ? 'show active' : ''; ?>
 			<div class="tab-pane fade <?=$css_class;?>" id="<?=$name;?>" role="tabpanel" aria-labelledby="<?=$name;?>-tab">
-				<table class="table table-hover">
+				<table class="table">
 					<thead>
 						<tr>
 							<th>Place</th>
@@ -39,8 +39,13 @@
 					<tbody>
 					<?php foreach($nearby_place['items'] as $item):?>
 						<tr id="<?=$item['place_id'];?>">
-							<td><?=$item['name'];?> <i class="zmdi zmdi-info-outline" data-bs-toggle="tooltip" data-bs-placement="top" title='<img src="<?=$item['icon_url'];?>"> <?=$item['address'];?>'></i></td>
-							<td><?=$item['distance'];?> <?=$item['distance_type'];?></td>
+							<td>
+								<div class="name"><?=$item['name'];?></div>
+								<div class="address"><i class="bi bi-geo-alt-fill me-1"></i><?=$item['address'];?></div>
+							</td>
+							<td>
+								<div class="btn-distance-gray distance-label-preview"><?=$item['distance'];?> <?=$item['distance_type'];?></div>
+							</td>
 						</tr>
 					<?php endforeach;?>
 					</tbody>

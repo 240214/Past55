@@ -21,6 +21,7 @@ use common\models\Users;
  * @property string $image
  * @property string $title
  * @property string $content
+ * @property string $meta_title
  * @property string $meta_description
  * @property string $slug
  * @property string $type
@@ -58,7 +59,7 @@ class Posts extends ActiveRecord {
 			[['user_id', 'category_id', 'post_category_id'], 'integer'],
 			[['content', 'content_list'], 'string'],
 			[['type'], 'string', 'max' => 10],
-			[['image', 'title', 'meta_description', 'slug', 'ccl_title'], 'string', 'max' => 255],
+			[['image', 'title', 'meta_title', 'meta_description', 'slug', 'ccl_title'], 'string', 'max' => 255],
 			['created_at', 'safe'],
 			['image', 'image', 'skipOnEmpty' => true, 'extensions' => Yii::$app->params['image_exts'], 'maxFiles' => 1],
 		
@@ -75,6 +76,7 @@ class Posts extends ActiveRecord {
 			'image' => Yii::t('app', 'Image'),
 			'title' => Yii::t('app', 'Title'),
 			'content'  => Yii::t('app', 'Content'),
+			'meta_title'  => Yii::t('app', 'Meta title'),
 			'meta_description'  => Yii::t('app', 'Meta desctiption'),
 			'slug'  => Yii::t('app', 'Slug'),
 			'type'  => Yii::t('app', 'Post type'),
