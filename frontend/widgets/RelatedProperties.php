@@ -24,7 +24,7 @@ class RelatedProperties extends Widget{
 	public function init(){
 		parent::init();
 		
-		$fields = ['id', 'title', 'slug', 'address', 'image', 'state', 'city'];
+		$fields = ['id', 'title', 'slug', 'address', 'image', 'state', 'city', 'category_id'];
 		
 		if($this->city != null){
 			$this->model = Property::find()

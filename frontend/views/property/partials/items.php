@@ -13,7 +13,7 @@ use yii\helpers\VarDumper;
 			<a href="<?=$url;?>">
 				<?=Yii::$app->Helpers->getImage([
 					'src' => $model->getMainImage('250'),
-					'data-srcset' => $model->getMainImage('575').' 575w, '.$model->getMainImage('767').' 767w, '.$model->getMainImage('250').' 768w',
+					'data-srcset' => $model->getMainImage('575').' 575w, '.$model->getMainImage('767').' 767w, '.$model->getMainImage('767').' 768w',
 					'data-sizes' => '250w',
 					'alt' => $model->title,
 					'from_cdn' => false,

@@ -216,7 +216,7 @@ h1.main-title {margin: 0; line-height: 1.1;}
 @media all and (max-width : 360px){
 	.gallery-slider .slider.slider-for,
 	.gallery-slider .slider.slider-for .slick-track {/*max-height: 210px;*/}
-	.gallery-slider .slider.slider-nav {display: none;}
+	.gallery-slider .slider.slider-nav {/*display: none;*/}
 }
 @media print {
 	.gallery-detail .gallery-slider {/*justify-content: center; text-align: center;*/}

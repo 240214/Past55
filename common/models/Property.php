@@ -301,10 +301,15 @@ class Property extends ActiveRecord{
 			$file->saveAs($dir.'/'.$this->image);
 			
 			foreach(Yii::$app->params['image_sizes'] as $name => $size){
+				$replace_fragment = [];
+				if(!is_null($size['w'])) $replace_fragment[] = $size['w'];
+				if(!is_null($size['h'])) $replace_fragment[] = $size['h'];
+				$replace_fragment = implode('_', $replace_fragment);
+				
 				$image = Yii::$app->image->load($dir.'/'.$this->image);
 				$image->background('#fff', 0);
-				$image->resize($size, null, Image::INVERSE);
-				$image->save($dir.'/thumbs/'.str_replace('.'.$file->extension, '_'.$size.'.'.$file->extension, $this->image), 90);
+				$image->resize($size['w'], $size['h'], $size['crop']);
+				$image->save($dir.'/thumbs/'.str_replace('.'.$file->extension, '_'.$replace_fragment.'.'.$file->extension, $this->image), 90);
 			}
 		}
 		
@@ -320,10 +325,15 @@ class Property extends ActiveRecord{
 				$file->saveAs($dir.'/'.$gallery_image);
 				
 				foreach(Yii::$app->params['image_sizes'] as $name => $size){
+					$replace_fragment = [];
+					if(!is_null($size['w'])) $replace_fragment[] = $size['w'];
+					if(!is_null($size['h'])) $replace_fragment[] = $size['h'];
+					$replace_fragment = implode('_', $replace_fragment);
+					
 					$image = Yii::$app->image->load($dir.'/'.$gallery_image);
 					$image->background('#fff', 0);
-					$image->resize($size, null, Image::INVERSE);
-					$image->save($dir.'/thumbs/'.str_replace('.'.$file->extension, '_'.$size.'.'.$file->extension, $gallery_image), 90);
+					$image->resize($size['w'], $size['h'], $size['crop']);
+					$image->save($dir.'/thumbs/'.str_replace('.'.$file->extension, '_'.$replace_fragment.'.'.$file->extension, $gallery_image), 90);
 					#$image->save($dir.'/thumbs/'.$gallery_image, 90);
 				}
 				$gallery_images[] = $gallery_image;

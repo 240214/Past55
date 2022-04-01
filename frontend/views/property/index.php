@@ -89,7 +89,7 @@ $this->registerCssFile('@web/theme/css/properties.css', ['depends' => [Bootstrap
 			</div>
 		</div>
 
-		<div class="d-flex justify-content-end">
+		<div class="d-flex justify-content-center justify-content-md-end">
 			<nav id="js_filter_pagination">
 				<?=LinkPager::widget([
 					'pagination' => $pagination,

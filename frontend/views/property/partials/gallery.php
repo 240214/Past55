@@ -10,13 +10,23 @@ use yii\image\drivers\Image;
 		<div class="slider slider-for">
 			<?php if(!empty($property->image)):?>
 				<div class="slider-gallery-image">
-					<?=Html::img($property->getImage($property->image, 1290, 650, Image::CROP), ['alt' => $property->title]);?>
+					<?php $big_image_src = $property->getImage($property->image, 1290, 650, Image::CROP);?>
+					<?=Html::img($big_image_src, [
+						'alt' => $property->title,
+						'srcset' => $property->getMainImage('575').' 575w, '.$property->getMainImage('767').' 767w, '.$big_image_src.' 768w',
+						'sizes' => '250w',
+					]);?>
 				</div>
 			<?php endif;?>
 			<?php if(!empty($property->screenshot)):?>
 				<?php foreach($property->screenshot as $file_name):?>
+					<?php $big_image_src = $property->getImage($file_name, 1290, 650, Image::CROP);?>
 					<div class="slider-gallery-image">
-						<?=Html::img($property->getImage($file_name, 1290, 650, Image::CROP), ['alt' => $property->title]);?>
+						<?=Html::img($big_image_src, [
+							'alt' => $property->title,
+							'srcset' => $property->getImage($file_name, 575).' 575w, '.$property->getImage($file_name, 767).' 767w, '.$big_image_src.' 768w',
+							'sizes' => '250w',
+						]);?>
 					</div>
 				<?php endforeach;?>
 			<?php endif;?>

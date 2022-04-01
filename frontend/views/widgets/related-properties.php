@@ -16,7 +16,7 @@ use yii\helpers\VarDumper;
 	<div class="body">
 		<ul class="related-properties-list m-0 p-0">
 			<?php foreach($model as $item): ?>
-			<?php $url = Url::toRoute(['property/view', 'slug' => $item->slug, 'state' => $item->state, 'city' => $item->city]); ?>
+			<?php $url = Url::toRoute(['property/view', 'slug' => $item->slug, 'state' => $item->state, 'city' => $item->city, 'category_id' => $item->category_id]); ?>
 			<li class="item">
 				<a href="<?=$url;?>">
 					<figure class="image empty-bg">

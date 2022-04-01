@@ -93,10 +93,10 @@ class SearchProperty extends Property{
 		
 		// grid filtering conditions
 		$query->andFilterWhere([
-			'id'       => $this->id,
-			'user_id'  => $this->user_id,
-			'zipcode'   => $this->zipcode,
-			'active'   => $this->active,
+			'properties.id'       => $this->id,
+			'properties.user_id'  => $this->user_id,
+			'properties.zipcode'   => $this->zipcode,
+			'properties.active'   => $this->active,
 			#'category_id'   => $this->category_id,
 		]);
 		
