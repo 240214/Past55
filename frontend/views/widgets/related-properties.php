@@ -32,7 +32,7 @@ use yii\helpers\VarDumper;
 					</figure>
 					<div class="text">
 						<strong><?=$item->title;?></strong>
-						<small><i class="bi bi-geo-alt-fill me-1"></i><?=$item->address;?></small>
+						<small><i class="bi bi-geo-alt-fill me-1"></i><?=$item->city;?>, <?=$item->state;?></small>
 					</div>
 				</a>
 			</li>

@@ -38,43 +38,38 @@ $this->registerCssFile('@web/theme/css/post.css', ['depends' => [BootstrapAsset:
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-12 col-md-2">
-				<div class="d-block d-md-none">
-					<h1 class="main-title mb-15"><?=$model['title'];?></h1>
-					<div class="article-info-box d-flex mb-25">
-						<span class="article__info me-2">By <?=$model->users->name;?></span>
-						<span class="article__info me-1"><?=date('F j, Y', $model->created_at);?></span>
-					</div>
-				</div>
-				<div class="article-content__open-tab-btn d-flex d-md-none align-items-center justify-content-between mb-1">
-					<span>Table of Contents</span>
-					<img src="../shared/images/select-icon-checkbox.png" alt="">
-				</div>
-				<div class="article-content__body sticky-block d-none d-md-block">
+			<div class="col-12 col-md-2 d-none d-md-block">
+				<div class="sticky-block top-30">
 					<?=PostContentList::widget(['title' => 'Content', 'model' => $model]);?>
 				</div>
-				<div class="article-author__open-tab-btn d-flex d-md-none align-items-center justify-content-between mb-2">
-					<span>Author Bio</span>
-					<img src="../shared/images/select-icon-checkbox.png" alt="">
-				</div>
-				<?=PostAuthor::widget(['user' => $model->users, 'wrapper_attrs' => ['id' => 'js_post_author_mob', 'class' => 'article-author__body d-none']]);?>
 			</div>
+			
 			<div class="col-12 col-md-7 main-text-content text-color-black">
 				<h1 class="main-title mb-15"><?=$model['title'];?></h1>
 				<div class="article-info-box d-flex mb-25">
 					<span class="article__info me-2">By <?=$model->users->name;?></span>
 					<span class="article__info me-1"><?=date('F j, Y', $model->created_at);?></span>
 				</div>
+				
+				<div class="article-mobile-content d-md-none mb-25">
+					<button class="article-collapse-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseContent_1" aria-expanded="false" aria-controls="collapseContent_1">Table of Contents</button>
+					<div class="collapse" id="collapseContent_1"><div class="card card-body"><?=PostContentList::widget(['title' => '', 'model' => $model]);?></div></div>
+					<button class="article-collapse-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseContent_2" aria-expanded="false" aria-controls="collapseContent_2">Author Bio</button>
+					<div class="collapse" id="collapseContent_2"><div class="card card-body"><?=PostAuthor::widget(['user' => $model->users, 'wrapper_attrs' => ['id' => 'js_post_author_mob']]);?></div></div>
+				</div>
+				
 				<?=$model['content'];?>
 			</div>
+			
 			<div class="col-12 col-md-3 d-none d-md-block">
-				<div class="sticky-block">
+				<div class="sticky-block top-30">
 					<?=PostAuthor::widget(['user' => $model->users]);?>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
+
 <section class="container-fluid container-xl main-text-content text-color-black">
 	<div class="row">
 		<div class="col-12 col-md-2"></div>

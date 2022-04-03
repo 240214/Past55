@@ -23,12 +23,27 @@ class PostsController extends Controller{
 	public $default_pageSize = 20;
 	public $pageSize_list = [7 => 7, 10 => 10, 20 => 20, 30 => 30, 40 => 40, 50 => 50, 100 => 100];
 	
+	/**
+	 * {@inheritdoc}
+	 */
 	public function behaviors(){
 		return [
-			'verbs' => [
+			'access' => [
+				'class' => AccessControl::className(),
+				'only'  => ['detete', 'edit', 'update', 'posts', 'remove-image'],
+				'rules' => [
+					[
+						'actions' => ['detete', 'update', 'edit', 'posts', 'remove-image'],
+						'allow'   => true,
+						'roles'   => ['@'],
+					],
+				],
+			],
+			'verbs'  => [
 				'class'   => VerbFilter::className(),
 				'actions' => [
 					'delete' => ['POST'],
+					'remove-image' => ['POST'],
 				],
 			],
 		];

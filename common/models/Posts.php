@@ -42,6 +42,7 @@ class Posts extends ActiveRecord {
 		'article' => 'Category Article',
 	];
 	public $preview;
+	private $image_updated = false;
 	
 	/**
 	 * @inheritdoc
@@ -158,23 +159,29 @@ class Posts extends ActiveRecord {
 	}
 	
 	public function beforeSave($insert){
+		#Yii::info(__CLASS__.' > '.__FUNCTION__, 'past55');
+		#Yii::info('$insert = '.$insert, 'past55');
 		
-		if(!$insert){
+		if(!$this->image_updated && !$insert){
 			$this->saveImages($insert);
 		}
-		
+
 		return parent::beforeSave($insert);
 	}
 	
 	public function afterSave($insert, $changedAttributes){
 		parent::afterSave($insert, $changedAttributes);
 
+		#Yii::info(__CLASS__.' > '.__FUNCTION__, 'past55');
+		#Yii::info('$insert = '.($insert ?? 0), 'past55');
+		
 		if($insert){
 			$this->saveImages($insert);
 		}
 	}
 	
 	private function saveImages($insert){
+		#Yii::info(__CLASS__.' > '.__FUNCTION__, 'past55');
 		
 		$dir = Yii::getAlias('@posts_images').'/'.$this->id;
 		
@@ -184,12 +191,23 @@ class Posts extends ActiveRecord {
 		}
 		
 		if($file = UploadedFile::getInstance($this, 'preview')){
-			#VarDumper::dump($file, 10, 1); exit;
-			if(file_exists($dir.'/'.$this->image) && is_file($dir.'/'.$this->image)){
+			#Yii::info($file, 'past55');
+			
+			if(!$insert && !empty($this->image) && file_exists($dir.'/'.$this->image) && is_file($dir.'/'.$this->image)){
 				FileHelper::unlink($dir.'/'.$this->image);
-			}
-			if(file_exists($dir.'/thumbs/'.$this->image) && is_file($dir.'/thumbs/'.$this->image)){
-				FileHelper::unlink($dir.'/thumbs/'.$this->image);
+				
+				foreach(Yii::$app->params['image_sizes'] as $name => $size){
+					$replace_fragment = [];
+					if(!is_null($size['w'])) $replace_fragment[] = $size['w'];
+					if(!is_null($size['h'])) $replace_fragment[] = $size['h'];
+					$replace_fragment = implode('_', $replace_fragment);
+					
+					$image = str_replace('.'.$file->extension, '_'.$replace_fragment.'.'.$file->extension, $this->image);
+					
+					if(file_exists($dir.'/thumbs/'.$image) && is_file($dir.'/thumbs/'.$image)){
+						FileHelper::unlink($dir.'/thumbs/'.$image);
+					}
+				}
 			}
 			
 			$this->image = $this->id.'_'.time().'_'.rand(137, 999).'.'.$file->extension;
@@ -197,11 +215,18 @@ class Posts extends ActiveRecord {
 			$file->saveAs($dir.'/'.$this->image);
 			
 			foreach(Yii::$app->params['image_sizes'] as $name => $size){
+				$replace_fragment = [];
+				if(!is_null($size['w'])) $replace_fragment[] = $size['w'];
+				if(!is_null($size['h'])) $replace_fragment[] = $size['h'];
+				$replace_fragment = implode('_', $replace_fragment);
+				
 				$image = Yii::$app->image->load($dir.'/'.$this->image);
 				$image->background('#fff', 0);
-				$image->resize($size, null, Image::INVERSE);
-				$image->save($dir.'/thumbs/'.str_replace('.'.$file->extension, '_'.$size.'.'.$file->extension, $this->image), 90);
+				$image->resize($size['w'], $size['h'], $size['crop']);
+				$image->save($dir.'/thumbs/'.str_replace('.'.$file->extension, '_'.$replace_fragment.'.'.$file->extension, $this->image), 90);
 			}
+
+			$this->image_updated = true;
 		}
 		
 		if($insert){

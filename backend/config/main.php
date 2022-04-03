@@ -48,12 +48,21 @@ return [
             'csrfParam' => '_backendCSRF',
         ],
         'log' => [
-            'traceLevel' => YII_DEBUG ? 3 : 0,
+            'traceLevel' => YII_DEBUG ? 0 : 0,
             'targets' => [
                 [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning'],
                 ],
+	            [
+		            'class' => 'yii\log\FileTarget',
+		            'levels' => [ 'info', 'error'],
+		            'logVars' => ['_GET', '_POST'],
+		            'categories' => ['past55'],
+		            'logFile' => '@backend/runtime/logs/past55.log',
+		            'maxFileSize' => 1024 * 2,
+		            'maxLogFiles' => 50,
+	            ],
             ],
         ],
         'errorHandler' => [

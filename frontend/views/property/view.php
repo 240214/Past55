@@ -103,7 +103,7 @@ $favs_title = $liked ? 'Remove from Favorite' : 'Add to Favorite';
             </div>
 
 	        <aside class="col-12 col-md-4 d-print-block">
-	            <div class="sticky-block">
+	            <div class="sticky-block top-10">
 	                <?=$this->render('sidebar/contacts', ['property' => $property]);?>
 	                <?=$this->render('sidebar/office-hours', ['property' => $property]);?>
 	                <?php #=$this->render('sidebar/contact-form', ['property' => $property, 'contact' => $contact]);?>
@@ -129,7 +129,7 @@ $favs_title = $liked ? 'Remove from Favorite' : 'Add to Favorite';
 			</div>
 
 			<aside class="col-12 col-md-4 d-print-block">
-				<div class="sticky-block">
+				<div class="sticky-block top-10">
 					<?=$this->render('sidebar/dist-calc', ['property' => $property]);?>
 					<?=RelatedProperties::widget([
 						'limit' => 3,
