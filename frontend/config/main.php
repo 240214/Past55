@@ -141,6 +141,7 @@ return [
                 'mortgage/disclaimer/<id>'=> 'mortgage/disclaimer',
                 'mortgage/review/<id>'=> 'mortgage/review',
                 'pages/index/<id>-<title>'=> 'pages/index',
+                'resources/'=> 'posts/resources',
             ),
 
         ],

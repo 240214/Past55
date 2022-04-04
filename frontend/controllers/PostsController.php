@@ -107,7 +107,6 @@ class PostsController extends BaseController {
 		]);
 	}
 	
-	
 	/**
 	 * Lists tag search blog models.
 	 * @return mixed
