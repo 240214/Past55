@@ -112,6 +112,7 @@ return [
                 'property/pricing/<id>' => 'property/pricing',
                 'property/photos/<id>' => 'property/photos',
                 'POST property/filter/' => 'property/filter',
+                'resources' => 'posts/resources',
                 #'saved/property/<ref>' => 'saved/property',
                 #'saved/remove-property/<ref>' => 'saved/remove-property',
                 #'saved/agents/<ref>' => 'saved/agents',
@@ -141,7 +142,6 @@ return [
                 'mortgage/disclaimer/<id>'=> 'mortgage/disclaimer',
                 'mortgage/review/<id>'=> 'mortgage/review',
                 'pages/index/<id>-<title>'=> 'pages/index',
-                'resources/'=> 'posts/resources',
             ),
 
         ],

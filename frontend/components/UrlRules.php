@@ -178,6 +178,8 @@ class UrlRules implements UrlRuleInterface{
 			case "category":
 				return ['category/index', $this->params];
 				break;
+			default:
+				break;
 		}
 		
 		return false;

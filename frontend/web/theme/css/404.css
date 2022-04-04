@@ -1,0 +1,22 @@
+.first-screen {position: relative; padding-top: 110px; padding-bottom: 85px; background-image: linear-gradient(180deg, rgba(225, 243, 255, 0.3) 7.86%, rgba(216, 206, 255, 0.3) 109.88%);}
+.first-screen-title {font-family: 'PT Serif'; font-style: normal; font-weight: bold; font-size: 100px; line-height: normal; color: var(--bs-brand);}
+
+
+.content {height: 500px;}
+
+
+@media all and (max-width: 1199px) {
+	.content {height: 400px;}
+	.first-screen {padding-bottom: 0; margin-bottom: 80px;}
+	.first-screen-title {font-size: 45px; line-height: 115%;}
+}
+@media all and (max-width: 991px){
+	.content {height: 350px;}
+	.first-screen {margin-bottom: 60px;}
+}
+@media all and (max-width: 767px){
+	.content {height: auto;}
+	.first-screen {padding-top: 90px;}
+}
+@media all and (max-width: 575px){
+}

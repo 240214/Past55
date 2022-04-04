@@ -21,6 +21,7 @@ use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
 use yii\data\Pagination;
 use frontend\controllers\BaseController;
+use yii\helpers\VarDumper;
 
 /**
  * PostsController implements the CRUD actions for task model.
@@ -63,6 +64,9 @@ class PostsController extends BaseController {
 		$this->noindex = YII_ENV_DEV;
 		
 		$actionToRun = $action;
+		
+		#VarDumper::dump($action, 10, 1);
+		
 		try{
 			$action->id;
 		}catch(ErrorException $e){
@@ -123,10 +127,11 @@ class PostsController extends BaseController {
 			'count' => $count,
 			'tags'  => $tags
 		]);
-		
-		
 	}
 	
+	public function actionResources(){
+		$this->render('resources');
+	}
 	
 	/////// OLD METHODS ////////
 
