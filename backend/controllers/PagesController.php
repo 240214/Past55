@@ -91,6 +91,7 @@ class PagesController extends Controller{
 		
 		return $this->render('create', [
 			'model' => $model,
+			'page_templates' => $this->getTemplatesTree(),
 		]);
 	}
 	
@@ -112,6 +113,7 @@ class PagesController extends Controller{
 		
 		return $this->render('update', [
 			'model' => $model,
+			'page_templates' => $this->getTemplatesTree(),
 		]);
 	}
 	
@@ -123,6 +125,8 @@ class PagesController extends Controller{
 	 *
 	 * @return mixed
 	 * @throws NotFoundHttpException if the model cannot be found
+	 * @throws \Throwable
+	 * @throws \yii\db\StaleObjectException
 	 */
 	public function actionDelete($id){
 		$this->findModel($id)->delete();
@@ -146,6 +150,22 @@ class PagesController extends Controller{
 		return $ret;
 	}
 	
+	public function actionSetNoindexStatus($id){
+		$ret = ['error' => 0, 'status' => ''];
+		
+		Yii::$app->response->format = 'json';
+		
+		if(Yii::$app->request->isAjax){
+			$model = $this->findModel($id);
+			$model->meta_noindex = Yii::$app->request->post('meta_noindex') == 'true' ? 1 : 0;
+			if(!$model->save(false)){
+				$ret['error'] = 1;
+			}
+		}
+		
+		return $ret;
+	}
+	
 	/**
 	 * Finds the Pages model based on its primary key value.
 	 * If the model is not found, a 404 HTTP exception will be thrown.
@@ -161,6 +181,37 @@ class PagesController extends Controller{
 		}
 		
 		throw new NotFoundHttpException('The requested page does not exist.');
+	}
+	
+	public function getTemplatesTree($dir = ''){
+		$result = [];
+		
+		$root = Yii::getAlias('@frontend');
+		
+		if(empty($dir)){
+			#$dir = $root.'/views/main/resources';
+			$dir = $root.'/views/pages';
+		}
+		
+		$cdir = array_diff(scandir($dir), ['..', '.', 'view.php']);
+		//VarDumper::dump($cdir, 10, 1);
+		
+		foreach($cdir as $key => $value){
+			if(is_dir($dir.DIRECTORY_SEPARATOR.$value)){
+				if(substr($value, 0, 1) != '_'){
+					$result[$value] = $this->getTemplatesTree($dir.DIRECTORY_SEPARATOR.$value);
+				}
+			}else{
+				$path = str_replace($root, '', $dir.DIRECTORY_SEPARATOR.$value);
+				$result[$path] = $value;
+			}
+		}
+		
+		ksort($result);
+		reset($result);
+		//VarDumper::dump($result, 10, 1);
+		
+		return $result;
 	}
 	
 }

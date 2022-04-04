@@ -16,6 +16,8 @@ use yii\web\UrlRule;
 use yii\web\UrlManager;
 use common\models\Pages;
 use common\models\Posts;
+use common\models\PostsCategories;
+use yii\helpers\Url;
 
 class UrlRules implements UrlRuleInterface{
 	
@@ -93,7 +95,11 @@ class UrlRules implements UrlRuleInterface{
 			if(isset($params['category_slug'])){
 				$url_a[] = $params['category_slug'];
 			}
-
+			
+			if(isset($params['post_category_id'])){
+				$url_a[] = $this->getPostsCategorySlug($params['post_category_id']);
+			}
+			
 			if(isset($params['post_slug'])){
 				$url_a[] = $params['post_slug'];
 			}
@@ -188,6 +194,16 @@ class UrlRules implements UrlRuleInterface{
 	private function getCategorySlug($id){
 		$slug = '';
 		$model = Category::find()->where(['id' => $id])->one();
+
+		if(!is_null($model))
+			$slug = $model->slug;
+		
+		return $slug;
+	}
+	
+	private function getPostsCategorySlug($id){
+		$slug = '';
+		$model = PostsCategories::find()->where(['id' => $id])->one();
 
 		if(!is_null($model))
 			$slug = $model->slug;
@@ -306,4 +322,7 @@ class UrlRules implements UrlRuleInterface{
 		$this->params[$key] = $value;
 	}
 	
+	public static function getUrl($params){
+		return Url::toRoute($params);
+	}
 }

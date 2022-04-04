@@ -5,6 +5,7 @@ use common\models\search\SearchPages;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\Url;
 use yii\web\View;
 use yii\widgets\Pjax;
 
@@ -44,8 +45,14 @@ $this->params['breadcrumbs'][] = $this->title;
 					return '<span class="label label-success label-id">'.$data->id.'</span>';
 				},
 			],
-			'title',
+			[
+				'attribute'      => 'title',
+				'content' => function($data){
+					return sprintf('<a href="%s" target="_blank" data-nojs>%s</a>', Url::to(sprintf('/%s/', $data->slug)), $data->title);
+				},
+			],
 			'slug',
+			'template',
 			[
 				'attribute' => 'url_php_code',
 				'header' => 'URL php code',
@@ -54,6 +61,19 @@ $this->params['breadcrumbs'][] = $this->title;
 					$value = htmlspecialchars("<?=Url::toRoute(['page/view', 'slug' => '".strtolower($data->slug)."']);?>");
 					return '<input type="text" class="form-control" readonly="readonly" value="'.$value.'" data-trigger="js_action_focus" data-action="select_text">';
 				}
+			],
+			[
+				'attribute'      => 'meta_noindex',
+				'contentOptions' => ['class' => 'col-50'],
+				'filter'         => [1 => 'Yes', 0 => 'No'],
+				'content'        => function($data){
+					$content = '<label class="switch">';
+					$content .= Html::checkbox('active', (bool)$data->meta_noindex, ['data-trigger' => 'js_action_change', 'data-action' => 'ajax_change_page_indexing', 'value' => $data->id]);
+					$content .= '<span class="slider round"></span>';
+					$content .= '</label>';
+					
+					return $content;
+				},
 			],
 			[
 				'attribute'      => 'active',

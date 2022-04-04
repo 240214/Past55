@@ -11,5 +11,5 @@ $this->params['breadcrumbs'][] = ['label' => 'Pages', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="card">
-	<?=$this->render('_form', ['model' => $model]);?>
+	<?=$this->render('_form', ['model' => $model, 'page_templates' => $page_templates]);?>
 </div>

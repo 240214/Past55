@@ -10,7 +10,10 @@ use yii\db\ActiveRecord;
  * @property integer $id
  * @property string $title
  * @property string $content
- * @property string $status
+ * @property string $template
+ * @property string $meta_description
+ * @property integer $meta_noindex
+ * @property integer $active
  */
 class Pages extends ActiveRecord{
 	
@@ -26,8 +29,8 @@ class Pages extends ActiveRecord{
 	public function rules(){
 		return [
 			[['title', 'slug'], 'required'],
-			[['active'], 'integer'],
-			[['title', 'slug', 'content'], 'string'],
+			[['active', 'meta_noindex'], 'integer'],
+			[['title', 'slug', 'content', 'template', 'meta_description'], 'string'],
 		
 		];
 	}
@@ -43,6 +46,9 @@ class Pages extends ActiveRecord{
 			'slug' => 'Slug',
 			'active' => 'Active',
 			'content' => 'Content',
+			'template' => 'Template',
+			'meta_description' => 'Meta Description',
+			'meta_noindex' => 'Noindex, Nofollow',
 		];
 	}
 	

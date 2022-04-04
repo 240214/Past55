@@ -12,5 +12,5 @@ $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'i
 $this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="card">
-	<?=$this->render('_form', ['model' => $model]);?>
+	<?=$this->render('_form', ['model' => $model, 'page_templates' => $page_templates]);?>
 </div>

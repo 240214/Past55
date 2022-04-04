@@ -7,6 +7,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\web\View;
 use yii\widgets\Pjax;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\search\SearchPages */
@@ -42,7 +43,12 @@ $this->params['breadcrumbs'][] = $this->title;
 					return '<span class="label label-success label-id">'.$data->id.'</span>';
 				},
 			],
-			'title',
+			[
+				'attribute'      => 'title',
+				'content' => function($data){
+					return sprintf('<a href="%s" target="_blank">%s</a>', Url::to(sprintf('/%s/%s/', $data->postsCategories->slug, $data->slug)), $data->title);
+				},
+			],
 			#'slug',
 			[
 				'attribute' => 'category_id',

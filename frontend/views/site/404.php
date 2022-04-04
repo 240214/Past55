@@ -11,7 +11,7 @@ use yii\bootstrap\BootstrapAsset;
 $this->title = 'Oops! Page not found';
 $this->params['breadcrumbs'][] = $this->title;
 
-$message = 'we are sorry, but the page you requested was not found';
+$message = 'We are sorry, but the page you requested was not found.';
 $statusCode_arr = str_split($exception->statusCode);
 
 $this->registerCssFile('@web/theme/css/404.css', ['depends' => [BootstrapAsset::className()]]);
@@ -23,10 +23,10 @@ $this->registerCssFile('@web/theme/css/404.css', ['depends' => [BootstrapAsset::
 
 		<div class="row justify-content-between align-items-center content">
 			<div class="col-12 text-center">
-				<h3><?=$this->title;?></h3>
+				<h3 class="ff-airbnb-cereal-app"><?=$this->title;?></h3>
 				<h1 class="first-screen-title"><span><?=implode('</span><span>', $statusCode_arr);?></span></h1>
 				<p class="main-text-content"><?=nl2br(Html::encode($message));?></p>
-				<a class="btn btn-warning" href="<?=Url::toRoute('/')?>">BACK TO HOME</a>
+				<a class="btn-primary-medium m-auto" href="<?=Url::toRoute('/')?>">Back To Home</a>
 			</div>
 		</div>
 

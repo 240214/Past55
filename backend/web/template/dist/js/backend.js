@@ -15,25 +15,26 @@ $(function(){
 			},
 			property: {
 				prop_cats_fragments: '/backend/web/property/get-cats-fragments/',
-				change_status: '/backend/web/property/set-status/',
+				change_active_status: '/backend/web/property/set-status/',
 			},
 			nearby_places: {
-				change_status: '/backend/web/nearby-places/set-status/',
+				change_active_status: '/backend/web/nearby-places/set-status/',
 			},
 			nearby_places_type: {
-				change_status: '/backend/web/nearby-places-types/set-status/',
+				change_active_status: '/backend/web/nearby-places-types/set-status/',
 			},
 			pages: {
-				change_status: '/backend/web/pages/set-status/',
+				change_active_status: '/backend/web/pages/set-status/',
+				change_meta_noindex_status: '/backend/web/pages/set-noindex-status/',
 			},
 			property_features_types: {
-				change_status: '/backend/web/property-features-types/set-status/',
+				change_active_status: '/backend/web/property-features-types/set-status/',
 			},
 			category_city_content: {
-				change_status: '/backend/web/category-city-content/set-status/',
+				change_active_status: '/backend/web/category-city-content/set-status/',
 			},
 			users: {
-				change_status: '/backend/web/users/set-status/',
+				change_active_status: '/backend/web/users/set-status/',
 			},
 		},
 		els: {
@@ -47,6 +48,7 @@ $(function(){
 			this.initEvents();
 			this.Properties.Init();
 			this.Categories.Init();
+			this.Forms.Init();
 		},
 		initEvents: function(){
 			$(document)
@@ -93,6 +95,9 @@ $(function(){
 				case "ajax_change_page_status":
 					BJS.Forms.ajaxChangeEntryStatus($this, 'pages', 'active');
 					break;
+				case "ajax_change_page_indexing":
+					BJS.Forms.ajaxChangeEntryStatus($this, 'pages', 'meta_noindex');
+					break;
 				case "ajax_change_prop_feature_type_separated":
 					BJS.Forms.ajaxChangeEntryStatus($this, 'property_features_types', 'separated');
 					break;
@@ -112,6 +117,9 @@ $(function(){
 				case "select_text":
 					BJS.Forms.selectText($this);
 					break;
+				case "toggle_content_editor":
+					BJS.Forms.toggleContentEditor($this);
+					break;
 				case "property_features_search":
 					BJS.Properties.searchFeatures($this);
 					break;
@@ -125,7 +133,9 @@ $(function(){
 
 		},
 		Forms: {
-			Init: function(){},
+			Init: function(){
+				this.initContentEditorDisplay();
+			},
 			string_to_slug: function(str, separator){
 				str = str.trim();
 				str = str.toLowerCase();
@@ -207,7 +217,7 @@ $(function(){
 
 				$.ajax({
 					type: "POST",
-					url: BJS.route[type].change_status + id,
+					url: BJS.route[type]["change_"+field+"_status"] + id,
 					data: data,
 					dataType: "json"
 				}).done(function(responce){
@@ -246,6 +256,19 @@ $(function(){
 					$loader_tag.removeClass('fa-spinner').addClass('fa-times');
 					console.log("SYSTEM TECHNICAL ERROR");
 				});
+			},
+			toggleContentEditor: function($obj){
+				var val = $obj.val(),
+					$target = $($obj.data('target'));
+
+				if(val == ''){
+					$target.show();
+				}else{
+					$target.hide();
+				}
+			},
+			initContentEditorDisplay: function(){
+				BJS.Forms.toggleContentEditor($('#pages-template'));
 			},
 		},
 		Properties: {

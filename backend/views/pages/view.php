@@ -46,6 +46,17 @@ YiiAsset::register($this);
 					],
 					'title',
 					'slug',
+					'template',
+					[
+						'attribute' => 'meta_noindex',
+						'format' => 'html',
+						'value' => function($data){
+							$class = ($data->meta_noindex) ? 'badge label-danger text-light' : 'badge label-success text-dark';
+							$text = ($data->meta_noindex) ? 'Yes' : 'No';
+							return sprintf('<span class="%s">%s</span>', $class, $text);
+						},
+					],
+					'meta_description',
 					'content:html',
 				],
 			]);?>

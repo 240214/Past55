@@ -65,7 +65,7 @@ a.desc:after {content: /*"\e114"*/ "\e152";}
 .sort-ordinal a.asc:after {content: "\e155";}
 .sort-ordinal a.desc:after {content: "\e156";}
 .grid-view tr:hover td {background-color: #eee;}
-.grid-view td {white-space: nowrap;}
+.grid-view td {/*white-space: nowrap;*/}
 .grid-view td > img {max-width: 50px;}
 .grid-view .filters input,
 .grid-view .filters select {min-width: 50px;}

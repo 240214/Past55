@@ -1,5 +1,5 @@
 .first-screen {position: relative; padding-top: 110px; padding-bottom: 85px; background-image: linear-gradient(180deg, rgba(225, 243, 255, 0.3) 7.86%, rgba(216, 206, 255, 0.3) 109.88%);}
-.first-screen-title {font-family: 'PT Serif'; font-style: normal; font-weight: bold; font-size: 100px; line-height: normal; color: var(--bs-brand);}
+.first-screen-title {font-family: 'PT Serif'; font-style: normal; font-weight: bold; font-size: 150px; line-height: 1; color: var(--bs-brand);}
 
 
 .content {height: 500px;}

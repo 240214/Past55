@@ -49,12 +49,18 @@ class PagesController extends BaseController{
 	
 	
 	public function actionView($slug){
-		$model = Pages::findOne(['slug' => $slug]);
-		$siteName = SiteSettings::find()->select('site_name')->one();
+		$template = 'view';
 		
-		return $this->render('view', [
+		$model = Pages::findOne(['slug' => $slug, 'active' => 1]);
+		#$siteName = SiteSettings::find()->select('site_name')->one();
+		
+		if(!empty($model->template)){
+			$template = basename($model->template);
+		}
+		
+		return $this->render($template, [
 			'model' => $model,
-			'site'  => $siteName
+			#'site'  => $siteName
 		]);
 	}
 	
