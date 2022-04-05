@@ -34,11 +34,14 @@ use yii\widgets\ActiveForm;
 						'data-target' => '.field-pages-content'
 					]);?>
 				</div>
+				<div class="col-xs-12">
+					<?=$form->field($model, 'meta_title')->textInput(['maxlength' => true]);?>
+				</div>
 				<div class="col-md-12">
 					<?=$form->field($model, 'meta_description')->textarea(['row' => 6]);?>
 				</div>
 				<div class="col-md-12">
-					<?=$form->field($model, 'meta_noindex')->dropDownList([1 => 'Yes', 0 => 'No']);?>
+					<?=$form->field($model, 'meta_noindex')->dropDownList([0 => 'No', 1 => 'Yes']);?>
 				</div>
 				<div class="col-md-12">
 					<?=$form->field($model, 'active')->dropDownList([1 => 'Yes', 0 => 'No']);?>

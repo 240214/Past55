@@ -1,18 +1,17 @@
 <?php
 
-use common\models\Users;
+use yii\helpers\VarDumper;
 use frontend\assets\AppAsset;
-use \yii\bootstrap\ActiveForm;
 use yii\bootstrap\BootstrapAsset;
+use frontend\widgets\PostsCarousel;
 
 $this->registerMetaTag(['name' => 'description', 'content' => $model->meta_description]);
 $this->registerMetaTag(['name' => 'keywords', 'content' => '']);
 if($model->meta_noindex){
 	$this->registerMetaTag(['name' => 'robots', 'content' => 'noindex,nofollow']);
 }
-$this->title = $model->title;
-$this->params['breadcrumbs'][] = $this->title;
-#$this->params['breadcrumbs'][] = $this->title;
+$this->title = $model->meta_title;
+$this->params['breadcrumbs'][] = $model->title;
 
 $this->registerCssFile('@web/theme/css/pages/resources.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 
@@ -20,9 +19,10 @@ $this->registerCssFile('@web/theme/css/pages/resources.css', ['depends' => [Boot
 <section class="content-library">
 	<div class="content-library__body">
 		<div class="container">
-			<h1 class="main-title text-center mb-1 mb-md-2"><?=$model->title;?></h1>
+			<h1 class="main-title text-center mb-1 mb-md-2">Content Library</h1>
 			<p class="main-text-content text-center mb-5 mb-md-7">People started talking about E‑A-T in August 2018, and it’s been mentioned<br>in hundreds of SEO articles ever since.</p>
 
+			<?=PostsCarousel::widget(['posts_category_slug' => '']);?>
 			<div class="d-flex justify-content-between mb-1 mb-md-3">
 				<h3 class="content-library__row-title">Skilled Nursing</h3>
 				<a class="content-library__see-all-link d-none d-md-block text-decoration-underline" href="#">See All</a>

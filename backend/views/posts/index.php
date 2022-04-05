@@ -46,7 +46,15 @@ $this->params['breadcrumbs'][] = $this->title;
 			[
 				'attribute'      => 'title',
 				'content' => function($data){
-					return sprintf('<a href="%s" target="_blank">%s</a>', Url::to(sprintf('/%s/%s/', $data->postsCategories->slug, $data->slug)), $data->title);
+					$a = [];
+					if($data->postsCategories){
+						$a[] = $data->postsCategories->slug;
+					}elseif($data->category){
+						$a[] = $data->category->slug;
+					}
+					$a[] = $data->slug;
+					
+					return sprintf('<a href="%s" target="_blank">%s</a>', Url::to(sprintf('/%s/', implode('/', $a))), $data->title);
 				},
 			],
 			#'slug',

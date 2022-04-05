@@ -56,6 +56,7 @@ YiiAsset::register($this);
 							return sprintf('<span class="%s">%s</span>', $class, $text);
 						},
 					],
+					'meta_title',
 					'meta_description',
 					'content:html',
 				],
