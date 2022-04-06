@@ -67,6 +67,7 @@ class CategoryController extends BaseController{
 				'category_id' => $model->id,
 				'category_slug' => $model->slug,
 				'meta' => [
+					'h1' => $model->title,
 					'title' => $model->meta_title,
 					'description' => '',
 					'keywords' => '',

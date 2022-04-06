@@ -10,6 +10,7 @@ use yii\db\ActiveRecord;
  * This is the model class for table "category".
  * @property integer $id
  * @property string $name
+ * @property string $title
  * @property string $slug
  * @property string $type
  * @property string $icon
@@ -33,8 +34,8 @@ class Category extends ActiveRecord{
 	public function rules(){
 		return [
 			[['name'], 'required'],
-			[['type', 'slug', 'meta_title', 'meta_keywords', 'meta_description', 'template'], 'string'],
-			[['name', 'icon'], 'string', 'max' => 225],
+			[['type', 'slug', 'title', 'meta_title', 'meta_keywords', 'meta_description', 'template'], 'string'],
+			[['name', 'title', 'icon'], 'string', 'max' => 225],
 		];
 	}
 	
@@ -45,10 +46,11 @@ class Category extends ActiveRecord{
 		return [
 			'id'               => Yii::t('app', 'ID'),
 			'name'             => Yii::t('app', 'Name'),
+			'title'             => Yii::t('app', 'H1 Title'),
 			'slug'             => Yii::t('app', 'Slug'),
 			'type'             => Yii::t('app', 'Type'),
 			'icon'             => Yii::t('app', 'Icon'),
-			'meta_title'       => Yii::t('app', 'Meta Title & H1'),
+			'meta_title'       => Yii::t('app', 'Meta Title'),
 			'meta_keywords'    => Yii::t('app', 'Meta Keywords'),
 			'meta_description' => Yii::t('app', 'Meta Description'),
 			'template' => Yii::t('app', 'Template'),

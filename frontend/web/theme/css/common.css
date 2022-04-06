@@ -416,6 +416,7 @@ button:focus {outline: none; outline: -webkit-focus-ring-color auto 5px;}
 	.mt-md-4 {margin-top: 40px !important;}
 	.mt-md-5 {margin-top: 50px !important;}
 	.mt-md-100 {margin-top: 50px !important;}
+	.mb-md-0 {margin-bottom: 0 !important;}
 	.mb-md-1 {margin-bottom: 10px !important;}
 	.mb-md-15 {margin-bottom: 15px !important;}
 	.mb-md-1 {margin-bottom: 10px !important;}
@@ -532,12 +533,16 @@ button:focus {outline: none; outline: -webkit-focus-ring-color auto 5px;}
 }
 
 .max-w-420 {max-width: 420px;}
+.max-w-530 {max-width: 530px;}
 .max-w-700 {max-width: 700px;}
-.max-w-1120 {max-width: 1120px;}
-.max-w-1100 {max-width: 1100px;}
+.max-w-860 {max-width: 860px;}
 .max-w-1070 {max-width: 1070px;}
+.max-w-1100 {max-width: 1100px;}
+.max-w-1120 {max-width: 1120px;}
+.max-w-1290 {max-width: 1290px;}
 @media all and (min-width: 768px){
 	.max-w-420-sm {max-width: 420px;}
+	.max-w-530-sm {max-width: 530px;}
 	.w-sm-auto {width: auto !important;}
 }
 

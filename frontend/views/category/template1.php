@@ -33,7 +33,7 @@ $this->registerCssFile('@web/theme/css/category-template.css', ['depends' => [Bo
 ?>
 <section class="hub-page">
 	<div class="container hub-page__first-screen">
-		<h1 class="d-none d-md-block main-title text-center mb-3 max-w-700 me-auto ms-auto"><?=$meta['title'];?></h1>
+		<h1 class="d-none d-md-block main-title text-center mb-3 max-w-700 me-auto ms-auto"><?=$meta['h1'];?></h1>
 		<p class="main-text-content text-color-black text-center mb-0 max-w-700 me-auto ms-auto">People started talking about E‑A-T in August 2018, and it’s been mentioned</br> in hundreds of SEO articles ever since.</p>
 	</div>
 </section>

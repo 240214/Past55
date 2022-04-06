@@ -48,6 +48,7 @@ $this->params['breadcrumbs'][] = $this->title;
 				},
 			],
 			'slug',
+			'title',
 			'meta_title',
 			'template',
 			#'type',
