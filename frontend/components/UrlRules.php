@@ -109,6 +109,20 @@ class UrlRules implements UrlRuleInterface{
 			return implode('/', $url_a).'/';
 		}
 		
+		if($route === 'category/view'){
+			if(isset($params['category_slug'])){
+				$url_a[] = $params['category_slug'];
+			}elseif(isset($params['category_id'])){
+				$url_a[] = $this->getCategorySlug($params['category_id']);
+			}elseif(isset($params['post_category_id'])){
+				$url_a[] = $this->getPostsCategorySlug($params['post_category_id']);
+			}
+			
+			$url_a = array_filter($url_a);
+			
+			return implode('/', $url_a).'/';
+		}
+		
 		return $route;
 	}
 	

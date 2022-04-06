@@ -315,7 +315,7 @@ class Users extends ActiveRecord implements IdentityInterface{
 	}
 	
 	public function getAvatar($size = '150'){
-		$image = Yii::$app->urlManagerFrontend->baseUrl.'/images/common/noimage.svg';
+		$image = Yii::$app->urlManagerFrontend->baseUrl.'/images/common/noavatar2.svg';
 		
 		if($this->image){
 			$pathinfo = pathinfo($this->image);

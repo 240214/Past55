@@ -23,8 +23,24 @@
 .content-list li a:active,
 .content-list li a:visited {font-weight: 500; color: #6D459C;}
 
-.check-list li {display: flex; flex-flow: row nowrap; margin-bottom: 20px; font-size: 20px; line-height: normal;}
-.check-list li:before {content: '\f26b'; font: normal normal normal 14px/1 'Material-Design-Iconic-Font'; color: var(--bs-brand); font-size: 18px; display: block; flex: 0 0 24px; width: 24px; height: 24px; background-color: #f5ecff; border-radius: 50%; text-align: center; line-height: 24px; margin: 2px 20px 0 0;}
+.check-list li {position: relative; margin-bottom: 20px; font-size: 18px; line-height: 27px; padding-left: 44px;}
+.check-list li:before {
+	content: '\f26b';
+	font: normal normal normal 14px/1 'Material-Design-Iconic-Font';
+	color: var(--bs-brand);
+	font-size: 18px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: block;
+	width: 24px;
+	height: 24px;
+	background-color: #f5ecff;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 24px;
+	margin: 2px 20px 0 0;
+}
 
 @media all and (max-width: 991px){
 	.hub-page {background-size: auto, auto 70%, auto 70%;}
@@ -32,6 +48,7 @@
 @media all and (max-width: 767px){
 	.hub-page {background-size: auto, auto 50%, auto 50%; padding: 65px 0 45px;}
 	.hub-page__first-screen {padding: 60px 23px 0;}
+	.check-list li {padding-left: 40px; font-size: 14px; line-height: 23px;}
 }
 @media all and (max-width: 575px){
 	.hub-page {background-size: auto, auto 30%, auto 30%;}

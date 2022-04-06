@@ -11,7 +11,7 @@ use frontend\widgets\Image;
 
 <?php if($found):?>
 	<h3 class="highlighted-title mb-3 mb-md-4"><?=$title;?></h3>
-	<div class="row mb-2 mb-md-6">
+	<div class="row">
 	<?php foreach($dataProvider->getModels() as $model):?>
 		<?php $url = Url::toRoute(['post/view', 'post_slug' => $model->slug, 'category_slug' => $model->category->slug]);?>
 		<div class="col-12 col-md-6 col-xl-3 my-2">
@@ -39,7 +39,7 @@ use frontend\widgets\Image;
 						'lazyload' => true,
 						'css_class' => 'img-fluid me-1 rounded-50p d-block',
 					]);?>
-					<a href="#"><span class="name"><?=$model->users->name;?></span></a>
+					<a href="/<?=$model->users->username;?>/"><span class="name"><?=$model->users->name;?></span></a>
 				</div>
 				<a href="<?=$url;?>" class="related-article-card__title d-block mb-15 text-decoration-none"><?=$model->title;?></a>
 				<p class="related-article-card__text mb-2"><?=$model->getShortDescription();?></p>

@@ -3,6 +3,7 @@
 use common\components\CustomActionColumn;
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\Url;
 use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
@@ -40,7 +41,12 @@ $this->params['breadcrumbs'][] = $this->title;
 					return '<span class="label label-success label-id">'.$data->id.'</span>';
 				},
 			],
-			'name',
+			[
+				'attribute'      => 'name',
+				'content' => function($data){
+					return sprintf('<a href="%s" target="_blank" data-pjax="0">%s</a>', Url::to(sprintf('/%s/', $data->slug)), $data->name);
+				},
+			],
 			'slug',
 			'meta_title',
 			'template',

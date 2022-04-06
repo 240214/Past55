@@ -320,14 +320,17 @@ button:focus {outline: none; outline: -webkit-focus-ring-color auto 5px;}
 .mb-15 {margin-bottom: 15px !important;}
 .mb-25 {margin-bottom: 25px !important;}
 .mb-35 {margin-bottom: 35px !important;}
+.mb-45 {margin-bottom: 45px !important;}
 .ms-05 {margin-left: 5px!important;}
 .ms-1 {margin-left: 10px!important;}
 .ms-15 {margin-left: 15px!important;}
 .ms-2 {margin-left: 20px !important;}
 .ms-3 {margin-left: 30px !important;}
 .ms-4 {margin-left: 40px !important;}
+.ms-45 {margin-left: 45px !important;}
 .ms-5 {margin-left: 50px !important;}
 .p-1 {padding: 10px !important;}
+.p-15 {padding: 15px !important;}
 .p-2 {padding: 20px!important;}
 .p-25 {padding: 25px!important;}
 .p-3 {padding: 30px !important;}

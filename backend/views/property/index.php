@@ -49,7 +49,23 @@ $front = Yii::$app->urlManagerFrontend->baseUrl;
 				'contentOptions' => ['class' => 'col-50'],
 				'format' => 'image',
 			],
-			'title',
+			[
+				'attribute'      => 'title',
+				'content' => function($model) use ($all_states){
+					$a = [];
+					
+					if($model->category)
+						$a[] = $model->category->slug;
+					if($model->state)
+						$a[] = strtolower($all_states[$model->state]);
+					if($model->city)
+						$a[] = strtolower(str_replace(' ', '-', $model->city));
+					
+					$a[] = $model->slug;
+					
+					return sprintf('<a href="%s" target="_blank" data-pjax="0">%s</a>', Url::to(sprintf('/%s/', implode('/', $a))), $model->title);
+				},
+			],
 			'slug',
 			/*[
 				'attribute' => 'type',

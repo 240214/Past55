@@ -54,7 +54,7 @@ $this->params['breadcrumbs'][] = $this->title;
 					}
 					$a[] = $data->slug;
 					
-					return sprintf('<a href="%s" target="_blank">%s</a>', Url::to(sprintf('/%s/', implode('/', $a))), $data->title);
+					return sprintf('<a href="%s" target="_blank" data-pjax="0">%s</a>', Url::to(sprintf('/%s/', implode('/', $a))), $data->title);
 				},
 			],
 			#'slug',

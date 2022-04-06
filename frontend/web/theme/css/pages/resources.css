@@ -1,29 +1,8 @@
 .content-library {padding-top: 110px; background: linear-gradient(180deg, #E1F3FF 7.86%, rgba(216, 206, 255, 0.3) 109.88%);}
 .content-library__body {padding-top: 100px; padding-bottom: 60px;}
-.content-card {max-width: 410px; border-radius: 10px;}
-.content-library__row-title {font-family: 'Airbnb Cereal App'; font-style: normal; font-weight: 500; font-size: 23px; line-height: 25px; letter-spacing: -0.005em; color: #000;}
-.content-library__see-all-link {font-family: 'Airbnb Cereal App'; font-style: normal; font-weight: 500; font-size: 18px; line-height: 135%; letter-spacing: -0.01em; color: #000; transition: all .1s ease-in;}
-.content-library__see-all-link:hover,
-.content-card__title:hover {color: var(--bs-brand); transition: all .1s ease-in;}
-.content-card__title {display: block; font-family: 'Airbnb Cereal App'; font-style: normal; font-weight: 500; font-size: 23px; line-height: 135%; letter-spacing: -0.01em; color: #000; transition: all .1s ease-in;}
-.content-card__title:hover {text-decoration: underline !important;}
-.content-card__text {font-family: 'Airbnb Cereal App'; font-style: normal; font-weight: normal; font-size: 16px; line-height: 150%; color: #6D6D6D;}
-.content-card__author-name {font-family: 'Airbnb Cereal App'; font-style: normal; font-weight: 500; font-size: 15px; line-height: 135%; letter-spacing: -0.01em; color: #000;}
-.content-card__date {font-family: 'Airbnb Cereal App'; font-style: normal; font-weight: normal; font-size: 16px; line-height: 150%; color: #898989;}
-.content-card__post-type {font-family: 'Airbnb Cereal App'; font-style: normal; font-weight: 500; font-size: 18px; line-height: 150%; color: #6D459C;}
-.latest-articles__row-title {font-family: 'PT Serif'; font-style: normal; font-weight: bold; font-size: 40px; line-height: 150%; color: #000;}
-.slick-arrow {position: absolute; font-size: 0; width: 50px !important; height: 50px !important; border-radius: 50%; background-color: #FFF; border: 2px solid #D9D9D9; box-sizing: border-box; box-shadow: -4px 4px 120px rgba(22, 37, 60, 0.49); outline: none !important;}
-.slick-arrow:after {content: url(../../icons/arrow-left-black.svg);}
-.slick-arrow .slick-next {transform: rotate(-45deg);}
-.slick-next {right: -15px; top: 50%; transform: translateY(-50%) rotate(180deg);}
-.slick-prev {left: -15px; top: 50%; transform: translateY(-50%); z-index: 2;}
+.latest-articles__row-title {font-family: 'PT Serif'; font-style: normal; font-weight: bold; font-size: 40px; line-height: normal; color: #000; margin: 0;}
 
 @media all and (max-width: 767px){
-    .content-card__title {font-size: 13px; line-height: 135%;}
-    .content-card__text,
-    .content-card__author-name,
-    .content-card__date {font-size: 10px; line-height: 150%;}
-    .content-library__row-title,
-    .content-library__see-all-link {font-size: 16px; line-height: 25px;}
-    .latest-articles__row-title {font-size: 28px; line-height: 37px;}
+    .content-library__body {padding-top: 65px; padding-bottom: 30px;}
+    .latest-articles__row-title {font-size: 28px;}
 }

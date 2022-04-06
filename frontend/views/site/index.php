@@ -91,7 +91,7 @@ $this->registerCssFile('@web/theme/css/home.css', ['depends' => [BootstrapAsset:
 						</div>
 						<div class="col-12 col-md-6 d-flex justify-content-center">
 							<div class="w-100 max-w-420-sm">
-								<a href="<?=Url::toRoute(['property/index', 'category_slug' => 'assisted-living', 'state_slug' => 'ga']);?>" class="location-card__location-name-box mt-65 text-color-primary">
+								<a href="<?=Url::toRoute(['property/index', 'category_slug' => 'assisted-living']);?>" class="location-card__location-name-box mt-65 text-color-primary">
 									<i class="zmdi zmdi-star me-1"></i>Assisted Living
 								</a>
 								<ul class="location-card__list">
@@ -108,13 +108,13 @@ $this->registerCssFile('@web/theme/css/home.css', ['depends' => [BootstrapAsset:
 						</div>
 						<div class="col-12 col-md-6 d-flex justify-content-center">
 							<div class="w-100 max-w-420-sm">
-								<a href="<?=Url::toRoute(['property/index', 'category_slug' => 'memory-care', 'state_slug' => 'fl']);?>" class="location-card__location-name-box mt-65 text-color-secondary">
+								<a href="<?=Url::toRoute(['property/index', 'category_slug' => 'memory-care']);?>" class="location-card__location-name-box mt-65 text-color-secondary">
 									<i class="zmdi zmdi-star me-1"></i>Memory Care
 								</a>
 								<ul class="location-card__list">
-									<li class="location-card__item"><a href="<?=Url::toRoute(['property/index', 'category_slug' => 'memory-care', 'state_slug' => 'fl', 'city_slug' => 'miami']);?>"><i class="zmdi zmdi-pin me-15"></i>Atlanta Memory Care <i class="bi bi-arrow-right-short"></i></a></li>
-									<li class="location-card__item"><a href="<?=Url::toRoute(['property/index', 'category_slug' => 'memory-care', 'state_slug' => 'fl', 'city_slug' => 'orlando']);?>"><i class="zmdi zmdi-pin me-15"></i>Roswell Memory Care<i class="bi bi-arrow-right-short"></i></a></li>
-									<li class="location-card__item"><a href="<?=Url::toRoute(['property/index', 'category_slug' => 'memory-care', 'state_slug' => 'fl', 'city_slug' => 'tampa']);?>"><i class="zmdi zmdi-pin me-15"></i>Alpharetta Memory Care<i class="bi bi-arrow-right-short"></i></a></li>
+									<li class="location-card__item"><a href="<?=Url::toRoute(['property/index', 'category_slug' => 'memory-care', 'state_slug' => 'ga', 'city_slug' => 'atlanta']);?>"><i class="zmdi zmdi-pin me-15"></i>Atlanta Memory Care <i class="bi bi-arrow-right-short"></i></a></li>
+									<li class="location-card__item"><a href="<?=Url::toRoute(['property/index', 'category_slug' => 'memory-care', 'state_slug' => 'ga', 'city_slug' => 'roswell']);?>"><i class="zmdi zmdi-pin me-15"></i>Roswell Memory Care<i class="bi bi-arrow-right-short"></i></a></li>
+									<li class="location-card__item"><a href="<?=Url::toRoute(['property/index', 'category_slug' => 'memory-care', 'state_slug' => 'ga', 'city_slug' => 'alpharetta']);?>"><i class="zmdi zmdi-pin me-15"></i>Alpharetta Memory Care<i class="bi bi-arrow-right-short"></i></a></li>
 								</ul>
 							</div>
 						</div>
@@ -125,13 +125,13 @@ $this->registerCssFile('@web/theme/css/home.css', ['depends' => [BootstrapAsset:
 						</div>
 						<div class="col-12 col-md-6 d-flex justify-content-center">
 							<div class="w-100 max-w-420-sm">
-								<a href="<?=Url::toRoute(['property/index', 'category_slug' => 'independent-living', 'state_slug' => 'sc']);?>" class="location-card__location-name-box mt-65 text-color-green">
+								<a href="<?=Url::toRoute(['property/index', 'category_slug' => 'independent-living']);?>" class="location-card__location-name-box mt-65 text-color-green">
 									<i class="zmdi zmdi-star me-1"></i>Independent Living
 								</a>
 								<ul class="location-card__list">
-									<li class="location-card__item"><a href="<?=Url::toRoute(['property/index', 'category_slug' => 'independent-living', 'state_slug' => 'sc', 'city_slug' => 'greenville']);?>"><i class="zmdi zmdi-pin me-15"></i>Atlanta Independent Living<i class="bi bi-arrow-right-short"></i></a></li>
-									<li class="location-card__item"><a href="<?=Url::toRoute(['property/index', 'category_slug' => 'independent-living', 'state_slug' => 'sc', 'city_slug' => 'charleston']);?>"><i class="zmdi zmdi-pin me-15"></i>Roswell Independent Living<i class="bi bi-arrow-right-short"></i></a></li>
-									<li class="location-card__item"><a href="<?=Url::toRoute(['property/index', 'category_slug' => 'independent-living', 'state_slug' => 'sc', 'city_slug' => 'columbia']);?>"><i class="zmdi zmdi-pin me-15"></i>Alpharetta Independent Living<i class="bi bi-arrow-right-short"></i></a></li>
+									<li class="location-card__item"><a href="<?=Url::toRoute(['property/index', 'category_slug' => 'independent-living', 'state_slug' => 'ga', 'city_slug' => 'atlanta']);?>"><i class="zmdi zmdi-pin me-15"></i>Atlanta Independent Living<i class="bi bi-arrow-right-short"></i></a></li>
+									<li class="location-card__item"><a href="<?=Url::toRoute(['property/index', 'category_slug' => 'independent-living', 'state_slug' => 'ga', 'city_slug' => 'roswell']);?>"><i class="zmdi zmdi-pin me-15"></i>Roswell Independent Living<i class="bi bi-arrow-right-short"></i></a></li>
+									<li class="location-card__item"><a href="<?=Url::toRoute(['property/index', 'category_slug' => 'independent-living', 'state_slug' => 'ga', 'city_slug' => 'alpharetta']);?>"><i class="zmdi zmdi-pin me-15"></i>Alpharetta Independent Living<i class="bi bi-arrow-right-short"></i></a></li>
 								</ul>
 							</div>
 						</div>
