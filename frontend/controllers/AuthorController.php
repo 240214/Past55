@@ -53,10 +53,10 @@ class AuthorController extends BaseController{
 		$postsDataProvider->sort->defaultOrder = ['created_at' => SORT_DESC];
 		$postsDataProvider->pagination         = ['pageSize' => $this->posts_limit];
 		
-		VarDumper::dump($postsDataProvider->getTotalCount(), 10, 1); exit;
+		#VarDumper::dump($postsDataProvider->getTotalCount(), 10, 1); exit;
 		
 		
-		return $this->render($view, [
+		return $this->render('view', [
 			'author'            => $model,
 			'postsDataProvider' => $postsDataProvider,
 		]);

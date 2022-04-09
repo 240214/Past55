@@ -1,0 +1,5 @@
+section.hero {position: relative; padding: 110px 0 0; background: linear-gradient(180deg, #e1f3ff 7.86%, rgba(216, 206, 255, 0.3) 100%), url(../img/category/first-screen-bg-left.svg) no-repeat left bottom, url(../img/category/first-screen-bg-right.svg) no-repeat right bottom;}
+section.hero .first-screen {padding-top: 60px; padding-bottom: 40px;}
+section.hero .main-title {font-size: 55px;}
+section.hero .sub-title {font-size: 16px;}
+section.hero img {border-radius: 10px;}

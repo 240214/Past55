@@ -10,7 +10,7 @@ section.content .main-title {font-size: 45px; color: #000; line-height: 1.2;}
 section.content .subtitle {font-size: 20px; color: #000;}
 section.content .item-title {font-weight: bold; font-size: 25px; line-height: 1.4; color: #6D459C;}
 section.content .item-text {font-weight: 300; font-size: 20px; line-height: 1.45; color: #000;}
-section.content .work-proccess .row {--bs-gutter-y: 24px;}
+section.content .work-proccess .row {--bs-gutter-x: 24px; --bs-gutter-y: 24px;}
 
 section.hiring {background: linear-gradient(rgba(225, 243, 255, 0.3),rgba(216, 206, 255, 0.3));}
 section.hiring .title {font-family: 'PT Serif'; font-style: normal; font-weight: bold; font-size: 35px; line-height: 140%; color: #000;}

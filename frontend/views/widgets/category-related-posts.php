@@ -39,7 +39,7 @@ use frontend\widgets\Image;
 						'lazyload' => true,
 						'css_class' => 'img-fluid me-1 rounded-50p d-block',
 					]);?>
-					<a href="/<?=$model->users->username;?>/"><span class="name"><?=$model->users->name;?></span></a>
+					<a href="/author/<?=$model->users->username;?>/"><span class="name"><?=$model->users->name;?></span></a>
 				</div>
 				<a href="<?=$url;?>" class="related-article-card__title d-block mb-15 text-decoration-none"><?=$model->title;?></a>
 				<p class="related-article-card__text mb-2"><?=$model->getShortDescription();?></p>
