@@ -102,25 +102,31 @@ $this->registerCssFile('@web/theme/css/pages/careers.css', ['depends' => [Bootst
 		<h2 class="title mb-1 mb-md-25">We're hiring</h2>
 		<p class="main-text-content text-color-black mb-2 mb-md-4">We’re looking for passionate people to join the Swingvy team.</p>
 
-		<a href="#" class="box d-block text-decoration-none bg-white p-25 py-md-3 px-md-5 mb-3 position-relative">
-			<div class="title mb-15 mb-md-3">Product Manager</div>
+		<div class="box d-block text-decoration-none bg-white p-25 py-md-3 px-md-5 mb-15 mb-md-3 position-relative">
+			<div class="title mb-15 mb-md-3">
+				<a href="#">Product Manager</a>
+			</div>
+			<a href="#" class="detail">Detail</a>
 			<div class="d-flex">
 				<div class="location d-flex align-items-center justify-content-center">Georgia</div>
+				<div class="dot"></div>
 				<div class="tag d-flex align-items-center justify-content-center">Remote</div>
 			</div>
-		</a>
-
-		<a href="#" class="box d-block text-decoration-none bg-white p-25 py-md-3 px-md-5 mb-6 position-relative">
-			<div class="title mb-15 mb-md-3">Product Manager</div>
-			<div class="d-flex">
-				<div class="location d-flex align-items-center justify-content-center">Georgia</div>
-				<div class="tag d-flex align-items-center justify-content-center">Remote</div>
-			</div>
-		</a>
-
-		<div class="divider-wrapp">
-			<img class="mb-3" src="../shared/images/divider.png" alt="">
 		</div>
+
+		<div class="box d-block text-decoration-none bg-white p-25 py-md-3 px-md-5 mb-15 mb-md-3 position-relative">
+			<div class="title mb-15 mb-md-3">
+				<a href="#">Product Manager</a>
+			</div>
+			<a href="#" class="detail">Detail</a>
+			<div class="d-flex">
+				<div class="location d-flex align-items-center justify-content-center">Georgia</div>
+				<div class="dot"></div>
+				<div class="tag d-flex align-items-center justify-content-center">Remote</div>
+			</div>
+		</div>
+
+		<div class="dash-line mt-3 mb-2 mt-md-6 mb-md-35"></div>
 
 		<p class="main-text-content text-color-black text-center mb-1">Didn’t find a position that suits you? Don’t worry you can send us your CV and we will review it.</p>
 		<p class="text-center main-text-content text-color-black">

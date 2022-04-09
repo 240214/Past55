@@ -21,6 +21,10 @@ class PostsTags extends ActiveRecord {
 		return 'posts_tags';
 	}
 	
+	public function getPosts(){
+		return $this->hasOne(Posts::className(), ['post_id' => 'id']);
+	}
+	
 	
 	/**
 	 * TODO
@@ -33,8 +37,7 @@ class PostsTags extends ActiveRecord {
 		foreach($tagsExplod as $tag){
 			$check = static::IsUnique($tag);
 			if($check){
-				$tagModel       = new BlogTags();
-				$tagModel->tag  = $tag;
+				$tagModel       = new PostsTags();
 				$tagModel->post_id = $post_id;
 				$tagModel->save(false);
 			}

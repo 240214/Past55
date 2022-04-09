@@ -89,6 +89,27 @@ class Posts extends ActiveRecord {
 		];
 	}
 	
+	public function beforeDelete(){
+		PostsComments::deleteAll(['post_id' => $this->id]);
+		PostsTags::deleteAll(['post_id' => $this->id]);
+		
+		return parent::beforeDelete();
+	}
+	
+	public function _afterDelete(){
+		parent::afterDelete();
+		
+		PostsComments::deleteAll(['post_id' => $this->id]);
+	}
+	
+	public function getPostsComments(){
+		return $this->hasMany(PostsComments::className(), ['post_id' => 'id']);
+	}
+	
+	public function getPostsTags(){
+		return $this->hasMany(PostsTags::className(), ['post_id' => 'id']);
+	}
+	
 	public function getUsers(){
 		return $this->hasOne(Users::className(), ['id' => 'user_id']);
 	}

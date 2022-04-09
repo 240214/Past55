@@ -50,6 +50,10 @@ class PostsComments extends \yii\db\ActiveRecord{
 		];
 	}
 	
+	public function getPosts(){
+		return $this->hasOne(Posts::className(), ['post_id' => 'id']);
+	}
+	
 	public static function countComment($id){
 		return static::find()->where(['post_id' => $id])->count();
 	}

@@ -11,6 +11,8 @@ use yii\helpers\Html;
 use yii\image\drivers\Image;
 use yii\web\IdentityInterface;
 use yii\web\UploadedFile;
+use common\models\Posts;
+use common\models\Property;
 
 /**
  * User model
@@ -362,4 +364,11 @@ class Users extends ActiveRecord implements IdentityInterface{
 		return $list;
 	}
 	
+	public function getPostsCount(){
+		return Posts::find()->where(['user_id' => $this->id])->count();
+	}
+	
+	public function getListingsCount(){
+		return Property::find()->where(['user_id' => $this->id])->count();
+	}
 }

@@ -7,12 +7,12 @@
 
 @media all and (max-width: 1199px) {
 	.content {height: 400px;}
-	.first-screen {padding-bottom: 0; margin-bottom: 80px;}
+	.first-screen {padding-bottom: 40px; margin-bottom: 0;}
 	.first-screen-title {font-size: 45px; line-height: 115%;}
 }
 @media all and (max-width: 991px){
 	.content {height: 350px;}
-	.first-screen {margin-bottom: 60px;}
+	.first-screen {}
 }
 @media all and (max-width: 767px){
 	.content {height: auto;}

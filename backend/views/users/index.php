@@ -5,6 +5,7 @@ use common\models\search\SearchPages;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\Url;
 use yii\web\View;
 use yii\widgets\Pjax;
 
@@ -48,10 +49,27 @@ $this->params['breadcrumbs'][] = $this->title;
 				'contentOptions' => ['class' => 'col-50'],
 				'format' => 'image',
 			],
-			'name',
+			[
+				'attribute' => 'name',
+				'content' => function($data){
+					return sprintf('<a href="%s" target="_blank" data-pjax="0">%s</a>', Url::to(sprintf('/author/%s/', $data->username)), $data->name);
+				},
+			],
 			'username',
 			'email',
 			'mobile',
+			[
+				'attribute' => 'listings_count',
+				'content' => function($data){
+					return $data->ListingsCount;
+				},
+			],
+			[
+				'attribute' => 'posts_count',
+				'content' => function($data){
+					return $data->PostsCount;
+				},
+			],
 			[
 				'attribute'      => 'active',
 				'contentOptions' => ['class' => 'col-50'],

@@ -1,8 +1,10 @@
-.contact-us {position: relative; padding: 100px 0 75px 0; background: #fff url(../img/contact-us/section-bg.png) no-repeat right -25px bottom 25px;}
+.contact-us {position: relative; padding: 100px 0 75px; background: #fff url(../../img/contact-us/section-bg.png) no-repeat right -25px bottom 25px;}
 .contact-us__subtitle {font-family: 'Roboto'; font-size: 21px; line-height: 125%; color: #1F3A53;}
 .contact-us__subtitle .bi-heart-fill {font-size: 17px; line-height: 1; color: #8859EC;}
 .contact-us__btn {margin: 0 auto;}
 .contact-us__bg {position: absolute; right: 0; bottom: 0;}
 @media all and (max-width: 575px){
-    .contact-us {background-position: right -55px bottom -20px;}
+    .contact-us {background-position: right -55px bottom -20px; padding: 60px 0;}
+    .contact-us .main-title {font-size: 25px;}
+    .title-decor-line::after {bottom: 2px; height: 2px;}
 }

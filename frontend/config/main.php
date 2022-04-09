@@ -97,6 +97,7 @@ return [
                 #'property/search' => 'property/search',
                 'POST <controller:(compare)>/<slug:(get-property)>' => '<controller>/<action>',
                 'GET <controller:(compare)>/<slug:.*?>' => '<controller>/resources',
+                'GET <controller:(author)>/<slug:.*?>' => '<controller>/view',
                 'user/profile/<username>' => 'user/profile',
                 'user/property/<username>' => 'user/property',
                 'leads/status/<status>/<id>'=>'leads/status',

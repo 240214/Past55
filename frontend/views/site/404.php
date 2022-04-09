@@ -23,7 +23,7 @@ $this->registerCssFile('@web/theme/css/404.css', ['depends' => [BootstrapAsset::
 
 		<div class="row justify-content-between align-items-center content">
 			<div class="col-12 text-center">
-				<h3 class="ff-airbnb-cereal-app"><?=$this->title;?></h3>
+				<h3 class="ff-pt-serif"><?=$this->title;?></h3>
 				<h1 class="first-screen-title"><span><?=implode('</span><span>', $statusCode_arr);?></span></h1>
 				<p class="main-text-content"><?=nl2br(Html::encode($message));?></p>
 				<a class="btn-primary-medium m-auto" href="<?=Url::toRoute('/')?>">Back To Home</a>
