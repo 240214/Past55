@@ -1,7 +1,9 @@
+.post-author .about,
+.post-author .position {font-family: 'Airbnb Cereal App Book';}
 .post-author {font-family: 'Airbnb Cereal App'; font-style: normal;}
 .post-author .photo {margin-bottom: 20px; border-radius: 50%; width: 108px; height: 108px; border: 3px solid #fff; box-shadow: 0 0 30px rgba(26, 39, 66, 0.09);}
 .post-author .photo.ava {background-color: #E4E4E4; color: #6D459C; font-size: 60px; font-weight: 600; text-align: center; line-height: 100px;}
-.post-author .name {font-weight: bold; font-size: 16px; line-height: 137%; color: #6D459C;}
+.post-author .name {font-weight: bold; font-size: 16px; line-height: 137%; color: #6D459C; display: block; text-decoration: none;}
 .post-author .position {font-weight: normal; font-size: 14px; line-height: 137%; color: #7C7C7C;}
 .post-author .about {font-weight: normal; font-size: 14px; line-height: 166%; color: #000; padding-bottom: 25px; border-bottom: 1px solid #C4C4C4;}
 .post-author .about:before {content: ""; display: block; width: 10px; height: 1px; background-color: #6D459C; margin-bottom: 5px;}

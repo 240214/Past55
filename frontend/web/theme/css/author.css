@@ -1,5 +1,28 @@
-section.hero {position: relative; padding: 110px 0 0; background: linear-gradient(180deg, #e1f3ff 7.86%, rgba(216, 206, 255, 0.3) 100%), url(../img/category/first-screen-bg-left.svg) no-repeat left bottom, url(../img/category/first-screen-bg-right.svg) no-repeat right bottom;}
-section.hero .first-screen {padding-top: 60px; padding-bottom: 40px;}
-section.hero .main-title {font-size: 55px;}
-section.hero .sub-title {font-size: 16px;}
-section.hero img {border-radius: 10px;}
+section.hero {
+	position: relative;
+	padding: 110px 0 0;
+	background: linear-gradient(180deg, #e1f3ff 7.86%, rgba(216, 206, 255, 0.3) 60%, #fff 60%),
+				url(../img/category/first-screen-bg-left.svg) no-repeat left bottom 70%,
+				url(../img/category/first-screen-bg-right.svg) no-repeat right bottom 70%;
+}
+section.hero .first-screen {padding-top: 6%; padding-bottom: 6%;}
+section.hero .author-box {font-family: 'Airbnb Cereal App'; font-weight: 300; background-color: #fff; border: 1px solid #D9DBDF; box-shadow: 0 0 24px rgba(23, 37, 57, 0.06); border-radius: 20px; padding: 45px 55px;}
+section.hero .author-box .photo {margin-bottom: 35px; border-radius: 50%; width: 140px; height: 140px; border: 3px solid #fff; box-shadow: 0 0 20px rgba(15, 27, 58, 0.08);}
+section.hero .author-box .name {font-weight: 700; font-size: 40px; line-height: 53px; color: #000;}
+section.hero .author-box .divider {width: 16px; height: 2px; background-color: #FFA767; margin: 20px auto 13px;}
+section.hero .author-box .position {text-transform: uppercase; font-size: 16px; line-height: 21px; letter-spacing: 0.05em; color: #424A53;}
+section.hero .author-box .social-icon {flex: 0 0 auto; width: 35px; height: 35px; border: 1px solid #7C7F83; color:  #7C7F83; font-size: 20px; text-decoration: none;}
+section.hero .author-box .social-icon:hover {color: #6D459C; border-color: #6D459C; box-shadow: 0px 9.87898px 23.7095px rgba(0, 0, 0, 0.11);}
+section.hero .author-box p {font-size: 17px; line-height: 165%; color: #000;}
+section.hero .author-box p:last-child {margin-bottom: 0;}
+
+@media all and (max-width: 767px){
+	section.hero .first-screen {padding-top: 3%; padding-bottom: 3%;}
+	section.hero .author-box {border-radius: 10px; padding: 25px 15px;}
+	section.hero .author-box .photo {margin-bottom: 20px; width: 65px; height: 65px; border-width: 2px; box-shadow: 0 0 10px rgba(15, 27, 58, 0.08);}
+	section.hero .author-box .name {font-size: 25px; line-height: 33px;}
+	section.hero .author-box .divider {margin: 10px auto 6px;}
+	section.hero .author-box .position {font-size: 11px; line-height: 14px;}
+	section.hero .author-box .social-icon {width: 28px; height: 28px; font-size: 16px;}
+	section.hero .author-box p {font-size: 14px;}
+}

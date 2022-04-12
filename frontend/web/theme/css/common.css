@@ -437,6 +437,7 @@ button:focus {outline: none; outline: -webkit-focus-ring-color auto 5px;}
 	.mb-md-8 {margin-bottom: 80px !important;}
 	.mb-md-9 {margin-bottom: 90px !important;}
 	.mb-md-10 {margin-bottom: 100px !important;}
+	.me-md-0 {margin-right: 0 !important;}
 	.p-md-1 {padding: 10px !important;}
 	.p-md-2 {padding: 20px !important;}
 	.p-md-3 {padding: 30px !important;}
@@ -543,6 +544,7 @@ button:focus {outline: none; outline: -webkit-focus-ring-color auto 5px;}
 .max-w-420 {max-width: 420px;}
 .max-w-430 {max-width: 430px;}
 .max-w-530 {max-width: 530px;}
+.max-w-630 {max-width: 630px;}
 .max-w-700 {max-width: 700px;}
 .max-w-860 {max-width: 860px;}
 .max-w-1000 {max-width: 1000px;}
@@ -578,11 +580,15 @@ body.filter-opened {overflow: hidden;}
 .page-item.disabled .page-link {opacity: 0.5;}
 
 .sticky-block {position: sticky; top: 100px;}
+.sticky-block > div + div {margin-top: 50px;}
 html.header-top .sticky-block {position: sticky; top: 140px;}
 .sticky-block.top-10 {position: sticky; top: 10px;}
 .sticky-block.top-20 {position: sticky; top: 20px;}
 .sticky-block.top-30 {position: sticky; top: 30px;}
 .sticky-block.top-40 {position: sticky; top: 40px;}
+@media all and (max-width: 767px){
+	.sticky-block > div + div {margin-top: 30px;}
+}
 
 @media print {
 	.sticky-block {position: unset !important;}

@@ -13,14 +13,15 @@ use frontend\widgets\UserFavorites;
 	<nav>
 		<ul class="d-block d-md-flex align-items-center justify-content-center mb-0 p-0">
 			<li><a href="<?=Url::toRoute('/')?>" class="active">Home</a></li>
-			<li><a href="#">Our policies</a></li>
-			<li><a href="#">Learn & Plans</a></li>
-			<li><a href="#">Why GeorgiaCaring</a></li>
+			<li><a href="/resources/">Resources</a></li>
+			<li><a href="<?=Url::toRoute(['property/index', 'category_slug' => 'independent-living']);?>">Independent Living</a></li>
+			<li><a href="<?=Url::toRoute(['property/index', 'category_slug' => 'assisted-living']);?>">Assisted Living</a></li>
+			<li><a href="<?=Url::toRoute(['property/index', 'category_slug' => 'memory-care']);?>">Memory Care</a></li>
 		</ul>
 	</nav>
 </div>
-<div class="d-none d-md-block"><a href="tel:<?=Yii::$app->params['settings']['mobile'];?>" class="header-home__tel text-decoration-none"><i class="zmdi zmdi-phone me-1"></i><?=Yii::$app->params['settings']['mobile'];?></a></div>
-<div class="d-flex d-md-none align-items-center">
+<div class="d-none d-md-none"><a href="tel:<?=Yii::$app->params['settings']['mobile'];?>" class="header-home__tel text-decoration-none"><i class="zmdi zmdi-phone me-1"></i><?=Yii::$app->params['settings']['mobile'];?></a></div>
+<div class="d-flex align-items-center">
 	<?=UserFavorites::widget();?>
-	<a role="button" class="nav-control" data-trigger="js_action_click" data-action="toggle_mobile_nav" data-target=".navigation"><i class="zmdi zmdi-menu"></i></a>
+	<a role="button" class="nav-control d-md-none" data-trigger="js_action_click" data-action="toggle_mobile_nav" data-target=".navigation"><i class="zmdi zmdi-menu"></i></a>
 </div>

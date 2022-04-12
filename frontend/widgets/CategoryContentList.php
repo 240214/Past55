@@ -3,7 +3,9 @@
 namespace frontend\widgets;
 
 use common\models\Posts;
+use frontend\assets\AppAsset;
 use Yii;
+use yii\bootstrap\BootstrapAsset;
 use yii\bootstrap\Widget;
 use yii\helpers\VarDumper;
 use common\models\Category;
@@ -20,17 +22,15 @@ class CategoryContentList extends Widget{
 	public function init(){
 		parent::init();
 		
-		if(empty($this->category_slug)){
-			$queryParams = Yii::$app->request->getQueryParams();
-			$this->category_slug = $queryParams['category'];
-		}
 		if(empty($this->category_slug) || is_null($this->category_slug) && !is_null($this->category_id)){
 			$category = Category::find()->select(['slug'])->where(['id' => $this->category_id])->one();
 			$this->category_slug = $category->slug;
-		}
-		if(is_null($this->category_id) && !is_null($this->category_slug)){
+		}elseif(is_null($this->category_id) && !is_null($this->category_slug)){
 			$category = Category::find()->select(['id'])->where(['slug' => $this->category_slug])->one();
 			$this->category_id = $category->id;
+		}elseif(empty($this->category_slug)){
+			$queryParams = Yii::$app->request->getQueryParams();
+			$this->category_slug = $queryParams['category'];
 		}
 		
 		$fields = ['title', 'ccl_title', 'slug'];
@@ -44,7 +44,7 @@ class CategoryContentList extends Widget{
 				->all();
 		}
 		
-		#VarDumper::dump($this->model, 10, 1);exit;
+		$this->view->registerCssFile('@web/theme/css/widgets/category-content-list.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 	}
 	
 	public function run(){

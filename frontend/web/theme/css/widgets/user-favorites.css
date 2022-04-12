@@ -1,0 +1,17 @@
+.header-home__favorite-box {font-family: 'Airbnb Cereal App'; font-style: normal;}
+
+.header-home__favorite-box {padding: 3px 10px; border: 0 solid #ddd; border-radius: 5px; font-size: 14px; font-weight: 300; line-height: 24px; letter-spacing: -0.01em; color: #000; white-space: nowrap;}
+.header-home__favorite-box:hover {background-color: #6d459c; color: #fff; border-color: #6d459c;}
+.header-home__favorite-box svg {margin-right: 8px; flex: 0 0 auto;}
+.header-home__favorite-box:hover svg path {fill: #fff;}
+.header-home__favorite-box .badge {display: block; position: relative; border-left: 1px solid #ddd; border-radius: 0; width: 20px; height: 30px; text-align: center; padding: 0 0 0 6px; margin: -3px 0 -3px 8px; color: #6d459c; line-height: 30px;}
+.header-home__favorite-box:hover .badge {color: #fff; border-color: #130128;}
+.header-home__favorite-box .badge:empty {display: none;}
+
+@media all and (max-width: 767px){
+	.header-home__favorite-box {border-width: 1px;}
+}
+@media all and (max-width: 380px){
+	.header-home__favorite-box {width: 30px; overflow: hidden; justify-content: flex-start !important; white-space: nowrap; padding: 0 8px;}
+	.header-home__favorite-box svg {margin-right: 10px;}
+}

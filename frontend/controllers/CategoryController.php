@@ -6,6 +6,7 @@ use Yii;
 use common\models\Category;
 use yii\base\ErrorException;
 use yii\filters\VerbFilter;
+use common\models\Users;
 #use frontend\controllers\PropertyController;
 
 class CategoryController extends BaseController{
@@ -57,6 +58,12 @@ class CategoryController extends BaseController{
 		
 		$model = Category::find()->where(['slug' => $cat_slug])->one();
 		
+		if($model->user_id){
+			$model->users = Users::findOne(['id' => $model->user_id]);
+		}else{
+			$model->users = new Users();
+		}
+		
 		if(!is_null($model->template)){
 			$path = $model->template;
 			$path = str_replace(['/views', '/category'], '', $path);
@@ -64,6 +71,7 @@ class CategoryController extends BaseController{
 			
 			#VarDumper::dump($path, 10, 1); exit;
 			return $this->render($path, [
+				'model' => $model,
 				'category_id' => $model->id,
 				'category_slug' => $model->slug,
 				'meta' => [

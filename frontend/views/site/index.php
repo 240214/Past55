@@ -19,7 +19,7 @@ $this->registerCssFile('@web/theme/css/home.css', ['depends' => [BootstrapAsset:
 		<div class="row justify-content-between align-items-center header-home__content">
 			<div class="col-12 col-md-5 mb-35">
 				<h1 class="first-screen-home__title">Senior living<br /> <span class="title-decor-line">communities</span> <br /> in Georgia.</h1>
-				<p class="main-text-content">See pricing, availability, care offered, nearby places and more.</p>
+				<p class="main-text-content">See pricing, care offered, nearby places and more.</p>
 				<label class="header-home__search-wrapp">
 					<input class="header-home__search-input rounded-8 bg-white" type="text"
 					       placeholder="Enter a city or zip">
@@ -35,7 +35,7 @@ $this->registerCssFile('@web/theme/css/home.css', ['depends' => [BootstrapAsset:
 <section class="companies container">
 	<?php #=Image::widget(['src' => '/theme/img/home/first-screen-home-bg.png', 'css_class' => 'img-fluid first-screen-home__bg mb-4 m-auto d-none d-md-block d-lg-none d-xl-none']);?>
 	<?=Image::widget(['src' => '/theme/img/home/first-screen-home-bg-m.png', 'css_class' => 'img-fluid d-md-none d-block mb-4 m-auto']);?>
-	<h2 class="secondary-title text-center mb-5">Browse Hundreds of Senior Living Communities</h2>
+	<h2 class="secondary-title text-center mb-5">Browse Hundreds of Senior Living Communities in Georgia</h2>
 	<div class="d-flex justify-content-center align-items-center flex-wrap">
 		<?=Image::widget(['src' => '/theme/img/home/company-1.svg', 'css_class' => 'm-3', 'alt' => 'company-logo']);?>
 		<?=Image::widget(['src' => '/theme/img/home/company-2.svg', 'css_class' => 'm-3', 'alt' => 'company-logo']);?>
@@ -46,13 +46,13 @@ $this->registerCssFile('@web/theme/css/home.css', ['depends' => [BootstrapAsset:
 </section>
 <section class="benefits">
 	<div class="container">
-		<h1 class="main-title text-center mb-5">We spread care to provide<br /> quality life</h1>
+		<h1 class="main-title text-center mb-5">Find the right care for a<br /> loved one</h1>
 		<div class="row">
 			<div class="col-12 col-md-4 mb-2">
 				<div class="benefits-card d-flex flex-column">
 					<?=Image::widget(['src' => '/theme/img/home/benefit-card-icon-1.svg', 'css_class' => 'mt-2 mt-lg-3 mb-3', 'alt' => 'benefit-icon']);?>
-					<h4 class="benefit-card-title">See Pricing & Availability</h4>
-					<p class="benefit-card-content main-text-content flex-grow-1">Most other websites try to hide pricing and availability in order to get you on the phone. Our site offers full transparency in sharing this information in order to save you time</p>
+					<h4 class="benefit-card-title">See Pricing & Care Offered</h4>
+					<p class="benefit-card-content main-text-content flex-grow-1">Other websites try to hide pricing and information in order to get you on the phone. Our site offers full transparency in sharing this information in order to save you time</p>
 					<a href="#" class="benefit-card-link text-decoration-none">Learn more</a>
 				</div>
 			</div>
@@ -79,7 +79,7 @@ $this->registerCssFile('@web/theme/css/home.css', ['depends' => [BootstrapAsset:
 <section class="location">
 	<div class="container location__header mb-8">
 		<h1 class="main-title text-center mb-2">Senior living locations</h1>
-		<p class="main-text-content text-center">Our newsletter features articles from Richard, Gilfoyle and Dinesh, with<br /> occasional guest features from our investors and supporters.</p>
+		<p class="main-text-content text-center">Browse senior living communities in the most popular cities in Georgia.</p>
 	</div>
 	<div class="location__body py-6">
 		<div class="container">

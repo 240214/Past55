@@ -96,7 +96,7 @@ return [
 	            ['class' => 'frontend\components\UrlRules'],
                 #'property/search' => 'property/search',
                 'POST <controller:(compare)>/<slug:(get-property)>' => '<controller>/<action>',
-                'GET <controller:(compare)>/<slug:.*?>' => '<controller>/resources',
+                'GET <controller:(compare)>/<slug:.*?>' => '<controller>/index',
                 'GET <controller:(author)>/<slug:.*?>' => '<controller>/view',
                 'user/profile/<username>' => 'user/profile',
                 'user/property/<username>' => 'user/property',

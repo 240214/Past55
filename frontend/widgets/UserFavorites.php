@@ -3,7 +3,9 @@
 namespace frontend\widgets;
 
 use common\models\FavoriteProperties;
+use frontend\assets\AppAsset;
 use Yii;
+use yii\bootstrap\BootstrapAsset;
 use yii\bootstrap\Widget;
 
 class UserFavorites extends Widget{
@@ -18,6 +20,8 @@ class UserFavorites extends Widget{
 		$sid = Yii::$app->session->getId();
 		
 		$this->user_favs_count = FavoriteProperties::find()->where(['sid' => $sid])->count();
+		
+		$this->view->registerCssFile('@web/theme/css/widgets/user-favorites.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 	}
 	
 	public function run(){

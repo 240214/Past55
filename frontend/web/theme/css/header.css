@@ -2,8 +2,7 @@ header#header * {text-decoration: none;}
 
 .header-logo,
 .navigation nav li a,
-.header-home__tel,
-.header-home__favorite-box {font-family: 'Airbnb Cereal App'; font-style: normal;}
+.header-home__tel {font-family: 'Airbnb Cereal App'; font-style: normal;}
 
 .header-logo {font-weight: bold; font-size: 20px; line-height: 25px; color: #6D459C;}
 .header-logo a {color: #6D459C; text-decoration: none;}
@@ -25,13 +24,6 @@ header#header * {text-decoration: none;}
 .header-home__tel:hover {text-decoration: underline; color: #6d459c;}
 .header-home__tel > i {font-size: 18px; transform: translateY(2px);}
 
-.header-home__favorite-box {padding: 3px 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px; font-weight: 300; line-height: 24px; letter-spacing: -0.01em; color: #000;}
-.header-home__favorite-box:hover {background-color: #6d459c; color: #fff; border-color: #6d459c;}
-.header-home__favorite-box svg {margin-right: 8px; flex: 0 0 auto;}
-.header-home__favorite-box:hover svg path {fill: #fff;}
-.header-home__favorite-box .badge {display: block; position: relative; border-left: 1px solid #ddd; border-radius: 0; width: 20px; height: 30px; text-align: center; padding: 0 0 0 6px; margin: -3px 0 -3px 8px; color: #6d459c; line-height: 30px;}
-.header-home__favorite-box:hover .badge {color: #fff; border-color: #130128;}
-.header-home__favorite-box .badge:empty {display: none;}
 
 .nav-control > i {font-size: 28px;}
 .nav-control {color: #6D459C; cursor: pointer;}
@@ -42,8 +34,15 @@ header#header * {text-decoration: none;}
 @media all and (max-width: 1199px){
 	.site-header {margin: 30px auto 0;}
 }
+@media all and (max-width: 1024px){
+	.header-home {padding: 0 20px;}
+}
 @media all and (max-width: 991px){
 	.header-home {padding: 0 15px;}
+	.header-logo {font-size: 16px;}
+	.navigation nav li:first-child {display: none;}
+	.navigation nav li {padding: 0 5px;}
+	.navigation nav li a {font-size: 14px; line-height: normal;}
 }
 @media all and (max-width: 767px){
 	.header-home {height: auto; box-shadow: none; background-color: transparent; padding: 0;}
@@ -69,7 +68,4 @@ header#header * {text-decoration: none;}
 }
 @media all and (max-width: 575px){
 	/*.header-home {padding-left: 10px; padding-right: 10px;}*/
-}
-@media all and (max-width: 355px){
-	.header-home__favorite-box {width: 32px; overflow: hidden; justify-content: flex-start !important; white-space: nowrap; padding: 0 8px;}
 }

@@ -20,6 +20,7 @@ use common\models\search\SearchCategory;
  */
 class CategoryController extends Controller {
 	
+	private $user_id = 0;
 	public $default_pageSize = 10;
 	public $pageSize_list = [7 => 7, 10 => 10, 20 => 20, 30 => 30, 40 => 40, 50 => 50, 100 => 100];
 	
@@ -46,6 +47,19 @@ class CategoryController extends Controller {
 				'actions' => [
 					'delete' => ['POST'],
 				],
+			],
+		];
+	}
+	
+	/**
+	 * @inheritdoc
+	 */
+	public function actions(){
+		$this->user_id = Yii::$app->user->identity->getId();
+		
+		return [
+			'error' => [
+				'class' => 'yii\web\ErrorAction',
 			],
 		];
 	}
@@ -90,17 +104,23 @@ class CategoryController extends Controller {
 	 * @return mixed
 	 */
 	public function actionCreate(){
+		$request = Yii::$app->request->post();
+
 		$model = new Category();
-		
-		if($model->load(Yii::$app->request->post()) && $model->save()){
-			return $this->redirect(['view', 'id' => $model->id]);
-			//return $this->render('create', ['model' => $model]);
-		}else{
-			return $this->render('create', [
-				'model' => $model,
-				'templates' => $this->getTemplatesTree(),
-			]);
+
+		if(!empty($request)){
+			#$request['Category']['user_id'] = $this->user_id;
+			#$request['Category']['created_at'] = time();
+			
+			if($model->load($request) && $model->save()){
+				return $this->redirect(['view', 'id' => $model->id]);
+			}
 		}
+		
+		return $this->render('create', [
+			'model' => $model,
+			'templates' => $this->getTemplatesTree(),
+		]);
 	}
 	
 	/**
@@ -110,19 +130,24 @@ class CategoryController extends Controller {
 	 * @param integer $id
 	 *
 	 * @return mixed
+	 * @throws NotFoundHttpException
 	 */
 	public function actionUpdate($id){
-		#VarDumper::dump(Yii::$app->user->identity->getId());
+		$request = Yii::$app->request->post();
 		$model = $this->findModel($id);
 		
-		if($model->load(Yii::$app->request->post()) && $model->save()){
-			return $this->redirect(['view', 'id' => $model->id]);
-		}else{
-			return $this->render('update', [
-				'model' => $model,
-				'templates' => $this->getTemplatesTree(),
-			]);
+		if(!empty($request)){
+			#$request['Category']['created_at'] = date('Y-m-d H:i:s');
+
+			if($model->load($request) && $model->save()){
+				return $this->redirect(['view', 'id' => $model->id]);
+			}
 		}
+		
+		return $this->render('update', [
+			'model' => $model,
+			'templates' => $this->getTemplatesTree(),
+		]);
 	}
 	
 	/**
@@ -132,6 +157,9 @@ class CategoryController extends Controller {
 	 * @param integer $id
 	 *
 	 * @return mixed
+	 * @throws NotFoundHttpException
+	 * @throws \Throwable
+	 * @throws \yii\db\StaleObjectException
 	 */
 	public function actionDelete($id){
 		$cats_links = CategoryLink::findAll(['category_id' => $id]);

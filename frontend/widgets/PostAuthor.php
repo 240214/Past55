@@ -36,6 +36,7 @@ class PostAuthor extends Widget{
 		return $this->render('@frontend/views/widgets/post-author', [
 			'wrapper_attrs' => Yii::$app->Helpers->create_html_attributes($this->wrapper_attrs),
 			'name'          => $this->user->name,
+			'username'          => $this->user->username,
 			'position'      => $this->user->position,
 			'about'         => $this->user->about,
 			'avatar'        => $this->user->FormatedAvatar,

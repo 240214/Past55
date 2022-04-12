@@ -7,11 +7,13 @@ use yii\helpers\VarDumper;
 
 if(!$found) return '';
 ?>
-<?php if(!empty($title)):?>
-	<h4 class="content-title"><?=$title;?></h4>
-<?php endif;?>
-<ul class="content-list">
-	<?php foreach($model as $item):?>
-		<li><a href="<?=Url::toRoute(['post/view', 'post_slug' => $item->slug, 'category_slug' => $category_slug]);?>"><?=(!empty($item->ccl_title) ? $item->ccl_title : $item->title);?></a></li>
-	<?php endforeach;?>
-</ul>
+<div class="category-content-list">
+	<?php if(!empty($title)):?>
+		<h4 class="title"><?=$title;?></h4>
+	<?php endif;?>
+	<ul class="list">
+		<?php foreach($model as $item):?>
+			<li><a href="<?=Url::toRoute(['post/view', 'post_slug' => $item->slug, 'category_slug' => $category_slug]);?>"><?=(!empty($item->ccl_title) ? $item->ccl_title : $item->title);?></a></li>
+		<?php endforeach;?>
+	</ul>
+</div>

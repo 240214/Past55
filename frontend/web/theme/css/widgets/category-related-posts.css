@@ -1,5 +1,8 @@
 .related-article-card__title {font-family: 'Airbnb Cereal App'; font-style: normal;}
 
+.highlighted-title {font-family: 'PT Serif'; position: relative; font-weight: bold; font-size: 25px; line-height: 170%; letter-spacing: -0.005em; color: #000; padding-left: 30px;}
+.highlighted-title:before {content: ""; position: absolute; left: 0; top: 10px; width: 4px; height: 25px; background-color: #6d459c;}
+
 .related-article-card .image {border-radius: 10px; overflow: hidden; padding-top: 67%; position: relative;}
 .related-article-card .image img {position: absolute; top: 50%; left: -50%; margin: auto; bottom: 50%; right: -50%; z-index: 1;}
 

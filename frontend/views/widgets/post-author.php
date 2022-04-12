@@ -1,6 +1,6 @@
 <div <?=$wrapper_attrs;?>>
 	<?=$avatar;?>
-	<div class="name"><?=$name;?></div>
+	<a class="name" href="/author/<?=$username;?>/"><?=$name;?></a>
 	<div class="position mb-15"><?=$position;?></div>
 	<p class="about mb-1"><?=$about;?></p>
 	<?php if(!empty($social_links)):?>

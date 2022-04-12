@@ -1,0 +1,9 @@
+.category-content-list * {font-family: 'Airbnb Cereal App' !important;}
+.category-content-list .title {font-size: 20px; margin-bottom: 20px;}
+.category-content-list .list {margin: 0; padding: 0;}
+.category-content-list .list li {margin-bottom: 10px;}
+.category-content-list .list li a {font-weight: 300; font-size: 17px; line-height: normal; color: #000; text-decoration: none;}
+.category-content-list .list li a:hover {color: #6D459C;}
+.category-content-list .list li a:focus,
+.category-content-list .list li a:active,
+.category-content-list .list li a:visited {font-weight: 500; color: #6D459C;}

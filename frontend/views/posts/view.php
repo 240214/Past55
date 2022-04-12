@@ -2,6 +2,7 @@
 
 use common\models\Users;
 use frontend\assets\AppAsset;
+use frontend\widgets\CategoryContentList;
 use \yii\bootstrap\ActiveForm;
 use yii\bootstrap\BootstrapAsset;
 use yii\data\ActiveDataProvider;
@@ -27,7 +28,7 @@ $this->params['breadcrumbs'][] = ['label' => $model->category->name, 'url' => '/
 
 $this->registerCssFile('@web/theme/css/post.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 
-#VarDumper::dump($model->category_id, 10, 1);
+#VarDumper::dump($model, 10, 1); exit;
 ?>
 <section class="article">
 	<div class="container-fluid container-xl">
@@ -40,7 +41,7 @@ $this->registerCssFile('@web/theme/css/post.css', ['depends' => [BootstrapAsset:
 		<div class="row">
 			<div class="col-12 col-md-2 d-none d-md-block">
 				<div class="sticky-block top-30">
-					<?=PostContentList::widget(['title' => 'Content', 'model' => $model]);?>
+					<?=PostContentList::widget(['title' => 'Table of Contents', 'model' => $model]);?>
 				</div>
 			</div>
 			
@@ -58,12 +59,15 @@ $this->registerCssFile('@web/theme/css/post.css', ['depends' => [BootstrapAsset:
 					<div class="collapse" id="collapseContent_2"><div class="card card-body"><?=PostAuthor::widget(['user' => $model->users, 'wrapper_attrs' => ['id' => 'js_post_author_mob']]);?></div></div>
 				</div>
 				
-				<?=$model['content'];?>
+				<?=$model->content;?>
 			</div>
 			
-			<div class="col-12 col-md-3 d-none d-md-block">
+			<div class="col-12 col-md-3 mb-4 mb-md-0">
 				<div class="sticky-block top-30">
-					<?=PostAuthor::widget(['user' => $model->users]);?>
+					<div class="d-none d-md-block">
+						<?=PostAuthor::widget(['user' => $model->users]);?>
+					</div>
+					<?=CategoryContentList::widget(['category_id' => $model->category_id, 'title' => 'More Assisted Living Articles']);?>
 				</div>
 			</div>
 		</div>

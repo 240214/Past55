@@ -57,7 +57,7 @@ class AuthorController extends BaseController{
 		
 		
 		return $this->render('view', [
-			'author'            => $model,
+			'model' => $model, #User model
 			'postsDataProvider' => $postsDataProvider,
 		]);
 	}

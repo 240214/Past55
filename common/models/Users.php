@@ -349,6 +349,17 @@ class Users extends ActiveRecord implements IdentityInterface{
 		return $html;
 	}
 	
+	public function getFormatedAbout($prepend_name = true){
+		$html = '';
+		
+		if(!empty($this->about)){
+			$about = $prepend_name ? str_replace($this->name, sprintf('<strong>%s</strong>', $this->name), $this->about) : $this->about;
+			$html = sprintf('<p>%s</p>', implode('</p><p>', array_filter(explode(PHP_EOL, $about))));
+		}
+		
+		return $html;
+	}
+	
 	public function getSocialLinks(){
 		$list = [];
 		
