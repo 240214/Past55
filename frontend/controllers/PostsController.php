@@ -129,9 +129,9 @@ class PostsController extends BaseController {
 		]);
 	}
 	
-	public function actionResources(){
+	/*public function actionResources(){
 		$this->render('resources');
-	}
+	}*/
 	
 	/////// OLD METHODS ////////
 

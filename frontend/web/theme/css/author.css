@@ -12,7 +12,7 @@ section.hero .author-box .name {font-weight: 700; font-size: 40px; line-height: 
 section.hero .author-box .divider {width: 16px; height: 2px; background-color: #FFA767; margin: 20px auto 13px;}
 section.hero .author-box .position {text-transform: uppercase; font-size: 16px; line-height: 21px; letter-spacing: 0.05em; color: #424A53;}
 section.hero .author-box .social-icon {flex: 0 0 auto; width: 35px; height: 35px; border: 1px solid #7C7F83; color:  #7C7F83; font-size: 20px; text-decoration: none;}
-section.hero .author-box .social-icon:hover {color: #6D459C; border-color: #6D459C; box-shadow: 0px 9.87898px 23.7095px rgba(0, 0, 0, 0.11);}
+section.hero .author-box .social-icon:hover {color: var(--bs-brand); border-color: var(--bs-brand); box-shadow: 0 9px 23px rgba(0, 0, 0, 0.11);}
 section.hero .author-box p {font-size: 17px; line-height: 165%; color: #000;}
 section.hero .author-box p:last-child {margin-bottom: 0;}
 
@@ -25,4 +25,24 @@ section.hero .author-box p:last-child {margin-bottom: 0;}
 	section.hero .author-box .position {font-size: 11px; line-height: 14px;}
 	section.hero .author-box .social-icon {width: 28px; height: 28px; font-size: 16px;}
 	section.hero .author-box p {font-size: 14px;}
+}
+
+section.posts {padding: 20px 0; font-family: 'Airbnb Cereal App';}
+section.posts .main-title {font-weight: 700; font-size: 34px; line-height: 150%; color: #000;}
+section.posts .image {border-radius: 10px; overflow: hidden; padding-top: 75%; position: relative; margin-bottom: 30px;}
+section.posts .image img {object-fit: cover; min-width: 100%; min-height: 100%; position: absolute; top: 50%; left: -50%; margin: auto; bottom: 50%; right: -50%; z-index: 1;}
+section.posts .date {font-size: 16px; font-weight: 300; line-height: 150%; color: #4F525C; margin-bottom: 12px;}
+section.posts .title {font-size: 28px; font-weight: 500; line-height: normal; margin-bottom: 18px;}
+section.posts .title a {color: #000; text-decoration: none;}
+section.posts .title a:hover {color: var(--bs-brand); text-decoration: none;}
+section.posts .desc {font-size: 17px; font-weight: 300; line-height: 150%; color: #4F525C; margin-bottom: 25px;}
+section.posts .btn {background-color: #fff; border: 1px solid var(--bs-brand); color: var(--bs-brand); text-decoration: none; padding: 12px 28px; font-size: 17px; line-height: 25px; border-radius: 10px;}
+section.posts .btn:hover {background-color: var(--bs-brand); color: #fff;}
+
+@media all and (max-width: 767px){
+	section.posts .main-title {font-size: 28px; line-height: 37px;}
+	section.posts .image {padding-top: 67%; margin-bottom: 25px;}
+	section.posts .date {margin-bottom: 10px;}
+	section.posts .title {margin-bottom: 15px;}
+	section.posts .desc {margin-bottom: 25px;}
 }

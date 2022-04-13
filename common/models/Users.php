@@ -32,6 +32,7 @@ use common\models\Property;
  * @property string $city
  * @property string $country
  * @property string $address
+ * @property integer $rating
  * @property string $social_tw
  * @property string $social_in
  * @property string $social_fb
@@ -76,13 +77,14 @@ class Users extends ActiveRecord implements IdentityInterface{
 			['active', 'default', 'value' => self::STATUS_ACTIVE],
 			['active', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
 			[['username', 'new_password', 'email', 'name', 'mobile', 'about', 'city', 'country'], 'safe'],
-			[['mobile'], 'integer'],
+			[['mobile', 'rating'], 'integer'],
 			
 			[['username', 'email', 'name', 'about', 'city', 'country'], 'string'],
 			[['social_tw', 'social_in', 'social_fb', 'social_yt', 'social_vm', 'social_ig', 'social_gp', 'social_tb'], 'string', 'max' => 255],
 			[['position'], 'string', 'max' => 255],
 			[['address'], 'string', 'max' => 225],
 			[['name'], 'string', 'max' => 20],
+			[['rating'], 'integer', 'max' => 5],
 			[['image'], 'image', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
 		
 		];
@@ -105,6 +107,7 @@ class Users extends ActiveRecord implements IdentityInterface{
 			'social_ig' => Yii::t('app', 'Instagram'),
 			'social_gp' => Yii::t('app', 'Google Plus'),
 			'social_tb' => Yii::t('app', 'Tumblr'),
+			'rating' => Yii::t('app', 'Rating'),
 		];
 	}
 	
@@ -349,12 +352,22 @@ class Users extends ActiveRecord implements IdentityInterface{
 		return $html;
 	}
 	
-	public function getFormatedAbout($prepend_name = true){
+	public function getFormatedAbout($prepend_name = true, $paragraph = true){
 		$html = '';
 		
 		if(!empty($this->about)){
-			$about = $prepend_name ? str_replace($this->name, sprintf('<strong>%s</strong>', $this->name), $this->about) : $this->about;
-			$html = sprintf('<p>%s</p>', implode('</p><p>', array_filter(explode(PHP_EOL, $about))));
+			$html = $this->about;
+			
+			
+			if(stristr($html, $this->name) !== false){
+				$html = str_replace($this->name, sprintf('<strong>%s</strong>', $this->name), $html);
+			}else{
+				if($prepend_name)
+					$html = sprintf('<strong>%s</strong> is a ', $this->name).$html;
+			}
+			
+			if($paragraph)
+				$html = sprintf('<p>%s</p>', implode('</p><p>', array_filter(explode(PHP_EOL, $html))));
 		}
 		
 		return $html;
@@ -382,4 +395,11 @@ class Users extends ActiveRecord implements IdentityInterface{
 	public function getListingsCount(){
 		return Property::find()->where(['user_id' => $this->id])->count();
 	}
+	
+	public function getRatingStars(){
+		$image = sprintf('%s/theme/icons/%d-stars.svg',Yii::$app->urlManagerFrontend->baseUrl, $this->rating);
+
+		return Html::img($image, ['class' => 'img-fluid rating']);
+	}
+	
 }

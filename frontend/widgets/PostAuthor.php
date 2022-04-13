@@ -38,7 +38,7 @@ class PostAuthor extends Widget{
 			'name'          => $this->user->name,
 			'username'          => $this->user->username,
 			'position'      => $this->user->position,
-			'about'         => $this->user->about,
+			'about'         => $this->user->getFormatedAbout(false, false),
 			'avatar'        => $this->user->FormatedAvatar,
 			'social_links'  => $this->user->SocialLinks,
 		]);

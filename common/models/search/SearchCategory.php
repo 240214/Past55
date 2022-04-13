@@ -20,7 +20,7 @@ class SearchCategory extends Category{
 	public function rules(){
 		return [
 			[['id'], 'integer'],
-			[['name', 'icon', 'type', 'slug', 'title', 'meta_title', 'template'], 'string'],
+			[['name', 'icon', 'type', 'slug', 'h1_title', 'meta_title', 'template'], 'string'],
 		];
 	}
 
@@ -66,7 +66,7 @@ class SearchCategory extends Category{
 			->andFilterWhere(['like', 'name', $this->name])
 			->andFilterWhere(['like', 'slug', $this->slug])
 			->andFilterWhere(['like', 'type', $this->type])
-			->andFilterWhere(['like', 'title', $this->title])
+			->andFilterWhere(['like', 'h1_title', $this->h1_title])
 			->andFilterWhere(['like', 'template', $this->template])
 			->andFilterWhere(['like', 'meta_title', $this->meta_title]);
 

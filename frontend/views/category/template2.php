@@ -121,7 +121,7 @@ $this->registerCssFile('@web/theme/css/category-template.css', ['depends' => [Bo
 					<div class="d-none d-md-block">
 						<?=PostAuthor::widget(['user' => $model->users]);?>
 					</div>
-					<?=CategoryContentList::widget(['category_id' => $category_id, 'title' => 'More Assisted Living Articles']);?>
+					<?=CategoryContentList::widget(['category_id' => $model->id, 'title' => 'More '.$model->name.' Articles']);?>
 				</div>
 			</div>
 		</div>
@@ -129,5 +129,5 @@ $this->registerCssFile('@web/theme/css/category-template.css', ['depends' => [Bo
 </section>
 
 <section class="container main-text-content text-color-black pt-4 pt-md-9">
-	<?=CategoryRelatedPosts::widget(['category_id' => $category_id, 'title' => 'Related Articles', 'not_found_text' => 'No Related Articles']);?>
+	<?=CategoryRelatedPosts::widget(['category_id' => $model->id, 'title' => 'Related Articles', 'not_found_text' => 'No Related Articles']);?>
 </section>

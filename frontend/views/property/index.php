@@ -67,7 +67,7 @@ $this->registerCssFile('@web/theme/css/properties.css', ['depends' => [Bootstrap
 			</aside>
 			
 			<div class="col-12 col-md-8">
-				<h1 class="main-title"><?=$meta['title'];?></h1>
+				<h1 class="main-title"><?=$meta['h1'];?></h1>
 				<div class="row mb-2 mb-xl-4">
 					<div class="col-12">
 						<?=Breadcrumbs::widget(['links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : []]);?>
@@ -76,8 +76,7 @@ $this->registerCssFile('@web/theme/css/properties.css', ['depends' => [Bootstrap
 
 				<div class="category__body">
 					<div id="js_filter_results" class="row property-listing trans-all <?=(!$dataProvider->getCount() ? 'no-results' : '');?>">
-						<?php
-						if($dataProvider->getCount()):?>
+						<?php if($dataProvider->getCount()):?>
 							<?=$this->render('partials/items', ['models' => $dataProvider->getModels(), 'options' => $options]);?>
 						<?php else:?>
 							<div class="card box">

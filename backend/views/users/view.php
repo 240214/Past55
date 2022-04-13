@@ -52,6 +52,7 @@ YiiAsset::register($this);
 					'position',
 					'email',
 					'mobile',
+					'rating',
 					'about:html',
 					'social_tw', 'social_in', 'social_fb', 'social_yt', 'social_vm', 'social_ig', 'social_gp', 'social_tb'
 				],

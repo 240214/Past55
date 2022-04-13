@@ -44,7 +44,7 @@ use yii\helpers\Url;?>
 									]);?>
 									<a href="/<?=$model->users->username;?>/" class="name"><?=$model->users->name;?></a>
 								</div>
-								<div class="date ff-airbnb-cereal-app-book"><?=date('M j, Y', $model->created_at);?></div>
+								<div class="date ff-airbnb-cereal-app-book"><?=date('M j, Y', strtotime($model->created_at));?></div>
 							</div>
 						</div>
 					</div>

@@ -77,7 +77,7 @@ $this->registerCssFile('@web/theme/css/category-template.css', ['depends' => [Bo
 
 		<aside class="col-12 col-md-3 mt-4 mt-md-0">
 			<div class="sticky-block">
-				<?=CategoryContentList::widget(['category_id' => $category_id, 'title' => 'Content']);?>
+				<?=CategoryContentList::widget(['category_id' => $model->id, 'title' => 'Content']);?>
 			</div>
 		</aside>
 		
@@ -85,5 +85,5 @@ $this->registerCssFile('@web/theme/css/category-template.css', ['depends' => [Bo
 </section>
 
 <section class="container main-text-content text-color-black pt-4 pt-md-9">
-	<?=CategoryRelatedPosts::widget(['category_id' => $category_id, 'title' => 'Related Articles', 'not_found_text' => 'No Related Articles']);?>
+	<?=CategoryRelatedPosts::widget(['category_id' => $model->id, 'title' => 'Related Articles', 'not_found_text' => 'No Related Articles']);?>
 </section>

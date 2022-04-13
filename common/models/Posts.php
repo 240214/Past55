@@ -56,14 +56,16 @@ class Posts extends ActiveRecord {
 	 */
 	public function rules(){
 		return [
-			[['title', 'ccl_title', 'content'], 'required'],
+			[['title', 'ccl_title', 'content', 'slug'], 'required'],
 			[['user_id', 'category_id', 'post_category_id'], 'integer'],
 			[['content', 'content_list'], 'string'],
 			[['type'], 'string', 'max' => 10],
 			[['image', 'title', 'meta_title', 'meta_description', 'slug', 'ccl_title'], 'string', 'max' => 255],
 			['created_at', 'safe'],
 			['image', 'image', 'skipOnEmpty' => true, 'extensions' => Yii::$app->params['image_exts'], 'maxFiles' => 1],
-		
+			[['title', 'slug'], 'trim'],
+			['slug', 'unique', 'message' => 'This slug has already been taken. Please enter a different slug.'],
+			#['slug', 'validateUniqueSlug'],
 		];
 	}
 	
@@ -154,6 +156,29 @@ class Posts extends ActiveRecord {
 	
 	public function getTypes(){
 		return $this->types;
+	}
+	
+	public function getShortTitle($length = 50){
+		$_text = strip_tags($this->title);
+		if(mb_strlen($_text, 'utf-8') <= $length){
+			return $_text;
+		}
+		
+		$_text = trim($_text, ".,?:><;");
+		$a = explode(' ', $_text);
+		
+		$r = '';
+		$n = [];
+		foreach($a as $k => $t){
+			$r .= $t.' ';
+			if(mb_strlen($r, 'utf-8') >= $length){
+				continue;
+			}else{
+				$n[$k] = $t;
+			}
+		}
+		
+		return implode(' ', $n).'...';
 	}
 	
 	public function getShortDescription($length = 70){
@@ -276,5 +301,7 @@ class Posts extends ActiveRecord {
 		return $image;
 	}
 	
-	
+	public function validateUniqueSlug($attribute, $params){
+		#$this->addError($attribute, 'The only alphabets, spaces and Pound/Hash (#) allowed.');
+	}
 }

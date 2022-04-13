@@ -11,11 +11,15 @@ use yii\db\ActiveRecord;
  * @property integer $id
  * @property integer $user_id
  * @property string $name
- * @property string $title
+ * @property string $h1_title
+ * @property string $h1_title_for_state
+ * @property string $h1_title_for_state_city
  * @property string $slug
  * @property string $type
  * @property string $icon
  * @property string $meta_title
+ * @property string $meta_for_title_state
+ * @property string $meta_for_title_state_city
  * @property string $meta_keywords
  * @property string $meta_description
  * @property string $template
@@ -40,8 +44,8 @@ class Category extends ActiveRecord{
 	public function rules(){
 		return [
 			[['name', 'user_id'], 'required'],
-			[['type', 'slug', 'title', 'meta_title', 'meta_keywords', 'meta_description', 'template', 'content_list'], 'string'],
-			[['name', 'title', 'icon'], 'string', 'max' => 225],
+			[['type', 'slug', 'h1_title', 'h1_title_for_state', 'h1_title_for_state_city', 'meta_title', 'meta_title_for_state', 'meta_title_for_state_city', 'meta_keywords', 'meta_description', 'template', 'content_list'], 'string'],
+			[['name', 'h1_title', 'icon'], 'string', 'max' => 225],
 			['created_at', 'safe'],
 		];
 	}
@@ -53,11 +57,15 @@ class Category extends ActiveRecord{
 		return [
 			'id'               => Yii::t('app', 'ID'),
 			'name'             => Yii::t('app', 'Name'),
-			'title'             => Yii::t('app', 'H1 Title'),
+			'h1_title'             => Yii::t('app', 'H1 Title'),
+			'h1_title_for_state'             => Yii::t('app', 'H1 Title for State'),
+			'h1_title_for_state_city'             => Yii::t('app', 'H1 Title for State & City'),
 			'slug'             => Yii::t('app', 'Slug'),
 			'type'             => Yii::t('app', 'Type'),
 			'icon'             => Yii::t('app', 'Icon'),
 			'meta_title'       => Yii::t('app', 'Meta Title'),
+			'meta_title_state'       => Yii::t('app', 'Meta Title for State'),
+			'meta_title_state_city'       => Yii::t('app', 'Meta Title for State & City'),
 			'meta_keywords'    => Yii::t('app', 'Meta Keywords'),
 			'meta_description' => Yii::t('app', 'Meta Description'),
 			'template' => Yii::t('app', 'Template'),

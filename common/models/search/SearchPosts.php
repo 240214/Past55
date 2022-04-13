@@ -77,10 +77,10 @@ class SearchPosts extends Posts {
 		
 		// grid filtering conditions
 		$query->andFilterWhere([
-			'id' => $this->id,
-			'post_category_id' => $this->post_category_id,
-			'category_id' => $this->category_id,
-			'user_id' => $this->user_id,
+			'posts.id' => $this->id,
+			'posts.post_category_id' => $this->post_category_id,
+			'posts.category_id' => $this->category_id,
+			'posts.user_id' => $this->user_id,
 		]);
 		
 		$query

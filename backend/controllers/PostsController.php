@@ -13,6 +13,8 @@ use common\models\search\SearchPosts;
 use yii\web\NotFoundHttpException;
 use yii\helpers\FileHelper;
 use yii\helpers\VarDumper;
+use yii\web\Response;
+use yii\widgets\ActiveForm;
 
 /**
  * PostsController controller
@@ -104,13 +106,16 @@ class PostsController extends Controller{
 	 */
 	public function actionCreate(){
 		$request = Yii::$app->request->post();
-		$request['Posts']['user_id'] = $this->user_id;
-		$request['Posts']['created_at'] = time();
-
 		$model = new Posts();
-		
-		if($model->load($request) && $model->save()){
-			return $this->redirect(['view', 'id' => $model->id]);
+
+		if(!empty($request)){
+			if(!isset($request['Posts']['user_id']) || empty($request['Posts']['user_id'])){
+				$request['Posts']['user_id'] = $this->user_id;
+			}
+
+			if($model->load($request) && $model->save()){
+				return $this->redirect(['view', 'id' => $model->id]);
+			}
 		}
 		
 		return $this->render('create', [
@@ -132,12 +137,14 @@ class PostsController extends Controller{
 		
 		$model = $this->findModel($id);
 		
-		if($model->created_at == 0 || is_null($model->created_at)){
-			$request['Posts']['created_at'] = time();
-		}
-		
-		if($model->load($request) && $model->save()){
-			return $this->redirect(['view', 'id' => $model->id]);
+		if(!empty($request)){
+			if(!isset($request['Posts']['user_id']) || empty($request['Posts']['user_id'])){
+				$request['Posts']['user_id'] = $this->user_id;
+			}
+
+			if($model->load($request) && $model->save()){
+				return $this->redirect(['view', 'id' => $model->id]);
+			}
 		}
 		
 		return $this->render('update', [

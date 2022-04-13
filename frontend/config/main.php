@@ -86,6 +86,7 @@ return [
             'baseUrl' => $baseUrl,
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'suffix' => '/',
             /*'normalizer' => [
 	            'class' => 'yii\web\UrlNormalizer',
 	            'action' => UrlNormalizer::ACTION_REDIRECT_TEMPORARY, // используем временный редирект вместо постоянного
@@ -97,7 +98,9 @@ return [
                 #'property/search' => 'property/search',
                 'POST <controller:(compare)>/<slug:(get-property)>' => '<controller>/<action>',
                 'GET <controller:(compare)>/<slug:.*?>' => '<controller>/index',
-                'GET <controller:(author)>/<slug:.*?>' => '<controller>/view',
+                '<controller:(authors)>/<slug:.*?>/page-<page:\d+>/' => '<controller>/view',
+                '<controller:(authors)>/<slug:.*?>' => '<controller>/view',
+                '<controller:(authors)>/' => '<controller>/index',
                 'user/profile/<username>' => 'user/profile',
                 'user/property/<username>' => 'user/property',
                 'leads/status/<status>/<id>'=>'leads/status',
@@ -141,7 +144,7 @@ return [
                 'mortgage/detail/<id>'=> 'mortgage/detail',
                 'mortgage/disclaimer/<id>'=> 'mortgage/disclaimer',
                 'mortgage/review/<id>'=> 'mortgage/review',
-                'pages/index/<id>-<title>'=> 'pages/index',
+                #'pages/index/<id>-<title>'=> 'pages/index',
             ),
 
         ],

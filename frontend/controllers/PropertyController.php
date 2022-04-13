@@ -70,7 +70,8 @@ class PropertyController extends BaseController {
 	 * @throws \yii\base\InvalidConfigException
 	 */
 	public function actionIndex(){
-		$city = $state = $category = '';
+		$city = $state = '';
+		$category = [];
 		$category_id = $state_id = $city_id = 0;
 		$category_ids = [];
 		$noindex = YII_ENV_DEV;
@@ -83,7 +84,7 @@ class PropertyController extends BaseController {
 		#VarDumper::dump($queryParams, 10, 1); exit;
 		
 		$categories = Category::getCategoryList([
-			'fields' => ['id', 'name', 'slug', 'meta_title', 'template'],
+			'fields' => ['id', 'name', 'slug', 'template', 'meta_title', 'meta_title_for_state', 'meta_title_for_state_city', 'h1_title', 'h1_title_for_state', 'h1_title_for_state_city'],
 			'key_field' => 'slug',
 			'order' => 'name ASC',
 		]);
@@ -124,7 +125,7 @@ class PropertyController extends BaseController {
 			}
 			$category_ids[] = $categories[$queryParams['category']]['id'];
 			$queryParams['category_ids'] = $category_ids;
-			$category = $categories[$queryParams['category']]['meta_title'];
+			$category = $categories[$queryParams['category']];
 		}
 		#VarDumper::dump($category_id, 10, 1); exit;
 		
@@ -191,7 +192,8 @@ class PropertyController extends BaseController {
 			'found_label' => $this->generateCountLabel($dataProvider->getTotalCount()),
 			'not_found_label' => $this->generateNotFoundLabel($category_ids),
 			'meta' => [
-				'title' => $this->generateH1Title($state, $city, $category),
+				'h1' => $this->generateH1Title($state, $city, $category),
+				'title' => $this->generateMetaTitle($state, $city, $category),
 				'description' => '',
 				'keywords' => '',
 				'noindex' => $noindex,
@@ -252,7 +254,8 @@ class PropertyController extends BaseController {
 	public function actionFilter(){
 		$ret = ['error' => 0, 'url' => '', 'title' => '', 'html' => ['items' => '', 'pagination' => '', 'narrow_cities' => ''], 'count' => 0, 'found_label' => ''];
 		
-		$city = $state = $category = '';
+		$city = $state = '';
+		$category = [];
 		$category_ids = [];
 		
 		Yii::$app->response->format = Response::FORMAT_JSON;
@@ -272,9 +275,16 @@ class PropertyController extends BaseController {
 			if(isset($queryParams['category_id'])){
 				if(count($queryParams['category_id']) == 1){
 					$cat_id = intval(current($queryParams['category_id']));
-					$category = Category::find()->select(['id', 'name', 'meta_title'])->where(['id' => $cat_id])->asArray()->one();
+					$category = Category::find()
+					                    ->select(['id', 'name',
+						                    'meta_title', 'meta_title_for_state', 'meta_title_for_state_city',
+						                    'h1_title', 'h1_title_for_state', 'h1_title_for_state_city'])
+					                    ->where(['id' => $cat_id])
+					                    ->asArray()
+					                    ->one();
 					#VarDumper::dump($category, 10, 1); exit;
-					$category = $category['meta_title'];
+					#$category_name = $category['name'];
+					#$category_h1_title = $category['title'];
 				}
 			}
 			
@@ -406,22 +416,45 @@ class PropertyController extends BaseController {
 		]);
 	}
 	
-	public function generateH1Title($state = '', $city = '', $category = ''){
-		$str = 'All Senior Housing in';
+	public function generateH1Title($state = '', $city = '', $category = []){
+		$str = 'All Senior Housing';
 		
-		if(!empty($category)){
-			$str = $category.' in';
+		if(empty($category)){
+			$category['h1_title'] = $str;
+			$category['h1_title_for_state'] = $str.' In %STATE%';
+			$category['h1_title_for_state_city'] = $str.' Near %CITY%, %STATE%';
 		}
 		
-		if(!empty($city)){
-			$str .= ' '.$city;
-			if(!empty($state)){
-				$str .= ', '.$state;
-			}
-		}else{
-			if(!empty($state)){
-				$str .= ' '.$state;
-			}
+		if(!empty($city) && !empty($state)){
+			$str = str_replace(['%STATE%', '%CITY%'], [$state, $city], $category['h1_title_for_state_city']);
+		}elseif(empty($city) && !empty($state)){
+			$str = str_replace(['%STATE%'], [$state], $category['h1_title_for_state']);
+		}elseif(!empty($city) && empty($state)){
+			$str = str_replace(['%STATE%'], [$city], $category['h1_title_for_state']);
+		}elseif(isset($category['h1_title'])){
+			$str = $category['h1_title'];
+		}
+		
+		return $str;
+	}
+	
+	public function generateMetaTitle($state = '', $city = '', $category = []){
+		$str = 'All Senior Housing';
+		
+		if(empty($category)){
+			$category['meta_title'] = $str;
+			$category['meta_title_for_state'] = $str.' In %STATE%';
+			$category['meta_title_for_state_city'] = $str.' Near %CITY%, %STATE%';
+		}
+		
+		if(!empty($city) && !empty($state)){
+			$str = str_replace(['%STATE%', '%CITY%'], [$state, $city], $category['meta_title_for_state_city']);
+		}elseif(empty($city) && !empty($state)){
+			$str = str_replace(['%STATE%'], [$state], $category['meta_title_for_state']);
+		}elseif(!empty($city) && empty($state)){
+			$str = str_replace(['%STATE%'], [$city], $category['meta_title_for_state']);
+		}elseif(isset($category['meta_title'])){
+			$str = $category['meta_title'];
 		}
 		
 		return $str;

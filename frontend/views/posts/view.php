@@ -49,7 +49,7 @@ $this->registerCssFile('@web/theme/css/post.css', ['depends' => [BootstrapAsset:
 				<h1 class="main-title mb-15"><?=$model['title'];?></h1>
 				<div class="article-info-box d-flex mb-25">
 					<span class="article__info me-2">By <?=$model->users->name;?></span>
-					<span class="article__info me-1"><?=date('F j, Y', $model->created_at);?></span>
+					<span class="article__info me-1"><?=date('F j, Y', strtotime($model->created_at));?></span>
 				</div>
 				
 				<div class="article-mobile-content d-md-none mb-25">

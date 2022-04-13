@@ -29,11 +29,13 @@ class UrlRules implements UrlRuleInterface{
 	
 	public function createUrl($manager, $route, $params){
 		
-		#VarDumper::dump($params, 10, 1);
 		
 		if(strstr($route, 'page-<page:\d+>') !== false){
 			$pageNum = (isset($params['page']) && !empty($params['page'])) ? 'page-'.$params['page'] : '';
 			$route = str_replace('page-<page:\d+>', $pageNum, $route);
+			if(!isset($params['page'])){
+				$route = trim($route, "\\");
+			}
 		}
 		
 		if($route === 'property/view' || $route === 'property/index'){

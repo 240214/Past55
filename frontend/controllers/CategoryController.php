@@ -72,10 +72,8 @@ class CategoryController extends BaseController{
 			#VarDumper::dump($path, 10, 1); exit;
 			return $this->render($path, [
 				'model' => $model,
-				'category_id' => $model->id,
-				'category_slug' => $model->slug,
 				'meta' => [
-					'h1' => $model->title,
+					'h1' => $model->h1_title,
 					'title' => $model->meta_title,
 					'description' => '',
 					'keywords' => '',
