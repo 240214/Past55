@@ -127,25 +127,6 @@ class SiteController extends Controller{
 	}
 	
 	/**
-	 * user list.
-	 * @return string
-	 */
-	public function actionUser(){
-		
-		
-		$count = Users::find()->count();
-		$pages = new Pagination(['totalCount' => $count, 'pageSize' => 10]);
-		$model = Users::find()->offset($pages->offset)->limit($pages->limit)->all();
-		
-		return $this->render('user-list', [
-			'model' => $model,
-			'pages' => $pages,
-			'count' => $count,
-		
-		]);
-	}
-	
-	/**
 	 * user delete.
 	 * @return string
 	 */

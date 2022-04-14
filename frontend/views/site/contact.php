@@ -7,10 +7,11 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
+use common\models\Settings;
 
 $this->title = 'Contact';
 $this->params['breadcrumbs'][] = $this->title;
-$siteSeting = \common\models\SiteSettings::find()->one();
+$siteSeting = Settings::getSettings();
 
 ?>
 

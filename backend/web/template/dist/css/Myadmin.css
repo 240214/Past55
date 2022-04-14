@@ -968,24 +968,15 @@ a:focus {
 /*
  * Component: Control sidebar. By default, this is the right sidebar.
  */
-.control-sidebar-bg {
-	position: fixed;
-	z-index: 1000;
-	bottom: 0;
-}
-
-.control-sidebar-bg,
 .control-sidebar {
+	position: fixed;
+	bottom: 0;
 	top: 0;
 	right: -230px;
 	width: 230px;
 	-webkit-transition: right 0.3s ease-in-out;
 	-o-transition: right 0.3s ease-in-out;
 	transition: right 0.3s ease-in-out;
-}
-
-.control-sidebar {
-	position: absolute;
 	padding-top: 50px;
 	z-index: 1010;
 }
@@ -1000,12 +991,10 @@ a:focus {
 	padding: 10px 15px;
 }
 
-.control-sidebar.control-sidebar-open,
-.control-sidebar.control-sidebar-open + .control-sidebar-bg {
+.control-sidebar.control-sidebar-open {
 	right: 0;
 }
 
-.control-sidebar-open .control-sidebar-bg,
 .control-sidebar-open .control-sidebar {
 	right: 0;
 }

@@ -5,14 +5,12 @@ use yii\grid\GridView;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\Request;
-use common\models\SiteSettings;
 use yii\web\View;
 use yii\widgets\Pjax;
 use common\components\CustomActionColumn;
 use yii\helpers\VarDumper;
 
 /* @var $this yii\web\View */
-$site = SiteSettings::find()->one();
 $this->title = "Property Listing";
 $front = Yii::$app->urlManagerFrontend->baseUrl;
 #VarDumper::dump($front, 10, 1);

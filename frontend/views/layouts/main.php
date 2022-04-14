@@ -11,7 +11,6 @@ use common\widgets\Alert;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\VarDumper;
 use common\models\Users;
-use common\models\SiteSettings;
 use yii\helpers\Url;
 use frontend\widgets\ContactUs;
 
