@@ -4,18 +4,12 @@ use yii\helpers\Url;
 use yii\helpers\VarDumper;
 
 #VarDumper::dump($this->params['site'], 10, 1);
-if(empty($this->params['site']['logo'])){
-	$this->params['site']['logo'] = '1971621278390.jpg';
-}
 ?>
 <header class="main-header">
 	
-	<!-- Logo -->
 	<a href="<?=Url::toRoute('site/index');?>" class="logo">
-		<!-- mini logo for sidebar mini 50x50 pixels -->
-		<span class="logo-mini"><?=$this->params['site']['site_name'];?> Admin</span>
-		<!-- logo for regular state and mobile devices -->
-		<span class="logo-lg"><b><?=$this->params['site']['site_name'];?> Admin</b></span>
+		<span class="logo-mini"><b><?=$this->params['site']['site_short_name'];?></b></span>
+		<span class="logo-lg"><b><?=$this->params['site']['site_name'];?></b></span>
 	</a>
 	
 	<!-- Header Navbar: style can be found in header.less -->
@@ -45,7 +39,7 @@ if(empty($this->params['site']['logo'])){
 						<!-- Menu Body -->
 						<li class="user-body">
 							<div class="col-xs-6 text-center">
-								<a href="<?=Url::toRoute('settings/dashboard');?>">Dashboard</a>
+								<a href="<?=Url::toRoute('settings/index');?>">Dashboard</a>
 							</div>
 							<div class="col-xs-6 text-center">
 								<a href="<?=Url::toRoute('settings/admin');?>">Admin Setting</a>

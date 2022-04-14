@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "settings".
@@ -51,6 +52,13 @@ class Settings extends \yii\db\ActiveRecord {
 		];
 	}
 
-	#public static function get
+	public static function getSettings(){
+		$data = Settings::find()->asArray()->all();
+		$settings = ArrayHelper::map($data, 'setting_name', 'setting_value');
+		$a = explode(' ', $settings['site_name']);
+		$settings['site_short_name'] = $a[0][0].$a[1][0];
+		
+		return $settings;
+	}
 	
 }

@@ -32,7 +32,8 @@ class Pages extends ActiveRecord{
 			[['title', 'slug'], 'required'],
 			[['active', 'meta_noindex'], 'integer'],
 			[['title', 'slug', 'content', 'template', 'meta_title', 'meta_description'], 'string'],
-		
+			[['title', 'slug', 'meta_title', 'meta_description'], 'trim'],
+			['slug', 'unique', 'message' => 'This slug has already been taken. Please enter a different slug.'],
 		];
 	}
 	

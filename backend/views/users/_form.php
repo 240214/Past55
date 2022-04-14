@@ -89,6 +89,9 @@ $pluginOptions = [
 				<?=$form->field($model, 'rating')->input('number', ['maxlength' => true, 'min' => 0, 'max' => 5]);?>
 			</div>
 			<div class="col-xs-12">
+				<?=$form->field($model, 'role')->dropDownList($model->RolesList);?>
+			</div>
+			<div class="col-xs-12">
 				<?=$form->field($model, 'preview')->widget(FileInput::classname(), ['options' => ['accept' => 'image/*', 'multiple' => false], 'pluginOptions' => $pluginOptions])->label('Avatar');?>
 				<?php if(!empty($model->image)):?>
 					<ul class="gallery-images">

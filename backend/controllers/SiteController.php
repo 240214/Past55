@@ -21,6 +21,9 @@ use yii\data\Pagination;
  * Site controller
  */
 class SiteController extends Controller{
+	
+	public $layout = 'main';
+	
 	/**
 	 * @inheritdoc
 	 */
@@ -67,33 +70,30 @@ class SiteController extends Controller{
 	 * @return string
 	 */
 	public function actionIndex(){
-		if(\Yii::$app->user->isGuest){
+		if(Yii::$app->user->isGuest){
 			return $this->redirect(Url::toRoute('site/login'));
 		}
-		$this->layout = "main";
-		$user         = Users::find()->orderBy(['created_at' => SORT_DESC])->limit('5')->all();
-		$property     = Property::find()->orderBy(['created_at' => SORT_DESC])->limit('5')->all();;
+		
+		$user     = Users::find()->orderBy(['created_at' => SORT_DESC])->limit('5')->all();
+		$property = Property::find()->orderBy(['created_at' => SORT_DESC])->limit('5')->all();;
 		
 		$statistics = Track::find()->limit('5')->all();
-		$adsTotal   = Property::find()->count();
-		$pending    = Property::find()->where(['active' => 1])->count();
-		$active     = ($adsTotal - $pending);
-		$totalUser  = Users::find()->count();
-		//SELECT id FROM `ad` WHERE  date_sub(from_unixtime(`created_at`), INTERVAL 300 DAY) >= NOW()
 		
-		//  SELECT CURDATE() as cur, date_format(from_unixtime(`created_at`), '%Y-%m-%d') as newsd FROM `ad` WHERE  date_format(from_unixtime(`created_at`), '%Y-%m-%d') < CURDATE() + INTERVAL 2000 DAY
+		$total_listings_count   = Property::find()->count();
+		$pending_listings_count = Property::find()->where(['active' => 0])->count();
+		$active_listings_count  = ($total_listings_count - $pending_listings_count);
+		$total_users_count      = Users::find()->count();
 		
-		//        $blog = Posts::find();
-		//        $blogTotal = $blog->count();
-		//        $blogThisMonth = $blog->where();
 		return $this->render('index', [
-			'total'      => $adsTotal,
-			'pending'    => $pending,
-			'active'     => $active,
+			'totals'     => [
+				'total_listings_count'   => $total_listings_count,
+				'pending_listings_count' => $pending_listings_count,
+				'active_listings_count'  => $active_listings_count,
+				'total_users_count'      => $total_users_count
+			],
 			'statistics' => $statistics,
 			'member'     => $user,
 			'property'   => $property,
-			'totalUser'  => $totalUser
 		]);
 	}
 	

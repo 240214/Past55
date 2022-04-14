@@ -11,9 +11,6 @@ $this->title = 'Admin Settings';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-login">
-    <h3><?= Html::encode($this->title) ?></h3>
-
-    <hr>
     <div class="row">
         <div class="col-lg-5">
             <div class="panel panel-piluku">

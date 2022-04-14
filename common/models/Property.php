@@ -147,6 +147,8 @@ class Property extends ActiveRecord{
 			[['preview', 'gallery'], 'image', 'skipOnEmpty' => true, 'extensions' => Yii::$app->params['image_exts'], 'maxFiles' => 500],
 			#[['gallery'], 'image', 'skipOnEmpty' => true, 'extensions' => Yii::$app->params['image_exts'], 'maxFiles' => 500],
 			[['floorplan'], 'file', 'skipOnEmpty' => true, 'extensions' => Yii::$app->params['image_exts'], 'maxFiles' => 500],
+			[['title', 'slug'], 'trim'],
+			['slug', 'unique', 'message' => 'This slug has already been taken. Please enter a different slug.'],
 		];
 	}
 	

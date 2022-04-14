@@ -71,6 +71,11 @@ $this->params['breadcrumbs'][] = $this->title;
 				},
 			],
 			[
+				'attribute'      => 'role',
+				'contentOptions' => ['class' => 'col-50'],
+				'filter'         => $searchModel->RolesList,
+			],
+			[
 				'attribute'      => 'active',
 				'contentOptions' => ['class' => 'col-50'],
 				'filter'         => [1 => 'Yes', 0 => 'No'],

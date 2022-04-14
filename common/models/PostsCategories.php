@@ -22,7 +22,8 @@ class PostsCategories extends ActiveRecord {
 		return [
 			[['title', 'slug'], 'required'],
 			[['title', 'slug'], 'string', 'max' => 255],
-		
+			[['title', 'slug'], 'trim'],
+			['slug', 'unique', 'message' => 'This slug has already been taken. Please enter a different slug.'],
 		];
 	}
 	

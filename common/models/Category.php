@@ -47,6 +47,8 @@ class Category extends ActiveRecord{
 			[['type', 'slug', 'h1_title', 'h1_title_for_state', 'h1_title_for_state_city', 'meta_title', 'meta_title_for_state', 'meta_title_for_state_city', 'meta_keywords', 'meta_description', 'template', 'content_list'], 'string'],
 			[['name', 'h1_title', 'icon'], 'string', 'max' => 225],
 			['created_at', 'safe'],
+			[['name', 'slug'], 'trim'],
+			['slug', 'unique', 'message' => 'This slug has already been taken. Please enter a different slug.'],
 		];
 	}
 	

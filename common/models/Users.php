@@ -44,6 +44,7 @@ use common\models\Property;
  * @property integer $created_at
  * @property integer $updated_at
  * @property string $password
+ * @property string $role
  */
 class Users extends ActiveRecord implements IdentityInterface{
 
@@ -52,6 +53,10 @@ class Users extends ActiveRecord implements IdentityInterface{
 
 	public $new_password;
 	public $preview;
+	private $roles = [
+		'author' => 'Author',
+		'subscriber' => 'Subscriber',
+	];
 	
 	/**
 	 * @inheritdoc
@@ -79,14 +84,14 @@ class Users extends ActiveRecord implements IdentityInterface{
 			[['username', 'new_password', 'email', 'name', 'mobile', 'about', 'city', 'country'], 'safe'],
 			[['mobile', 'rating'], 'integer'],
 			
-			[['username', 'email', 'name', 'about', 'city', 'country'], 'string'],
+			[['username', 'email', 'name', 'about', 'city', 'country', 'role'], 'string'],
 			[['social_tw', 'social_in', 'social_fb', 'social_yt', 'social_vm', 'social_ig', 'social_gp', 'social_tb'], 'string', 'max' => 255],
 			[['position'], 'string', 'max' => 255],
 			[['address'], 'string', 'max' => 225],
 			[['name'], 'string', 'max' => 20],
 			[['rating'], 'integer', 'max' => 5],
 			[['image'], 'image', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
-		
+			['username', 'unique', 'message' => 'This username has already been taken. Please enter a different username.'],
 		];
 	}
 	
@@ -108,6 +113,7 @@ class Users extends ActiveRecord implements IdentityInterface{
 			'social_gp' => Yii::t('app', 'Google Plus'),
 			'social_tb' => Yii::t('app', 'Tumblr'),
 			'rating' => Yii::t('app', 'Rating'),
+			'role' => Yii::t('app', 'Role'),
 		];
 	}
 	
@@ -402,4 +408,7 @@ class Users extends ActiveRecord implements IdentityInterface{
 		return Html::img($image, ['class' => 'img-fluid rating']);
 	}
 	
+	public function getRolesList(){
+		return $this->roles;
+	}
 }

@@ -21,6 +21,31 @@ class PostsTags extends ActiveRecord {
 		return 'posts_tags';
 	}
 	
+	/**
+	 * @inheritdoc
+	 */
+	public function rules(){
+		return [
+			[['tag', 'slug'], 'required'],
+			[['post_id'], 'integer'],
+			[['tag', 'slug'], 'trim'],
+			['slug', 'unique', 'message' => 'This slug has already been taken. Please enter a different slug.'],
+			#['slug', 'validateUniqueSlug'],
+		];
+	}
+	
+	/**
+	 * @inheritdoc
+	 */
+	public function attributeLabels(){
+		return [
+			'id' => Yii::t('app', 'ID'),
+			'post_id' => Yii::t('app', 'Post'),
+			'tag' => Yii::t('app', 'Tag'),
+			'slug'  => Yii::t('app', 'Slug'),
+		];
+	}
+	
 	public function getPosts(){
 		return $this->hasOne(Posts::className(), ['post_id' => 'id']);
 	}

@@ -10,11 +10,13 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
 use yii\helpers\Url;
-use common\models\SiteSettings;
+use common\models\Settings;
+use yii\helpers\VarDumper;
 
 AppAsset::register($this);
 
-$this->params['site'] = SiteSettings::find()->one();
+$this->params['site'] = Settings::getSettings();
+#VarDumper::dump($this->params['site'], 10, 1);exit;
 ?>
 <?php $this->beginPage(); ?>
 <!DOCTYPE html>
