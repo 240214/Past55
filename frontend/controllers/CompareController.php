@@ -14,6 +14,8 @@ use PDO;
 
 class CompareController extends PropertyController{
 	
+	private $noindex = false;
+
 	/**
 	 * @inheritdoc
 	 */
@@ -25,6 +27,27 @@ class CompareController extends PropertyController{
 					'delete' => ['POST'],
 				],
 			],
+		];
+	}
+	
+	public function beforeAction($action){
+		$this->noindex = YII_ENV_DEV;
+		
+		return parent::beforeAction($action);
+	}
+	
+	/**
+	 * @inheritdoc
+	 */
+	public function actions(){
+		return [
+			'error' => [
+				'class' => 'yii\web\ErrorAction',
+			],
+			/*'captcha' => [
+				'class'           => 'yii\captcha\CaptchaAction',
+				'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
+			],*/
 		];
 	}
 	

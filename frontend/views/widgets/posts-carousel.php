@@ -42,7 +42,7 @@ use yii\helpers\Url;?>
 										'lazyload' => false,
 										'css_class' => 'img-fluid me-1 rounded-50p d-block',
 									]);?>
-									<a href="/<?=$model->users->username;?>/" class="name"><?=$model->users->name;?></a>
+									<a href="/authors/<?=$model->users->username;?>/" class="name"><?=$model->users->name;?></a>
 								</div>
 								<div class="date ff-airbnb-cereal-app-book"><?=date('M j, Y', strtotime($model->created_at));?></div>
 							</div>

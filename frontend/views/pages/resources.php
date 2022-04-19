@@ -19,10 +19,11 @@ $this->registerCssFile('@web/theme/css/pages/resources.css', ['depends' => [Boot
 <section class="content-library">
 	<div class="content-library__body">
 		<div class="container">
-			<h1 class="main-title text-center mb-1 mb-md-2">Content Library</h1>
-			<p class="main-text-content text-center mb-5 mb-md-7">People started talking about E‑A-T in August 2018, and it’s been mentioned<br>in hundreds of SEO articles ever since.</p>
+			<h1 class="main-title text-center mb-1 mb-md-2">Senior Living Articles</h1>
+			<p class="main-text-content text-center mb-5 mb-md-7">Learn more about the different types of senior living <br>and care with our resource library.</p>
 
 			<?=PostsCarousel::widget(['post_type' => 'article', 'listing_category_id' => 1]);?>
+			<?=PostsCarousel::widget(['post_type' => 'article', 'listing_category_id' => 6]);?>
 			<?=PostsCarousel::widget(['post_type' => 'article', 'listing_category_id' => 5]);?>
 			<?=PostsCarousel::widget(['post_type' => 'article', 'listing_category_id' => 3]);?>
 		</div>

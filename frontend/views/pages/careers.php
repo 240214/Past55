@@ -19,8 +19,8 @@ $this->registerCssFile('@web/theme/css/pages/careers.css', ['depends' => [Bootst
 <section class="hero">
 	<div class="container first-screen text-center max-w-700">
 		<h1 class="main-title mb-15 mb-md-25 me-auto ms-auto"><?=$model->meta_title;?></h1>
-		<p class="main-text-content text-color-black mb-15 mb-md-25 me-auto ms-auto">Our mission is to create a workplace where work empowers people.</p>
-		<a class="btn-primary-medium screen-btn m-auto" href="#hiring">See open position</a>
+		<p class="main-text-content text-color-black mb-15 mb-md-25 me-auto ms-auto">Join our passionate team of senior living experts.</p>
+		<a class="btn-primary-medium screen-btn m-auto" href="#hiring">See open positions</a>
 	</div>
 </section>
 
@@ -41,19 +41,19 @@ $this->registerCssFile('@web/theme/css/pages/careers.css', ['depends' => [Bootst
 <section class="content container-fluid max-w-1290">
 	<div class="row mb-35 mb-md-10">
 		<div class="col-12">
-			<div class="subtitle mb-15 mb-md-25">Why work at swingvy?</div>
-			<h1 class="main-title m-0 max-w-860">We believe great businesses always put people first</h1>
+			<div class="subtitle mb-15 mb-md-25">Why work at GeorgiaCaring.com?</div>
+			<h1 class="main-title m-0 max-w-860">We believe in putting people first.</h1>
 		</div>
 	</div>
 	<div class="row mb-3 mb-md-9">
 		<div class="col-12 col-md-6 mb-3 mb-md-0">
 			<div class="max-w-530-sm me-md-auto">
-				<h2 class="item-title mb-15 mb-md-2">Diverse Culture</h2>
-				<p class="item-text mb-2 mb-md-3">4 offices across Asia, 10 nationalities, various professional backgrounds. We want eclectic minds and experiences joining together.</p>
+				<h2 class="item-title mb-15 mb-md-2">Make a difference</h2>
+				<p class="item-text mb-2 mb-md-3">Contribute work that has a direct impact on the quality of peoples lives. GeorgiaCaring.com is committed to helping our senior citizens.</p>
 				<h2 class="item-title mb-15 mb-md-2">Flexible hours</h2>
-				<p class="item-text mb-2 mb-md-3">4 offices across Asia, 10 nationalities, various professional backgrounds. We want eclectic minds and experiences joining together.</p>
+				<p class="item-text mb-2 mb-md-3">With remote employees from all corners of the world, choose a schedule that best fits your life.</p>
 				<h2 class="item-title mb-15 mb-md-2">Work From Home</h2>
-				<p class="item-text mb-0">4 offices across Asia, 10 nationalities, various professional backgrounds. We want eclectic minds and experiences joining together.</p>
+				<p class="item-text mb-0">As a fully remote company, we have embraced the new way of doing business. Join us from anywhere in the world.</p>
 			</div>
 		</div>
 		<div class="col-12 col-md-6 work-proccess">
@@ -73,12 +73,12 @@ $this->registerCssFile('@web/theme/css/pages/careers.css', ['depends' => [Bootst
 	<div class="row flex-md-row-reverse">
 		<div class="col-12 col-md-6 mb-3 mb-md-0">
 			<div class="max-w-530-sm ms-md-auto">
-				<h2 class="item-title mb-15 mb-md-2">Diverse Culture</h2>
-				<p class="item-text mb-2 mb-md-3">4 offices across Asia, 10 nationalities, various professional backgrounds. We want eclectic minds and experiences joining together.</p>
-				<h2 class="item-title mb-15 mb-md-2">Flexible hours</h2>
-				<p class="item-text mb-2 mb-md-3">4 offices across Asia, 10 nationalities, various professional backgrounds. We want eclectic minds and experiences joining together.</p>
-				<h2 class="item-title mb-15 mb-md-2">Work From Home</h2>
-				<p class="item-text mb-0">4 offices across Asia, 10 nationalities, various professional backgrounds. We want eclectic minds and experiences joining together.</p>
+				<h2 class="item-title mb-15 mb-md-2">Growing Market</h2>
+				<p class="item-text mb-2 mb-md-3">The senior living market is currently valued at over $80 billion, with projected growth to $119 billion by 2027.</p>
+				<h2 class="item-title mb-15 mb-md-2">Competitive benefits</h2>
+				<p class="item-text mb-2 mb-md-3">Health insurance, dental, 401k, and unlimited PTO are standard.</p>
+				<h2 class="item-title mb-15 mb-md-2">Work Life Balance</h2>
+				<p class="item-text mb-0">As one of our core values, we believe in shutting off when work is done. </p>
 			</div>
 		</div>
 		<div class="col-12 col-md-6 work-proccess">
@@ -100,11 +100,11 @@ $this->registerCssFile('@web/theme/css/pages/careers.css', ['depends' => [Bootst
 <section class="hiring pt-4 pb-2 pt-md-6 pb-md-4" id="hiring">
 	<div class="container">
 		<h2 class="title mb-1 mb-md-25">We're hiring</h2>
-		<p class="main-text-content text-color-black mb-2 mb-md-4">We’re looking for passionate people to join the Swingvy team.</p>
+		<p class="main-text-content text-color-black mb-2 mb-md-4">We’re looking for passionate people to join the GeorgiaCaring.com team.</p>
 
 		<div class="box d-block text-decoration-none bg-white p-25 py-md-3 px-md-5 mb-15 mb-md-3 position-relative">
 			<div class="title mb-15 mb-md-3">
-				<a href="#">Product Manager</a>
+				<a href="#">Community Success Manager</a>
 			</div>
 			<a href="#" class="detail">Detail</a>
 			<div class="d-flex">
@@ -116,7 +116,7 @@ $this->registerCssFile('@web/theme/css/pages/careers.css', ['depends' => [Bootst
 
 		<div class="box d-block text-decoration-none bg-white p-25 py-md-3 px-md-5 mb-15 mb-md-3 position-relative">
 			<div class="title mb-15 mb-md-3">
-				<a href="#">Product Manager</a>
+				<a href="#">SEO Manager</a>
 			</div>
 			<a href="#" class="detail">Detail</a>
 			<div class="d-flex">
@@ -131,7 +131,7 @@ $this->registerCssFile('@web/theme/css/pages/careers.css', ['depends' => [Bootst
 		<p class="main-text-content text-color-black text-center mb-1">Didn’t find a position that suits you? Don’t worry you can send us your CV and we will review it.</p>
 		<p class="text-center main-text-content text-color-black">
 			<strong class="hiring-email-text">
-				​​Email us at: <a class="text-decoration-none text-color-primary" href="mailto:careers@georgia.com">careers@georgia.com</a>
+				​​Email us at: <a class="text-decoration-none text-color-primary" href="mailto:careers@georgiacaring.com">careers@georgiacaring.com</a>
 			</strong>
 		</p>
 	</div>

@@ -5,6 +5,7 @@ namespace common\models;
 use Yii;
 use yii\helpers\ArrayHelper;
 use yii\db\ActiveRecord;
+use yii\helpers\VarDumper;
 
 /**
  * This is the model class for table "category".
@@ -91,8 +92,14 @@ class Category extends ActiveRecord{
 	public static function getCategoryList($params){
 		$ret = [];
 		
-		$models = self::find()->select(implode(',', $params['fields']))->orderBy($params['order'])->all();
-		
+		$models = self::find()
+			#->leftJoin('properties', ['category_id' => 'id'])
+			->select(implode(',', $params['fields']))
+			#->where()
+			->orderBy($params['order'])->all();
+
+		#VarDumper::dump($models, 10, 1);
+
 		if($models){
 			foreach($models as $model){
 				foreach($params['fields'] as $field){

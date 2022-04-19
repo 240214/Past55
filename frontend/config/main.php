@@ -86,21 +86,36 @@ return [
             'baseUrl' => $baseUrl,
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'suffix' => '/',
+            #'suffix' => '/',
             /*'normalizer' => [
 	            'class' => 'yii\web\UrlNormalizer',
-	            'action' => UrlNormalizer::ACTION_REDIRECT_TEMPORARY, // используем временный редирект вместо постоянного
+	            'action' => UrlNormalizer::ACTION_REDIRECT_TEMPORARY,
 	            'collapseSlashes' => false,
 	            'normalizeTrailingSlash' => true,
             ],*/
             'rules' => array(
 	            ['class' => 'frontend\components\UrlRules'],
                 #'property/search' => 'property/search',
-                'POST <controller:(compare)>/<slug:(get-property)>' => '<controller>/<action>',
-                'GET <controller:(compare)>/<slug:.*?>' => '<controller>/index',
-                '<controller:(authors)>/<slug:.*?>/page-<page:\d+>/' => '<controller>/view',
-                '<controller:(authors)>/<slug:.*?>' => '<controller>/view',
-                '<controller:(authors)>/' => '<controller>/index',
+	            'POST <controller:(compare)>/<slug:(get-property)>' => '<controller>/<action>',
+	            'GET <controller:(compare)>/<slug:.*?>' => '<controller>/index',
+	            [
+		            'pattern' => '<controller:(authors)>/<slug:.*?>/page-<page:\d+>/',
+		            'route' => '<controller>/view',
+		            'suffix' => '/',
+		            'normalizer' => false,
+	            ],
+	            [
+		            'pattern' => '<controller:(authors)>/<slug:.*?>',
+		            'route' => '<controller>/view',
+		            'suffix' => '/',
+		            'normalizer' => false,
+	            ],
+	            [
+		            'pattern' => '<controller:(authors)>/',
+		            'route' => '<controller>/index',
+		            'suffix' => '/',
+		            'normalizer' => false,
+	            ],
                 'user/profile/<username>' => 'user/profile',
                 'user/property/<username>' => 'user/property',
                 'leads/status/<status>/<id>'=>'leads/status',
