@@ -92,13 +92,24 @@ class Category extends ActiveRecord{
 	public static function getCategoryList($params){
 		$ret = [];
 		
-		$models = self::find()
-			#->leftJoin('properties', ['category_id' => 'id'])
-			->select(implode(',', $params['fields']))
-			#->where()
-			->orderBy($params['order'])->all();
-
-		#VarDumper::dump($models, 10, 1);
+		if(!isset($params['empty'])) $params['empty'] = true;
+		
+		$fields = $params['fields'];
+		foreach($fields as $k => $field)
+			$fields[$k] = 'category.'.$field;
+		
+		if(!$params['empty']){
+			$models = self::find()
+				->join('RIGHT JOIN', 'properties', 'properties.category_id = category.id')
+				->select(implode(',', $fields))
+				->groupBy(['category.id'])
+				->orderBy($params['order'])->all();
+		}else{
+			$models = self::find()
+				->select(implode(',', $fields))
+				->orderBy($params['order'])->all();
+		}
+		#VarDumper::dump($models, 10, 1);exit;
 
 		if($models){
 			foreach($models as $model){

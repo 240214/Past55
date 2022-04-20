@@ -1457,9 +1457,9 @@ a:focus {
 }
 
 .navbar-nav > .user-menu > .dropdown-menu > .user-body {
-	padding: 15px;
-	border-bottom: 1px solid #f4f4f4;
-	border-top: 1px solid #dddddd;
+	/*padding: 15px;*/
+	/*border-bottom: 1px solid #f4f4f4;*/
+	border-top: 1px solid #f4f4f4;
 }
 
 .navbar-nav > .user-menu > .dropdown-menu > .user-body:before,
@@ -1474,6 +1474,7 @@ a:focus {
 
 .navbar-nav > .user-menu > .dropdown-menu > .user-body a {
 	color: #444 !important;
+	padding: 15px;
 }
 
 @media (max-width: 991px) {

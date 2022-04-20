@@ -15,6 +15,7 @@ use yii\helpers\VarDumper;
 class SearchProperty extends Property{
 	
 	public $categoryName;
+	public $nearby_cities = [];
 	#public $sub_categoryName;
 	
 	/**
@@ -103,8 +104,11 @@ class SearchProperty extends Property{
 		$cities = [];
 		$cities[] = $this->city;
 		$cities[] = str_replace('-', ' ', $this->city);
-		$cities = array_unique($cities);
-		$cities = array_filter($cities);
+		if(!empty($this->nearby_cities)){
+			$cities += $this->nearby_cities;
+		}
+		$cities = array_filter(array_unique($cities));
+		
 		
 		$query
 			->andFilterWhere(['like', 'title', $this->title])
@@ -123,6 +127,7 @@ class SearchProperty extends Property{
 			$query->andFilterWhere(['IN', 'city', $cities]);
 		}
 		
+		#VarDumper::dump($cities, 10, 1); exit;
 		#VarDumper::dump($query->createCommand()->getRawSql(), 10, 1); exit;
 
 		/*if(!empty(trim($this->datetime))){

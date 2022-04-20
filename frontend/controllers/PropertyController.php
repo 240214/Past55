@@ -84,9 +84,21 @@ class PropertyController extends BaseController {
 		#VarDumper::dump($queryParams, 10, 1); exit;
 		
 		$categories = Category::getCategoryList([
-			'fields' => ['id', 'name', 'slug', 'template', 'meta_title', 'meta_title_for_state', 'meta_title_for_state_city', 'h1_title', 'h1_title_for_state', 'h1_title_for_state_city'],
+			'fields' => [
+				'id',
+				'name',
+				'slug',
+				'template',
+				'meta_title',
+				'meta_title_for_state',
+				'meta_title_for_state_city',
+				'h1_title',
+				'h1_title_for_state',
+				'h1_title_for_state_city'
+			],
 			'key_field' => 'slug',
-			'order' => 'name ASC',
+			'order' => 'category.name ASC',
+			'empty' => false,
 		]);
 		#VarDumper::dump($categories, 10, 1); exit;
 		
@@ -119,15 +131,17 @@ class PropertyController extends BaseController {
 		#VarDumper::dump($city_id, 10, 1); exit;
 		
 		if(isset($queryParams['category'])){
-			$category_id = $categories[$queryParams['category']]['id'];
+			$category = Category::getCategoryBySlug($queryParams['category']);
+			$category_id = $category['id'];
+			#$category_id = $categories[$queryParams['category']]['id'];
 			if(count($queryParams) == 1){
 			
 			}
-			$category_ids[] = $categories[$queryParams['category']]['id'];
+			$category_ids[] = $category_id;
 			$queryParams['category_ids'] = $category_ids;
-			$category = $categories[$queryParams['category']];
+			#$category = $categories[$queryParams['category']];
 		}
-		#VarDumper::dump($category_id, 10, 1); exit;
+		#VarDumper::dump($category, 10, 1); exit;
 		
 		if(isset($queryParams['categories'])){
 			$cats = explode('-and-', $queryParams['categories']);
@@ -146,18 +160,7 @@ class PropertyController extends BaseController {
 		$queryParams['SearchProperty']['active'] = 1;
 		#VarDumper::dump($queryParams, 10, 1); exit;
 		
-		$searchModel = new SearchProperty();
-		$dataProvider = $searchModel->search($queryParams);
-		$dataProvider->sort->defaultOrder = ['id' => SORT_DESC];
-		$dataProvider->pagination = [
-			'pageParam' => 'page',
-			'forcePageParam' => false,
-			'pageSizeParam' => false,
-			'route' => $url.'page-<page:\d+>/',
-			'pageSize' => $this->default_pageSize,
-			#'page' => $queryParams['page'],
-		];
-		
+		$dataProvider = $this->getListings($queryParams, $url);
 		if(!$dataProvider->getCount()){
 			$noindex = true;
 		}
@@ -206,6 +209,28 @@ class PropertyController extends BaseController {
 			'category_city_content' => $category_city_content,
 		]);
 		
+	}
+	
+	private function getListings($queryParams, $url){
+		#VarDumper::dump($queryParams, 10, 1); exit;
+		
+		$searchModel = new SearchProperty();
+		$dataProvider = $searchModel->search($queryParams);
+		$dataProvider->sort->defaultOrder = ['id' => SORT_DESC];
+		$dataProvider->pagination = [
+			'pageParam' => 'page',
+			'forcePageParam' => false,
+			'pageSizeParam' => false,
+			'route' => $url.'page-<page:\d+>/',
+			'pageSize' => $this->default_pageSize,
+			#'page' => $queryParams['page'],
+		];
+		
+		if($dataProvider->getTotalCount() < intval(Yii::$app->params['min_listings_count_in_category_page'])){
+			$queryParams['nearby_cities'] = [];
+		}
+
+		return $dataProvider;
 	}
 	
 	public function get3CContent($category_id = 0, $state_id = 0, $city_id = 0){
@@ -291,7 +316,8 @@ class PropertyController extends BaseController {
 			$categories = Category::getCategoryList([
 				'fields' => ['id', 'name', 'slug', 'meta_title'],
 				'key_field' => 'slug',
-				'order' => 'name ASC',
+				'order' => 'category.name ASC',
+				'empty' => false,
 			]);
 			if(isset($queryParams['category_id'])){
 				$category_ids = $queryParams['category_ids'] = $queryParams['category_id'];
@@ -477,6 +503,7 @@ class PropertyController extends BaseController {
 				'fields'    => ['id', 'slug'],
 				'key_field' => 'id',
 				'order'     => 'name ASC',
+				'empty' => true
 			]);
 			$c = [];
 			foreach($queryParams['category_id'] as $c_id){
@@ -507,6 +534,7 @@ class PropertyController extends BaseController {
 				'fields'    => ['id', 'slug', 'name'],
 				'key_field' => 'id',
 				'order'     => 'name ASC',
+				'empty' => true
 			]);
 			$category = '';
 			foreach($queryParams['category_id'] as $c_id){
@@ -547,6 +575,8 @@ class PropertyController extends BaseController {
 	}
 	
 	public function generateNotFoundLabel($category_ids){
+		#VarDumper::dump($category_ids, 10, 1); exit;
+		
 		$str = "We're sorry, there are no %s listings in this area.<br>Please try a nearby city.";
 		$category_labels = [];
 		
@@ -555,6 +585,7 @@ class PropertyController extends BaseController {
 				'fields' => ['id', 'name'],
 				'key_field' => 'id',
 				'order' => 'name ASC',
+				'empty' => true,
 			]);
 			foreach($category_ids as $cid){
 				$category_labels[$cid] = $_categories[$cid]['name'];
@@ -788,7 +819,7 @@ class PropertyController extends BaseController {
 	
 	private function getNarrowCities($state, $queryParams, $categories){
 		#VarDumper::dump($categories, 10, 1);
-		#VarDumper::dump($queryParams, 10, 1);
+		#VarDumper::dump($queryParams, 10, 1);exit;
 		
 		$from_all_cats = false;
 		$display_cat_in_url = false;

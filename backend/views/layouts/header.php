@@ -27,7 +27,7 @@ use yii\helpers\VarDumper;
 					<ul class="dropdown-menu">
 						<li class="user-body"><a href="<?=Url::toRoute('settings/admin');?>">Admin Profile</a></li>
 						<li class="user-body"><a href="<?=Url::toRoute('settings/site');?>">Site Setting</a></li>
-						<li class="user-body"><a href="<?=Url::toRoute('settings/index');?>">Global Settings</a></li>
+						<li class="user-body"><a href="<?=Url::toRoute('settings/index');?>">Manage Settings</a></li>
 						<li class="user-body"><a data-method="POST" href="<?=Url::toRoute('site/logout');?>">Sign out</a></li>
 					</ul>
 				</li>

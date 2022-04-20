@@ -81,6 +81,7 @@ class SettingsForm extends Model {
 			'category_page_display_listing_item_price' => 'Display listing item price in category page',
 			'category_page_display_listing_item_description' => 'Display listing item description in category page',
 			'category_page_display_listing_item_rating' => 'Display listing item rating in category page',
+			'min_listings_count_in_category_page' => 'Min listings count in category page',
 		];
 	}
 	

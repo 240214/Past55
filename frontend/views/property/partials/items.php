@@ -10,17 +10,19 @@ use yii\helpers\VarDumper;
 	<?php $url = Url::toRoute(['property/view', 'slug' => $model->slug, 'state' => $model->state, 'city' => $model->city, 'category_id' => $model->category_id]);?>
 	<div class="col-12 col-lg-6 mb-25" data-id="<?=$model->id;?>">
 		<div class="category-card bg-white p-2 position-relative">
-			<a href="<?=$url;?>">
-				<?=Yii::$app->Helpers->getImage([
-					'src' => $model->getMainImage('250'),
-					'data-srcset' => $model->getMainImage('575').' 575w, '.$model->getMainImage('767').' 767w, '.$model->getMainImage('767').' 768w',
-					'data-sizes' => '250w',
-					'alt' => $model->title,
-					'from_cdn' => false,
-					'lazyload' => true,
-					'class' => 'img-fluid mb-25 rounded-10',
-				]);?>
-			</a>
+			<figure class="mb-25">
+				<a href="<?=$url;?>">
+					<?=Yii::$app->Helpers->getImage([
+						'src' => $model->getMainImage('250'),
+						'data-srcset' => $model->getMainImage('575').' 575w, '.$model->getMainImage('767').' 767w, '.$model->getMainImage('767').' 768w',
+						'data-sizes' => '250w',
+						'alt' => $model->title,
+						'from_cdn' => false,
+						'lazyload' => true,
+						'class' => 'img-fluid',
+					]);?>
+				</a>
+			</figure>
 			<a role="button" class="add-to-favorite-btn position-absolute top-30 start-30 bg-white actions__toggle js_property_likes trans-all" data-id="<?=$model->id;?>">
 				<input type="checkbox" <?=($model->Liked ? 'checked="checked"' : '');?> class="js_trigger" data-property_id="<?=$model->id;?>" data-trigger="js_action_change" data-action="property_toggle_favorite">
 				<i class="bi bi-heart text-color-primary uncheck"></i>

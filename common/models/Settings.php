@@ -12,6 +12,7 @@ use yii\helpers\ArrayHelper;
  * @property string $setting_value
  * @property string $field_type
  * @property string $field_options
+ * @property string $setting_title
  * @property int $order
  * @property int $active
  */
@@ -33,7 +34,7 @@ class Settings extends \yii\db\ActiveRecord {
 		return [
 			[['order', 'active'], 'integer'],
 			[['setting_value', 'field_options'], 'string'],
-			[['setting_name', 'field_type'], 'string', 'max' => 255],
+			[['setting_name', 'field_type', 'setting_title'], 'string', 'max' => 255],
 		];
 	}
 	
@@ -47,6 +48,7 @@ class Settings extends \yii\db\ActiveRecord {
 			'setting_value' => 'Setting Value',
 			'field_type'    => 'Field Type',
 			'field_options' => 'Field Options',
+			'setting_title' => 'Setting Title',
 			'order'         => 'Field order',
 			'active'        => 'Active',
 		];

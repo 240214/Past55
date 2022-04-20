@@ -18,7 +18,7 @@ class SearchSettings extends Settings
     {
         return [
             [['id'], 'integer'],
-            [['setting_name', 'setting_value', 'field_type', 'field_options'], 'safe'],
+            [['setting_name', 'setting_value', 'field_type', 'field_options', 'setting_title'], 'safe'],
         ];
     }
 
@@ -63,6 +63,7 @@ class SearchSettings extends Settings
 
         $query->andFilterWhere(['like', 'setting_name', $this->setting_name])
             ->andFilterWhere(['like', 'setting_value', $this->setting_value])
+            ->andFilterWhere(['like', 'setting_title', $this->setting_title])
             ->andFilterWhere(['like', 'field_type', $this->field_type])
             ->andFilterWhere(['like', 'field_options', $this->field_options]);
 

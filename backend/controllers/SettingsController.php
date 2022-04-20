@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use common\models\search\SearchUsers;
 use Yii;
 use common\models\Settings;
 use common\models\search\SearchSettings;
@@ -21,6 +22,8 @@ use yii\base\DynamicModel;
  */
 class SettingsController extends Controller{
 	
+	public $default_pageSize = 100;
+	public $pageSize_list = [7 => 7, 10 => 10, 20 => 20, 30 => 30, 40 => 40, 50 => 50, 100 => 100];
 	
 	/**
 	 * {@inheritdoc}
@@ -41,12 +44,17 @@ class SettingsController extends Controller{
 	 * @return mixed
 	 */
 	public function actionIndex(){
+		$pageSize = Yii::$app->request->get('per-page') ? intval(Yii::$app->request->get('per-page')) : $this->default_pageSize;
+		
 		$searchModel  = new SearchSettings();
 		$dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+		$dataProvider->pagination->pageSize = $pageSize ? $pageSize : $this->default_pageSize;
 		
 		return $this->render('edit/index', [
 			'searchModel'  => $searchModel,
 			'dataProvider' => $dataProvider,
+			'pageSize'      => $pageSize,
+			'pageSize_list' => $this->pageSize_list,
 		]);
 	}
 	
@@ -110,6 +118,8 @@ class SettingsController extends Controller{
 	 *
 	 * @return mixed
 	 * @throws NotFoundHttpException if the model cannot be found
+	 * @throws \Throwable
+	 * @throws \yii\db\StaleObjectException
 	 */
 	public function actionDelete($id){
 		$this->findModel($id)->delete();

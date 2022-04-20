@@ -40,6 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
 						'attribute' => 'state_id',
 						'value' => is_object($model->state) ? $model->state->name : '',
 					],
+					'nearby_cities'
 				],
 			]);?>
 		</div>

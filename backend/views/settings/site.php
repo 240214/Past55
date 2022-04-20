@@ -50,31 +50,31 @@ $option = array(
 			</div>
 			<?php
 			foreach($settings as $setting):?>
-				<div class="col-lg-6 col-md-10 col-sm-12 col-xs-12">
+				<div class="col-lg-4 col-md-6 col-sm-10 col-xs-12">
 				<?php switch($setting->field_type):
 					case "text":
-						echo $form->field($model, $setting->setting_name);
+						echo $form->field($model, $setting->setting_name)->label($setting->setting_title);
 						break;
 					case "number":
-						echo $form->field($model, $setting->setting_name)->input('number');
+						echo $form->field($model, $setting->setting_name)->input('number')->label($setting->setting_title);
 						break;
 					case "email":
-						echo $form->field($model, $setting->setting_name)->input('email');
+						echo $form->field($model, $setting->setting_name)->input('email')->label($setting->setting_title);
 						break;
 					case "tel":
-						echo $form->field($model, $setting->setting_name)->input('tel');
+						echo $form->field($model, $setting->setting_name)->input('tel')->label($setting->setting_title);
 						break;
 					case "textarea":
-						echo $form->field($model, $setting->setting_name)->textarea();
+						echo $form->field($model, $setting->setting_name)->textarea()->label($setting->setting_title);
 						break;
 					case "image":
-						echo $form->field($model, $setting->setting_name)->fileInput();
+						echo $form->field($model, $setting->setting_name)->fileInput()->label($setting->setting_title);
 						if(file_exists(Yii::getAlias('@site_images').'/logo/'.$setting->setting_value)){
 							echo Html::img($front.'/images/site/logo/'.$setting->setting_value, ['class' => 'img-responsive']);
 						}
 						break;
 					case "select":
-						echo $form->field($model, $setting->setting_name)->dropDownList(json_decode($setting->field_options, true));
+						echo $form->field($model, $setting->setting_name)->dropDownList(json_decode($setting->field_options, true))->label($setting->setting_title);
 						break;
 				endswitch;?>
 				</div>
