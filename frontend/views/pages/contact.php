@@ -14,7 +14,7 @@ use yii\web\View;
 use yii\captcha\Captcha;
 use frontend\models\ContactForm;
 
-$siteSeting = Settings::getSettings();
+$settings = Settings::getSettings();
 $form_model = new ContactForm();
 
 $this->registerMetaTag(['name' => 'description', 'content' => $model->meta_description]);
@@ -27,6 +27,7 @@ $this->params['breadcrumbs'][] = $model->title;
 
 $this->registerCssFile('@web/theme/css/pages/contact.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 
+#VarDumper::dump($settings, 10, 1);
 ?>
 <section class="hero">
 	<div class="container first-screen text-center max-w-700">
@@ -39,24 +40,70 @@ $this->registerCssFile('@web/theme/css/pages/contact.css', ['depends' => [Bootst
 	<div class="row flex-md-row-reverse">
 		<div class="col-12 col-md-6 mb-3 mb-md-0">
 			<div class="max-w-530-sm me-md-auto">
-				<h2 class="item-title mb-15 mb-md-2">Make a difference</h2>
-				<p class="item-text mb-2 mb-md-3">Contribute work that has a direct impact on the quality of peoples lives. GeorgiaCaring.com is committed to helping our senior citizens.</p>
-				<h2 class="item-title mb-15 mb-md-2">Flexible hours</h2>
-				<p class="item-text mb-2 mb-md-3">With remote employees from all corners of the world, choose a schedule that best fits your life.</p>
-				<h2 class="item-title mb-15 mb-md-2">Work From Home</h2>
-				<p class="item-text mb-0">As a fully remote company, we have embraced the new way of doing business. Join us from anywhere in the world.</p>
+				<div class="card-box">
+					<div class="header mb-2">
+						<h2 class="title">Contact Info</h2>
+					</div>
+					<div class="body">
+						<ul class="contact-info-items p-0 m-0">
+							<?php if(!empty($settings['mobile'])):?>
+								<?php $link = str_replace(['(', ')', '-', '+1', ' '], '', $settings['mobile']);?>
+								<li>
+									<a class="icon-wrapp me-2 text-color-primary" href="tel:+1<?=$link;?>"><i class="bi bi-telephone-fill"></i></a>
+									<a class="item" href="tel:+1<?=$link;?>"><?=$settings['mobile'];?></a>
+								</li>
+							<?php endif;?>
+							<?php if(!empty($settings['email'])):?>
+								<li>
+									<a class="icon-wrapp me-2 text-color-primary" href="mailto:<?=$settings['email'];?>"><i class="bi bi-envelope-fill"></i></a>
+									<a class="item" href="mailto:<?=$settings['email'];?>"><?=$settings['email'];?></a>
+								</li>
+							<?php endif;?>
+							<?php if(!empty($settings['facebook'])):?>
+								<li>
+									<a class="icon-wrapp me-2 text-color-primary" href="<?=$settings['facebook'];?>" target="_blank"><i class="bi bi-facebook"></i></a>
+									<a class="item" href="<?=$settings['facebook'];?>" target="_blank">Facebook page</a>
+								</li>
+							<?php endif;?>
+							<?php if(!empty($settings['twiter'])):?>
+								<li>
+									<a class="icon-wrapp me-2 text-color-primary" href="<?=$settings['twiter'];?>" target="_blank"><i class="bi bi-twitter"></i></a>
+									<a class="item" href="<?=$settings['twiter'];?>" target="_blank">Twiter page</a>
+								</li>
+							<?php endif;?>
+							<?php if(!empty($settings['google'])):?>
+								<li>
+									<a class="icon-wrapp me-2 text-color-primary" href="<?=$settings['google'];?>" target="_blank"><i class="bi bi-google"></i></a>
+									<a class="item" href="<?=$settings['google'];?>" target="_blank">Google page</a>
+								</li>
+							<?php endif;?>
+							<?php if(!empty($settings['instagram'])):?>
+								<li>
+									<a class="icon-wrapp me-2 text-color-primary" href="<?=$settings['instagram'];?>" target="_blank"><i class="bi bi-instagram"></i></a>
+									<a class="item" href="<?=$settings['instagram'];?>" target="_blank">Instagram page</a>
+								</li>
+							<?php endif;?>
+							<?php if(!empty($settings['linkedin'])):?>
+								<li>
+									<a class="icon-wrapp me-2 text-color-primary" href="<?=$settings['linkedin'];?>" target="_blank"><i class="bi bi-linkedin"></i></a>
+									<a class="item" href="<?=$settings['linkedin'];?>" target="_blank">LinkedIn page</a>
+								</li>
+							<?php endif;?>
+							<?php if(!empty($settings['address'])):?>
+								<li>
+									<div class="icon-wrapp me-2 text-color-primary"><i class="bi bi-geo-alt-fill"></i></div>
+									<span class="item"><?=$settings['address'];?></span>
+								</li>
+							<?php endif;?>
+						</ul>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="col-12 col-md-6 work-proccess">
 			<?php $form = ActiveForm::begin(['id' => 'contact-form', 'class' => '']); ?>
 
 			<div class="card__body">
-				<a href="tel:<?=$siteSeting['mobile']?>" class="inquire__number">
-					<i class="zmdi zmdi-phone"></i>
-					<?=$siteSeting['mobile']?>
-				</a>
-
-
 				<div class="form-group form-group--float required">
 					<?=$form->field($form_model, 'name', ['options' => ['class' => 'form-group form-group--float']])->textInput(['options' => ['placeholder' => 'Subject']]);?>
 				</div>
