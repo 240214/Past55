@@ -6,6 +6,7 @@ use Yii;
 use yii\helpers\ArrayHelper;
 use yii\db\ActiveRecord;
 use yii\helpers\VarDumper;
+use yii\db\Query;
 
 /**
  * This is the model class for table "category".
@@ -98,18 +99,19 @@ class Category extends ActiveRecord{
 		foreach($fields as $k => $field)
 			$fields[$k] = 'category.'.$field;
 		
-		if(!$params['empty']){
-			$models = self::find()
-				->join('RIGHT JOIN', 'properties', 'properties.category_id = category.id')
-				->select(implode(',', $fields))
-				->groupBy(['category.id'])
-				->orderBy($params['order'])->all();
-		}else{
-			$models = self::find()
-				->select(implode(',', $fields))
-				->orderBy($params['order'])->all();
+		$query = self::find();
+		$query->select(implode(',', $fields));
+		$query->orderBy($params['order']);
+		
+		if(false == $params['empty']){
+			$query->join('RIGHT JOIN', 'properties', 'properties.category_id = category.id');
+			$query->groupBy(['category.id']);
+			if(isset($params['where']) && !empty($params['where'])){
+				$query->where($params['where']);
+			}
 		}
-		#VarDumper::dump($models, 10, 1);exit;
+		#VarDumper::dump($query->createCommand()->getRawSql(), 10, 1);exit;
+		$models = $query->all();
 
 		if($models){
 			foreach($models as $model){

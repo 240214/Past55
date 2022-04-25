@@ -72,6 +72,7 @@ class PropertyController extends BaseController {
 	public function actionIndex(){
 		$city = $state = '';
 		$category = [];
+		$category_where = [];
 		$category_id = $state_id = $city_id = 0;
 		$category_ids = [];
 		$noindex = YII_ENV_DEV;
@@ -81,7 +82,37 @@ class PropertyController extends BaseController {
 		
 		#$request = Yii::$app->request;
 		#VarDumper::dump($request, 10, 1); exit;
+		
+		$url = Yii::$app->request->getUrl();
+		if(strstr($url, 'page') !== false){
+			$url = explode('page', $url)[0];
+		}
+		
+		$queryParams = Yii::$app->request->getQueryParams();
 		#VarDumper::dump($queryParams, 10, 1); exit;
+		
+		$breadcrumbs = $this->generateBreadcrumbs($queryParams);
+		
+		if(isset($queryParams['state'])){
+			$state_id = State::getIDByIso($queryParams['state']);
+			$states = State::getStatesIsoNameList();
+			$state = $states[strtoupper($queryParams['state'])];
+			$queryParams['state'] = $state;
+			$category_where['properties.state'] = $state;
+		}
+		#VarDumper::dump($state, 10, 1); exit;
+		
+		if(isset($queryParams['city'])){
+			$city_data = City::getAllByName($queryParams['city']);
+			$city_id = $city_data['id'];
+			$city = $city_data['name'];
+			$queryParams['city'] = $city;
+			$category_where['properties.city'] = $city;
+			$display_nearby_cities = true;
+		}else{
+			$display_narrow_cities = true;
+		}
+		#VarDumper::dump($city_data, 10, 1); exit;
 		
 		$categories = Category::getCategoryList([
 			'fields' => [
@@ -99,36 +130,11 @@ class PropertyController extends BaseController {
 			'key_field' => 'slug',
 			'order' => 'category.name ASC',
 			'empty' => false,
+			'where' => $category_where,
 		]);
 		#VarDumper::dump($categories, 10, 1); exit;
-		
-		$url = Yii::$app->request->getUrl();
-		if(strstr($url, 'page') !== false){
-			$url = explode('page', $url)[0];
-		}
-		
-		$queryParams = Yii::$app->request->getQueryParams();
 		#VarDumper::dump($queryParams, 10, 1); exit;
 		
-		$breadcrumbs = $this->generateBreadcrumbs($queryParams);
-		
-		if(isset($queryParams['state'])){
-			$state_id = State::getIDByIso($queryParams['state']);
-			$states = State::getStatesIsoNameList();
-			$state = $states[strtoupper($queryParams['state'])];
-			$queryParams['state'] = $state;
-		}
-		#VarDumper::dump($state_id, 10, 1); exit;
-		
-		if(isset($queryParams['city'])){
-			$city_id = City::getIDByName($queryParams['city']);
-			$city = ucfirst($queryParams['city']);
-			$queryParams['city'] = $city;
-			$display_nearby_cities = true;
-		}else{
-			$display_narrow_cities = true;
-		}
-		#VarDumper::dump($city_id, 10, 1); exit;
 		
 		if(isset($queryParams['category'])){
 			$category = Category::getCategoryBySlug($queryParams['category']);
@@ -160,8 +166,9 @@ class PropertyController extends BaseController {
 		$queryParams['SearchProperty']['active'] = 1;
 		#VarDumper::dump($queryParams, 10, 1); exit;
 		
-		$dataProvider = $this->getListings($queryParams, $url);
-		if(!$dataProvider->getCount()){
+		$queryParams['url'] = $url;
+		$dataProvider = $this->getListings($queryParams);
+		if(!$dataProvider->getCount() || ($dataProvider->getCount() < 5 && !isset($queryParams['city']))){
 			$noindex = true;
 		}
 		
@@ -187,8 +194,9 @@ class PropertyController extends BaseController {
 		$category_city_content = $this->get3CContent($category_id, $state_id, $city_id);
 		
 		return $this->render('index', [
-			'dataProvider' => $dataProvider,
-			'searchModel' => $searchModel,
+			'items_count' => $dataProvider->getCount(),
+			'item_models' => $dataProvider->getModels(),
+			#'searchModel' => $searchModel,
 			'categories' => $categories,
 			'pagination' => $dataProvider->getPagination(),
 			'form_url' => $url,
@@ -211,26 +219,56 @@ class PropertyController extends BaseController {
 		
 	}
 	
-	private function getListings($queryParams, $url){
-		#VarDumper::dump($queryParams, 10, 1); exit;
+	private function getListings($queryParams){
+		#VarDumper::dump($queryParams, 10, 1);
 		
 		$searchModel = new SearchProperty();
 		$dataProvider = $searchModel->search($queryParams);
+		
+		if(isset($queryParams['city'])){
+			#Если количесто листингов меньше минимального количества в настройках, то запускаем поиск по соседним городам в той же категории
+			if($dataProvider->getTotalCount() < intval(Yii::$app->params['settings']['min_listings_count_in_category_page'])){
+				$cities = $this->getNearbyCitiesData($queryParams['state'], $queryParams['city']);
+				if(!empty($cities)){
+					$this->default_pageSize = intval(Yii::$app->params['settings']['min_listings_count_in_category_page']);
+					$queryParams['SearchProperty']['nearby_cities'] = $cities;
+					
+					$dataProvider = $searchModel->search($queryParams);
+					
+					#Если количесто листингов всё равно меньше минимального количества в настройках, то запускаем поиск по соседним городам вне категории
+					if($dataProvider->getTotalCount() < intval(Yii::$app->params['settings']['min_listings_count_in_category_page'])){
+						$limit  = $this->default_pageSize - $dataProvider->getTotalCount();
+						$models = array_merge($dataProvider->getModels(), $this->getLinstingsFromNearbyCities($queryParams, $limit));
+						$dataProvider->setModels($models);
+					}
+					$dataProvider->setTotalCount($this->default_pageSize);
+				}
+			}
+		}
+		
 		$dataProvider->sort->defaultOrder = ['id' => SORT_DESC];
 		$dataProvider->pagination = [
 			'pageParam' => 'page',
 			'forcePageParam' => false,
 			'pageSizeParam' => false,
-			'route' => $url.'page-<page:\d+>/',
+			'route' => $queryParams['url'].'page-<page:\d+>/',
 			'pageSize' => $this->default_pageSize,
 			#'page' => $queryParams['page'],
 		];
 		
-		if($dataProvider->getTotalCount() < intval(Yii::$app->params['min_listings_count_in_category_page'])){
-			$queryParams['nearby_cities'] = [];
-		}
-
+		
+		
 		return $dataProvider;
+	}
+	
+	private function getLinstingsFromNearbyCities($queryParams, $limit = 1){
+		$models = Property::find()
+		                  ->where(['state' => $queryParams['SearchProperty']['state']])
+		                  ->andWhere(['IN', 'city', $queryParams['SearchProperty']['nearby_cities']])
+		                  ->limit($limit)
+		                  ->all();
+
+		return $models;
 	}
 	
 	public function get3CContent($category_id = 0, $state_id = 0, $city_id = 0){
@@ -867,18 +905,38 @@ class PropertyController extends BaseController {
 	}
 	
 	private function getNearbyCities($queryParams, $categories){
-		#VarDumper::dump($categories, 10, 1);
-		#VarDumper::dump($queryParams, 10, 1);
+		#VarDumper::dump($categories, 10, 1); exit;
+		#VarDumper::dump($queryParams, 10, 1); exit;
 		
 		$from_all_cats = false;
 		$display_cat_in_url = false;
 		
 		$data = [];
 		
+		// временно включил
+		$categories = Category::getCategoryList([
+			'fields' => [
+				'id',
+				'name',
+				'slug',
+				'template',
+				'meta_title',
+				'meta_title_for_state',
+				'meta_title_for_state_city',
+				'h1_title',
+				'h1_title_for_state',
+				'h1_title_for_state_city'
+			],
+			'key_field' => 'slug',
+			'order' => 'category.name ASC',
+			'empty' => true,
+		]);
+		
 		$inversed_categories = [];
 		foreach($categories as $category){
 			$inversed_categories[$category['id']] = $category;
 		}
+		#VarDumper::dump($inversed_categories, 10, 1); exit;
 		
 		if(isset($queryParams['category_ids']) && !empty($queryParams['category_ids'])){
 			$display_cat_in_url = true;
@@ -892,13 +950,13 @@ class PropertyController extends BaseController {
 			            ->where(['name' => $queryParams['city'], 'state_id' => $state['id']])
 			            ->asArray()
 			            ->one();
-
+			
 			if(!empty($city) && !empty($city['nearby_cities'])){
 				$cities = City::find()
 				              ->where(['IN', 'id', explode(',', $city['nearby_cities'])])
-		                      ->andWhere(['state_id' => $state['id']])
-		                      ->asArray()
-		                      ->all();
+				              ->andWhere(['state_id' => $state['id']])
+				              ->asArray()
+				              ->all();
 				
 				if(!empty($cities)){
 					foreach($cities as $k => $city){
@@ -917,6 +975,22 @@ class PropertyController extends BaseController {
 		}
 		
 		return $data;
+	}
+	
+	private function getNearbyCitiesData($state_name, $city_name){
+		$cities = [];
+		
+		if($state = State::getStateByName($state_name)){
+			$city = City::find()->where(['name' => $city_name, 'state_id' => $state['id']])->asArray()->one();
+			
+			if(!empty($city) && !empty($city['nearby_cities'])){
+				$cities = City::find()->where(['IN', 'id', explode(',', $city['nearby_cities'])])->andWhere(['state_id' => $state['id']])->asArray()->all();
+			}
+			
+			$cities = ArrayHelper::map($cities, 'id', 'name');
+		}
+		#VarDumper::dump($cities, 10, 1);
+		return $cities;
 	}
 	
 	private function getNearbyCitiesOLD(){

@@ -24,7 +24,7 @@ class SearchProperty extends Property{
 	public function rules(){
 		return [
 			[['id', 'user_id', 'zipcode', 'active', 'category_id'], 'integer'],
-			[['price_negotiable', 'sold', 'likes', 'views', 'availability', 'possession_by', 'category_id', 'sub_category', 'features', 'categoryName'], 'safe'],
+			[['price_negotiable', 'sold', 'likes', 'views', 'availability', 'possession_by', 'category_id', 'sub_category', 'features', 'categoryName', 'nearby_cities'], 'safe'],
 			[['title', 'slug', 'size', 'city', 'state', 'country', 'price', 'type', 'bedrooms', 'bathrooms', 'parking', 'garden', 'location', 'address', 'image', 'property_of'], 'string'],
 		];
 	}
@@ -108,6 +108,7 @@ class SearchProperty extends Property{
 			$cities += $this->nearby_cities;
 		}
 		$cities = array_filter(array_unique($cities));
+		#VarDumper::dump($this->nearby_cities, 10, 1);
 		
 		
 		$query
@@ -127,8 +128,7 @@ class SearchProperty extends Property{
 			$query->andFilterWhere(['IN', 'city', $cities]);
 		}
 		
-		#VarDumper::dump($cities, 10, 1); exit;
-		#VarDumper::dump($query->createCommand()->getRawSql(), 10, 1); exit;
+		#VarDumper::dump($query->createCommand()->getRawSql(), 10, 1); #exit;
 
 		/*if(!empty(trim($this->datetime))){
 			$datetime = trim($this->datetime);

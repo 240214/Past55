@@ -51,10 +51,7 @@ class PagesController extends BaseController{
 			$template = basename($model->template);
 		}
 		
-		return $this->render($template, [
-			'model' => $model,
-			#'site'  => $siteName
-		]);
+		return $this->render($template, ['model' => $model]);
 	}
 	
 	

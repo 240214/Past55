@@ -1,0 +1,33 @@
+section.hero {position: relative; padding: 110px 0 0; background: linear-gradient(180deg, #e1f3ff 7.86%, rgba(216, 206, 255, 0.3) 109.88%), url(../../img/category/first-screen-bg-left.svg) no-repeat left bottom, url(../../img/category/first-screen-bg-right.svg) no-repeat right bottom;}
+section.hero .first-screen {padding-top: 100px; padding-bottom: 60px;}
+section.hero .screen-btn {font-weight: 300; font-size: 16px; width: auto; height: auto; padding: 12px 30px; max-width: none; display: inline-block;}
+
+section.content {font-family: 'Airbnb Cereal App'; padding-top: 52px; padding-bottom: 115px;}
+section.content .main-title {font-size: 45px; color: #000; line-height: 1.2;}
+section.content .subtitle {font-size: 20px; color: #000;}
+section.content .item-title {font-weight: bold; font-size: 25px; line-height: 1.4; color: #6D459C;}
+section.content .item-text {font-weight: 300; font-size: 20px; line-height: 1.45; color: #000;}
+section.content .work-proccess .row {--bs-gutter-x: 24px; --bs-gutter-y: 24px;}
+
+
+@media all and (max-width: 991px){
+	section.hero {background-size: auto, auto 70%, auto 70%;}
+
+	section.media {padding-top: 70px; padding-bottom: 40px;}
+}
+@media all and (max-width: 767px){
+	section.hero {background-size: auto, auto 50%, auto 50%; padding: 65px 0 45px;}
+	section.hero .first-screen {padding-top: 60px; padding-bottom: 0;}
+
+	section.content {padding-top: 40px; padding-bottom: 50px;}
+	section.content .main-title {font-size: 30px;}
+	section.content .subtitle {font-size: 16px;}
+	section.content .item-title {font-size: 18px;}
+	section.content .item-text {font-size: 16px;}
+	section.content .work-proccess .row {--bs-gutter-x: 10px; --bs-gutter-y: 10px;}
+	section.content img {height: 100%; object-fit: cover;}
+}
+@media all and (max-width: 575px){
+	section.hero {background-size: auto, auto 30%, auto 30%;}
+	section.hero .screen-btn {padding: 10px 15px; font-size: 14px;}
+}

@@ -75,9 +75,9 @@ $this->registerCssFile('@web/theme/css/properties.css', ['depends' => [Bootstrap
 				</div>
 
 				<div class="category__body">
-					<div id="js_filter_results" class="row property-listing trans-all <?=(!$dataProvider->getCount() ? 'no-results' : '');?>">
-						<?php if($dataProvider->getCount()):?>
-							<?=$this->render('partials/items', ['models' => $dataProvider->getModels(), 'options' => $options]);?>
+					<div id="js_filter_results" class="row property-listing trans-all <?=(!$items_count ? 'no-results' : '');?>">
+						<?php if($items_count):?>
+							<?=$this->render('partials/items', ['models' => $item_models, 'options' => $options]);?>
 						<?php else:?>
 							<div class="card box">
 								<h3><?=$not_found_label;?></h3>

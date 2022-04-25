@@ -52,10 +52,23 @@ class City extends ActiveRecord{
 		];
 	}
 	
+	public static function getAllByName($name){
+		return self::find()
+		              ->where(['name' => $name])
+		              ->orWhere(['name' => str_replace('-', ' ', $name)])
+		              ->asArray()
+		              ->one();
+	}
+	
 	public static function getIDByName($name){
 		$id = 0;
 		
-		$result = self::find()->select('id')->where(['name' => $name])->asArray()->one();
+		$result = self::find()
+		              ->select('id')
+		              ->where(['name' => $name])
+		              ->orWhere(['name' => str_replace('-', ' ', $name)])
+		              ->asArray()
+		              ->one();
 
 		if(!is_null($result))
 			$id = intval($result['id']);

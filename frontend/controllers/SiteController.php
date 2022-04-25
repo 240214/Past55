@@ -207,24 +207,20 @@ class SiteController extends BaseController {
 			if($model->validate()){
 				
 				if($model->sendEmail(Yii::$app->params['adminEmail'])){
-					
 					Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
 				}else{
 					Yii::$app->session->setFlash('error', 'There was an error sending your message.');
 				}
 			}else{
 				$error = $model->getErrors();
-				var_dump($error);
+				Yii::$app->session->setFlash('error', $error);
 				die;
 				
 			}
 			
-			
 			return $this->refresh();
 		}else{
-			return $this->render('contact', [
-				'model' => $model,
-			]);
+			return $this->render('contact', ['model' => $model]);
 		}
 	}
 	

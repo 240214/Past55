@@ -2,7 +2,7 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'Home - page';
+$this->title = 'Find Senior Living in Georgia - GeorgiaCaring.com';
 
 use yii\bootstrap\BootstrapAsset;
 use yii\helpers\Html;
@@ -20,11 +20,13 @@ $this->registerCssFile('@web/theme/css/home.css', ['depends' => [BootstrapAsset:
 			<div class="col-12 col-md-5 mb-35">
 				<h1 class="first-screen-home__title">Senior living<br /> <span class="title-decor-line">communities</span> <br /> in Georgia.</h1>
 				<p class="main-text-content">See pricing, care offered, nearby places and more.</p>
-				<label class="header-home__search-wrapp">
-					<input class="header-home__search-input rounded-8 bg-white" type="text"
-					       placeholder="Enter a city or zip">
+				<?php /*
+                <label class="header-home__search-wrapp">
+					<input class="header-home__search-input rounded-8 bg-white" type="text" placeholder="Enter a city or zip">
 					<button class="header-home__search-btn btn-primary-small">Search</button>
 				</label>
+                */?>
+				<a href="#senior_living_locations" class="btn-primary-medium">Get Started</a>
 			</div>
 			<div class="col-12 col-md-7 d-md-flex justify-content-end">
 				<?=Image::widget(['src' => '/theme/img/home/first-screen-home-bg.png', 'css_class' => 'img-fluid first-screen-home__bg d-none d-md-block']);?>
@@ -78,7 +80,7 @@ $this->registerCssFile('@web/theme/css/home.css', ['depends' => [BootstrapAsset:
 </section>
 <section class="location">
 	<div class="container location__header mb-8">
-		<h1 class="main-title text-center mb-2">Senior living locations</h1>
+		<h1 id="senior_living_locations" class="main-title text-center mb-2">Senior living locations</h1>
 		<p class="main-text-content text-center">Browse senior living communities in the most popular cities in Georgia.</p>
 	</div>
 	<div class="location__body py-6">
@@ -87,7 +89,7 @@ $this->registerCssFile('@web/theme/css/home.css', ['depends' => [BootstrapAsset:
 				<div class="col-12 max-w-1120 trans-all">
 					<div class="location-card row align-items-center justify-content-between rounded-8 bg-white mb-3">
 						<div class="col-12 col-md-6 d-flex justify-content-center justify-content-sm-start">
-							<?=Image::widget(['src' => '/theme/img/home/location-card-img-1.jpg', 'css_class' => 'img-fluid rounded-10 rounded-10-md-left w-100 w-sm-auto']);?>
+							<?=Image::widget(['src' => '/theme/img/home/assisted-living.jpg', 'css_class' => 'img-fluid rounded-10 rounded-10-md-left w-100 w-sm-auto']);?>
 						</div>
 						<div class="col-12 col-md-6 d-flex justify-content-center">
 							<div class="w-100 max-w-420-sm">
@@ -104,7 +106,7 @@ $this->registerCssFile('@web/theme/css/home.css', ['depends' => [BootstrapAsset:
 					</div>
 					<div class="location-card row flex-row-reverse align-items-center justify-content-between rounded-8 bg-white mb-3">
 						<div class="col-12 col-md-6 d-flex justify-content-center justify-content-sm-end">
-							<?=Image::widget(['src' => '/theme/img/home/location-card-img-2.jpg', 'css_class' => 'img-fluid rounded-10 rounded-10-md-right w-100 w-sm-auto']);?>
+							<?=Image::widget(['src' => '/theme/img/home/memory-care.jpg', 'css_class' => 'img-fluid rounded-10 rounded-10-md-right w-100 w-sm-auto']);?>
 						</div>
 						<div class="col-12 col-md-6 d-flex justify-content-center">
 							<div class="w-100 max-w-420-sm">
@@ -121,7 +123,7 @@ $this->registerCssFile('@web/theme/css/home.css', ['depends' => [BootstrapAsset:
 					</div>
 					<div class="location-card row align-items-center justify-content-between rounded-8 bg-white">
 						<div class="col-12 col-md-6 d-flex justify-content-center justify-content-sm-start">
-							<?=Image::widget(['src' => '/theme/img/home/location-card-img-3.jpg', 'css_class' => 'img-fluid rounded-10 rounded-10-md-left w-100 w-sm-auto']);?>
+							<?=Image::widget(['src' => '/theme/img/home/senior-living.jpg', 'css_class' => 'img-fluid rounded-10 rounded-10-md-left w-100 w-sm-auto']);?>
 						</div>
 						<div class="col-12 col-md-6 d-flex justify-content-center">
 							<div class="w-100 max-w-420-sm">
