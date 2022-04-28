@@ -1,0 +1,19 @@
+section.hero {position: relative; padding: 110px 0 0; background: linear-gradient(180deg, #e1f3ff 7.86%, rgba(216, 206, 255, 0.3) 109.88%), url(../../img/category/first-screen-bg-left.svg) no-repeat left bottom, url(../../img/category/first-screen-bg-right.svg) no-repeat right bottom;}
+section.hero .first-screen {padding-top: 100px; padding-bottom: 60px;}
+section.hero .screen-btn {font-weight: 300; font-size: 16px; width: auto; height: auto; padding: 12px 30px; max-width: none; display: inline-block;}
+
+section.media {padding-top: 105px; padding-bottom: 52px;}
+section.media img {width: 100%; height: auto;}
+
+@media all and (max-width: 991px){
+	section.hero {background-size: auto, auto 70%, auto 70%;}
+	section.media {padding-top: 70px; padding-bottom: 40px;}
+}
+@media all and (max-width: 767px){
+	section.hero {background-size: auto, auto 50%, auto 50%; padding: 65px 0 45px;}
+	section.hero .first-screen {padding-top: 60px; padding-bottom: 0;}
+
+	section.media {padding-top: 30px; padding-bottom: 40px;}
+	section.media .row {--bs-gutter-x: 10px; --bs-gutter-y: 10px;}
+	section.media img {height: 100%; object-fit: cover;}
+}

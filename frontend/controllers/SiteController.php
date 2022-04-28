@@ -61,6 +61,7 @@ class SiteController extends BaseController {
 	}
 	
 	public function beforeAction($action){
+		#VarDumper::dump($action->id, 10, 1); exit;
 		$actionToRun = $action;
 		if(parent::beforeAction($action)){
 			if($action->id == 'error'){
@@ -85,10 +86,10 @@ class SiteController extends BaseController {
 			/*'error'   => [
 				'class' => 'yii\web\ErrorAction',
 			],*/
-			'captcha' => [
+			/*'captcha' => [
 				'class'           => 'yii\captcha\CaptchaAction',
 				'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
-			],
+			],*/
 		];
 	}
 	
@@ -206,21 +207,20 @@ class SiteController extends BaseController {
 			
 			if($model->validate()){
 				
-				if($model->sendEmail(Yii::$app->params['adminEmail'])){
-					Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
+				if($model->inquiry()){
+					return $this->redirect('/thank-you/');
 				}else{
 					Yii::$app->session->setFlash('error', 'There was an error sending your message.');
+					return $this->refresh();
 				}
 			}else{
 				$error = $model->getErrors();
 				Yii::$app->session->setFlash('error', $error);
-				die;
-				
+				return $this->refresh();
 			}
 			
-			return $this->refresh();
 		}else{
-			return $this->render('contact', ['model' => $model]);
+			return $this->redirect('/contact-us/');
 		}
 	}
 	

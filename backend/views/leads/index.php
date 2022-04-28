@@ -10,17 +10,17 @@ use yii\widgets\Pjax;
 use yii\helpers\Url;
 
 /* @var $this yii\web\View */
-/* @var $searchModel common\models\search\SearchPages */
+/* @var $searchModel common\models\search\SearchLeads */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Posts';
+$this->title = 'Leads';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="card">
 	<div class="js_data_loader bg-loader"></div>
 
 	<div class="pull-right" style="margin-bottom: 10px;">
-		<?=Html::a('<i class="fa fa-plus"></i> '.Yii::t('app', 'Add New'), ['create'], ['class' => 'btn btn-success'])?>
+		<?php #=Html::a('<i class="fa fa-plus"></i> '.Yii::t('app', 'Add New'), ['create'], ['class' => 'btn btn-success'])?>
 	</div>
 
 	<?php Pjax::begin(); ?>
@@ -43,55 +43,9 @@ $this->params['breadcrumbs'][] = $this->title;
 					return '<span class="label label-success label-id">'.$data->id.'</span>';
 				},
 			],
-			[
-				'attribute'      => 'title',
-				'content' => function($data){
-					$a = [];
-					if($data->postsCategories){
-						$a[] = $data->postsCategories->slug;
-					}elseif($data->category){
-						$a[] = $data->category->slug;
-					}
-					$a[] = $data->slug;
-					
-					return sprintf('<a href="%s" target="_blank" data-pjax="0">%s</a>', Url::to(sprintf('/%s/', implode('/', $a))), $data->title);
-				},
-			],
-			#'slug',
-			[
-				'attribute' => 'category_id',
-				'filter' => $searchModel->getCategoriesList(),
-				'value' =>'category.name',
-			],
-			[
-				'attribute' => 'post_category_id',
-				'filter' => $searchModel->getPostsCategoriesList(),
-				'value' =>'postsCategories.title',
-			],
-			[
-				'attribute' => 'user_id',
-				'label' => 'Author',
-				'filter' => $searchModel->getUsersList(),
-				'value' =>'users.name',
-			],
-			[
-				'attribute'      => 'type',
-				'contentOptions' => ['class' => 'col-100'],
-				'filter' => $searchModel->types,
-				'value' =>'posts.type',
-				'content'        => function($data){
-					$ret = '';
-					switch($data->type){
-						case "post":
-							$ret = 'Blog post';
-							break;
-						case "article":
-							$ret = 'Category article';
-							break;
-					}
-					return $ret;
-				},
-			],
+			'sender',
+			'phone',
+			'email',
 			[
 				'attribute' => 'created_at',
 				'content'        => function($data){
@@ -104,23 +58,18 @@ $this->params['breadcrumbs'][] = $this->title;
 				'header' => 'Actions',
 				'filterContent' => Html::a('<i class="fa fa-refresh"></i>&nbsp;Reset', ['index'], ['class' => 'btn btn-info']),
 				'contentOptions' => ['class' => 'actions-col col-130 trans_all'],
-				'template' => '<div class="btn-group flex">{update}
+				'template' => '<div class="btn-group flex">{view}
 						<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span><span class="sr-only">Toggle Dropdown</span></button>
 						<ul class="dropdown-menu dropdown-menu-right">
-							<li>{view}</li>
-							<li>{delete}</li>
 						</ul>
 					</div>',
 				'buttons' => [
 					'view' => function ($url, $model){
-						return Html::a('<span class="fa fa-eye"></span> View', $url, ['title' => 'View', 'aria-label' => 'View', 'data-pjax' => '0']);
+						return Html::a('<span class="fa fa-eye"></span> <span class="btn-label">View</span>', $url, ['title' => 'View', 'aria-label' => 'View', 'data-pjax' => '0', 'class' => 'btn btn-danger', 'role' => 'button']);
 					},
-					'update' => function ($url, $model){
-						return Html::a('<span class="fa fa-pencil"></span> <span class="btn-label">Edit</span>', $url, ['title' => 'Edit', 'aria-label' => 'Edit', 'data-pjax' => '0', 'class' => 'btn btn-danger', 'role' => 'button']);
-					},
-					'delete' => function ($url, $model){
+					/*'delete' => function ($url, $model){
 						return Html::a('<span class="fa fa-trash"></span> Delete', $url, ['title' => 'Delete', 'aria-label' => 'Delete', 'data-pjax' => '0', 'data' => ['confirm' => 'Are you sure you want to delete this item?', 'method' => 'post']]);
-					},
+					},*/
 				],
 			],
 		],
