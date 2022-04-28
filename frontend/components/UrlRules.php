@@ -149,6 +149,10 @@ class UrlRules implements UrlRuleInterface{
 		if(empty($request_fragments))
 			return false;
 		
+		if(strpos($pathInfo, 'authors') !== false){
+			return false;
+		}
+		
 		/** Page rules **/
 		if($this->is_page($last_fragment)){
 			return ['pages/view', ['slug' => $last_fragment]];

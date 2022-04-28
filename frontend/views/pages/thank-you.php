@@ -22,7 +22,7 @@ $this->registerCssFile('@web/theme/css/pages/thank-you.css', ['depends' => [Boot
 <section class="hero">
 	<div class="container first-screen text-center max-w-700">
 		<h1 class="main-title mb-15 mb-md-25 me-auto ms-auto"><?=$model->meta_title;?></h1>
-		<p class="main-text-content text-color-black text-center">We will respond to you as soon as possible.</p>
+		<p class="main-text-content text-color-black text-center">Someone will reply to your message in the next business day.</p>
 	</div>
 </section>
 

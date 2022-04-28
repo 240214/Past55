@@ -38,7 +38,7 @@ $options['display_price'] = intval(Yii::$app->params['settings']['category_page_
 $options['display_desc'] = intval(Yii::$app->params['settings']['category_page_display_listing_item_description']);
 $options['display_rating'] = intval(Yii::$app->params['settings']['category_page_display_listing_item_rating']);
 
-$this->registerCssFile('@web/theme/css/category.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
+$this->registerCssFile('@web/theme/css/category.css?v=1', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 $this->registerCssFile('@web/theme/css/properties.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 
 #VarDumper::dump($category_city_content, 10, 1);

@@ -2,6 +2,7 @@
 
 /* @var $this yii\web\View */
 
+use yii\bootstrap\BootstrapAsset;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Url;
@@ -17,20 +18,20 @@ if(empty($message)){
 	$message = 'we are sorry, but the page you requested has error';
 }
 $statusCode_arr = str_split($exception->statusCode);
+
+$this->registerCssFile('@web/theme/css/error.css', ['depends' => [BootstrapAsset::className()]]);
 ?>
-<section id="main__content">
-	<div id="error-page" class="main__container">
+<section id="main__content" class="first-screen">
+	<div id="error-page" class="container">
 
-		<div class="err-container">
-			<div class="err-status">
-				<h3><?=$this->title;?></h3>
-				<h1><span><?=implode('</span><span>', $statusCode_arr);?></span></h1>
+		<div class="row justify-content-between align-items-center content">
+			<div class="col-12 text-center">
+				<h3 class="ff-pt-serif"><?=$this->title;?></h3>
+				<h1 class="first-screen-title"><span><?=implode('</span><span>', $statusCode_arr);?></span></h1>
+				<p class="main-text-content"><?=nl2br(Html::encode($message));?></p>
+				<a class="btn-primary-medium m-auto" href="<?=Url::toRoute('/')?>">Back To Home</a>
 			</div>
-			<h2><?=nl2br(Html::encode($message));?></h2>
-			<hr>
-			<a class="btn btn-warning" href="<?=Url::toRoute('/')?>">BACK TO HOME</a>
 		</div>
-
 
 	</div>
 </section>

@@ -5,7 +5,7 @@ use yii\helpers\Url;
 
 ?>
 <?php foreach($models as $model):?>
-	<?php $url = Url::toRoute(['property/view', 'slug' => $model->slug, 'state' => $model->state, 'city' => $model->city]);?>
+	<?php $url = Url::toRoute(['property/view', 'slug' => $model->slug, 'state' => $model->state, 'city' => $model->city, 'category_id' => $model->category_id]);?>
 	<div class="my-favorites__item row bg-white m-0 position-relative box" data-id="<?=$model->id;?>">
 
 		<div class="col-12 col-md-5">

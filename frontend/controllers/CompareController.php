@@ -14,7 +14,7 @@ use PDO;
 
 class CompareController extends PropertyController{
 	
-	private $noindex = false;
+	private $noindex = true;
 
 	/**
 	 * @inheritdoc
@@ -31,7 +31,7 @@ class CompareController extends PropertyController{
 	}
 	
 	public function beforeAction($action){
-		$this->noindex = YII_ENV_DEV;
+		$this->noindex = true;
 		
 		return parent::beforeAction($action);
 	}
@@ -65,6 +65,7 @@ class CompareController extends PropertyController{
 			$items = explode(':', $items);
 			$dataProvider = $this->getProperties($items, false);
 		}elseif($slugs){
+			$slugs = trim($slugs, '/');
 			$slugs = explode('-vs-', $slugs);
 			$dataProvider = $this->getProperties($slugs, true);
 		}
@@ -97,6 +98,11 @@ class CompareController extends PropertyController{
 			'user_favorites' => $user_favorites,
 			'intersect_features' => $intersect_features,
 			'page_title' => implode(', ', $titles),
+			'meta' => [
+				'description' => '',
+				'keywords' => '',
+				'noindex' => $this->noindex,
+			],
 		]);
 	}
 	
@@ -153,6 +159,8 @@ class CompareController extends PropertyController{
 				$query->andFilterWhere(['IN', 'id', $items]);
 			}
 		}
+		
+		#VarDumper::dump($items, 10, 1);
 		
 		//$dataProvider = $this->addProps($dataProvider);
 		

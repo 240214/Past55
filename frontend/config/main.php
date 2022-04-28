@@ -177,13 +177,6 @@ return [
         'Helpers' => [
 	        'class' => 'common\components\Helpers',
         ],
-		'reCaptcha' => [
-			'class' => 'himiklab\yii2\recaptcha\ReCaptchaConfig',
-			#'siteKeyV2' => 'your siteKey v2',
-			#'secretV2' => 'your secret key v2',
-			'siteKeyV3' => '6LeLaKMfAAAAAKVA-oT8PiMC_VkKy1e6Cf_mhr31',
-			'secretV3' => '6LeLaKMfAAAAACFNM8dGXrd1-pK0IcE1gSv45Zm_',
-		],
     ],
     'modules' => [
         'newsletter' => [

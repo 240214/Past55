@@ -7,8 +7,19 @@
 <IfModule mod_rewrite.c>
     Options +FollowSymlinks
     RewriteEngine On
-#    RewriteCond %{HTTP_HOST} ^codentheme.com
-#    RewriteRule (.*) http://www.codentheme.com/$1 [R=301,L]
+    RewriteCond %{HTTP_HOST} ^georgiacaring.com
+    RewriteRule (.*) http://www.georgiacaring.com/$1 [R=301,L]
+
+    RewriteRule ^author/(.*)$ /authors/$1 [R=302,L]
+    RewriteRule ^author/$ /authors/ [R=302,L]
+
+	RewriteCond %{REQUEST_URI} !\?
+    RewriteCond %{REQUEST_URI} !\&
+    RewriteCond %{REQUEST_URI} !\=
+    RewriteCond %{REQUEST_URI} !\.
+    RewriteCond %{REQUEST_URI} !\/$
+    RewriteRule ^(.*[^\/])$ /$1/ [R=301,L]
+
 #    RewriteCond %{HTTP_HOST} ^192.186.234.35
 #    RewriteCond %{HTTP_USER_AGENT} libwww-perl.*
 #    RewriteRule .* ? [F,L]

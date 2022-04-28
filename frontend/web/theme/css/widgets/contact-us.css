@@ -1,3 +1,4 @@
+.contact-us .main-title {font-weight: bold; font-size: 50px; line-height: 130%; color: #152430;}
 .contact-us {position: relative; padding: 100px 0 75px; background: #fff url(../../img/contact-us/section-bg.png) no-repeat right -25px bottom 25px;}
 .contact-us__subtitle {font-family: 'Roboto'; font-size: 21px; line-height: 125%; color: #1F3A53;}
 .contact-us__subtitle .bi-heart-fill {font-size: 17px; line-height: 1; color: #8859EC;}

@@ -6,6 +6,12 @@ use yii\helpers\VarDumper;
 use yii\widgets\LinkPager;
 use yii\bootstrap\Html;
 
+$this->registerMetaTag(['name' => 'description', 'content' => $meta['description']]);
+$this->registerMetaTag(['name' => 'keywords', 'content' => $meta['keywords']]);
+if($meta['noindex']){
+	$this->registerMetaTag(['name' => 'robots', 'content' => 'noindex,nofollow']);
+}
+
 $this->title = $page_title;
 $bundle = AppAsset::register($this);
 $bundle->addGoogleMapJS();

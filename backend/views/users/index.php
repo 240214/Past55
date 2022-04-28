@@ -52,7 +52,7 @@ $this->params['breadcrumbs'][] = $this->title;
 			[
 				'attribute' => 'name',
 				'content' => function($data){
-					return sprintf('<a href="%s" target="_blank" data-pjax="0">%s</a>', Url::to(sprintf('/author/%s/', $data->username)), $data->name);
+					return sprintf('<a href="%s" target="_blank" data-pjax="0">%s</a>', Url::to(sprintf('/authors/%s/', $data->username)), $data->name);
 				},
 			],
 			'username',

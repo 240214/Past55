@@ -59,7 +59,7 @@ $favs_title = $liked ? 'Remove from Favorite' : 'Add to Favorite';
 					</div>
 					<div class="d-md-none mt-25">
 						<div class="individual-listing__pricing-title mb-1 mb-md-25 text-start text-xl-end">Pricing ranges from</div>
-						<a role="button" href="#" class="individual-listing__pricing-contact-btn btn-primary-medium ms-0 ms-xl-auto">Contact for pricing</a>
+						<a role="button" href="/contact-us/" class="individual-listing__pricing-contact-btn btn-primary-medium ms-0 ms-xl-auto">Contact for pricing</a>
 					</div>
 					<div class="d-flex position-relative mt-3 mt-md-3 trans-all">
 						<a role="button" class="add-to-favorite-btn action-btn actions__toggle js_property_likes" data-id="<?=$property->id;?>">
@@ -82,7 +82,7 @@ $favs_title = $liked ? 'Remove from Favorite' : 'Add to Favorite';
 				</div>
 				<div class="col-12 col-md-3">
 					<div class="d-none d-md-block individual-listing__pricing-title mb-25 text-start text-xl-end">Pricing ranges from</div>
-					<a role="button" href="#" class="d-none d-md-flex individual-listing__pricing-contact-btn btn-primary-medium ms-0 ms-xl-auto">Contact for pricing</a>
+					<a role="button" href="/contact-us/" class="d-none d-md-flex individual-listing__pricing-contact-btn btn-primary-medium ms-0 ms-xl-auto">Contact for pricing</a>
 				</div>
 			</div>
 		</header>
@@ -136,8 +136,8 @@ $favs_title = $liked ? 'Remove from Favorite' : 'Add to Favorite';
 						'city' => $property['city'],
 						'category_id' => $property['category_id'],
 						'exclude_id' => $property['id'],
-						'title' => 'You may also like...',
-						'sub_title' => 'Morbi risus porta consectetur vestibulum ateros',
+						'title' => 'Nearby communities',
+						'sub_title' => 'Browse these other communities',
 						'not_found_text' => 'No Suggession yet!!!',
 						'wrapper_class' => 'd-print-none'
 					]);?>

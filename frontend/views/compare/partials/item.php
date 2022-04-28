@@ -3,7 +3,7 @@ use yii\helpers\Url;
 use yii\helpers\VarDumper;
 use yii\helpers\Html;
 
-$url = Url::toRoute(['property/view', 'slug' => $model->slug, 'state' => $model->state, 'city' => $model->city]);
+$url = Url::toRoute(['property/view', 'slug' => $model->slug, 'state' => $model->state, 'city' => $model->city, 'category_id' => $model->category_id]);
 $cats_class = (count($model->categories) % 2 == 0) ? 'even' : 'odd';
 $features_class = (count($model->features) % 2 == 0) ? 'even' : 'odd';
 
