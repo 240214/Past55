@@ -21,12 +21,12 @@ YiiAsset::register($this);
 		<div class="col-md-5 text-right">
 			<?=Html::a('<i class="fa fa-chevron-left"></i> '.Yii::t('app', 'Back'), Url::toRoute('leads/index'), ['class' => 'btn btn-warning'])?>
 			<?php #=Html::a('<i class="fa fa-pencil"></i> '.Yii::t('app', 'Edit'), ['update', 'id' => $model->id], ['class' => 'btn btn-success'])?>
-			<?php /*=Html::a('<i class="fa fa-trash"></i> '.Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], ['class' => 'btn btn-danger',
+			<?=Html::a('<i class="fa fa-trash"></i> '.Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], ['class' => 'btn btn-danger',
                 'data'  => [
                     'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
                     'method'  => 'post',
                 ],
-			]);*/?>
+			]);?>
 		</div>
 	</div>
 	<div class="row">
