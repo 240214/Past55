@@ -107,7 +107,7 @@ $this->registerCssFile('@web/theme/css/pages/contact.css', ['depends' => [Bootst
 			</div>
 		</div>
 		<div class="col-12 col-sm-6 col-md-7 col-lg-8">
-			<?php $form = ActiveForm::begin(['action' => '/contact', 'id' => 'contact-form', 'options' => ['class' => 'max-w-540 m-auto']]); ?>
+			<?php $form = ActiveForm::begin(['action' => '/contact-send/', 'id' => 'contact-form', 'options' => ['class' => 'max-w-540 m-auto']]); ?>
 
 			<p class="main-text-content text-color-black mb-15 mb-md-25 me-auto ms-auto">If you have business inquiries or other questions, please fill out the following form to contact us.</p>
 

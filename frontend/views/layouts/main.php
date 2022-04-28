@@ -16,11 +16,7 @@ use frontend\widgets\ContactUs;
 
 AppAsset::register($this);
 
-#$session = Yii::$app->session;
-#$city = $session->get('city');
-#$cityDefault = ($city) ? $city : "jodhpur";
-
-#VarDumper::dump(Yii::$app->params, 10, 1);
+#VarDumper::dump(YII_ENV_DEV, 10, 1);
 $body_class[] = intval(Yii::$app->params['settings']['header_top']) ? 'header-top' : '';
 $body_class[] = intval(Yii::$app->params['settings']['header_main']) ? 'header-main' : '';
 $body_class = implode(' ', $body_class);
@@ -29,20 +25,36 @@ $body_class = implode(' ', $body_class);
 <!DOCTYPE html>
 <html lang="<?=Yii::$app->language;?>" class="<?=$body_class;?>">
 	<head>
+		<?php if(!YII_ENV_DEV):?>
+		<!-- Google Tag Manager -->
+		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-NRZJLBC');</script>
+		<!-- End Google Tag Manager -->
+		<?php endif;?>
+		
 		<meta charset="<?=Yii::$app->charset;?>">
 		<?php if(YII_ENV_DEV):?>
 		<meta name="robots" content="noindex,nofollow">
 		<?php endif;?>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui">
-	
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=1, minimal-ui">
+		
 		<title><?=Html::encode($this->title);?></title>
 		<?php /*<script src="<?=Yii::getAlias('@web')?>/theme/js/page-loader.min.js" async></script>*/?>
-		<?php //Html::csrfMetaTags();?>
 		<?php $this->registerCsrfMetaTags();?>
 		<?php $this->head();?>
 	</head>
 	<body>
+		<?php if(!YII_ENV_DEV):?>
+		<!-- Google Tag Manager (noscript) -->
+		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NRZJLBC"
+		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<!-- End Google Tag Manager (noscript) -->
+		<?php endif;?>
+
 		<?php $this->beginBody();?>
 		
 		<?=$this->render('header');?>
@@ -52,7 +64,6 @@ $body_class = implode(' ', $body_class);
 		<?=Alert::widget()?>
 		
 		<?=$content?>
-		<!--<main id="site-main" class="site-main"></main>-->
 		
 		<?=ContactUs::widget();?>
 		<?=$this->render('footer');?>

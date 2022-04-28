@@ -144,13 +144,17 @@ class UrlRules implements UrlRuleInterface{
 		$request_fragments = array_filter(explode('/', $pathInfo));
 		$last_fragment = end($request_fragments);
 		
-		#VarDumper::dump($request_fragments, 10, 1); exit;
+		#VarDumper::dump($pathInfo, 10, 1); exit;
 		
 		if(empty($request_fragments))
 			return false;
 		
 		if(strpos($pathInfo, 'authors') !== false){
 			return false;
+		}
+		
+		if(strpos($pathInfo, 'contact-send') !== false){
+			return ['site/contact-send', []];
 		}
 		
 		/** Page rules **/

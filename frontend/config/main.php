@@ -98,7 +98,7 @@ return [
                 #'property/search' => 'property/search',
 	            'POST <controller:(compare)>/<slug:(get-property)>' => '<controller>/<action>',
 	            'GET <controller:(compare)>/<slug:.*?>' => '<controller>/index',
-	            'POST contact' => 'site/contact',
+	            #'POST contact-send' => 'site/contact-send',
 	            [
 		            'pattern' => '<controller:(authors)>/<slug:.*?>/page-<page:\d+>/',
 		            'route' => '<controller>/view',

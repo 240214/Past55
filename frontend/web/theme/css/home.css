@@ -14,7 +14,8 @@
 .header-home__search-input {width: 380px; height: 60px; box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1); border: none; padding: 20px 135px 20px 20px; font-weight: 300; font-size: 16px; line-height: 25px;}
 .header-home__search-btn {position: absolute; right: 10px; top: 7px;}
 
-.companies {padding-top: 215px; padding-bottom: 130px;}
+/*.companies {padding-top: 215px; padding-bottom: 130px;}*/
+.companies {padding-top: 70px; padding-bottom: 70px;}
 
 .benefits {position: relative;}
 .benefits__bg {position: absolute; top: 0; right: 0;}

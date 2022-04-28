@@ -936,9 +936,6 @@ class PropertyController extends BaseController {
 	}
 	
 	private function getNearbyCities($queryParams, $categories){
-		#VarDumper::dump($categories, 10, 1); exit;
-		#VarDumper::dump($queryParams, 10, 1); exit;
-		
 		$from_all_cats = false;
 		$display_cat_in_url = false;
 		
@@ -967,7 +964,6 @@ class PropertyController extends BaseController {
 		foreach($categories as $category){
 			$inversed_categories[$category['id']] = $category;
 		}
-		#VarDumper::dump($inversed_categories, 10, 1); exit;
 		
 		if(isset($queryParams['category_ids']) && !empty($queryParams['category_ids'])){
 			$display_cat_in_url = true;
@@ -983,13 +979,6 @@ class PropertyController extends BaseController {
 			            ->one();
 			
 			if(!empty($city) && !empty($city['nearby_cities'])){
-				/*$cities = City::find()
-				              ->where(['IN', 'id', explode(',', $city['nearby_cities'])])
-				              ->andWhere(['state_id' => $state['id']])
-				              ->asArray()
-				              ->all();*/
-				#VarDumper::dump($cities, 10, 1);
-				
 				$query = City::find();
 				$query->join('RIGHT JOIN', 'properties', 'properties.city = cities.name');
 				$query->where(['IN', 'cities.id', explode(',', $city['nearby_cities'])]);
@@ -998,24 +987,18 @@ class PropertyController extends BaseController {
 				$query->andWhere(['properties.category_id' => $cat_id]);
 				$query->groupBy(['cities.id']);
 				$cities = $query->asArray()->all();
-				#VarDumper::dump($cities, 10, 1);
-				#VarDumper::dump($query->createCommand()->getRawSql(), 10, 1);exit;
 				
 				if(!empty($cities)){
 					foreach($cities as $k => $city){
-						#$listings_count = Property::find()->where(['category_id' => $cat_id, 'state' => $queryParams['state'], 'city' => $city['name']])->count();
-						#VarDumper::dump($listings_count, 10, 1);
-						#if(intval($listings_count) > 0){
-							$data[$k] = [
-								'city'       => $city['name'],
-								'state'      => $state['name'],
-								'city_label' => $city['name'].', '.$state['iso_code'],
-							];
-							if($display_cat_in_url){
-								$data[$k]['city_label']    .= ' '.$inversed_categories[$cat_id]['name'];
-								$data[$k]['category_slug'] = $inversed_categories[$cat_id]['slug'];
-							}
-						#}
+						$data[$k] = [
+							'city'       => $city['name'],
+							'state'      => $state['name'],
+							'city_label' => $city['name'].', '.$state['iso_code'],
+						];
+						if($display_cat_in_url){
+							$data[$k]['city_label']    .= ' '.$inversed_categories[$cat_id]['name'];
+							$data[$k]['category_slug'] = $inversed_categories[$cat_id]['slug'];
+						}
 					}
 				}
 			}

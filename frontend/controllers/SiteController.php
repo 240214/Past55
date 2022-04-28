@@ -200,7 +200,7 @@ class SiteController extends BaseController {
 	 * Displays contact page.
 	 * @return mixed
 	 */
-	public function actionContact(){
+	public function actionContactSend(){
 		$model = new ContactForm();
 		
 		if($model->load(Yii::$app->request->post())){

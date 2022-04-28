@@ -11,7 +11,7 @@ use yii\helpers\Url;
 use yii\helpers\VarDumper;
 use frontend\widgets\Image;
 
-$this->registerCssFile('@web/theme/css/home.css', ['depends' => [BootstrapAsset::className()]]);
+$this->registerCssFile('@web/theme/css/home.css?v=1', ['depends' => [BootstrapAsset::className()]]);
 
 ?>
 <section class="first-screen-home">
@@ -37,14 +37,14 @@ $this->registerCssFile('@web/theme/css/home.css', ['depends' => [BootstrapAsset:
 <section class="companies container">
 	<?php #=Image::widget(['src' => '/theme/img/home/first-screen-home-bg.png', 'css_class' => 'img-fluid first-screen-home__bg mb-4 m-auto d-none d-md-block d-lg-none d-xl-none']);?>
 	<?=Image::widget(['src' => '/theme/img/home/first-screen-home-bg-m.png', 'css_class' => 'img-fluid d-md-none d-block mb-4 m-auto']);?>
-	<h2 class="secondary-title text-center mb-5">Browse Hundreds of Senior Living Communities in Georgia</h2>
+	<?php /*<h2 class="secondary-title text-center mb-5">Browse Hundreds of Senior Living Communities in Georgia</h2>
 	<div class="d-flex justify-content-center align-items-center flex-wrap">
 		<?=Image::widget(['src' => '/theme/img/home/company-1.svg', 'css_class' => 'm-3', 'alt' => 'company-logo']);?>
 		<?=Image::widget(['src' => '/theme/img/home/company-2.svg', 'css_class' => 'm-3', 'alt' => 'company-logo']);?>
 		<?=Image::widget(['src' => '/theme/img/home/company-3.svg', 'css_class' => 'm-3', 'alt' => 'company-logo']);?>
 		<?=Image::widget(['src' => '/theme/img/home/company-4.svg', 'css_class' => 'm-3', 'alt' => 'company-logo']);?>
 		<?=Image::widget(['src' => '/theme/img/home/company-5.svg', 'css_class' => 'm-3', 'alt' => 'company-logo']);?>
-	</div>
+	</div> */?>
 </section>
 <section class="benefits">
 	<div class="container">
@@ -53,7 +53,7 @@ $this->registerCssFile('@web/theme/css/home.css', ['depends' => [BootstrapAsset:
 			<div class="col-12 col-md-4 mb-2">
 				<div class="benefits-card d-flex flex-column">
 					<?=Image::widget(['src' => '/theme/img/home/benefit-card-icon-1.svg', 'css_class' => 'mt-2 mt-lg-3 mb-3', 'alt' => 'benefit-icon']);?>
-					<h4 class="benefit-card-title">See Pricing & Care Offered</h4>
+					<h2 class="benefit-card-title">See Pricing & Care Offered</h2>
 					<p class="benefit-card-content main-text-content flex-grow-1">Other websites try to hide pricing and information in order to get you on the phone. Our site offers full transparency in sharing this information in order to save you time</p>
 					<a href="#" class="benefit-card-link text-decoration-none">Learn more</a>
 				</div>
@@ -61,7 +61,7 @@ $this->registerCssFile('@web/theme/css/home.css', ['depends' => [BootstrapAsset:
 			<div class="col-12 col-md-4 mb-2">
 				<div class="benefits-card d-flex flex-column">
 					<?=Image::widget(['src' => '/theme/img/home/benefit-card-icon-2.svg', 'css_class' => 'mt-2 mt-lg-3 mb-3', 'alt' => 'benefit-icon']);?>
-					<h4 class="benefit-card-title">Save Favorites & Compare</h4>
+					<h2 class="benefit-card-title">Save Favorites & Compare</h2>
 					<p class="benefit-card-content main-text-content flex-grow-1">Save a list of communities and compare amenities, care offered, distances and location, and more in side by side comparisons.</p>
 					<a href="#" class="benefit-card-link text-decoration-none">Learn more</a>
 				</div>
@@ -69,7 +69,7 @@ $this->registerCssFile('@web/theme/css/home.css', ['depends' => [BootstrapAsset:
 			<div class="col-12 col-md-4 mb-2">
 				<div class="benefits-card d-flex flex-column">
 					<?=Image::widget(['src' => '/theme/img/home/benefit-card-icon-3.svg', 'css_class' => 'mt-2 mt-lg-3 mb-3', 'alt' => 'benefit-icon']);?>
-					<h4 class="benefit-card-title">See Nearby Places</h4>
+					<h2 class="benefit-card-title">See Nearby Places</h2>
 					<p class="benefit-card-content main-text-content flex-grow-1">Quickly see how far each community is from relatives, hospitals, pharmacies, parks, restaurants and more.</p>
 					<a href="#" class="benefit-card-link text-decoration-none">Learn more</a>
 				</div>
