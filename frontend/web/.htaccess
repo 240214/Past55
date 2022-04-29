@@ -1,5 +1,16 @@
 RewriteEngine On
 
+RewriteRule ^author/(.*)$ /authors/$1 [R=302,L]
+RewriteRule ^author/$ /authors/ [R=302,L]
+
+RewriteCond %{REQUEST_URI} !\?
+RewriteCond %{REQUEST_URI} !\&
+RewriteCond %{REQUEST_URI} !\=
+RewriteCond %{REQUEST_URI} !\.
+RewriteCond %{REQUEST_URI} !\/$
+RewriteRule ^(.*[^\/])$ /$1/ [R=301,L]
+#RewriteCond %{REQUEST_URI} !\/page-(.*)
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 

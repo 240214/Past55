@@ -7,7 +7,9 @@
 .compare-item table tr td .name {font-family: 'PT Serif';}
 
 .compare-page {background: linear-gradient(180deg, #e1f3ff 7.86%, rgba(216, 206, 255, 0.3) 109.88%); padding-top: 110px; padding-bottom: 80px;}
-.compare-body {padding-top: 110px;}
+@media all and (min-width: 768px){
+	.compare-body {padding-top: 110px;}
+}
 /*
 .compare__slider {display: flex; justify-content: space-between;}
 .compare-item__title {font-family: 'PT Serif'; font-style: normal; font-weight: bold; font-size: 28px; line-height: 37px; letter-spacing: -0.005em; color: #000;}
@@ -46,6 +48,7 @@
 .property-listing.no-results .card.box {height: 100%; margin: 0; display: flex; align-items: center; justify-content: center;}
 .property-listing.no-results .card.box h3 {text-align: center; line-height: normal; margin: 0; color: #3f51b5; padding: 0 10%;}
 @media all and (max-width: 767px){
+	.compare-page {padding-top: 80px;}
 	.property-listing {overflow-x: auto;}
 	.property-listing .col {min-width: 80%;}
 }

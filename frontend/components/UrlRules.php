@@ -31,7 +31,7 @@ class UrlRules implements UrlRuleInterface{
 		
 		
 		if(strstr($route, 'page-<page:\d+>') !== false){
-			$pageNum = (isset($params['page']) && !empty($params['page'])) ? 'page-'.$params['page'] : '';
+			$pageNum = (isset($params['page']) && !empty($params['page'])) ? 'page-'.$params['page'].'/' : '';
 			$route = str_replace('page-<page:\d+>', $pageNum, $route);
 			if(!isset($params['page'])){
 				$route = trim($route, "\\");

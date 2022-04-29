@@ -14,7 +14,7 @@ class ContactUs extends Widget{
 	public function init(){
 		parent::init();
 		
-		$this->view->registerCssFile('@web/theme/css/widgets/contact-us.css?v=1', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
+		$this->view->registerCssFile('@web/theme/css/widgets/contact-us.css?v='.YII_CSS_VERS, ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 	}
 	
 	public function run(){

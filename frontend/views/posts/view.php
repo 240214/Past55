@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = ['label' => 'Resources', 'url' => '/resources/'
 $this->params['breadcrumbs'][] = ['label' => $model->category->name, 'url' => '/'.$model->category->slug.'/'];
 #$this->params['breadcrumbs'][] = $this->title;
 
-$this->registerCssFile('@web/theme/css/post.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
+$this->registerCssFile('@web/theme/css/post.css?v='.YII_CSS_VERS, ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 
 #VarDumper::dump($model, 10, 1); exit;
 ?>

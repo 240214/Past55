@@ -40,7 +40,7 @@ class RelatedPosts extends Widget{
 		
 		#VarDumper::dump($this->dataProvider->getModels(), 10, 1); exit;
 		
-		$this->view->registerCssFile('@web/theme/css/widgets/related-posts.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
+		$this->view->registerCssFile('@web/theme/css/widgets/related-posts.css?v='.YII_CSS_VERS, ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 	}
 	
 	public function run(){

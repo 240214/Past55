@@ -44,6 +44,7 @@ figure.image .my-favorites__img {/*width: auto; height: 100%; max-width: none;*/
 .compare-panel-info .icon {font-size: 24px; color: #6D6D6D;}
 
 @media all and (max-width: 767px){
+    .favorites {padding-top: 50px;}
     .compare-panel-info {border-top: 1px dashed #ADADAD;}
     .compare-place-item__title {font-size: 15px; line-height: 20px;}
     .compare__btn,

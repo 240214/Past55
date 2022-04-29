@@ -5,27 +5,17 @@
 </IfModule>
 
 <IfModule mod_rewrite.c>
-    Options +FollowSymlinks
-    RewriteEngine On
-    RewriteCond %{HTTP_HOST} ^georgiacaring.com
-    RewriteRule (.*) https://www.georgiacaring.com/$1 [R=301,L]
+	Options +FollowSymlinks
+	IndexIgnore */*
+	RewriteEngine On RewriteBase /
+	#RewriteCond %{HTTPS} off
+	#RewriteCond %{HTTP:X-Forwarded-Proto} !https
+	#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-    RewriteRule ^author/(.*)$ /authors/$1 [R=302,L]
-    RewriteRule ^author/$ /authors/ [R=302,L]
+   	#RewriteCond %{HTTP_HOST} !^www\. [NC]
+   	#RewriteRule (.*) https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-	RewriteCond %{REQUEST_URI} !\?
-    RewriteCond %{REQUEST_URI} !\&
-    RewriteCond %{REQUEST_URI} !\=
-    RewriteCond %{REQUEST_URI} !\.
-    RewriteCond %{REQUEST_URI} !\/$
-	RewriteCond %{REQUEST_URI} !\/page-(.*)
-    RewriteRule ^(.*[^\/])$ /$1/ [R=301,L]
-
-#    RewriteCond %{HTTP_HOST} ^192.186.234.35
-#    RewriteCond %{HTTP_USER_AGENT} libwww-perl.*
-#    RewriteRule .* ? [F,L]
-#    RewriteRule (.*) http://www.codentheme.com/$1 [R=301,L]
-    RewriteCond %{REQUEST_URI} ^/.*
-    RewriteRule ^(.+)?$ frontend/web/$1
+	RewriteCond %{REQUEST_URI} ^/.*
+	RewriteRule ^(.+)?$ frontend/web/$1
 </IfModule>
 

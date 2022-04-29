@@ -19,7 +19,7 @@ if(empty($message)){
 }
 $statusCode_arr = str_split($exception->statusCode);
 
-$this->registerCssFile('@web/theme/css/error.css', ['depends' => [BootstrapAsset::className()]]);
+$this->registerCssFile('@web/theme/css/error.css?v='.YII_CSS_VERS, ['depends' => [BootstrapAsset::className()]]);
 ?>
 <section id="main__content" class="first-screen">
 	<div id="error-page" class="container">

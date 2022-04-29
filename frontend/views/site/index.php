@@ -11,7 +11,7 @@ use yii\helpers\Url;
 use yii\helpers\VarDumper;
 use frontend\widgets\Image;
 
-$this->registerCssFile('@web/theme/css/home.css?v=1', ['depends' => [BootstrapAsset::className()]]);
+$this->registerCssFile('@web/theme/css/home.css?v='.YII_CSS_VERS, ['depends' => [BootstrapAsset::className()]]);
 
 ?>
 <section class="first-screen-home">

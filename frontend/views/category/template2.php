@@ -35,7 +35,7 @@ $this->title = $meta['title'];
 $this->params['breadcrumbs'][] = ['label' => 'Resources', 'url' => '/resources/'];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => '/'.$model->slug.'/'];
 
-$this->registerCssFile('@web/theme/css/category-template.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
+$this->registerCssFile('@web/theme/css/category-template.css?v='.YII_CSS_VERS, ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 ?>
 <section class="hub-page">
 	<div class="container hub-page__first-screen">
@@ -128,6 +128,4 @@ $this->registerCssFile('@web/theme/css/category-template.css', ['depends' => [Bo
 	</div>
 </section>
 
-<section class="container main-text-content text-color-black pt-4 pt-md-9">
-	<?=CategoryRelatedPosts::widget(['category_id' => $model->id, 'title' => 'Related Articles', 'not_found_text' => 'No Related Articles']);?>
-</section>
+<?=CategoryRelatedPosts::widget(['category_id' => $model->id, 'title' => 'Related Articles', 'not_found_text' => 'No Related Articles']);?>

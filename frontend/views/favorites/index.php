@@ -29,8 +29,8 @@ $options['display_desc'] = true;
 $options['display_price'] = intval(Yii::$app->params['settings']['category_page_display_listing_item_price']);
 $options['display_rating'] = intval(Yii::$app->params['settings']['category_page_display_listing_item_rating']);
 
-$this->registerCssFile('@web/theme/css/favorites.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
-$this->registerCssFile('@web/theme/css/properties.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
+$this->registerCssFile('@web/theme/css/favorites.css?v='.YII_CSS_VERS, ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
+$this->registerCssFile('@web/theme/css/properties.css?v='.YII_CSS_VERS, ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 
 #VarDumper::dump($model, 10, 1);
 ?>
@@ -49,7 +49,7 @@ $this->registerCssFile('@web/theme/css/properties.css', ['depends' => [Bootstrap
 						<div id="js_compare_panel" class="d-none my-favorites__box compare-panel bg-white p-2 trans-all">
 							<div class="header">
 								<h4 class="mb-1 widget-title">Compare Places</h4>
-								<p class="js_result_count_label main-text-content mb-0 widget-desc">Lorem ipsum dolor sit amet dolor amue</p>
+								<p class="js_result_count_label main-text-content mb-0 widget-desc">Click "compare these places" button to view comparison.</p>
 							</div>
 							<div id="js_compare_items" class="compare-items"></div>
 							<div id="js_compare_btn_group" class="d-flex flex-column align-items-center mt-3">

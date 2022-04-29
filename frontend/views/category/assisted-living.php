@@ -34,7 +34,7 @@ $this->title = $meta['title'];
 $this->params['breadcrumbs'][] = ['label' => 'Resources', 'url' => '/resources/'];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => '/'.$model->slug.'/'];
 
-$this->registerCssFile('@web/theme/css/category-template.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
+$this->registerCssFile('@web/theme/css/category-template.css?v='.YII_CSS_VERS, ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 ?>
 <section class="hub-page">
 	<div class="container hub-page__first-screen">
@@ -135,6 +135,10 @@ $this->registerCssFile('@web/theme/css/category-template.css', ['depends' => [Bo
 							<li><strong>Safety</strong> — Apartments in assisted living are designed to be senior-friendly. Bathrooms have grab bars and easy to access showers. Emergency pull cords or other kinds of emergency response systems are commonly found in assisted living apartments. Additionally, the entrances in most communities have security measures with greeters at the door, sign-in sheets for all visitors, and an intercom for evening access.</li>
 							<li><strong>Medical oversight</strong> — Many assisted living communities provide transportation and coordination of medical care and medical appointments. Thus, proper attention is promptly given to any changes in a resident’s condition.</li>
 						</ul>
+						<h2 id="find" class="numbered-title mb-2 mb-md-25">Find assisted living near you</h2>
+						<ul class="check-list">
+							<li><a href="/assisted-living/ga/">Georgia assisted living</a></li>
+						</ul>
 					</div>
 				</article>
 			</div>
@@ -151,6 +155,4 @@ $this->registerCssFile('@web/theme/css/category-template.css', ['depends' => [Bo
 	</div>
 </section>
 
-<section class="container main-text-content text-color-black pt-4 pt-md-9">
-	<?=CategoryRelatedPosts::widget(['category_id' => $model->id, 'title' => 'Related Articles']);?>
-</section>
+<?=CategoryRelatedPosts::widget(['category_id' => $model->id, 'title' => 'Related Articles']);?>

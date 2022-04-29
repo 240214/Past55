@@ -3,6 +3,7 @@
 .latest-articles__row-title {font-family: 'PT Serif'; font-style: normal; font-weight: bold; font-size: 40px; line-height: normal; color: #000; margin: 0;}
 
 @media all and (max-width: 767px){
+    .content-library {padding-top: 0;}
     .content-library__body {padding-top: 65px; padding-bottom: 30px;}
     .latest-articles__row-title {font-size: 28px;}
 }

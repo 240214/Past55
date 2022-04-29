@@ -1,15 +1,12 @@
 <?php
-
 use common\models\Property;
 use frontend\widgets\RelatedProperties;
 use yii\helpers\Url;
 use yii\helpers\VarDumper;
 use frontend\widgets\Image;
-
-#VarDumper::dump($found, 10, 1); exit;
 ?>
-
 <?php if($found):?>
+<section class="container main-text-content text-color-black pt-4 pt-md-9 hide-if-empty">
 	<h3 class="highlighted-title mb-3 mb-md-4"><?=$title;?></h3>
 	<div class="row">
 	<?php foreach($dataProvider->getModels() as $model):?>
@@ -48,7 +45,5 @@ use frontend\widgets\Image;
 		</div>
 	<?php endforeach;?>
 	</div>
-<?php else:?>
-	<div class="mb-2 mb-md-6 text-center"><?=$not_found_text;?></div>
+</section>
 <?php endif;?>
-

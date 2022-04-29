@@ -15,7 +15,7 @@ if($model->meta_noindex){
 $this->title                   = $model->meta_title;
 $this->params['breadcrumbs'][] = $model->title;
 
-$this->registerCssFile('@web/theme/css/pages/thank-you.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
+$this->registerCssFile('@web/theme/css/pages/thank-you.css?v='.YII_CSS_VERS, ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 
 #VarDumper::dump($settings, 10, 1);
 ?>

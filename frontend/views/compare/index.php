@@ -16,8 +16,8 @@ $this->title = $page_title;
 $bundle = AppAsset::register($this);
 $bundle->addGoogleMapJS();
 
-$this->registerCssFile('@web/theme/css/compare.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
-#$this->registerCssFile('@web/theme/css/main.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
+$this->registerCssFile('@web/theme/css/compare.css?v='.YII_CSS_VERS, ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
+#$this->registerCssFile('@web/theme/css/main.css?v='.YII_CSS_VERS, ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 
 #VarDumper::dump($intersect_features, 10, 1);
 ?>

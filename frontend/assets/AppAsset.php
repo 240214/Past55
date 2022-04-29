@@ -152,10 +152,10 @@ class AppAsset extends AssetBundle {
 		parent::init();
 		
 		foreach($this->css as $k => $v)
-			$this->css[$k] = sprintf($v, '?v='.$this->version);
+			$this->css[$k] = sprintf($v, '?v='.YII_CSS_VERS);
 		
 		foreach($this->js as $k => $v)
-			$this->js[$k] = sprintf($v, '?v='.$this->version);
+			$this->js[$k] = sprintf($v, '?v='.YII_JS_VERS);
 		
 	}
 }

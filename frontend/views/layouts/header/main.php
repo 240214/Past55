@@ -29,15 +29,18 @@ use frontend\widgets\NavMenu;
 				],
 				[
 					'label' => 'Independent Living',
-					'url' => Url::toRoute(['property/index', 'category_slug' => 'independent-living'])
+					'url' =>  '/independent-living/ga/'
+					#'url' => Url::toRoute(['property/index', 'category_slug' => 'independent-living'])
 				],
 				[
 					'label' => 'Assisted Living',
-					'url' => Url::toRoute(['property/index', 'category_slug' => 'assisted-living'])
+					'url' =>  '/assisted-living/ga/'
+					#'url' => Url::toRoute(['property/index', 'category_slug' => 'assisted-living'])
 				],
 				[
 					'label' => 'Memory Care',
-					'url' => Url::toRoute(['property/index', 'category_slug' => 'memory-care'])
+					'url' =>  '/memory-care/ga/'
+					#'url' => Url::toRoute(['property/index', 'category_slug' => 'memory-care'])
 				],
 			],
 		]);?>

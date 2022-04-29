@@ -81,11 +81,11 @@ class PostsCarousel extends Widget{
 		#VarDumper::dump($this->found, 10, 1); exit;
 		
 		if($this->found){
-			$this->view->registerCssFile('@web/theme/plugins/slick/css/slick.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
-			$this->view->registerCssFile('@web/theme/plugins/slick/css/slick-theme.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
-			$this->view->registerCssFile('@web/theme/css/widgets/posts-carousel.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
-			$this->view->registerJsFile('@web/theme/plugins/slick/js/slick.min.js', ['depends' => [JqueryAsset::className(), AppAsset::className()]]);
-			$this->view->registerJsFile('@web/theme/js/widgets/posts-carousel.js', ['depends' => [JqueryAsset::className(), AppAsset::className()]]);
+			$this->view->registerCssFile('@web/theme/plugins/slick/css/slick.css?v='.YII_CSS_VERS, ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
+			$this->view->registerCssFile('@web/theme/plugins/slick/css/slick-theme.css?v='.YII_CSS_VERS, ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
+			$this->view->registerCssFile('@web/theme/css/widgets/posts-carousel.css?v='.YII_CSS_VERS, ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
+			$this->view->registerJsFile('@web/theme/plugins/slick/js/slick.min.js?v='.YII_JS_VERS, ['depends' => [JqueryAsset::className(), AppAsset::className()]]);
+			$this->view->registerJsFile('@web/theme/js/widgets/posts-carousel.js?v='.YII_JS_VERS, ['depends' => [JqueryAsset::className(), AppAsset::className()]]);
 		}
 	}
 	

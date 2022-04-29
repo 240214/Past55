@@ -44,7 +44,7 @@ class CategoryContentList extends Widget{
 				->all();
 		}
 		
-		$this->view->registerCssFile('@web/theme/css/widgets/category-content-list.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
+		$this->view->registerCssFile('@web/theme/css/widgets/category-content-list.css?v='.YII_CSS_VERS, ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 	}
 	
 	public function run(){

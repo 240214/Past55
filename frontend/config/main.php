@@ -2,6 +2,8 @@
 use yii\web\UrlNormalizer;
 use yii\web\Request;
 
+require(__DIR__ . '/versions.php');
+
 $params = array_merge(
     require(__DIR__ . '/../../common/config/params.php'),
     require(__DIR__ . '/../../common/config/params-local.php'),

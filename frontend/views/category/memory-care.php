@@ -34,7 +34,7 @@ $this->title = $meta['title'];
 $this->params['breadcrumbs'][] = ['label' => 'Resources', 'url' => '/resources/'];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => '/'.$model->slug.'/'];
 
-$this->registerCssFile('@web/theme/css/category-template.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
+$this->registerCssFile('@web/theme/css/category-template.css?v='.YII_CSS_VERS, ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 ?>
 <section class="hub-page">
 	<div class="container hub-page__first-screen">
@@ -141,6 +141,10 @@ $this->registerCssFile('@web/theme/css/category-template.css', ['depends' => [Bo
 							<li>What is your screening process for caregivers?</li>
 							<li>Will staff accompany my loved one to doctor appointments or to the Emergency Room?</li>
 						</ul>
+					<h2>Find Memory Care Communities Near You</h2>
+					<ul class="checklist">
+						<li><a href="https://www.georgiacaring.com/memory-care/ga/">Georgia memory care communities</a></li>
+					</ul>
 					</div>
 				</article>
 			</div>
@@ -157,6 +161,4 @@ $this->registerCssFile('@web/theme/css/category-template.css', ['depends' => [Bo
 	</div>
 </section>
 
-<section class="container main-text-content text-color-black pt-4 pt-md-9">
-	<?=CategoryRelatedPosts::widget(['category_id' => $model->id, 'title' => 'Related Articles']);?>
-</section>
+<?=CategoryRelatedPosts::widget(['category_id' => $model->id, 'title' => 'Related Articles']);?>

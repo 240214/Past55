@@ -15,7 +15,7 @@ if(YII_ENV_DEV){
 $this->title = $user->name;
 $this->params['breadcrumbs'][] = $user->name;
 
-$this->registerCssFile('@web/theme/css/author.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
+$this->registerCssFile('@web/theme/css/author.css?v='.YII_CSS_VERS, ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 
 ?>
 <section class="hero">

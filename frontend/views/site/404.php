@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 $message = 'We are sorry, but the page you requested was not found.';
 $statusCode_arr = str_split($exception->statusCode);
 
-$this->registerCssFile('@web/theme/css/404.css', ['depends' => [BootstrapAsset::className()]]);
+$this->registerCssFile('@web/theme/css/404.css?v='.YII_CSS_VERS, ['depends' => [BootstrapAsset::className()]]);
 
 #VarDumper::dump($statusCode_arr, 10, 1);
 ?>

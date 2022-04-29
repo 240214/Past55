@@ -13,7 +13,7 @@ if(YII_ENV_DEV){
 $this->title = 'Authors';
 $this->params['breadcrumbs'][] = $this->title;
 
-$this->registerCssFile('@web/theme/css/authors.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
+$this->registerCssFile('@web/theme/css/authors.css?v='.YII_CSS_VERS, ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 
 ?>
 <section class="authors">

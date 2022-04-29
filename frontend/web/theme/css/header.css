@@ -45,6 +45,14 @@ header#header * {text-decoration: none;}
 	.navigation nav li a {font-size: 14px; line-height: normal;}
 }
 @media all and (max-width: 767px){
+	.site-header {
+		position: sticky;
+		margin: 0;
+		padding-top: 15px;
+		padding-bottom: 15px;
+		background-color: #fff;
+		box-shadow: 0 0 10px rgba(0,0,0,0.05);
+	}
 	.header-home {height: auto; box-shadow: none; background-color: transparent; padding: 0;}
 	.navigation {
 		max-width: 300px;

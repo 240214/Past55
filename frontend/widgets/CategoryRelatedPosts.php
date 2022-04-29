@@ -35,7 +35,7 @@ class CategoryRelatedPosts extends Widget{
 		$this->dataProvider->sort->defaultOrder = ['created_at' => SORT_DESC];
 		$this->dataProvider->pagination = ['pageSize' => $this->limit];
 		
-		$this->view->registerCssFile('@web/theme/css/widgets/category-related-posts.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
+		$this->view->registerCssFile('@web/theme/css/widgets/category-related-posts.css?v='.YII_CSS_VERS, ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 	}
 	
 	public function run(){

@@ -21,7 +21,7 @@ class UserFavorites extends Widget{
 		
 		$this->user_favs_count = FavoriteProperties::find()->where(['sid' => $sid])->count();
 		
-		$this->view->registerCssFile('@web/theme/css/widgets/user-favorites.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
+		$this->view->registerCssFile('@web/theme/css/widgets/user-favorites.css?v='.YII_CSS_VERS, ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 	}
 	
 	public function run(){

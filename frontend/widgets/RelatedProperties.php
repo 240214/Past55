@@ -49,7 +49,7 @@ class RelatedProperties extends Widget{
 				->all();
 		}
 		
-		$this->view->registerCssFile('@web/theme/css/widgets/related-properties.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
+		$this->view->registerCssFile('@web/theme/css/widgets/related-properties.css?v='.YII_CSS_VERS, ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 	}
 	
 	public function run(){

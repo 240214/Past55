@@ -13,7 +13,7 @@ if($model->meta_noindex){
 $this->title = $model->meta_title;
 $this->params['breadcrumbs'][] = $model->title;
 
-$this->registerCssFile('@web/theme/css/pages/resources.css', ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
+$this->registerCssFile('@web/theme/css/pages/resources.css?v='.YII_CSS_VERS, ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 
 ?>
 <section class="content-library">
