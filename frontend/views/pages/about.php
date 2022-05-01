@@ -1,5 +1,6 @@
 <?php
 
+use frontend\widgets\ImageOptimize;
 use yii\helpers\VarDumper;
 use frontend\assets\AppAsset;
 use yii\bootstrap\BootstrapAsset;
@@ -25,7 +26,7 @@ $this->registerJsFile('@web/theme/js/pages/about.js?v='.YII_JS_VERS, ['depends' 
 	<div class="container first-screen max-w-1260">
 		<div class="row align-items-center flex-md-row-reverse">
 			<div class="col-12 col-md-7">
-				<img class="img-fluid" src="/theme/img/about/hero.jpg" alt="georgiacaring office" width="715" height="438">
+				<?=ImageOptimize::widget(["src" => '/theme/img/about/hero.jpg', "alt" => "georgiacaring office", "width" => 715, "height" => 438, "css" => "img-fluid"]);?>
 			</div>
 			<div class="col-12 col-md-5">
 				<div class="inner max-w-470-sm">
@@ -65,10 +66,10 @@ $this->registerJsFile('@web/theme/js/pages/about.js?v='.YII_JS_VERS, ['depends' 
 	<div class="row">
 		<div class="col-12 col-md-6 mb-3 mb-md-0">
 			<div class="mission-galery">
-				<img class="img-fluid" src="/theme/img/about/01.jpg" alt="senior family" width="370" height="291">
-				<img class="img-fluid" src="/theme/img/about/02.jpg" alt="senior living" width="370" height="291">
-				<img class="img-fluid" src="/theme/img/about/03.jpg" alt="memory care" width="370" height="291">
-				<img class="img-fluid" src="/theme/img/about/04.jpg" alt="andgie fred" width="370" height="291">
+				<?=ImageOptimize::widget(["src" => '/theme/img/about/01.jpg', "alt" => "senior family", "width" => 370, "height" => 291, "css" => "img-fluid"]);?>
+				<?=ImageOptimize::widget(["src" => '/theme/img/about/02.jpg', "alt" => "senior living", "width" => 370, "height" => 291, "css" => "img-fluid"]);?>
+				<?=ImageOptimize::widget(["src" => '/theme/img/about/03.jpg', "alt" => "memory care", "width" => 370, "height" => 291, "css" => "img-fluid"]);?>
+				<?=ImageOptimize::widget(["src" => '/theme/img/about/04.jpg', "alt" => "andgie fred", "width" => 370, "height" => 291, "css" => "img-fluid"]);?>
 			</div>
 		</div>
 		<div class="col-12 col-md-6 ps-md-6">
@@ -106,8 +107,7 @@ $this->registerJsFile('@web/theme/js/pages/about.js?v='.YII_JS_VERS, ['depends' 
 			</div>
 			<div class="col-12 col-md-6">
 				<div id="js_slider_for" class="slider-for">
-
-					<img class="img-fluid" src="/theme/img/about/slide_03.jpg" alt="" width="767" height="633">
+					<?=ImageOptimize::widget(["src" => '/theme/img/about/slide_03.jpg', "alt" => "", "width" => 767, "height" => 633, "css" => "img-fluid"]);?>
 
 				</div>
 				<div class="slider-footer ff-airbnb-cereal-app">

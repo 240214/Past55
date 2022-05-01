@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f6177847941ea6e77fcd81a79eb71c24",
+    "content-hash": "dc37736763222306396add6ba78ce514",
     "packages": [
         {
             "name": "2amigos/yii2-tinymce-widget",
@@ -510,68 +510,6 @@
             "time": "2019-05-14T07:40:36+00:00"
         },
         {
-            "name": "imagine/imagine",
-            "version": "v0.7.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-imagine/Imagine.git",
-                "reference": "a9a702a946073cbca166718f1b02a1e72d742daa"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-imagine/Imagine/zipball/a9a702a946073cbca166718f1b02a1e72d742daa",
-                "reference": "a9a702a946073cbca166718f1b02a1e72d742daa",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.2"
-            },
-            "require-dev": {
-                "sami/sami": "^3.3",
-                "symfony/phpunit-bridge": "^3.2"
-            },
-            "suggest": {
-                "ext-gd": "to use the GD implementation",
-                "ext-gmagick": "to use the Gmagick implementation",
-                "ext-imagick": "to use the Imagick implementation"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-develop": "0.7-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Imagine": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Bulat Shakirzyanov",
-                    "email": "mallluhuct@gmail.com",
-                    "homepage": "http://avalanche123.com"
-                }
-            ],
-            "description": "Image processing for PHP 5.3",
-            "homepage": "http://imagine.readthedocs.org/",
-            "keywords": [
-                "drawing",
-                "graphics",
-                "image manipulation",
-                "image processing"
-            ],
-            "support": {
-                "issues": "https://github.com/php-imagine/Imagine/issues",
-                "source": "https://github.com/php-imagine/Imagine/tree/v0.7.1"
-            },
-            "time": "2017-05-16T10:31:22+00:00"
-        },
-        {
             "name": "kartik-v/bootstrap-fileinput",
             "version": "v5.1.3",
             "source": {
@@ -744,107 +682,6 @@
             "time": "2020-12-05T15:43:43+00:00"
         },
         {
-            "name": "maximal/php-webp-thumbnailer",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/maximal/php-webp-thumbnailer.git",
-                "reference": "796b64fe216b5f8690c0352b82825cae29d0ac25"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/maximal/php-webp-thumbnailer/zipball/796b64fe216b5f8690c0352b82825cae29d0ac25",
-                "reference": "796b64fe216b5f8690c0352b82825cae29d0ac25",
-                "shasum": ""
-            },
-            "require": {
-                "imagine/imagine": "~0.6.0 | ~0.7.1"
-            },
-            "default-branch": true,
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "maximal\\thumbnail\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "maximal",
-                    "email": "almaximal@ya.ru",
-                    "homepage": "https://github.com/maximal"
-                }
-            ],
-            "description": "PHP (over Imagine) helper for creating and caching WebP thumbnails in real time",
-            "keywords": [
-                "Webp",
-                "helper",
-                "image",
-                "imagine",
-                "thumbnail"
-            ],
-            "support": {
-                "issues": "https://github.com/maximal/php-webp-thumbnailer/issues",
-                "source": "https://github.com/maximal/php-webp-thumbnailer/tree/master"
-            },
-            "time": "2021-12-16T10:08:06+00:00"
-        },
-        {
-            "name": "maximal/yii2-webp-thumbnailer",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/maximal/yii2-webp-thumbnailer.git",
-                "reference": "8043172bfdc2581f1ba9c0a97b5a0f5c6137a418"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/maximal/yii2-webp-thumbnailer/zipball/8043172bfdc2581f1ba9c0a97b5a0f5c6137a418",
-                "reference": "8043172bfdc2581f1ba9c0a97b5a0f5c6137a418",
-                "shasum": ""
-            },
-            "require": {
-                "maximal/php-webp-thumbnailer": "*",
-                "yiisoft/yii2-imagine": "~2.2.0"
-            },
-            "default-branch": true,
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "maximal\\thumbnail\\yii\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "maximal",
-                    "email": "almaximal@ya.ru",
-                    "homepage": "https://github.com/maximal"
-                }
-            ],
-            "description": "Yii2 (over Imagine) helper for creating and caching WebP thumbnails in real time",
-            "keywords": [
-                "Webp",
-                "extension",
-                "helper",
-                "image",
-                "imagine",
-                "thumbnail",
-                "yii2"
-            ],
-            "support": {
-                "issues": "https://github.com/maximal/yii2-webp-thumbnailer/issues",
-                "source": "https://github.com/maximal/yii2-webp-thumbnailer/tree/master"
-            },
-            "time": "2020-05-07T13:22:41+00:00"
-        },
-        {
             "name": "paragonie/random_compat",
             "version": "v9.99.100",
             "source": {
@@ -893,57 +730,6 @@
                 "source": "https://github.com/paragonie/random_compat"
             },
             "time": "2020-10-15T08:29:30+00:00"
-        },
-        {
-            "name": "pelock/yii2-imgopt",
-            "version": "1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/PELock/yii2-imgopt.git",
-                "reference": "f1afc50d331b5b2d741864e39eb0a94ebac79039"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/PELock/yii2-imgopt/zipball/f1afc50d331b5b2d741864e39eb0a94ebac79039",
-                "reference": "f1afc50d331b5b2d741864e39eb0a94ebac79039",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "yiisoft/yii2": ">=2.0.4"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "PELock\\ImgOpt\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Bartosz Wójcik",
-                    "email": "support@pelock.com",
-                    "homepage": "https://www.pelock.com"
-                }
-            ],
-            "description": "Image optimization widget for Yii2 Framework with auto WebP image format generation from PNG/JPG files.",
-            "keywords": [
-                "Webp",
-                "generator",
-                "image",
-                "jpg",
-                "optimization",
-                "png",
-                "yii2"
-            ],
-            "support": {
-                "issues": "https://github.com/PELock/yii2-imgopt/issues",
-                "source": "https://github.com/PELock/yii2-imgopt/tree/v1.2.0"
-            },
-            "time": "2022-01-19T21:08:21+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -1775,64 +1561,6 @@
                 }
             ],
             "time": "2021-08-09T21:10:49+00:00"
-        },
-        {
-            "name": "yiisoft/yii2-imagine",
-            "version": "2.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/yiisoft/yii2-imagine.git",
-                "reference": "8637f63ee2eb81b7fe1f4c0e16cc8cc474a68bae"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-imagine/zipball/8637f63ee2eb81b7fe1f4c0e16cc8cc474a68bae",
-                "reference": "8637f63ee2eb81b7fe1f4c0e16cc8cc474a68bae",
-                "shasum": ""
-            },
-            "require": {
-                "imagine/imagine": "^0.6 | ^0.7 | ^1.0",
-                "yiisoft/yii2": "~2.0.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "<7"
-            },
-            "type": "yii2-extension",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "yii\\imagine\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Antonio Ramirez",
-                    "email": "amigo.cobos@gmail.com"
-                }
-            ],
-            "description": "The Imagine integration for the Yii framework",
-            "keywords": [
-                "helper",
-                "image",
-                "imagine",
-                "yii2"
-            ],
-            "support": {
-                "forum": "http://www.yiiframework.com/forum/",
-                "irc": "irc://irc.freenode.net/yii",
-                "issues": "https://github.com/yiisoft/yii2-imagine/issues",
-                "source": "https://github.com/yiisoft/yii2-imagine",
-                "wiki": "http://www.yiiframework.com/wiki/"
-            },
-            "time": "2019-06-04T12:38:50+00:00"
         },
         {
             "name": "yiisoft/yii2-swiftmailer",
@@ -5051,7 +4779,7 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "stability-flags": {
         "kartik-v/yii2-widget-fileinput": 20
     },

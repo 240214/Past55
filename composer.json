@@ -12,7 +12,7 @@
         "irc": "irc://irc.freenode.net/yii",
         "source": "https://github.com/yiisoft/yii2"
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
         "php": ">=5.4.0",
         "yiisoft/yii2": "~2.0.6",
@@ -22,9 +22,7 @@
         "kartik-v/yii2-widget-fileinput": "@dev",
         "yurkinx/yii2-image": "^1.3",
         "2amigos/yii2-tinymce-widget": "~1.1",
-        "himiklab/yii2-recaptcha-widget": "*",
-        "pelock/yii2-imgopt": "*",
-        "maximal/yii2-webp-thumbnailer": "*"
+        "himiklab/yii2-recaptcha-widget": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

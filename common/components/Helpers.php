@@ -47,6 +47,164 @@ class Helpers extends Component{
 		return '<img '.implode(' ', array_map(function($k, $v){return $k.'="'.$v.'"';}, array_keys($params), array_values($params))).' />';
 	}
 	
+	public function getImageSize($image_file){
+		if(!file_exists($image_file)){
+			return false;
+		}
+		
+		$path_parts = pathinfo($image_file);
+		
+		if($path_parts['extension'] == 'svg'){
+			$image_info = $this->getSVGSize($image_file);
+			$params['width']  = $image_info['width'];
+			$params['height'] = $image_info['height'];
+			$params['type']   = $path_parts['extension'];
+			
+			return $params;
+		}else{
+			if(function_exists('getimagesize')){
+				list($img_width, $img_height, $img_type, $img_attr) = @getimagesize($image_file);
+				
+				$params['width']  = $img_width;
+				$params['height'] = $img_height;
+				$params['type']   = $img_type;
+				
+				return $params;
+			}else{
+				#VarDumper::dump('Function not found: getimagesize', 10, 1);
+				return false;
+			}
+		}
+	}
+	
+	public function getSVGSize($file_path){
+		if(!file_exists($file_path)){
+			return '';
+		}
+		
+		$svg_content = file_get_contents($file_path);
+		$svgXML = simplexml_load_string($svg_content);
+		list($originX, $originY, $relWidth, $relHeight) = explode(' ', $svgXML['viewBox']);
+		unset($svgXML);
+		
+		return [
+			'x' => $originX,
+			'y' => $originY,
+			'width' => $relWidth,
+			'height' => $relHeight,
+			#'xml' => $svg_content
+		];
+		
+	}
+	
+	/**
+	 * Generates optimized WebP file from the provided image, relative to the
+	 * Yii2 @webroot file alias.
+	 *
+	 * @param string $img Relative path to the image in @webroot Yii2 directory
+	 * @param bool $recreate Recreate the WebP file again
+	 *
+	 * @return string|null Path to the WebP file (relative to @webroot) or null (marks usage of the original image only)
+	 */
+	public function convertToWebp($img, $recreate = false){
+
+		// build full path to the image (relative to the webroot)
+		$web_root = Yii::getAlias('@webroot');
+		$img_full_path = $web_root.$img;
+		// check if the source image exist
+		if(file_exists($img_full_path) === false){
+			return null;
+		}
+		
+		// modification time of the original image
+		$img_modification_time = filemtime($img_full_path);
+		
+		$original_file_size = filesize($img_full_path);
+		
+		if($original_file_size === 0){
+			return null;
+		}
+		
+		// get path details (full path & short path details)
+		$short_file_info = pathinfo($img);
+		$file_info       = pathinfo($img_full_path);
+		
+		$ext = strtolower($file_info["extension"]);
+		
+		$webp_filename_with_extension = $short_file_info["filename"].".webp";
+		
+		$webp_short_path = $short_file_info["dirname"]."/".$webp_filename_with_extension;
+		$webp_full_path  = $file_info["dirname"]."/".$webp_filename_with_extension;
+		
+		// if the WEBP file already exists check if we want to re-create it
+		if($recreate === false && file_exists($webp_full_path)){
+			
+			// if the WEBP file is bigger than the original image
+			// use the original image
+			if(filesize($webp_full_path) >= $original_file_size){
+				return null;
+			}
+			
+			$webp_modification_time = filemtime($webp_full_path);
+			
+			// if the modification dates on the original image
+			// and WEBP image are the same = use the WEBP image
+			// in any other case - recreate the file
+			if($img_modification_time !== false && $webp_modification_time !== false){
+				if($img_modification_time === $webp_modification_time){
+					return $webp_short_path;
+				}
+			}
+		}
+		
+		if($ext === "png"){
+			$img = imagecreatefrompng($img_full_path);
+			imagepalettetotruecolor($img);
+			imagealphablending($img, true);
+			imagesavealpha($img, true);
+		}else if($ext === "jpg" || $ext === "jpeg"){
+			$img = imagecreatefromjpeg($img_full_path);
+			imagepalettetotruecolor($img);
+		}
+		
+		// start with 100 quality
+		$quality = 100;
+		
+		// generate WEBP in the best possible quality
+		// and file size less than the original
+		do{
+			// generate output WEBP file
+			imagewebp($img, $webp_full_path, $quality);
+			
+			// decrease quality
+			$quality -= 5;
+			
+			// no point in going below 70% quality
+			if($quality < 70){
+				break;
+			}
+		}while(filesize($webp_full_path) >= $original_file_size);
+		
+		// release input image
+		imagedestroy($img);
+		
+		
+		// set modification time on the WEBP file to match the
+		// modification time of the original image
+		if($img_modification_time !== false){
+			touch($webp_full_path, $img_modification_time);
+		}
+		
+		
+		// if the final WEBP image is bigger than the original file
+		// don't use it (use the original only)
+		if(filesize($webp_full_path) >= $original_file_size){
+			return null;
+		}
+		
+		return $webp_short_path;
+	}
+
 	/**
 	 * Separate HTML elements and comments from the text.
 	 *
@@ -141,56 +299,6 @@ class Helpers extends Component{
 		
 		
 		return $protocols;
-	}
-	
-	public function getImageSize($image_file){
-		if(!file_exists($image_file)){
-			return false;
-		}
-		
-		$path_parts = pathinfo($image_file);
-		
-		if($path_parts['extension'] == 'svg'){
-			$image_info = $this->getSVGSize($image_file);
-			$params['width']  = $image_info['width'];
-			$params['height'] = $image_info['height'];
-			$params['type']   = $path_parts['extension'];
-			
-			return $params;
-		}else{
-			if(function_exists('getimagesize')){
-				list($img_width, $img_height, $img_type, $img_attr) = @getimagesize($image_file);
-				
-				$params['width']  = $img_width;
-				$params['height'] = $img_height;
-				$params['type']   = $img_type;
-				
-				return $params;
-			}else{
-				#VarDumper::dump('Function not found: getimagesize', 10, 1);
-				return false;
-			}
-		}
-	}
-	
-	public function getSVGSize($file_path){
-		if(!file_exists($file_path)){
-			return '';
-		}
-
-		$svg_content = file_get_contents($file_path);
-		$svgXML = simplexml_load_string($svg_content);
-		list($originX, $originY, $relWidth, $relHeight) = explode(' ', $svgXML['viewBox']);
-		unset($svgXML);
-		
-		return [
-			'x' => $originX,
-			'y' => $originY,
-			'width' => $relWidth,
-			'height' => $relHeight,
-			#'xml' => $svg_content
-		];
-
 	}
 	
 	public function bootstrap_icon($icon_name, $wrap_class = '', $return_attrs = false){
