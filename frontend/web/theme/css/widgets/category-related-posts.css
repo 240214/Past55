@@ -4,7 +4,20 @@
 .highlighted-title:before {content: ""; position: absolute; left: 0; top: 10px; width: 4px; height: 25px; background-color: #6d459c;}
 
 .related-article-card .image {border-radius: 10px; overflow: hidden; padding-top: 67%; position: relative;}
-.related-article-card .image img {position: absolute; top: 50%; left: -50%; margin: auto; bottom: 50%; right: -50%; z-index: 1;}
+.related-article-card .image img {
+	position: absolute;
+	z-index: 0;
+	top: -50%;
+	bottom: -50%;
+	left: -50%;
+	right: -50%;
+	margin: auto;
+	width: auto;
+	min-height: 100%;
+	min-width: 100%;
+	height: fit-content;
+	object-fit: cover;
+}
 
 .related-article-card__title {font-weight: 500; font-size: 22px; line-height: normal; color: #000; transition: all .15s ease;}
 .related-article-card__title:hover {text-decoration: underline; color: var(--bs-brand);}

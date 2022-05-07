@@ -20,7 +20,6 @@ $this->registerCssFile('@web/theme/plugins/slick/css/slick-theme.css?v='.YII_CSS
 $this->registerCssFile('@web/theme/css/pages/about.css?v='.YII_CSS_VERS, ['depends' => [BootstrapAsset::className(), AppAsset::className()]]);
 $this->registerJsFile('@web/theme/plugins/slick/js/slick.min.js?v='.YII_JS_VERS, ['depends' => [JqueryAsset::className(), AppAsset::className()]]);
 $this->registerJsFile('@web/theme/js/pages/about.js?v='.YII_JS_VERS, ['depends' => [JqueryAsset::className(), AppAsset::className()]]);
-
 ?>
 <section class="hero">
 	<div class="container first-screen max-w-1260">

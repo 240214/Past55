@@ -1,4 +1,6 @@
 <?php
+
+use frontend\widgets\ImageOptimize;
 use yii\helpers\Url;
 use yii\helpers\VarDumper;
 use yii\helpers\Html;
@@ -20,14 +22,29 @@ if(!empty($model->nearby_places)){
 ?>
 <figure class="image empty--bg js_item_image">
 	<a href="<?=$url;?>" target="_blank">
-		<?=Yii::$app->Helpers->getImage([
+		<?=ImageOptimize::widget([
+			'src' => $model->getMainImage('767'),
+			'alt' => $model->title,
+			'css' => 'img-fluid lazy',
+			'width' => 767,
+			'height' => 511,
+			'lazyload' => 'lazy',
+			'quality' => 15,
+			'recreate' => false,
+			'srcset' => [
+				['src' => $model->getMainImage('575'), 'size' => '575w', 'media_point' => 'max-width', 'media_size' => '575px'],
+				['src' => $model->getMainImage('767'), 'size' => '767w', 'media_point' => 'max-width', 'media_size' => '767px'],
+				['src' => $model->getMainImage('767'), 'size' => '768w', 'media_point' => 'min-width', 'media_size' => '768px'],
+			],
+		]);?>
+		<?php /*=Yii::$app->Helpers->getImage([
 			'src' => $model->getMainImage('767'),
 			'srcset' => $model->getMainImage('575').' 575w, '.$model->getMainImage('767').' 767w, '.$model->getMainImage('767').' 768w',
 			'sizes' => '250w',
 			'alt' => $model->title,
 			'from_cdn' => false,
 			'lazyload' => true,
-		]);?>
+		]);*/?>
 	</a>
 </figure>
 <div class="info b-border pb-lg-25 pb-2 mb-lg-25 mb-2">

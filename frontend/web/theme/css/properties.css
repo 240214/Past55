@@ -7,6 +7,7 @@
 .actions__toggle input[type=checkbox] ~ i.uncheck {opacity: 1;}
 .actions__toggle input[type=checkbox]:checked ~ i.uncheck {opacity: 0;}
 .actions__toggle input[type=checkbox]:checked ~ i.check {opacity: 1;}
+.actions__toggle .fav-label {opacity: 0; display: block; width: 0; height: 0;}
 
 .actions__toggle.mob-to-fav-float {position: fixed; z-index: 1; bottom: -50px; right: 30px; width: auto; height: auto; background-color: #f14668; border-radius: 25px; box-shadow: 0 0 20px -5px rgba(0,0,0,0.5);}
 .actions__toggle.mob-to-fav-float:hover {background-color: #3f51b5;}

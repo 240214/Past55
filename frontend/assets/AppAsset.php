@@ -20,21 +20,21 @@ class AppAsset extends AssetBundle {
 	    #'/theme/plugins/bootstrap3/css/bootstrap.css', // 3.3.5
 	    #'/theme/plugins/bootstrap4/css/bootstrap.css', // 4.5.3
 	    #'theme/plugins/bootstrap5/css/bootstrap.css', // 5.0.0
-	    'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css',
+	    #'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css',
 	    #'theme/plugins/bootstrap-select/css/bootstrap-select.min.css',
 	    
 	    // Material design colors
-	    'theme/plugins/material-design-iconic-font/dist/css/material-design-iconic-font.min.css',
+	    #'theme/plugins/material-design-iconic-font/dist/css/material-design-iconic-font.min.css',
 	
 	    // pixeden
-	    'theme/plugins/pe-icon-7-stroke/css/pe-icon-7-stroke.css',
-	    'theme/plugins/pe-icon-7-stroke/css/helper.css',
+	    #'theme/plugins/pe-icon-7-stroke/css/pe-icon-7-stroke.css',
+	    #'theme/plugins/pe-icon-7-stroke/css/helper.css',
 	
 	    // Waves button ripple effects
-	    'theme/plugins/Waves/dist/waves.min.css',
+	    #'theme/plugins/Waves/dist/waves.min.css',
 	
 	    // CSS animations
-	    'theme/plugins/animate.css/animate.min.css',
+	    #'theme/plugins/animate.css/animate.min.css',
 	    
 	    // Select2
 	    #'theme/plugins/select2/dist/css/select2.min.css',
@@ -73,7 +73,7 @@ class AppAsset extends AssetBundle {
 	    #'theme/plugins/bootstrap-select/js/bootstrap-select.min.js',
 	    
 	    // Waves button ripple effects
-	    'theme/plugins/Waves/dist/waves.min.js',
+	    #'theme/plugins/Waves/dist/waves.min.js',
 	    
 	    // Select 2
 	    #'theme/plugins/select2/dist/js/select2.full.min.js',
@@ -151,6 +151,8 @@ class AppAsset extends AssetBundle {
 	public function init(){
 		parent::init();
 		
+		$this->recompileScripts();
+		
 		foreach($this->css as $k => $v)
 			$this->css[$k] = sprintf($v, '?v='.YII_CSS_VERS);
 		
@@ -158,4 +160,27 @@ class AppAsset extends AssetBundle {
 			$this->js[$k] = sprintf($v, '?v='.YII_JS_VERS);
 		
 	}
+	
+	private function recompileScripts(){
+		$recompile = Yii::$app->request->get('recompile');
+		
+		if(!is_null($recompile)){
+			$path = $this->basePath.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR;
+
+			if($recompile == 'css' || $recompile == 'all'){
+				$files = array_diff(scandir($path.'css-compress'), array(".", ".."));
+				foreach($files as $file){
+					unlink($path.'css-compress'.DIRECTORY_SEPARATOR.$file);
+				}
+			}
+
+			if($recompile == 'js' || $recompile == 'all'){
+				$files = array_diff(scandir($path.'js-compress'), array(".", ".."));
+				foreach($files as $file){
+					unlink($path.'js-compress'.DIRECTORY_SEPARATOR.$file);
+				}
+			}
+		}
+	}
+	
 }

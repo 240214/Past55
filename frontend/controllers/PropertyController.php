@@ -168,8 +168,15 @@ class PropertyController extends BaseController {
 		
 		$queryParams['url'] = $url;
 		$dataProvider = $this->getListings($queryParams);
-		if(!$dataProvider->getCount() || ($dataProvider->getCount() < 5 && !isset($queryParams['city']))){
+		if(!isset($queryParams['city'])){
 			$noindex = true;
+			if($dataProvider->getCount() >= intval(Yii::$app->params['settings']['min_listings_count_in_category_page'])){
+				$noindex = false;
+			}
+		}else{
+			if($dataProvider->getCount() < intval(Yii::$app->params['settings']['min_listings_count_in_category_page'])){
+				$noindex = true;
+			}
 		}
 		
 		$session->set('city', $city);
@@ -193,6 +200,7 @@ class PropertyController extends BaseController {
 		
 		$category_city_content = $this->get3CContent($category_id, $state_id, $city_id);
 		
+		
 		return $this->render('index', [
 			'items_count' => $dataProvider->getCount(),
 			'item_models' => $dataProvider->getModels(),
@@ -205,7 +213,7 @@ class PropertyController extends BaseController {
 			'meta' => [
 				'h1' => $this->generateH1Title($state, $city, $category),
 				'title' => $this->generateMetaTitle($state, $city, $category),
-				'description' => '',
+				'description' => $this->generateMetaDescription($state, $city, $category),
 				'keywords' => '',
 				'noindex' => $noindex,
 			],
@@ -532,6 +540,23 @@ class PropertyController extends BaseController {
 		}elseif(isset($category['meta_title'])){
 			$str = $category['meta_title'];
 		}
+		
+		return $str;
+	}
+	
+	public function generateMetaDescription($state = '', $city = '', $category = []){
+		$pattern = 'Browse and compare %H1_TITLE%. See pictures, prices, care offered and nearby places.';
+		$h1_title = strtolower($category['h1_title']);
+		
+		if(!empty($city) && !empty($state)){
+			$h1_title = str_replace(['%state%', '%city%'], [$state, $city], strtolower($category['h1_title_for_state_city']));
+		}elseif(empty($city) && !empty($state)){
+			$h1_title = str_replace(['%state%'], [$state], strtolower($category['h1_title_for_state']));
+		}elseif(!empty($city) && empty($state)){
+			$h1_title = str_replace(['%state%'], [$city], strtolower($category['h1_title_for_state']));
+		}
+
+		$str = str_replace(['%H1_TITLE%'], [$h1_title], $pattern);
 		
 		return $str;
 	}
@@ -972,32 +997,34 @@ class PropertyController extends BaseController {
 			}
 		}
 		
-		if($state = State::getStateByName($queryParams['state'])){
-			$city = City::find()
-			            ->where(['name' => $queryParams['city'], 'state_id' => $state['id']])
-			            ->asArray()
-			            ->one();
-			
-			if(!empty($city) && !empty($city['nearby_cities'])){
-				$query = City::find();
-				$query->join('RIGHT JOIN', 'properties', 'properties.city = cities.name');
-				$query->where(['IN', 'cities.id', explode(',', $city['nearby_cities'])]);
-				$query->andWhere(['cities.state_id' => $state['id']]);
-				$query->andWhere(['properties.state' => $queryParams['state']]);
-				$query->andWhere(['properties.category_id' => $cat_id]);
-				$query->groupBy(['cities.id']);
-				$cities = $query->asArray()->all();
+		if(isset($queryParams['state']) && !empty($queryParams['state'])){
+			if($state = State::getStateByName($queryParams['state'])){
+				$city = City::find()
+				            ->where(['name' => $queryParams['city'], 'state_id' => $state['id']])
+				            ->asArray()
+				            ->one();
 				
-				if(!empty($cities)){
-					foreach($cities as $k => $city){
-						$data[$k] = [
-							'city'       => $city['name'],
-							'state'      => $state['name'],
-							'city_label' => $city['name'].', '.$state['iso_code'],
-						];
-						if($display_cat_in_url){
-							$data[$k]['city_label']    .= ' '.$inversed_categories[$cat_id]['name'];
-							$data[$k]['category_slug'] = $inversed_categories[$cat_id]['slug'];
+				if(!empty($city) && !empty($city['nearby_cities'])){
+					$query = City::find();
+					$query->join('RIGHT JOIN', 'properties', 'properties.city = cities.name');
+					$query->where(['IN', 'cities.id', explode(',', $city['nearby_cities'])]);
+					$query->andWhere(['cities.state_id' => $state['id']]);
+					$query->andWhere(['properties.state' => $queryParams['state']]);
+					$query->andWhere(['properties.category_id' => $cat_id]);
+					$query->groupBy(['cities.id']);
+					$cities = $query->asArray()->all();
+					
+					if(!empty($cities)){
+						foreach($cities as $k => $city){
+							$data[$k] = [
+								'city'       => $city['name'],
+								'state'      => $state['name'],
+								'city_label' => $city['name'].', '.$state['iso_code'],
+							];
+							if($display_cat_in_url){
+								$data[$k]['city_label']    .= ' '.$inversed_categories[$cat_id]['name'];
+								$data[$k]['category_slug'] = $inversed_categories[$cat_id]['slug'];
+							}
 						}
 					}
 				}

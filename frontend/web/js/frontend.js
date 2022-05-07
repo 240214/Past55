@@ -274,6 +274,7 @@ $(function(){
 				sessionStorage.setItem(key, value);
 			},
 			initLazyLoad: function(){
+				console.log('initLazyLoad');
 				if(FJS.vars.lazyLoadInstance != null){
 					FJS.vars.lazyLoadInstance.update();
 				}else{
@@ -295,9 +296,17 @@ $(function(){
 			},
 			initSlickCarousel: function(){
 				if($('.slider.slider-for').length){
+					var lazy = $('.slider.slider-for').data('lazy');
+					if(lazy != undefined && lazy != ''){
+						FJS.options.slick_options['lazyLoad'] = lazy;
+					}
 					$('.slider.slider-for').slick(FJS.options.slick_options);
 				}
 				if($('.slider.slider-nav').length){
+					var lazy = $('.slider.slider-nav').data('lazy');
+					if(lazy != undefined && lazy != ''){
+						FJS.options.slick_nav_options['lazyLoad'] = lazy;
+					}
 					$('.slider.slider-nav').slick(FJS.options.slick_nav_options);
 				}
 			},

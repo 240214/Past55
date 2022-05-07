@@ -21,15 +21,17 @@ class Helpers extends Component{
 	}
 
 	public function getImage($params){
-		if($params['from_cdn']){
+		if(isset($params['from_cdn']) && $params['from_cdn']){
 			$params['src'] = ltrim($params['src'], '/');
 			$params['src'] = Yii::$app->params['cdnUrl'].DIRECTORY_SEPARATOR.$params['src'];
 		}
 		
 		if($params['lazyload']){
-			$image_attrs = $this->getImageSize(Yii::getAlias('@frontend/web/'.trim($params['src'], '/')));
-			if($image_attrs !== false){
-				$params = array_merge($params, $image_attrs);
+			if(isset($params['src'])){
+				$image_attrs = $this->getImageSize(Yii::getAlias('@frontend/web/'.trim($params['src'], '/')));
+				if($image_attrs !== false){
+					$params = array_merge($params, $image_attrs);
+				}
 			}
 			#VarDumper::dump($params, 10, 1);
 			
@@ -41,7 +43,9 @@ class Helpers extends Component{
 			if(!isset($params['class'])){
 				$params['class'] = '';
 			}
-			$params['class'] .= ' lazy';
+			if(!isset($params['data-lazy'])){
+				$params['class'] .= ' lazy';
+			}
 		}
 		
 		return '<img '.implode(' ', array_map(function($k, $v){return $k.'="'.$v.'"';}, array_keys($params), array_values($params))).' />';
@@ -102,15 +106,20 @@ class Helpers extends Component{
 	 * Yii2 @webroot file alias.
 	 *
 	 * @param string $img Relative path to the image in @webroot Yii2 directory
+	 * @param string $img_full_path Full path to the image in @webroot Yii2 directory
+	 * @param integer $quality image quality 15 ... 100
 	 * @param bool $recreate Recreate the WebP file again
 	 *
 	 * @return string|null Path to the WebP file (relative to @webroot) or null (marks usage of the original image only)
 	 */
-	public function convertToWebp($img, $recreate = false){
+	public function convertToWebp($img, $img_full_path = '', $quality = 100, $recreate = false){
 
 		// build full path to the image (relative to the webroot)
-		$web_root = Yii::getAlias('@webroot');
-		$img_full_path = $web_root.$img;
+		if(empty($img_full_path)){
+			$web_root      = Yii::getAlias('@webroot');
+			$img_full_path = $web_root.$img;
+		}
+		
 		// check if the source image exist
 		if(file_exists($img_full_path) === false){
 			return null;
@@ -158,17 +167,25 @@ class Helpers extends Component{
 		}
 		
 		if($ext === "png"){
-			$img = imagecreatefrompng($img_full_path);
-			imagepalettetotruecolor($img);
-			imagealphablending($img, true);
-			imagesavealpha($img, true);
+			try{
+				$img = imagecreatefrompng($img_full_path);
+				imagepalettetotruecolor($img);
+				imagealphablending($img, true);
+				imagesavealpha($img, true);
+			}catch(\Exception $e){
+				return null;
+			}
 		}else if($ext === "jpg" || $ext === "jpeg"){
-			$img = imagecreatefromjpeg($img_full_path);
-			imagepalettetotruecolor($img);
+			try{
+				$img = imagecreatefromjpeg($img_full_path);
+				imagepalettetotruecolor($img);
+			}catch(\Exception $e){
+				return null;
+			}
 		}
 		
 		// start with 100 quality
-		$quality = 100;
+		#$quality = 100;
 		
 		// generate WEBP in the best possible quality
 		// and file size less than the original
@@ -180,7 +197,7 @@ class Helpers extends Component{
 			$quality -= 5;
 			
 			// no point in going below 70% quality
-			if($quality < 70){
+			if($quality < 5){
 				break;
 			}
 		}while(filesize($webp_full_path) >= $original_file_size);

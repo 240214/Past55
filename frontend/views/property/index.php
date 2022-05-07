@@ -21,7 +21,7 @@ use frontend\widgets\Breadcrumbs;
 $this->registerMetaTag(['name' => 'description', 'content' => $meta['description']]);
 $this->registerMetaTag(['name' => 'keywords', 'content' => $meta['keywords']]);
 if($meta['noindex']){
-	$this->registerMetaTag(['name' => 'robots', 'content' => 'noindex,nofollow']);
+	$this->registerMetaTag(['name' => 'robots', 'content' => 'noindex']);
 }
 $this->title = $meta['title'];
 $this->params['breadcrumbs'] = $breadcrumbs;
@@ -107,7 +107,7 @@ $this->registerCssFile('@web/theme/css/properties.css?v='.YII_CSS_VERS, ['depend
 <section class="category-article">
 	<div class="container max-w-1100">
 		<h2 class="main-title text-center mb-2 mb-md-6 me-auto ms-auto"><?=$category_city_content->title;?></h2>
-		<img src="<?=$category_city_content->image;?>" alt="" class="img-fluid ml-auto mr-auto mb-2 mb-md-6 d-block rounded-8">
+		<img src="<?=$category_city_content->image;?>" alt="" class="img-fluid ml-auto mr-auto mb-2 mb-md-6 d-block rounded-8" width="1070" height="585">
 		<div class="main-text-content">
 			<?=$category_city_content->content;?>
 		</div>

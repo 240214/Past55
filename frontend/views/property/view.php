@@ -46,7 +46,7 @@ $favs_title = $liked ? 'Remove from Favorite' : 'Add to Favorite';
 		<header class="section__title section__title-alt">
 			<div class="js_data_loader loader transparent fixed trans-all"></div>
 			<div class="row align-items-end">
-				<div class="col-12 col-md-9">
+				<div class="col-12 col-md-8">
 					<h1 class="main-title"><?=$property->title;?></h1>
 					<div class="individual-listing__subtitle address mt-15 mb-15"><i class="bi bi-geo-alt me-1"></i><?=$property->address;?></div>
 					<div class="individual-listing__subtitle tags d-block d-md-flex">
@@ -59,11 +59,16 @@ $favs_title = $liked ? 'Remove from Favorite' : 'Add to Favorite';
 					</div>
 					<div class="d-md-none mt-25">
 						<div class="individual-listing__pricing-title mb-1 mb-md-25 text-start text-xl-end">Pricing ranges from</div>
-						<a role="button" href="/contact-us/" class="individual-listing__pricing-contact-btn btn-primary-medium ms-0 ms-xl-auto">Contact for pricing</a>
+						<?php if(intval($property->price) > 0):?>
+							<div class="individual-listing__price">$<?=number_format($property->price, 2, '.', ',')?></div>
+						<?php else:?>
+							<a role="button" href="/contact-us/" class="individual-listing__pricing-contact-btn btn-primary-medium ms-0 ms-xl-auto">Contact for pricing</a>
+						<?php endif;?>
 					</div>
 					<div class="d-flex position-relative mt-3 mt-md-3 trans-all">
-						<a role="button" class="add-to-favorite-btn action-btn actions__toggle js_property_likes" data-id="<?=$property->id;?>">
-							<input type="checkbox" <?=($property->Liked ? 'checked="checked"' : '');?> class="js_trigger" data-property_id="<?=$property->id;?>" data-trigger="js_action_change" data-action="property_toggle_favorite">
+						<a role="button" title="Add to favorite <?=$property->title;?>" class="add-to-favorite-btn action-btn actions__toggle js_property_likes" data-id="<?=$property->id;?>">
+							<label class="position-absolute" style="opacity: 0;" for="add_to_favorite_<?=$property->id;?>">Add to favorite <?=$property->title;?></label>
+							<input type="checkbox" id="add_to_favorite_<?=$property->id;?>" <?=($property->Liked ? 'checked="checked"' : '');?> class="js_trigger" data-property_id="<?=$property->id;?>" data-trigger="js_action_change" data-action="property_toggle_favorite">
 							<i class="bi bi-heart uncheck"></i>
 							<i class="bi bi-heart-fill check"></i>
 							<span class="count d-none"><?=$property->likes;?></span>
@@ -80,9 +85,13 @@ $favs_title = $liked ? 'Remove from Favorite' : 'Add to Favorite';
 		                */?>
 					</div>
 				</div>
-				<div class="col-12 col-md-3">
-					<div class="d-none d-md-block individual-listing__pricing-title mb-25 text-start text-xl-end">Pricing ranges from</div>
-					<a role="button" href="/contact-us/" class="d-none d-md-flex individual-listing__pricing-contact-btn btn-primary-medium ms-0 ms-xl-auto">Contact for pricing</a>
+				<div class="col-12 col-md-4">
+					<div class="d-none d-md-block individual-listing__pricing-title mb-25 text-start text-md-end">Pricing ranges from</div>
+					<?php if(intval($property->price) > 0):?>
+						<div class="d-none d-md-block individual-listing__price text-start text-md-end">$<?=number_format($property->price, 2, '.', ',')?></div>
+					<?php else:?>
+						<a role="button" href="/contact-us/" class="d-none d-md-flex individual-listing__pricing-contact-btn btn-primary-medium ms-0 ms-xl-auto">Contact for pricing</a>
+					<?php endif;?>
 				</div>
 			</div>
 		</header>

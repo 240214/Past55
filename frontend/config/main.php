@@ -10,14 +10,18 @@ $params = array_merge(
     require(__DIR__ . '/params.php'),
     require(__DIR__ . '/params-local.php')
 );
+
+$assetsAutoCompress = require(__DIR__ . '/assetsAutoCompress.php');
+
 $baseUrl = str_replace('/frontend/web', '', (new Request)->getBaseUrl());
 
 return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => ['log', 'assetsAutoCompress'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+	    'assetsAutoCompress' => $assetsAutoCompress,
         'assetManager' => [
 	        'appendTimestamp' => YII_ENV_DEV ? true : false,
             'bundles' => [
@@ -41,9 +45,11 @@ return [
                     ]
                 ],
                 'yii\bootstrap\BootstrapAsset' => [
-	                'sourcePath' => '@frontend/web/theme/plugins/bootstrap5',
+	                'sourcePath' => '@frontend/web/theme/plugins',
                     'css' => [
-                    	'css/bootstrap.min.css',
+                    	'bootstrap-icons-1.8.1/font/bootstrap-icons.css',
+                    	'bootstrap5/css/bootstrap.min.css',
+	                    'material-design-iconic-font/dist/css/material-design-iconic-font.min.css',
                     ]
                 ]
             ]

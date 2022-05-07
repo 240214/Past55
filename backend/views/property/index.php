@@ -78,6 +78,7 @@ $front = Yii::$app->urlManagerFrontend->baseUrl;
 				'filter'=> $categories,
 				'value'=>'category.name',
 			],
+			'price',
 			[
 				'attribute'      => 'active',
 				'contentOptions' => ['class' => 'col-50'],

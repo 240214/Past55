@@ -1,5 +1,6 @@
 <?php
 
+use frontend\widgets\ImageOptimize;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
@@ -17,7 +18,21 @@ use yii\helpers\Url;
 			</a>
 			<figure class="image empty-bg rounded-4">
 				<a href="<?=$url;?>">
-					<?=Yii::$app->Helpers->getImage([
+					<?=ImageOptimize::widget([
+						'src' => $model->getMainImage('575'),
+						'alt' => $model->title,
+						'css' => 'my-favorites__img mb-xxl-0 img-fluid lazy',
+						'width' => 310,
+						'height' => 194,
+						'lazyload' => 'lazy',
+						'quality' => 15,
+						'srcset' => [
+							['src' => $model->getMainImage('575'), 'size' => '575w', 'media_point' => 'max-width', 'media_size' => '575px'],
+							['src' => $model->getMainImage('767'), 'size' => '767w', 'media_point' => 'max-width', 'media_size' => '767px'],
+							['src' => $model->getMainImage('575'), 'size' => '768w', 'media_point' => 'min-width', 'media_size' => '768px'],
+						],
+					]);?>
+					<?php /*=Yii::$app->Helpers->getImage([
 						'src' => $model->getMainImage('250'),
 						'data-srcset' => $model->getMainImage('575').' 575w, '.$model->getMainImage('767').' 767w, '.$model->getMainImage('250').' 768w',
 						'data-sizes' => '250w',
@@ -25,13 +40,13 @@ use yii\helpers\Url;
 						'from_cdn' => false,
 						'lazyload' => true,
 						'class' => 'my-favorites__img mb-xxl-0 img-fluid',
-					]);?>
+					]);*/?>
 				</a>
 			</figure>
 		</div>
 
 		<div class="col-12 col-md-7">
-			<h2 class="my-favorites__item-title mb-1"><a href="<?=$url;?>"><?=$model->title;?></a></h2>
+			<h2 class="my-favorites__item-title mb-1 mt-2 mt-md-0"><a href="<?=$url;?>"><?=$model->title;?></a></h2>
 			<div class="address mb-15 d-flex flex-row flex-nowrap">
 				<i class="bi bi-geo-alt me-05"></i>
 				<div class="similar-offers__adress"><?=$model->address;?></div>

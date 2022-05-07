@@ -6,7 +6,7 @@
 .related-properties-list .item a {text-decoration: none; display: flex; flex-flow: row; align-items: start;}
 .related-properties-list .item .text {flex: 1 1 auto;}
 .related-properties-list .item .text strong {display: block; font-family: 'PT Serif'; font-weight: 700; font-size: 20px; letter-spacing: -0.005em; color: #000; margin-bottom: 12px; line-height: normal;}
-.related-properties-list .item .text small {display: flex; line-height: 1.2; font-weight: 300;	font-size: 16px; letter-spacing: -0.005em; color: #858585;}
+.related-properties-list .item .text small {display: flex; line-height: 1.2; font-weight: 300;	font-size: 16px; letter-spacing: -0.005em; color: #3F3F3F;}
 .related-properties-list .item .text small i {font-size: 18px;}
 
 @media all and (max-width: 1199px) and (min-width: 992px), all and (max-width: 414px) and (min-width: 321px){

@@ -95,7 +95,7 @@ class ImageOptimize extends Widget{
 	/**
 	 * @var string lazy loading option (auto|lazy|eager) (https://web.dev/browser-level-image-lazy-loading/) (optional)
 	 */
-	public $loading;
+	public $lazyload = '';
 	
 	/**
 	 * @var string use schema itemprop="image" value (optional)
@@ -144,6 +144,8 @@ class ImageOptimize extends Widget{
 	
 	public $display_original = false;
 	
+	public $quality = 100;
+	
 	/**
 	 * @var string disable WebP files usages at all (use it for debugging purposes) (optional)
 	 */
@@ -183,8 +185,12 @@ class ImageOptimize extends Widget{
 		// get path details (full path & short path details)
 		$short_file_info = pathinfo($img);
 		$file_info       = pathinfo($img_full_path);
-		
+
 		$ext = strtolower($file_info["extension"]);
+		
+		if($ext == 'svg'){
+			return null;
+		}
 		
 		$webp_filename_with_extension = $short_file_info["filename"].".webp";
 		
@@ -223,19 +229,19 @@ class ImageOptimize extends Widget{
 		}
 		
 		// start with 100 quality
-		$quality = 100;
+		#$quality = 100;
 		
 		// generate WEBP in the best possible quality
 		// and file size less than the original
 		do{
 			// generate output WEBP file
-			imagewebp($img, $webp_full_path, $quality);
+			imagewebp($img, $webp_full_path, $this->quality);
 			
 			// decrease quality
-			$quality -= 5;
+			$this->quality -= 5;
 			
-			// no point in going below 70% quality
-			if($quality < 70){
+			// no point in going below 20% quality
+			if($this->quality < 5){
 				break;
 			}
 		}while(filesize($webp_full_path) >= $original_file_size);
@@ -266,8 +272,10 @@ class ImageOptimize extends Widget{
 		if(strpos($this->src, '/frontend/web') !== false){
 			$this->src = str_replace('/frontend/web', '', $this->src);
 		}
-		
+
 		$this->_webp = $this->getOrConvertToWebp($this->src, (self::RECREATE_ALL == true || $this->recreate == true));
+		
+		$generate_sizes_auto = empty($this->sizes);
 		
 		if(is_array($this->srcset) && !empty($this->srcset)){
 			foreach($this->srcset as $k => $v){
@@ -275,10 +283,14 @@ class ImageOptimize extends Widget{
 					$v['src'] = str_replace('/frontend/web', '', $v['src']);
 				}
 				
-				$this->srcset[$k]['src'] = $this->getOrConvertToWebp($v['src'], (self::RECREATE_ALL == true || $this->recreate == true));
+				$_webp = $this->getOrConvertToWebp($v['src'], (self::RECREATE_ALL == true || $this->recreate == true));
+				if($_webp)
+					$this->srcset[$k]['src'] = $_webp;
 				
 				if(isset($v['media_point']) && isset($v['media_size'])){
-					$this->sizes[] = sprintf('(%s: %s) %s', $v['media_point'], $v['media_size'], $v['media_size']);
+					if($generate_sizes_auto){
+						$this->sizes[] = sprintf('(%s: %s) %s', $v['media_point'], $v['media_size'], $v['media_size']);
+					}
 					$this->srcset[$k]['media'] = sprintf('(%s: %s) %s', $v['media_point'], $v['media_size'], $v['media_size']);
 				}
 			}
@@ -315,7 +327,7 @@ class ImageOptimize extends Widget{
 			"alt"      => $this->alt,
 			"height"   => $this->height,
 			"width"    => $this->width,
-			"loading"  => $this->loading,
+			"lazyload"  => $this->lazyload,
 			"itemprop" => $this->itemprop,
 			"sizes"    => $this->sizes_line,
 		];
@@ -325,31 +337,53 @@ class ImageOptimize extends Widget{
 				$params['srcset'][] = $v['src'].' '.$v['size'];
 			}
 			$params['srcset'] = implode(', ', $params['srcset']);
+			if(!empty($this->lazyload)){
+				$params['data-srcset'] = $params['srcset'];
+				$params['data-sizes'] = $params['sizes'];
+				unset($params['srcset'], $params['sizes']);
+			}
+		}
+		
+		if(!empty($this->lazyload)){
+			$params['data-src'] = $this->src;
+			if(strpos($this->src, '.svg') === false){
+				$this->src = '';
+			}
 		}
 		
 		$img_original = Html::img($this->src, $params);
 		
 		// was WebP image generated from our unoptimized image?
 		if($this->_webp){
-			$img_webp = Html::img($this->_webp, $params);
-
+			if(!empty($this->lazyload)){
+				$params['data-src'] = $this->_webp;
+				$params['data-lazy'] = $this->_webp;
+				$img_webp = Yii::$app->Helpers->getImage($params);
+			}else{
+				$img_webp = Html::img($this->_webp, $params);
+			}
+			
+			$html = '';
+			
 			// include it within <picture> tag
-			$html = "<picture>";
+			/*$html .= "<picture>";
 			if(!empty($this->srcset)){
 				foreach($this->srcset as $k => $v){
 					$html .= Html::tag("source", [], ["srcset" => $v['src'], "type" => "image/webp", "media" => $v['media']]);
 				}
-			}
-			$html .= Html::tag("source", [], ["srcset" => $this->_webp, "type" => "image/webp"]);
+			}else{
+				$html .= Html::tag("source", [], ["srcset" => $this->_webp, "type" => "image/webp"]);
+			}*/
 			$html .= $img_webp;
 			
 			// fallback image (unoptimized)
 			if($this->display_original){
 				$html .= $img_original;
 			}
-			$html .= "</picture>";
+			#$html .= "</picture>";
 			
 		}else{
+			#VarDumper::dump($img_original, 10, 1);
 			$html = $img_original;
 		}
 		

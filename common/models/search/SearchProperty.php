@@ -66,6 +66,7 @@ class SearchProperty extends Property{
 					'active',
 					'city',
 					'state',
+					'price',
 					'property_of',
 					'categoryName' => [
 						'asc' => [Category::tableName().'.name' => SORT_ASC],
@@ -115,6 +116,7 @@ class SearchProperty extends Property{
 			->andFilterWhere(['like', 'title', $this->title])
 			->andFilterWhere(['like', 'properties.slug', $this->slug])
 			->andFilterWhere(['=', 'type', $this->type])
+			->andFilterWhere(['=', 'price', $this->price])
 			#->andFilterWhere(['IN', 'city', $cities])
 			#->andFilterWhere(['=', 'city', $this->city])
 			#->orFilterWhere(['=', 'city', str_replace('-', ' ', $this->city)])

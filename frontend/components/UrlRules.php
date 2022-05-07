@@ -18,11 +18,13 @@ use common\models\Pages;
 use common\models\Posts;
 use common\models\PostsCategories;
 use yii\helpers\Url;
+use yii\web\NotFoundHttpException;
 
 class UrlRules implements UrlRuleInterface{
 	
 	public $normalizer = false;
 	private $objcet_type = null;
+	private $objcet_types = [];
 	private $objcet_id = 0;
 	private $states = [];
 	private $params = [];
@@ -132,10 +134,11 @@ class UrlRules implements UrlRuleInterface{
 	 * Parse request
 	 *
 	 * @param \yii\web\Request|UrlManager $manager
-	 * @param \yii\web\Request            $request
+	 * @param \yii\web\Request $request
 	 *
 	 * @return array|boolean
 	 * @throws \yii\base\InvalidConfigException
+	 * @throws NotFoundHttpException
 	 */
 	public function parseRequest($manager, $request){
 
@@ -201,8 +204,13 @@ class UrlRules implements UrlRuleInterface{
 				$this->setParam('id', $this->objcet_id);
 				return ['property/view', $this->params];
 				break;
-			case "state":
 			case "city":
+				if(in_array('category', $this->objcet_types) && !in_array('state', $this->objcet_types)){
+					throw new NotFoundHttpException(Yii::t('app', 'Oops! Page not found'), 404);
+				}
+				return ['property/index', $this->params];
+				break;
+			case "state":
 			case "categories":
 				return ['property/index', $this->params];
 			case "category":
@@ -336,6 +344,7 @@ class UrlRules implements UrlRuleInterface{
 	private function setParams($request_fragments){
 		foreach($request_fragments as $fragment){
 			$objcet_type = $this->getObjectType($fragment);
+			$this->objcet_types[] = $objcet_type;
 			if($objcet_type != null){
 				$this->setParam($objcet_type, $fragment);
 			}
@@ -349,4 +358,5 @@ class UrlRules implements UrlRuleInterface{
 	public static function getUrl($params){
 		return Url::toRoute($params);
 	}
+	
 }

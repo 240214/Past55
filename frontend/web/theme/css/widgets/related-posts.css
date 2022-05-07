@@ -2,7 +2,20 @@
 .related-article-item__title {font-family: 'Airbnb Cereal App'; font-style: normal;}
 .article-subtitle-small {font-family: 'PT Serif'; font-style: normal; font-weight: bold; font-size: 40px; line-height: 135%; letter-spacing: -0.005em; color: #000;}
 .related-article-item .image {border-radius: 10px; overflow: hidden; padding-top: 67%; position: relative;}
-.related-article-item .image img {position: absolute; top: 50%; left: -50%; margin: auto; bottom: 50%; right: -50%; z-index: 1;}
+.related-article-item .image img {
+	position: absolute;
+	z-index: 0;
+	top: -50%;
+	bottom: -50%;
+	left: -50%;
+	right: -50%;
+	margin: auto;
+	width: auto;
+	min-height: 100%;
+	min-width: 100%;
+	height: fit-content;
+	object-fit: cover;
+}
 .related-article-list > .related-article-item:nth-child(2n+1) > .related-article-item__sticker {background-color: #F7F4FF; color: #6D459C;}
 .related-article-list > .related-article-item:nth-child(2n) > .related-article-item__sticker {background-color: #FFF9F4; color: #F88430;}
 .related-article-item__sticker {min-width: 220px; padding: 10px; border-radius: 5px; font-weight: 500; font-size: 16px; line-height: normal; letter-spacing: -0.01em; text-decoration: none; display: inline-block; text-align: center;}

@@ -14,7 +14,7 @@ figure.image {margin: 0; height: 100%; overflow: hidden; }
 @media all and (min-width: 768px){
     figure.image {display: flex; justify-content: center;}
 }
-figure.image .my-favorites__img {/*width: auto; height: 100%; max-width: none;*/}
+figure.image .my-favorites__img {width: auto; /*height: 100%; max-width: none;*/}
 .compare-place-item {position: relative;}
 .my-favorites__item-text {font-weight: 300; font-size: 15px; line-height: 150%; letter-spacing: -0.005em; color: #5A5A5A;}
 .my-favorites__item-title {font-weight: bold; font-size: 28px; line-height: 37px; letter-spacing: -0.005em;}

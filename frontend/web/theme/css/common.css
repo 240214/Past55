@@ -104,7 +104,7 @@
 }
 
 ol, ul {padding-left: 2rem; list-style: none;}
-img, svg {vertical-align: middle; max-width: 100%;}
+img, svg {vertical-align: middle; max-width: 100%; height: auto;}
 
 .trans-me,
 .trans-all,
@@ -134,6 +134,7 @@ img, svg {vertical-align: middle; max-width: 100%;}
 }
 
 .row {--bs-gutter-x: 30px; --bs-gutter-y: 0;}
+
 
 .hide-if-empty:empty,
 .hide {display: none !important;}

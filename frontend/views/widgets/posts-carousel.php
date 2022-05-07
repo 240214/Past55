@@ -1,5 +1,8 @@
-<?php use frontend\widgets\Image;
-use yii\helpers\Url;?>
+<?php
+use frontend\widgets\Image;
+use frontend\widgets\ImageOptimize;
+use yii\helpers\Url;
+?>
 <?php if($found):?>
 	<div class="posts-carousel">
 		<?php if(!empty($head['title'])):?>
@@ -15,7 +18,21 @@ use yii\helpers\Url;?>
 				<?php $url = Url::toRoute(['post/view', 'post_slug' => $model->slug, 'category_slug' => $model->postsCategories->slug]);?>
 					<div class="cardbox bg-white">
 						<figure class="image empty-bg mb-1">
-							<?=Image::widget([
+							<?=ImageOptimize::widget([
+								'src' => $model->getMainImage('575'),
+								'alt' => $model->title,
+								'width' => 400,
+								'height' => 267,
+								'lazyload' => 'progressive',
+								'quality' => 15,
+								'css'   => 'img-fluid',
+								'srcset' => [
+									['src' => $model->getMainImage('575'), 'size' => '768w', 'media_point' => 'min-width', 'media_size' => '768px'],
+									['src' => $model->getMainImage('767'), 'size' => '767w', 'media_point' => 'max-width', 'media_size' => '767px'],
+									['src' => $model->getMainImage('575'), 'size' => '575w', 'media_point' => 'max-width', 'media_size' => '575px'],
+								],
+							]);?>
+							<?php /*=Image::widget([
 								'src'         => $model->getMainImage('575'),
 								'data_srcset' => $model->getMainImage('575').' 575w, '.$model->getMainImage('767').' 767w, '.$model->getMainImage('575').' 768w',
 								'data_sizes'  => '575w',
@@ -23,14 +40,14 @@ use yii\helpers\Url;?>
 								'from_cdn'    => false,
 								'lazyload'    => false,
 								'css_class'   => 'img-fluid',
-							]);?>
+							]);*/?>
 						</figure>
 						<div class="p-15 p-md-25">
 							<?php if($display_post_type):?>
 							<div class="post-type"><?=($model->type == 'post' ? 'Blog Post' : 'Article');?></div>
 							<?php endif;?>
 							<a href="<?=$url;?>" class="title"><?=$model->title;?></a>
-							<p class="text ff-airbnb-cereal-app-book mb-2 mb-md-4"><?=$model->getShortDescription(100);?></p>
+							<p class="text ff-airbnb-cereal-app-book mb-2 mb-md-4"><?=$model->getShortDescription(90);?></p>
 							<div class="d-flex justify-content-between align-items-center">
 								<div class="author d-flex align-items-center justify-content-center">
 									<?=Image::widget([

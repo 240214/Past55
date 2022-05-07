@@ -12,7 +12,9 @@
 .article .main-text-content h6,
 .article-subtitle {font-family: 'PT Serif'; font-style: normal;}
 
-.site-header {position: inherit;}
+@media all and (min-width: 768px){
+    .site-header {position: inherit;}
+}
 
 .article {padding-top: 115px; padding-bottom: 50px;}
 

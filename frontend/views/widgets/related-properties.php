@@ -1,6 +1,7 @@
 <?php
 
 use common\models\Property;
+use frontend\widgets\ImageOptimize;
 use frontend\widgets\RelatedProperties;
 use yii\helpers\Url;
 use yii\helpers\VarDumper;
@@ -20,7 +21,21 @@ use yii\helpers\VarDumper;
 			<li class="item">
 				<a href="<?=$url;?>">
 					<figure class="image empty-bg">
-						<?=Yii::$app->Helpers->getImage([
+						<?=ImageOptimize::widget([
+							'src' => $item->getMainImage('250'),
+							'alt' => $item->title,
+							'css' => 'list-group__img lazy',
+							'width' => 110,
+							'height' => 100,
+							'lazyload' => 'lazy',
+							'quality' => 15,
+							'srcset' => [
+								['src' => $item->getMainImage('575'), 'size' => '575w', 'media_point' => 'max-width', 'media_size' => '575px'],
+								['src' => $item->getMainImage('767'), 'size' => '767w', 'media_point' => 'max-width', 'media_size' => '767px'],
+								['src' => $item->getMainImage('250'), 'size' => '768w', 'media_point' => 'min-width', 'media_size' => '768px'],
+							],
+						]);?>
+						<?php /*=Yii::$app->Helpers->getImage([
 							'src'         => $item->getMainImage('250'),
 							'data-srcset' => $item->getMainImage('575').' 575w, '.$item->getMainImage('767').' 767w, '.$item->getMainImage('250').' 768w',
 							'data-sizes'  => '250w',
@@ -28,7 +43,7 @@ use yii\helpers\VarDumper;
 							'from_cdn'    => false,
 							'lazyload'    => true,
 							'class'       => 'list-group__img',
-						]);?>
+						]);*/?>
 					</figure>
 					<div class="text">
 						<strong><?=$item->title;?></strong>

@@ -1,5 +1,6 @@
 <?php
 use common\models\Property;
+use frontend\widgets\ImageOptimize;
 use frontend\widgets\RelatedProperties;
 use yii\helpers\Url;
 use yii\helpers\VarDumper;
@@ -15,7 +16,21 @@ use frontend\widgets\Image;
 			<div class="related-article-card bg-white">
 				<figure class="image empty-bg mb-2 mb-md-3">
 					<a href="<?=$url;?>">
-						<?=Image::widget([
+						<?=ImageOptimize::widget([
+							'src' => $model->getMainImage('575'),
+							'alt' => $model->title,
+							'css' => 'img-fluid lazy',
+							'width' => 293,
+							'height' => 220,
+							'lazyload' => 'lazy',
+							'quality' => 15,
+							'srcset' => [
+								['src' => $model->getMainImage('575'), 'size' => '575w', 'media_point' => 'max-width', 'media_size' => '575px'],
+								['src' => $model->getMainImage('767'), 'size' => '767w', 'media_point' => 'max-width', 'media_size' => '767px'],
+								['src' => $model->getMainImage('575'), 'size' => '768w', 'media_point' => 'min-width', 'media_size' => '768px'],
+							],
+						]);?>
+						<?php /*=Image::widget([
 							'src'         => $model->getMainImage('575'),
 							'data_srcset' => $model->getMainImage('575').' 575w, '.$model->getMainImage('767').' 767w, '.$model->getMainImage('575').' 768w',
 							'data_sizes'  => '575w',
@@ -23,7 +38,7 @@ use frontend\widgets\Image;
 							'from_cdn'    => false,
 							'lazyload'    => true,
 							'css_class'       => 'img-fluid',
-						]);?>
+						]);*/?>
 					</a>
 				</figure>
 				<div class="d-flex flex-row flex-nowrap mb-1 author">

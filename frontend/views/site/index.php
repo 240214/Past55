@@ -4,6 +4,7 @@
 
 $this->title = 'Find Senior Living in Georgia - GeorgiaCaring.com';
 
+use frontend\widgets\ImageOptimize;
 use yii\bootstrap\BootstrapAsset;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
@@ -29,14 +30,16 @@ $this->registerCssFile('@web/theme/css/home.css?v='.YII_CSS_VERS, ['depends' => 
 				<a href="#senior_living_locations" class="btn-primary-medium">Get Started</a>
 			</div>
 			<div class="col-12 col-md-7 d-md-flex justify-content-end">
-				<?=Image::widget(['src' => '/theme/img/home/first-screen-home-bg.png', 'css_class' => 'img-fluid first-screen-home__bg d-none d-md-block']);?>
+				<?=ImageOptimize::widget(["src" => '/theme/img/home/first-screen-home-bg.png', "alt" => "", "width" => 705, "height" => 652, "css" => "img-fluid first-screen-home__bg d-none d-md-block"]);?>
+				<?php #=Image::widget(['src' => '/theme/img/home/first-screen-home-bg.png', 'css_class' => 'img-fluid first-screen-home__bg d-none d-md-block']);?>
 			</div>
 		</div>
 	</div>
 </section>
 <section class="companies container">
-	<?php #=Image::widget(['src' => '/theme/img/home/first-screen-home-bg.png', 'css_class' => 'img-fluid first-screen-home__bg mb-4 m-auto d-none d-md-block d-lg-none d-xl-none']);?>
-	<?=Image::widget(['src' => '/theme/img/home/first-screen-home-bg-m.png', 'css_class' => 'img-fluid d-md-none d-block mb-4 m-auto']);?>
+	<?=ImageOptimize::widget(["src" => '/theme/img/home/first-screen-home-bg-m.png', "alt" => "", "width" => 320, "height" => 329, "css" => "img-fluid d-md-none d-block mb-4 m-auto"]);?>
+	<?php #=Image::widget(['src' => '/theme/img/home/first-screen-home-bg-m.png', 'css_class' => 'img-fluid d-md-none d-block mb-4 m-auto']);?>
+
 	<?php /*<h2 class="secondary-title text-center mb-5">Browse Hundreds of Senior Living Communities in Georgia</h2>
 	<div class="d-flex justify-content-center align-items-center flex-wrap">
 		<?=Image::widget(['src' => '/theme/img/home/company-1.svg', 'css_class' => 'm-3', 'alt' => 'company-logo']);?>
@@ -89,7 +92,8 @@ $this->registerCssFile('@web/theme/css/home.css?v='.YII_CSS_VERS, ['depends' => 
 				<div class="col-12 max-w-1120 trans-all">
 					<div class="location-card row align-items-center justify-content-between rounded-8 bg-white mb-3">
 						<div class="col-12 col-md-6 d-flex justify-content-center justify-content-sm-start">
-							<?=Image::widget(['src' => '/theme/img/home/assisted-living.jpg', 'css_class' => 'img-fluid rounded-10 rounded-10-md-left w-100 w-sm-auto']);?>
+							<?=ImageOptimize::widget(["src" => '/theme/img/home/assisted-living.jpg', "alt" => "", "width" => 500, "height" => 389, "css" => "img-fluid rounded-10 rounded-10-md-left w-100 w-sm-auto"]);?>
+							<?php #=Image::widget(['src' => '/theme/img/home/assisted-living.jpg', 'css_class' => 'img-fluid rounded-10 rounded-10-md-left w-100 w-sm-auto']);?>
 						</div>
 						<div class="col-12 col-md-6 d-flex justify-content-center">
 							<div class="w-100 max-w-420-sm">
@@ -106,7 +110,8 @@ $this->registerCssFile('@web/theme/css/home.css?v='.YII_CSS_VERS, ['depends' => 
 					</div>
 					<div class="location-card row flex-row-reverse align-items-center justify-content-between rounded-8 bg-white mb-3">
 						<div class="col-12 col-md-6 d-flex justify-content-center justify-content-sm-end">
-							<?=Image::widget(['src' => '/theme/img/home/memory-care.jpg', 'css_class' => 'img-fluid rounded-10 rounded-10-md-right w-100 w-sm-auto']);?>
+							<?=ImageOptimize::widget(["src" => '/theme/img/home/memory-care.jpg', "alt" => "", "width" => 500, "height" => 333, "css" => "img-fluid rounded-10 rounded-10-md-right w-100 w-sm-auto"]);?>
+							<?php #=Image::widget(['src' => '/theme/img/home/memory-care.jpg', 'css_class' => 'img-fluid rounded-10 rounded-10-md-right w-100 w-sm-auto']);?>
 						</div>
 						<div class="col-12 col-md-6 d-flex justify-content-center">
 							<div class="w-100 max-w-420-sm">
@@ -123,7 +128,8 @@ $this->registerCssFile('@web/theme/css/home.css?v='.YII_CSS_VERS, ['depends' => 
 					</div>
 					<div class="location-card row align-items-center justify-content-between rounded-8 bg-white">
 						<div class="col-12 col-md-6 d-flex justify-content-center justify-content-sm-start">
-							<?=Image::widget(['src' => '/theme/img/home/senior-living.jpg', 'css_class' => 'img-fluid rounded-10 rounded-10-md-left w-100 w-sm-auto']);?>
+							<?=ImageOptimize::widget(["src" => '/theme/img/home/senior-living.jpg', "alt" => "", "width" => 500, "height" => 333, "css" => "img-fluid rounded-10 rounded-10-md-left w-100 w-sm-auto"]);?>
+							<?php #=Image::widget(['src' => '/theme/img/home/senior-living.jpg', 'css_class' => 'img-fluid rounded-10 rounded-10-md-left w-100 w-sm-auto']);?>
 						</div>
 						<div class="col-12 col-md-6 d-flex justify-content-center">
 							<div class="w-100 max-w-420-sm">

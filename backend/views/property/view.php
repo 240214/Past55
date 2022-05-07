@@ -48,7 +48,7 @@ if(!empty($model->state) && isset($all_states[$model->state])){
 					'mainImage:image',
 					'title',
 					'slug',
-					#'price',
+					'price',
 					'type',
 					[
 						'attribute' => 'category_id',
