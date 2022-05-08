@@ -3,7 +3,7 @@
 use yii\helpers\VarDumper;
 
 #$enabled = !YII_ENV_DEV;
-$enabled = false;
+$enabled = true;
 
 /*if($enabled){
 	if(!empty($_SERVER['REQUEST_URI'])){

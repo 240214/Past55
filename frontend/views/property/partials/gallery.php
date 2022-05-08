@@ -3,6 +3,8 @@ use yii\helpers\Html;
 use yii\helpers\VarDumper;
 use yii\image\drivers\Image;
 use frontend\widgets\ImageOptimize;
+
+$isMobile = Yii::$app->params['devicedetect']['isMobile'];
 $recreate = false;
 $quality = 15;
 ?>
@@ -12,7 +14,7 @@ $quality = 15;
 		<div class="slider slider-for" data-lazy="progressive">
 			<?php if(!empty($property->image)):?>
 				<div class="slider-gallery-image">
-					<?php $big_image_src = $property->getImage($property->image, 1290, 650, Image::CROP);?>
+					<?php $big_image_src = $isMobile ? $property->getMainImage('575') : $property->getImage($property->image, 1290, 650, Image::CROP);?>
 					<?=ImageOptimize::widget([
 							'src' => $property->getMainImage('575'),
 							'alt' => $property->title,
@@ -32,7 +34,7 @@ $quality = 15;
 			<?php endif;?>
 			<?php if(!empty($property->screenshot)):?>
 				<?php foreach($property->screenshot as $file_name):?>
-					<?php $big_image_src = $property->getImage($file_name, 1290, 650, Image::CROP);?>
+					<?php $big_image_src = $isMobile ? $property->getImage($file_name, 575) : $property->getImage($file_name, 1290, 650, Image::CROP);?>
 					<div class="slider-gallery-image">
 						<?=ImageOptimize::widget([
 							'src' => $property->getImage($file_name, 575),

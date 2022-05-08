@@ -18,9 +18,12 @@ $baseUrl = str_replace('/frontend/web', '', (new Request)->getBaseUrl());
 return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log', 'assetsAutoCompress'],
+    'bootstrap' => ['log', 'devicedetect', 'assetsAutoCompress'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+	    'devicedetect' => [
+		    'class' => 'alexandernst\devicedetect\DeviceDetect'
+	    ],
 	    'assetsAutoCompress' => $assetsAutoCompress,
         'assetManager' => [
 	        'appendTimestamp' => YII_ENV_DEV ? true : false,
