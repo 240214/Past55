@@ -34,7 +34,7 @@ return [
 		            'logVars' => [],
 		            'categories' => ['cron'],
 		            'logFile' => '@console/runtime/logs/cron.log',
-		            'maxFileSize' => 1024 * 2,
+		            'maxFileSize' => 1024,
 		            'maxLogFiles' => 50,
 	            ],
             ],

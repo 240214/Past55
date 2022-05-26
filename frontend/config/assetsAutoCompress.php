@@ -25,7 +25,7 @@ $enabled = true;
 #VarDumper::dump($enabled, 1, 1);
 
 return [
-	'class'                         => '\skeeks\yii2\assetsAuto\AssetsAutoCompressComponent',
+	'class'                         => '\frontend\components\AssetsAutoCompressCustomComponent',
 	'enabled'                       => $enabled,
 
 	'readFileTimeout'               => 3,           //Time in seconds for reading each asset file
@@ -41,9 +41,10 @@ return [
 	'jsCompress'                    => true,       //Enable minification js in html code
 	'jsCompressFlaggedComments'     => true,       //Cut comments during processing js
 	'jsFileCompile'                 => true,       //Turning association js files
-	'jsFileRemouteCompile'          => true,       //Trying to get a js files to which the specified path as the remote file, skchat him to her.
+	'jsFileRemouteCompile'          => false,       //Trying to get a js files to which the specified path as the remote file, skchat him to her.
 	'jsFileCompress'                => true,       //Enable compression and processing js before saving a file
 	'jsFileCompressFlaggedComments' => true,       //Cut comments during processing js
+	'jsFilesExclude'                => ['/js/google_map.js'],
 
 	'noIncludeJsFilesOnPjax'        => true,        //Do not connect the js files when all pjax requests
 

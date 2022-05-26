@@ -56,7 +56,7 @@ class AppAsset extends AssetBundle {
 	
 	    // Theme
         #'theme/css/main.css?=4',
-        'theme/css/common.css%s',
+        'theme/css/common.css',
         'theme/css/header.css',
         'theme/css/footer.css',
         #'css/site.css',
@@ -108,7 +108,7 @@ class AppAsset extends AssetBundle {
     	#'theme/js/app.min.js',
     	#'theme/js/demo/demo.js',
     	#'js/js.location.js',
-    	'js/frontend.js?=1',
+    	'js/frontend.js',
     ];
 	private $map_params = [
 		'url' => 'https://maps.googleapis.com/maps/api/js',
