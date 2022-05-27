@@ -152,12 +152,32 @@ class AssetsAutoCompressCustomComponent extends AssetsAutoCompressComponent{
 	}
 	
 	private function sortJsFiles($files){
-		VarDumper::dump($files, 10, 1);
+		$new_files = [];
+		#VarDumper::dump($files, 10, 1);
 		
 		foreach($files as $k => $file){
-		
+			if(strstr($k, 'jquery') !== false){
+				$new_files[0] = [$k, $file];
+			}elseif(strstr($k, 'google_map') !== false){
+				$new_files[1] = [$k, $file];
+			}elseif(strstr($k, 'googleapis') !== false){
+				$new_files[2] = [$k, $file];
+			}elseif(strstr($k, 'js-compress') !== false){
+				$new_files[3] = [$k, $file];
+			}else{
+				$new_files[] = [$k, $file];
+			}
+		}
+		if(!empty($new_files)){
+			ksort($new_files);
+			#VarDumper::dump($new_files, 10, 1);
+			$files = [];
+			foreach($new_files as $c){
+				$files[$c[0]] = $c[1];
+			}
 		}
 		
+		#VarDumper::dump($files, 10, 1);
 		
 		return $files;
 	}
